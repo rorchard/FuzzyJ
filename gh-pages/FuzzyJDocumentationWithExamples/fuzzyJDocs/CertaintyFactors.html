@@ -1,0 +1,500 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./CertaintyFactors_files/filelist.xml">
+<title>Certainty Factors</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Bob Orchard</o:Author>
+  <o:LastAuthor>Bob Orchard</o:LastAuthor>
+  <o:Revision>19</o:Revision>
+  <o:TotalTime>112</o:TotalTime>
+  <o:Created>2003-05-13T19:24:00Z</o:Created>
+  <o:LastSaved>2006-05-30T18:22:00Z</o:LastSaved>
+  <o:Pages>4</o:Pages>
+  <o:Words>1949</o:Words>
+  <o:Characters>11111</o:Characters>
+  <o:Company>NRCC</o:Company>
+  <o:Lines>92</o:Lines>
+  <o:Paragraphs>22</o:Paragraphs>
+  <o:CharactersWithSpaces>13645</o:CharactersWithSpaces>
+  <o:Version>9.6926</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:"Comic Sans MS";
+	panose-1:3 15 7 2 3 3 2 2 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:script;
+	mso-font-pitch:variable;
+	mso-font-signature:647 0 0 0 159 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+p
+	{margin-right:0in;
+	mso-margin-top-alt:auto;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+tt
+	{mso-ascii-font-family:"Courier New";
+	mso-fareast-font-family:"Courier New";
+	mso-hansi-font-family:"Courier New";
+	mso-bidi-font-family:"Courier New";}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1027"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+<meta name=Author content="Bob Orchard">
+</head>
+
+<body lang=EN-US link=blue vlink=blue style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<h3 align=center style='text-align:center'><span style='font-family:"Comic Sans MS"'>Certainty
+Factors</span></h3>
+
+<p class=MsoNormal>This section describes a first attempt to provide some form
+of certainty factor (CF) capability for fuzzy rules. It is guided by the
+features provided in <a
+href="http://www.iit.nrc.ca/IR_public/fuzzy/fuzzyClips/fuzzyCLIPSIndex.html">FuzzyCLIPS</a>,
+a fuzzy extension to the <a href="http://www.ghg.net/clips/CLIPS.html">CLIPS</a>
+expert system shell. As an introduction let's take a look at some of the
+features of FuzzyCLIPS rules and facts that supported the calculation of
+certainty factors. Bear in mind at this point that it is expected that the
+reader has considerable understanding of rule based systems and as well has
+understood the fuzzy java rules of this toolkit (and hopefully the formulation
+of fuzzy rules in Jess as well). </p>
+
+<p class=MsoNormal style='margin-right:.5in;mso-margin-top-alt:auto;mso-margin-bottom-alt:
+auto;margin-left:.5in'><tt><span style='font-size:10.0pt;font-family:"Courier New"'>(defrule
+rule-with-CFs</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+&quot;this is a rule with a certainty factor associated with it&quot;</span></tt>
+<br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+(declare (CF 0.8)) ; rule has a CF of 0.8</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+(person-age ?name ?age&amp;:(&gt; ?age 50))</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>=&gt;</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+(assert (person-weightClass ?name over-weight))</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>)</span></tt></p>
+
+<p class=MsoNormal>The above rule says that if we find a person over 50 years
+of age then we can expect that that person will be overweight. The certainty
+factor for the rule says that we have only 80% confidence that this rule is
+correct. Therefore the asserted fact that the person is overweight will be
+assigned a certainty of 0.8. This assumes that the certainty of the fact for
+the person's age was 1.0. However, if the fact had been asserted like: </p>
+
+<p class=MsoNormal style='margin-right:.5in;mso-margin-top-alt:auto;mso-margin-bottom-alt:
+auto;margin-left:.5in'><tt><span style='font-size:10.0pt;font-family:"Courier New"'>(assert
+(person-age Ronald 55) CF 0.9)</span></tt></p>
+
+<p class=MsoNormal>This says that we were only certain of Ronald's age with a
+0.9 certainty factor. In this case the fact would have been asserted as: </p>
+
+<p class=MsoNormal style='margin-right:.5in;mso-margin-top-alt:auto;mso-margin-bottom-alt:
+auto;margin-left:.5in'><tt><span style='font-size:10.0pt;font-family:"Courier New"'>(person-weightClass
+Ronald over-weight) CF 0.72</span></tt></p>
+
+<p class=MsoNormal>Since we were only 0.8 certain of our rule and 0.9 certain
+of the age then we are 0.9 * 0.8 = 0.72 certain of the weight class for the
+person. Of course there are many ways to combine these certainties and
+FuzzyCLIPS does it this way. Ideally we would like more control over this and
+FuzzyCLIPS does not provide this at a simple level (one can modify the C code
+and change this ... it's actually not too difficult for a keen programmer). </p>
+
+<p>If the rule had several patterns to be matched against facts in the rule
+premises (also referred to as the antecedents of the rule or the left hand
+side, LHS, of the rule), then the certainty for the asserted fact (on the right
+hand side, RHS, of the rule) would be calculated by: </p>
+
+<p class=MsoNormal style='margin-right:.5in;mso-margin-top-alt:auto;mso-margin-bottom-alt:
+auto;margin-left:.5in'><tt><span style='font-size:10.0pt;font-family:"Courier New"'>CF
+of rule * (minimum CF of all facts that matched on the RHS of the rule)</span></tt></p>
+
+<p class=MsoNormal>Note that to this point all of the facts have been so-called
+<i>crisp</i> (or non-fuzzy). Let's consider a simple example with a fuzzy
+antecedent and a fuzzy conclusion (or asserted fact). In FuzzyCLIPS we might
+have: </p>
+
+<p class=MsoNormal style='margin-right:.5in;mso-margin-top-alt:auto;mso-margin-bottom-alt:
+auto;margin-left:.5in'><tt><span style='font-size:10.0pt;font-family:"Courier New"'>(defrule
+temp-low-adjust-thermostat-up</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+(temperature low)</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>=&gt;</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+(assert (adjust-thermostat up))</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>)</span></tt></p>
+
+<p class=MsoNormal>In this case one can easily argue that a kind of uncertainty
+is built into the handling of such a fuzzy rule. The input temperature fact
+does not have to match the (temperature low) fuzzy fact exactly. There merely
+needs to be a fuzzy fact for temperature (this would be the actual temperature
+expressed as a fuzzy set) that partially matches (overlaps) the fuzzy set of
+temperature low. That measure of overlap would then be used to determine the
+shape of the output fuzzy fact for adjusting the thermostat. An example of this
+can be seen in the <a
+href="FuzzyRule.html#Graphical Explanation of  Rule Firing">FuzzyRules section</a>
+of this documentation. Most rules that are purely fuzzy rely on this and
+further consideration of certainty factors on top of the fuzzy inferencing is
+not utilized. In FuzzyCLIPS this is possible and the rule and the fuzzy facts
+can have certainty factors associated with them. The calculation of certainty
+factors for these cases is explained in the FuzzyCLIPS documentation and will
+not be covered here. </p>
+
+<p>There is however, and interesting and useful case that merits some
+consideration. This involves fuzzy antecedents and crisp conclusions. </p>
+
+<p class=MsoNormal style='margin-right:.5in;mso-margin-top-alt:auto;mso-margin-bottom-alt:
+auto;margin-left:.5in'><tt><span style='font-size:10.0pt;font-family:"Courier New"'>(defrule
+fuzzy-crisp-rule</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;
+(person (name ?n) (height short))</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;=&gt;</span></tt>
+<br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;
+(assert (result ?n short))</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>)</span></tt></p>
+
+<p class=MsoNormal>In this case a fuzzy concept <i>height is short</i> has been
+defined. The rule wants to recognize the people who have some degree of
+shortness and capture that degree of shortness somehow.&nbsp; A standard rule
+without certainty factors would allow a person of some height that matches the
+short concept marginally (small overlap in the <i>short</i> fuzzy set and the
+person's fuzzified height fuzzy set) to produce the same conclusion as someone
+who matches the short concept quite well. In both cases the fact (result Bob
+short) or (result Harry short) would be produced. As you can now see these
+crisp facts beg for some measure attached to them that distinguishes between
+the two.&nbsp; This is handled in FuzzyCLIPS by calculating the certainty
+factor for crisp facts that are asserted when there are fuzzy facts matched on
+the RHS of the rule in a special way. The certainty factor is based on the
+measure of <i><a href="FuzzyValue.html#similarity">similarity</a></i> between
+the fuzzy antecedent and the fuzzy input that matched it. This similarity becomes
+the CF for the crisp fact. So in our case this means that the person whose
+height matches short only a bit will have a small CF while a person who matches
+short quite well will have a large CF. Again this is a simplified situation
+since we could add more fuzzy antecedents on the LHS of the rule. Then the
+minimum of the similarities is used. FuzzyCLIPS handles the even more complex
+situation of a mix of fuzzy and crisp antecedents, with the input facts having
+CFs assigned to them but we will not discuss this here. It is perhaps not
+common to operate in this manner and most difficult to determine the meaning of
+such calculations anyway. </p>
+
+<p>So where does this leave us as far as the FuzzyJ Toolkit is concerned and
+FuzzyJess as well. At this point there has been no attempt to provide a
+complete (but complex) solution as found in FuzzyCLIPS. However, enough hooks
+have been provided to support the two very common uses, fuzzy antecedents with
+fuzzy conclusions (nothing to do here really since the fuzzy inferencing takes
+care of things) and fuzzy antecedents with crisp conclusions. </p>
+
+<p>First let&#8217;s look at the purely Java situation and the support for
+FuzzyRules. Obviously the FuzzyRules execute and satisfy the fuzzy antecedent
+and conclusion situation. However there are some methods that can assist in
+writing Java programs that need to determine the measure of similarity or
+matching between FuzzyValues in the antecedent/input pairs of a rule (or
+between FuzzyValues outside of the context of rules). </p>
+
+<h4>similarity</h4>
+
+<p class=MsoNormal>Provides the similarity measure of two fuzzy values. We've
+seen this before in the section on the FuzzyValue. Note that as of version 1.9
+of FuzzyJ there are a couple of ways provided to calculate similarity between fuzzy
+values.</p>
+
+<h4>maximumOfIntersection</h4>
+
+<p class=MsoNormal>Find the minimum membership values between two FuzzyValues
+at all x values and then find the maximum of these minimums (in effect take the
+intersection of the 2 FuzzyValues and find the maximum membership value of
+this). This is the measure of overlap or degree of matching of two fuzzy
+values. </p>
+
+<p>The above methods can be used in many ways to achieve the same functionality
+as the CF calculation in FuzzyCLIPS fuzzy/crisp rules. In fact this provides
+two methods to calculate the <i>certainty factor</i> for a FuzzyRule, either
+similarity or degree of matching. By iterating over all of the pairs of inputs
+and antecedents for a rule it is easy to calculate the FuzzyCLIPS equivalent (or
+even calculate some other novel measure). </p>
+
+<p>Consider an incomplete set of Java code for the fuzzy-crisp-rule above. </p>
+
+<p class=MsoNormal style='margin-right:.5in;mso-margin-top-alt:auto;mso-margin-bottom-alt:
+auto;margin-left:.5in'><tt><span style='font-size:10.0pt;font-family:"Courier New"'>//
+FuzzyVariable and FuzzyRule have been defined.</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>// The rule may
+have a fuzzy conclusion but in this case has none.</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>// In fact one could
+argue for the need to even have a FuzzyRule for this</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>// extremely
+simple case!</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>FuzzyValueVector
+antecedents = fuzzyCrispRule.getAntecedents();</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>FuzzyValueVector
+inputs = fuzzyCrispRule.getInputs();</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>// We know there
+is only 1 pair here but ...</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>double similarity
+= 1.0;</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>for (int i=0;
+i&lt;antecedents.size(); i++)</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>{ double
+localSimilarity =
+antecedents.fuzzyValueAt(i).similarity(inputs.fuzzyValueAt(i));</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp; if
+(localSimilarity &lt; similarity)</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;
+similarity = localSimilarity;</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>}</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>System.out.println(&quot;The
+person's height is short with degree &quot; + similarity);</span></tt></p>
+
+<p class=MsoNormal>In Jess we provide two Jess User Functions to assist in
+doing the same thing, (fuzzy-rule-similarity) and (fuzzy-rule-match-score). A
+complete example in Jess code illustrates the use of the two functions.
+Effectively fuzzy-rule-similarity provides the same value that FuzzyCLIPS would
+for a fuzzy-crisp rule's CF for the crisp facts to be asserted. The other
+function, fuzzy-rule-match-score, is similar but uses a different measure of
+similarity if you like, the degree of matching between the fuzzy values. </p>
+
+<p class=MsoNormal style='margin-right:.5in;mso-margin-top-alt:auto;mso-margin-bottom-alt:
+auto;margin-left:.5in'><tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;;;
+A simple example to test a complete FuzzyJess program (no Java code at all).</span></tt>
+<br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;;;</span></tt>
+<br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;;; Note:
+future versions (beyond 5.0a5) of Jess will allow us to use --</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;;;</span></tt>
+<br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;;;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+(new FuzzyValue ... )</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;;;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+etc.</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;;;</span></tt>
+<br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;;;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+will no longer always need to fully qualify the classes!</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;;;</span></tt>
+<br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;;; Example
+as shown will give result ...</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;;;</span></tt>
+<br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;;; Jack is
+tall with degree (similarity) 0.5363321799307958</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;;; Jack is
+tall with degree (match) 0.588235294117647</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;;; Randy is
+tall with degree (similarity) 1.0</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;;; Randy is
+tall with degree (match) 1.0</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;;; Ralph is
+tall with degree (similarity) 0.4117647058823532</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;;; Ralph is
+tall with degree (match) 0.49999999999999994</span></tt> <br>
+&nbsp; </p>
+
+<p style='margin-right:.5in;margin-left:.5in'><tt><span style='font-size:10.0pt;
+font-family:"Courier New"'>&nbsp;(defglobal ?*heightFvar* = (new
+nrc.fuzzy.FuzzyVariable &quot;height&quot; 0.0 10.0 &quot;feet&quot;))</span></tt>
+</p>
+
+<p style='margin-right:.5in;margin-left:.5in'><tt><span style='font-size:10.0pt;
+font-family:"Courier New"'>&nbsp;(defglobal ?*rlf* = (new
+nrc.fuzzy.RightLinearFunction))</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;(defglobal
+?*llf* = (new nrc.fuzzy.LeftLinearFunction))</span></tt> </p>
+
+<p style='margin-right:.5in;margin-left:.5in'><tt><span style='font-size:10.0pt;
+font-family:"Courier New"'>&nbsp;(deftemplate person</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+(slot name)</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+(slot height)</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;)</span></tt>
+</p>
+
+<p style='margin-right:.5in;margin-left:.5in'><tt><span style='font-size:10.0pt;
+font-family:"Courier New"'>&nbsp;(defrule init</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+(declare (salience 100))</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp; =&gt;</span></tt>
+<br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+(load-package nrc.fuzzy.jess.FuzzyFunctions)</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+(?*heightFvar* addTerm &quot;short&quot;&nbsp; (new nrc.fuzzy.RFuzzySet 0.0 5.0
+?*rlf*))</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+(?*heightFvar* addTerm &quot;medium&quot; (new nrc.fuzzy.TrapezoidFuzzySet 4.0
+4.8 5.5 6.0))</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+(?*heightFvar* addTerm &quot;tall&quot;&nbsp;&nbsp; (new nrc.fuzzy.LFuzzySet
+5.5 6.0 ?*llf*))</span></tt> </p>
+
+<p style='margin-right:.5in;margin-left:.5in'><tt><span style='font-size:10.0pt;
+font-family:"Courier New"'>&nbsp;&nbsp;&nbsp; (assert (person (name
+&quot;Ralph&quot;)</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+(height (new nrc.fuzzy.FuzzyValue ?*heightFvar*</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+(new nrc.fuzzy.PIFuzzySet 5.7 0.1)))</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+)</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+(person (name &quot;Timothy&quot;)</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+(height (new nrc.fuzzy.FuzzyValue ?*heightFvar*</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+(new nrc.fuzzy.PIFuzzySet 4.0 0.1)))</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+)</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+(person (name &quot;Randy&quot;)</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+(height (new nrc.fuzzy.FuzzyValue ?*heightFvar*</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+(new nrc.fuzzy.PIFuzzySet 6.5 0.1)))</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+)</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+(person (name &quot;Jack&quot;)</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+(height (new nrc.fuzzy.FuzzyValue ?*heightFvar*</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+(new nrc.fuzzy.PIFuzzySet 5.75 0.1)))</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+)</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;
+)</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;)</span></tt>
+</p>
+
+<p style='margin-right:.5in;margin-left:.5in'><tt><span style='font-size:10.0pt;
+font-family:"Courier New"'>&nbsp;(defrule identify-tall-people &quot;determine
+strength of tallness for a person&quot;</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;
+(person (name ?n) (height ?ht&amp;:(fuzzy-match ?ht &quot;tall&quot;)))</span></tt>
+<br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp; =&gt;</span></tt>
+<br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;
+(printout t ?n &quot; is tall with degree (similarity) &quot;
+(fuzzy-rule-similarity) crlf)</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;
+(printout t ?n &quot; is tall with degree (match) &quot;
+(fuzzy-rule-match-score) crlf)</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;)</span></tt></p>
+
+<p>One might note that the use of the RightLinearFunction (LeftLinearFunction)
+with the RfuzzySet (LfuzzySet) could simply be replaced by the
+RightLinearFuzzySet (LeftLinearFuzzySet) that was added for convenience in
+FuzzyJ version 1.3. </p>
+
+<p>In version 1.5 of FuzzyJ/FuzzyJess the two user functions have been modified
+to use the FuzzyRule DefaultAntecedentCombineOperator to decide how to combine
+the similarities (or matches) of the antecedents and the inputs. Previously a
+minimum was always performed. See <a
+href="FuzzyRule.html#Multiple_Antecedents_in_a_Rule">FuzzyRules/Multiple
+Antecedents in a Rule</a> to recall the details of the AntecedentCombineOperators.</p>
+
+<p>In version 1.9 we added the ability to have more than one way to calculate
+similarity. This is handled by creating sub-classes of the SimilarityOperator
+class. Initially there are two such sub-classes, the SimilarityByPossibilityOperator
+(the original way to compare FuzzyValues) and the SimilarityByAreaOperator.
+Which operator is used is determined (in Java) by the setting of the FuzzyValue
+static variable defaultSimilarityOperator when using the similarity method
+like:</p>
+
+<p><tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;<span
+style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp; </span>fuzzyVal1.similarity(fuzzyVal2)<o:p></o:p></span></tt></p>
+
+<p><tt><span style='mso-ansi-font-size:12.0pt;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman";mso-bidi-font-family:"Times New Roman"'>or
+by using a special version of the similarity method that specifies the operator
+to use:</span></tt><tt><span style='font-size:10.0pt;font-family:"Courier New"'>
+<o:p></o:p></span></tt></p>
+
+<p><tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;<span
+style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp; </span>fuzzyVal1.similarity(fuzzyVal2,
+aSimilarityOperator)</span></tt></p>
+
+<p>In FuzzyJess we&#8217;ve added two functions that allow the similarity operator to
+be controlled. The function (set-default-similarity-operator the-operator) takes
+one argument that specifies the way similarity between 2 FuzzyValues should be
+calculated. The values can be one of:<o:p></o:p></p>
+
+<p style='text-indent:.5in'><b>area</b> - use ratio of area of intersection and
+area of union (see java class SimilarityByAreaOperator).<o:p></o:p></p>
+
+<p>or<o:p></o:p></p>
+
+<p style='text-indent:.5in'><b>possibility</b> - use possibility and necessity
+calculations<span style="mso-spacerun: yes">&nbsp; </span>(this is the default)
+(see java class SimilarityByPossibilityOperator).</p>
+
+<p>The function (get-default-similarity-operator) takes no arguments and returns
+an indicator of the way fuzzy similarity comparisons will be done. The return
+values are either <b>possibility</b> or <b>area</b>.</p>
+
+<p><br>
+This has laid a foundation for future consideration of Certainty Factors or
+other useful measures that can be added to the toolkit. Comments are welcome. <br>
+&nbsp; <br>
+&nbsp; </p>
+
+<p><a href="index.html">Return to Table of Contents</a></p>
+
+<p><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+</div>
+
+</body>
+
+</html>

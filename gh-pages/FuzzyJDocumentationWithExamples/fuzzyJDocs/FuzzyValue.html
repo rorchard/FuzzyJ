@@ -1,0 +1,610 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./FuzzyValue_files/filelist.xml">
+<link rel=Edit-Time-Data href="./FuzzyValue_files/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>FuzzyValue</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>rorchard</o:Author>
+  <o:LastAuthor>Bob Orchard</o:LastAuthor>
+  <o:Revision>34</o:Revision>
+  <o:TotalTime>148</o:TotalTime>
+  <o:Created>2002-05-30T18:10:00Z</o:Created>
+  <o:LastSaved>2006-05-30T18:54:00Z</o:LastSaved>
+  <o:Pages>6</o:Pages>
+  <o:Words>3005</o:Words>
+  <o:Characters>17130</o:Characters>
+  <o:Company>National Research Council</o:Company>
+  <o:Lines>142</o:Lines>
+  <o:Paragraphs>34</o:Paragraphs>
+  <o:CharactersWithSpaces>21036</o:CharactersWithSpaces>
+  <o:Version>9.6926</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:"Comic Sans MS";
+	panose-1:3 15 7 2 3 3 2 2 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:script;
+	mso-font-pitch:variable;
+	mso-font-signature:647 0 0 0 159 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+p
+	{margin-right:0in;
+	mso-margin-top-alt:auto;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+tt
+	{mso-ascii-font-family:"Courier New";
+	mso-fareast-font-family:"Courier New";
+	mso-hansi-font-family:"Courier New";
+	mso-bidi-font-family:"Courier New";}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1027"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+<meta name=Author content="Bob Orchard">
+</head>
+
+<body lang=EN-US link=blue vlink=blue style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<h3 align=center style='text-align:center'><span style='font-family:"Comic Sans MS"'>Fuzzy
+Values</span></h3>
+
+<p class=MsoNormal><a href="#Example">Example of the creation of a Fuzzy Value</a>
+<br>
+<a href="#Operations_on_FuzzyValues">Some of the Operations on FuzzyValues</a> <br>
+<a href="#_A_Comment_on">A Comment on the Range of Membership Values</a>&nbsp; </p>
+
+<p>The FuzzyValue class allows one to create a specific fuzzy concept for a
+given FuzzyVariable, say temperature. For example, one might want to represent
+the concept <i>temperature is very cold</i>. Assuming that we have a
+FuzzyVariable for temperature with the term <i>cold</i> defined, we simply
+create the FuzzyValue by specifying the temperature FuzzyVariable and a <i>linguistic
+expression </i>(in this case <i>very cold</i>). The expression is parsed and a
+FuzzySet that mathematically defines the shape of this concept is created and
+stored with the FuzzyValue. So a FuzzyValue is an association of a
+FuzzyVariable and a linguistic expression to describe a fuzzy concept. Note
+that a FuzzyValue can also be created using a FuzzyVariable and a FuzzySet, but
+it will have no english-like expression associated with it (actually it gets
+the default expression '???' that signifies that no expression composed of
+fuzzy terms, modifiers and operators is available that describes the FuzzySet
+associated with the FuzzyVariable). The user may choose to add a linguistic
+expression string to the FuzzyValue with the setLinguisticExpression method. </p>
+
+<p>The linguistic expression is formed using the terms defined for the
+FuzzyVariable along with the operators <i>or</i> and <i>and</i> as well as the
+set of system or user supplied <a href="FuzzyModifier.html">modifiers</a> such
+as <i>very</i>, <i>not</i> and <i>slightly</i>. These english-like expressions
+are used to describe the required fuzzy concepts for the variable. For example,
+let&#8217;s consider the FuzzyVariable <i>temperature</i>, with terms <i>cold</i>, <i>warm</i>,
+and <i>hot</i>. It is decided that we would like a FuzzyValue that represents
+the concept &quot;<i>slightly cold AND warm</i>&quot; for the temperature
+variable. This string is parsed, and based on the parse a suitable FuzzySet is
+created for the FuzzyValue, and the linguistic expression is stored as &quot;<i>slightly
+cold AND warm</i>&quot;. </p>
+
+<p>The FuzzySet in a FuzzyValue contains a set of points. This set of points is
+the mathematical representation of the fuzzy concept being expressed for this
+FuzzyValue. </p>
+
+<h4><a name=Example></a>Example</h4>
+
+<p class=MsoNormal>The following code shows a simple example of creating a
+FuzzyVariable and a FuzzyValue: </p>
+
+<p><tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+// There are many ways to define the terms for the fuzzy variable</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+// Here we use 2 of those methods:</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+//&nbsp;&nbsp; 1. using two arrays of x and y values to define the shape of the
+fuzzy set</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+//&nbsp;&nbsp; 2. using already defined terms of the fuzzy variable and
+linguistic</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; expressions</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+double xHot[] = {25, 35};</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+double yHot[] = {0, 1};</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+double xCold[] = {5, 15};</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+double yCold[] = {1, 0};</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+FuzzyValue fval = null;</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+...</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+// Create a new fuzzy variable for temperature with Universe of discourse</span></tt>
+<br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+// from 0 to 100 and units &quot;C&quot;.</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+FuzzyVariable temp = new FuzzyVariable(&quot;temperature&quot;, 0, 100,
+&quot;C&quot;);</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+...</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+// Add three terms hot, cold and medium</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+temp.addTerm(&quot;hot&quot;, xHot, yHot, 2);</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+temp.addTerm(&quot;cold&quot;, xCold, yCold, 2);</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+// Note: once a term is added it can be used to define other terms</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+temp.addTerm(&quot;medium&quot;, &quot;not hot and not cold&quot;);</span></tt>
+<br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+...</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+// Now we can define fuzzy values using the terms in the fuzzy variable.</span></tt>
+<br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+// Note: fuzzy values can also be created using fuzzy sets, etc and not</span></tt>
+<br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; just with linguistic expressions.</span></tt>
+<br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+fval = new FuzzyValue(temp, &quot;very hot or cold&quot;);</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+System.out.println(fval);</span></tt> </p>
+
+<p>The output from this would be: </p>
+
+<p><tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;FuzzyVariable&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+-&gt; temperature [ 0.0, 100.0 ] C</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;Linguistic
+Expression -&gt; very hot or cold</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;FuzzySet&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+-&gt; { 1/5 0/15 0/25 0.01/26 0.04/27 0.09/28 0.16/29 0.25/30</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0.36/31 0.49/32 0.64/33 0.81/34 1/35&nbsp; }</span></tt> </p>
+
+<p>After this has been done we will have defined a fuzzy variable that has the
+3 terms hot, cold and medium defined and shown below graphically. </p>
+
+<p><img border=0 width=460 height=288 id="_x0000_i1025" src=tempFV.gif></p>
+
+<p>The fuzzy value that we created, <i>temperature is very hot or cold</i>,&nbsp;will
+have a physical depiction as follows: </p>
+
+<p><img border=0 width=460 height=270 id="_x0000_i1026" src=veryHotOrCold.gif><br>
+&nbsp; </p>
+
+<h4><a name="Operations_on_FuzzyValues"></a>Some of the Operations on
+FuzzyValues</h4>
+
+<p class=MsoNormal>The <a href="APIdocs/nrc/fuzzy/FuzzyValue.html">API
+documentation</a> describes a large number of operations and manipulations that
+can be applied to FuzzyValues. Most often there is a corresponding capability
+for FuzzySets with the restriction that the UOD (universe of discourse) must be
+observed for the FuzzyValues and for binary operations, such as intersection
+and union, the two FuzzyValues <u>must</u> have the same FuzzyVariable. </p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>The UOD defines the range of x values that are allowed for
+the FuzzySets that are used when defining a FuzzyValue. If one tries to
+associate a FuzzySet with a FuzzyValue and any of the x values are outside of
+this range then an exception is raised. A rather specific case might be when
+one <b>fuzzifies</b> a crisp value, creating a FuzzyValue. Assuming that we use
+a simple TriangleFuzzySet or a PIFuzzySet it would be possible for all or some
+of this fuzzy set to lie outside of the UOD bounds. Since this would cause an
+exception one would have to do some special coding to handle the cases where
+the value is close to the upper or lower bounds. Instead it is possible to use
+the static method setConfineFuzzySetsToUOD of the FuzzyValue class to
+automatically adjust the fuzzy set by &#8216;clipping&#8217; it at the x boundaries so that
+it does not have values outside the bounds. A bit of code that might be useful
+for fuzzifying a crisp value is:</p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+// Create new fuzzy variable for temperature with Universe of discourse</span></tt>
+<br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+// from 0 to 100 and units &quot;C&quot;.</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+FuzzyVariable temp = new FuzzyVariable(&quot;temperature&quot;, 0, 100,
+&quot;C&quot;);</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+...</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+// Now we define fuzzify a crisp value</span></tt> that would normally generate
+an exception</p>
+
+<p class=MsoNormal><span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>FuzzyValue.setConfineFuzzySetsToUOD(true);<br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+FuzzyValue fval = new FuzzyValue(temp, new TriangleFuzzySet(0.0, 0.1));</span></tt>
+<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></p>
+
+<p class=MsoNormal>The triangular fuzzy set is one centered on 0.0 with a width
+of 0.1. This is one way of representing the imprecision or error bounds for a
+temperature reading from a sensor. Even though the crisp temperature value is
+within bounds, the fuzzified value is not. We have a FuzzySet where the point
+(-0.05, 0) is outside of the UOD for the FuzzyValue. However, by using
+setConfineFuzzySetsToUOD method the system will <i>clip</i> the fuzzy set to
+remove the parts that would lie outside of the UOD. In this case it is equivalent
+to creating a fuzzy set for the fuzzy value defined by the points (0.0, 0.0),
+(0.0, 1.0) and (0.05, 0.0). </p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>It is required that binary operations on two FuzzyValues be
+restricted to FuzzyValues that share the <b>same</b> FuzzyVariable instance
+because it doesn&#8217;t make sense to do a union or intersection of a Temperature
+FuzzyValue and a Pressure FuzzyValue. This would have no meaning (like adding
+apples and oranges).</p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>Getting back to the operations defined for FuzzyValues we
+describe some of the most commonly used operations: </p>
+
+<p><b>fuzzyComplement</b> <br>
+Takes the compliment of a FuzzyValue. More specifically, it takes the
+compliment of the membership (y) values of the SetPoints of the FuzzySet
+associated with the FuzzyValue. Mathematically (NOT), u(x) = 1 - u(x) for all x
+values, or y = 1 &#8211; y for all y values. </p>
+
+<p><b>fuzzyIntersection</b> <br>
+Returns the intersection of two FuzzyValues. More specifically it operates on
+the FuzzySets associated with the FuzzyValues. The visual representation of the
+intersection of two example FuzzySets is depicted below. One set is black with
+green SetPoints, and the other set is grey with orange SetPoints. The diagram
+on the left is of the two FuzzySets, and the diagram on the right is of the two
+sets overlaid by the intersection set in red. Intersection is synonymous with
+the logical operator AND. The intersection of two fuzzy sets is (often and
+specifically in FuzzyJ) defined such that the membership (y) value at any x
+value is the minimum of the membership values of the two fuzzy sets.</p>
+
+<p><img border=0 width=320 height=228 id="_x0000_i1027" src=twoSets.gif
+hspace=10><img border=0 width=329 height=228 id="_x0000_i1028"
+src=twoSetsIntersection.gif></p>
+
+<p><b>fuzzyUnion</b> <br>
+Returns the union of two FuzzyValues. More specifically it operates on the
+FuzzySets associated with the FuzzyValues. The visual representation of the
+union of two example FuzzySets is depicted below. One set is black with green
+SetPoints, and the other set is grey with orange SetPoints. The diagram on the
+left is of the two FuzzySets, and the diagram on the right is of the two sets
+overlaid by the union set in red. Union is synonymous with the logical operator
+OR. The union of two fuzzy sets is (often and specifically in FuzzyJ) defined such
+that the membership (y) value at any x value is the maximum of the membership
+values of the two fuzzy sets.</p>
+
+<p><img border=0 width=320 height=234 id="_x0000_i1029" src=twoSets.gif
+hspace=10><img border=0 width=323 height=238 id="_x0000_i1030"
+src=twoSetsUnion.gif hspace=10></p>
+
+<p><b>maximumOfIntersection</b> <br>
+Returns the maximum membership value on the intersection of this FuzzyValue
+with the FuzzyValue argument. More specifically it operates on the FuzzySets
+associated with the FuzzyValues. Consider the two diagrams below. On the right
+appears a diagram of two sets, one set in black with green SetPoints, and the
+other set in grey with orange SetPoints. The maximum y value of the
+intersection is denoted by a red dot on the graph on the right. </p>
+
+<p><img border=0 width=320 height=226 id="_x0000_i1031" src=twoSets.gif
+hspace=10><img border=0 width=323 height=227 id="_x0000_i1032"
+src=twoSetsMaxMin.gif hspace=10></p>
+
+<p><b>Some Defuzzification Operations on FuzzyValues<o:p></o:p></b></p>
+
+<p>Below are some methods that convert a FuzzyValue back into a single crisp
+(non-fuzzy) value. This is something that is normally done after a fuzzy
+decision has been made and the fuzzy result must be used in the real world. For
+example, if the final fuzzy decision were to adjust the temperature setting on
+the thermostat a &#8216;little higher&#8217;, then it would be necessary to convert this
+&#8216;little higher&#8217; fuzzy value to the &#8216;best&#8217; crisp value to actually move the
+thermostat setting by some real amount.<b><o:p></o:p></b></p>
+
+<p><b>maximumDefuzzify</b> <br>
+Finds the mean of the maximum values of the FuzzySet of the FuzzyValue as the
+defuzzification value. NOTE: This doesn't always work well because there can be
+x ranges where the y value is constant at the max value and other places where
+the max is only reached for a single x value. When this happens the single
+value gets too much of a say in the defuzzified value. </p>
+
+<p><img border=0 width=433 height=145 id="_x0000_i1033" src=meanOfMaxProb.gif
+hspace=10></p>
+
+<p><b>momentDefuzzify</b> <br>
+Moment defuzzification defuzzifies the FuzzySet of the FuzzyValue returning a
+floating point (double value) that represents the fuzzy set. It calculates the
+first moment of the area of a fuzzy set about the y axis. The set is subdivided
+into different shapes by partitioning vertically at each point in the set,
+resulting in rectangles, triangles, and trapezoids. The centre of gravity
+(moment) and area of&nbsp; each subdivision is calculated using the appropriate
+formulas for each shape. The first moment of area of the whole set is then: <br>
+<img border=0 width=457 height=122 id="_x0000_i1034" src=momentEquation.gif
+hspace=10><br>
+where x<sub>i</sub>´ is the local centre of gravity, A<sub>i</sub> is the local
+area of the shape underneath line segment (p<sub>i-1</sub>, p<sub>i</sub>), and
+n is the total number of points. As an example, <br>
+<img border=0 width=408 height=288 id="_x0000_i1035" src=momentGraph.gif
+hspace=10><br>
+For each shaded subsection in the diagram above, the area and centre of gravity
+is calculated according to the shape identified (i.e., triangle, rectangle or
+trapezoid). The centre of gravity of the whole set is then determined: <br>
+<img border=0 width=457 height=73 id="_x0000_i1036" src=momentCalc.gif
+hspace=10><br>
+<b>centerOfAreaDefuzzify (new in version 1.8)<o:p></o:p></b></p>
+
+<p>Center of Area (COA) defuzzification finds the x value such that half of the
+area under the fuzzy set is on each side of the x value. In the case above (in
+the momentDefuzzify section) the total area under the fuzzy set is 3.5
+(1.0+1.6+0.6+0.3). So we would want to find the x value where the area to the
+left and the right both had values of 1.75. This occurs where x <span
+style='color:black'>= </span><span style='mso-bidi-font-size:10.0pt;color:black;
+background:silver;mso-highlight:silver'>3.816699867329622</span><span
+style='mso-bidi-font-size:10.0pt;color:black'>. Note that in general the result
+of momentDefuzzify and centerOfAreaDefuzzify are not the same. Also note that
+in some cases the center of area can be satisfied by more than one value. For
+example, for the fuzzy set defined by the points:<o:p></o:p></span></p>
+
+<p><span style='mso-bidi-font-size:10.0pt;color:black'><span
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>(5,0) (6,1) (7,0) (15,0) (16,1) (17,0)<o:p></o:p></span></p>
+
+<p><span style='mso-bidi-font-size:10.0pt;color:black'>the COA could be any
+value from 7.0 to 15.0 since the 2 identical triangles centered at x=6 and x=16
+lie on either side of 7.0 and 15.0. We will return a value of 11.0 in this case
+(in general we try to find the middle of the possible x values). </span></p>
+
+<p><b>weightedAverageDefuzzify (new in version 1.3)<o:p></o:p></b></p>
+
+<p>Finds the weighted average of the x values of the points that define a fuzzy
+set using the membership values of the points as the weights. This value is
+returned as the defuzzification value.&nbsp; For example, if we have the
+following fuzzy set definition:</p>
+
+<p><img border=0 width=468 height=323 id="_x0000_i1037"
+src=FuzzySet1ForWeightedAvg.jpg></p>
+
+<p>Then the weighted average value of the fuzzy set points will be:</p>
+
+<p style='margin-left:1.0in'>(1.0*0.9 + 4.0*1.0) / (0.9 + 1.0) = 2.579</p>
+
+<p>This is only moderately useful since the value at 1.0 has too much influence
+on the defuzzified result. The moment defuzzification is probably most useful
+in this case. However, a place where this defuzzification method is very useful
+is when the fuzzy set is in fact a series of singleton values. It might be that
+a set of rules is of the Takagi-Sugeno-Kang type (1<sup>st</sup> order) with
+formats like:</p>
+
+<p style='margin-left:1.0in'>If x is A and y is B then c = k</p>
+
+<p>where x and y are fuzzy variables and k is a constant that is represented by
+a singleton fuzzy set. For example we might have rules that look like:</p>
+
+<p style='margin-left:1.0in'>If temperature is low and pressure is low then set
+hot valve to medium_high position</p>
+
+<p style='margin-left:1.0in'>If temperature is high and pressure is high then
+set hot valve to medium_low position</p>
+
+<p style='margin-left:4.0in'><b>. . .<o:p></o:p></b></p>
+
+<p>where the setting of the hot valve has several possibilities, say
+full_closed, low, medium_low, medium_high, high and full_open, and these are
+singleton values rather than normal fuzzy sets. In this case medium_low might
+be 2 on a scale from 0 to 5. </p>
+
+<p>An aggregated conclusion for setting the hot valve position (after all of
+the rules have contributed to the decision) might look like:</p>
+
+<p>&nbsp;<img border=0 width=468 height=324 id="_x0000_i1038"
+src=FuzzySet2ForWeightedAvg.jpg></p>
+
+<p>And the weighted average defuzzification value for this output would be:</p>
+
+<p style='margin-left:1.0in'>(1.0*0.25 + 2.0*1.0 + 3.0*0.5 + 4.0*0.5) / (0.25 +
+1.0 + 0.5 + 0.5) = 2.556</p>
+
+<p>Note that neither a maximum defuzzification nor a moment defuzzification
+would produce a useful result in this situation. The maximum version would use
+only 1 of the points (the maximum one) giving a result of 2.0 (the x value of
+that point), while the moment version would not find any area to work with and
+would generate an exception. This description of the weightedAverageDefuzzify
+method will be clearer after you have completed the section on <a
+href="FuzzyRule.html">FuzzyRules</a>.</p>
+
+<p><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p><b>fuzzyMatch</b> <br>
+Determine if two FuzzyValues <i>match</i> or intersect with a membership of at
+least that specified by the FuzzyValue class variable matchThreshold. This is
+used primarily in rules to determine if an input fuzzy value matches with a
+corresponding antecedent. If all patterns in the rule match to a degree at
+least as large as the matchThreshold, then the rule will fire. </p>
+
+<p><b>getLinguisticExpression</b> <br>
+Returns the String which represents the linguistic expression of this
+FuzzyValue. </p>
+
+<p><b>getMaxUOD, getMinUOD</b> <br>
+Returns the x value which represents the maximum (minimum) x value in the
+Universe of Discourse of the FuzzyVariable to which this FuzzyValue belongs. </p>
+
+<p><b>getMaxY, getMinY</b> <br>
+Returns the maximum (minimum) membership value of the FuzzyValue. </p>
+
+<p><a name=similarity></a><b>similarity</b> <br>
+Calculates the similarity measure of two fuzzy sets Given two fuzzy values, f1
+and f2. Similarity can be calculated in several ways and as of version 1.9 of FuzzyJ
+two methods of calculation are provided. One method (the default and the one
+used prior to version 1.9) is defined as: </p>
+
+<p><tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+similarity = if&nbsp;&nbsp;&nbsp; necessity(f1,f2) &gt; 0.5</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+then&nbsp; possibility(f1,f2)</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+else&nbsp; (necessity(f1,f2) + 0.5) * possibility(f1,f2)</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+and</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+necessity(f1,f2) = 1 - possibility(not f1,f2)</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+and</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+possibility(f1,f2) = max<sub>x</sub>(min(u<sub>f1</sub>(x),u<sub>f2</sub>(x))</span></tt>
+</p>
+
+<p>Note that the two fuzzy values must have the same FuzzyVariable. <br>
+Below is a grapical example of the calcualtion of similarity of 2 fuzzy values.
+</p>
+
+<p>First we have 2 fuzzy values to compare for similarity. </p>
+
+<p><img border=0 width=337 height=156 id="_x0000_i1039" src=similarity1.gif
+hspace=10></p>
+
+<p>&nbsp;&nbsp;&nbsp; necessity(f1, f2) = 1 - possibility(not f1, f2) = 1 -
+0.75 = 0.25 </p>
+
+<p><img border=0 width=376 height=165 id="_x0000_i1040" src=similarity1a.gif
+hspace=10></p>
+
+<p>&nbsp;&nbsp;&nbsp; possibility(f1, f2) = 0.9 </p>
+
+<p><img border=0 width=337 height=157 id="_x0000_i1041" src=similarity1b.gif
+hspace=10></p>
+
+<p>Finally since necessity is less than 0.5, </p>
+
+<p>&nbsp;&nbsp;&nbsp; similarity(f1,f2) = (necessity(f1,f2) + 0.5) *
+possibility(f1,f2) = (0.25+0.5) * 0.9 = 0.675 </p>
+
+<p>In version 1.9 this is referred to as the <i>SimilarityByPossibilityOperator</i>.
+The other method calculates similarity as the ratio of the area of the intersection
+of the two fuzzy values and the union of the two fuzzy values. This is referred
+to as the <i>SimilarityByAreaOperator</i>. When the FuzzyValue <i>similarity</i>
+method is called with one argument (the second FuzzyValue) then the current
+default similarity operator is used. Initially this is the SimilarityByPossibilityOperator,
+but it can be changed/determined using the methods setDefaultSimilarityOperator
+and getDefaultSimilarityOperator. When the FuzzyValue <i>similarity</i> method
+is called with two arguments, the second argument is a SimilarityOperator,
+allowing any defined method for calculating the similarity to be used.</p>
+
+<p class=MsoNormal><br>
+Many other useful methods are available. Check the <a href="APIdocs/index.html">toolkit
+API documentation</a>. </p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<h4><a name="_A_Comment_on"></a>A Comment on the Range of Membership Values</h4>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'>Although
+the range of allowed membership values is normally [0, 1], it is possible to
+form FuzzySets with membership values &gt; 1.0. There are instances where this
+is desirable. For example in some approaches it is preferred to collect the
+outputs of fuzzy rules by doing a <b>fuzzySum</b> of the resultant FuzzyValues
+(global contribution of rules). The fuzzySum operation can result in FuzzySets
+with membership values &gt; 1.0. When a FuzzySet/FuzzyValue is created with a
+constructor (that uses arrays of Doubles or an array of SetPoints) the values
+are restricted to being between 0 and 1. However, when the fuzzySum operation
+or the methods appendSetPoint and insertSetPoint are used to add points to the
+FuzzySet, membership values &gt; 1 are allowed. </p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'>This
+does have some implications of which the user needs to be aware. For example, the
+fuzzyComplement operation on a FuzzySet will treat membership values &gt; 1 as
+if they were 1. It may be desirable at certain times to normalize (or scale)
+FuzzySets that have membership values &gt; 1. </p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'>Do
+note that membership values are always restricted to values &gt;= 0. In most
+cases the negative value is simply changed to a value of 0.</p>
+
+<p>A case where a user might want to allow this to happen is when one wants to
+use the SAM (Standard Additive Model) method as described in Bart Kosko&#8217;s book,
+Fuzzy Engineering (<a href="references.html">see reference section</a>). In
+this case, the collection of fuzzy outputs from multiple rules (global
+contribution) is done by adding (a fuzzySum of) the outputs. The resultant sum
+is then defuzzified using the momentDefuzzify method to give the required
+result. In order to completely perform the SAM method one would also need to
+ensure that the RuleExecutor was set to be a MamdaniMinMaxMinRuleExecutor and
+that the operator used to collect the results from multiple antecedents in a
+rule was the ProductAntecedentCombineOperator. This is explained in more detail
+elsewhere.</p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><a href="index.html">Return to Table of Contents</a></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+</div>
+
+</body>
+
+</html>

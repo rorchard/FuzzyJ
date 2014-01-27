@@ -1,0 +1,439 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./FuzzySet_files/filelist.xml">
+<link rel=Edit-Time-Data href="./FuzzySet_files/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>FuzzySet1</title>
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:"Comic Sans MS";
+	panose-1:3 15 7 2 3 3 2 2 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:script;
+	mso-font-pitch:variable;
+	mso-font-signature:647 0 0 0 159 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;
+	text-underline:single;}
+p
+	{margin-right:0in;
+	mso-margin-top-alt:auto;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+tt
+	{mso-ascii-font-family:"Courier New";
+	mso-fareast-font-family:"Courier New";
+	mso-hansi-font-family:"Courier New";
+	mso-bidi-font-family:"Courier New";}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1027"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+<meta name=Template content="C:\Program Files\Microsoft Office\Office\html.dot">
+</head>
+
+<body lang=EN-US link=blue vlink=purple style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<h3 align=center style='text-align:center'><span style='font-family:"Comic Sans MS"'>
+
+<!doctype html>
+
+Fuzzy Sets<o:p></o:p></span></h3>
+
+<p><a href="#_Fuzzy_Set_Hierarchy">Fuzzy Set Hierarchy</a> <br>
+<a href="#Where_are_FuzzySets_Used">Where_are_FuzzySets_Used</a> <br>
+<a href="#_Some_of_the">Some of the Operations on FuzzySets</a> <br>
+<a href="#Operations_on_FuzzySets">A Comment on the Range of Membership Values</a>&nbsp;
+</p>
+
+<p>A <b>fuzzy set </b>is a mapping of a set of real numbers (x<sub>i</sub>)
+onto <i>membership values</i> (u<sub>i</sub>) that (generally) lie in the range
+[0, 1]. In this fuzzy package a fuzzy set is represented by a set of pairs u<sub>i</sub>/x<sub>i</sub>,
+where u<sub>i</sub> is the membership value for the real number x<sub>i</sub>.
+We can represent the set of values as { u<sub>1</sub>/x<sub>1</sub> u<sub>2</sub>/x<sub>2</sub>
+... u<sub>n</sub>/x<sub>n</sub> }. The x values in the set are in increasing
+order (x<sub>1</sub> &lt;= x<sub>2</sub> &lt;= ... &lt;= x<sub>n</sub>). Values
+prior to x<sub>1</sub> have the same membership value as x<sub>1</sub> and
+values after x<sub>n</sub> have the same membership value as x<sub>n</sub>.
+Values between x<sub>i</sub> and x<sub>i+1</sub> are determined by the value
+that lies on the straight line between the 2 consecutive points. In effect we
+are representing a graph with straight lines joining the points in the fuzzy
+set and with horizontal lines extending to the first and from the last points. </p>
+
+<p>Just as a side note, it is common for the (x,y) pairs of a fuzzy set to be
+represented as y/x in the fuzzy logic world. This can be a bit confusing at
+first because the x,y order is reversed, but it might help to think of the <b>u/x</b>
+meaning the <b>membership value u at x</b>.</p>
+
+<p>As an example, consider the (convex) fuzzy set { 0.0/0.3 1.0/0.5 0.0/0.7 }.
+As shown in the diagram below, this is a triangular shaped fuzzy set. This is a
+very compact representation of a fuzzy set that covers all values in the real
+number line.</p>
+
+<p><span style="mso-spacerun: yes"> </span><img border=0 width=300 height=200
+id="_x0000_i1025" src=basicFuzzyValue.gif></p>
+
+<p>The code to create this FuzzySet would simply be:</p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><tt><span style='font-size:10.0pt;
+font-family:"Courier New"'>&nbsp;&nbsp;&nbsp; FuzzySet fSet = new
+triangleFuzzySet( 0.3, 0.5, 0.7 );</span></tt> </p>
+
+<p>&nbsp;Consider now a slightly more complex (non-convex)
+FuzzySet:&nbsp;&nbsp; { 0.0/0.1<span style="mso-spacerun: yes"> 
+</span>1.0/0.3<span style="mso-spacerun: yes">  </span>0.65/0.4<span
+style="mso-spacerun: yes">  </span>1.0/0.5<span style="mso-spacerun: yes"> 
+</span>0.0/0.8 } </p>
+
+<p>&nbsp;.<img border=0 width=302 height=200 id="_x0000_i1026" src=normal.gif> </p>
+
+<p>The code to create this 5 point fuzzy set might look something like: </p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='font-size:10.0pt;
+font-family:"Courier New";mso-fareast-font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+double yValues[] = {0, 1, 0.65, 1, 0};</span> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+double xValues[] = {0.1, 0.3, 0.4, 0.5, 0.8};</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+FuzzySet fSet = new FuzzySet( xValues, yValues, 5 );</span></tt> </p>
+
+<p>A fuzzy set defined by a single point, for example { 0.5/25 }, represents a
+single horizontal line (a fuzzy set with membership values of 0.5 for all x
+values). Note that this is <b>not </b>a single point! </p>
+
+<p>To represent such <b><i>singletons</i></b> one might use { 0.0/0.5 1.0/0.5
+0.0/0.5 }. This is in effect a graph that has membership values of zero for all
+x values except at the x value 0.5 where it is 1. This sort of fuzzy set is
+sometimes used to <b><i>fuzzify</i></b> crisp values (when there is no error in
+the x value). Often a crisp value, such as a temperature reading, is valid only
+within some tolerance so other fuzzy set shapes are used to fuzzify the value,
+such as a PIFuzzySet or a TriangleFuzzySet. As of version 1.3 of FuzzyJ, there
+is a SingletonFuzzySet class that allows for easy creation of singleton
+FuzzySets:</p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><tt><span style='font-size:10.0pt;
+font-family:"Courier New"'>&nbsp;&nbsp;&nbsp; FuzzySet fSet = new
+SingletonFuzzySet( 0.5 );</span></tt> </p>
+
+<p>Note that, when possible, the points stored will be optimized in various
+ways to reduce the number required. For example, if three points in a row have
+the same y (membership) value then the middle point will be dropped or if the
+first two or last two points have the same y value then the first or last point
+will be dropped. </p>
+
+<h4><a name="Fuzzy_Set_Hierarchy"></a><a name="_Fuzzy_Set_Hierarchy"></a>Fuzzy
+Set Hierarchy</h4>
+
+<p>To simplify the creation of FuzzySets a hierarchy of subclasses has been
+defined. The FuzzySets that can be built by this set of subclasses represents a
+fairly complete set of common shapes. The user is able to sub-class and
+generate further types to meet specific needs. The hierarchy is shown below. </p>
+
+<p><img border=0 width=522 height=402 id="_x0000_i1027" src=FShierarchy.gif></p>
+
+<p>Each of these is explained in more detail in the <a href="APIdocs/index.html">API
+documentation</a>. However, let's consider the TriangleFuzzySet briefly. It is
+a sub-class of (specialization of) a TrapezoidFuzzySet since it is basically a
+trapezoid shape where the left and right sides of the trapezoid meet at the
+same point. The TrapezoidFuzzySet is a sub-class of the LRFuzzySet which
+defines shapes that have a left (L) part, a right (R) part and a middle part
+(with all values set to 1). The left part slopes from a y-value (membership
+value) of 0 to 1 and can have various shapes. The right part slopes from a
+y-value of 1 to 0, and again can have various shapes. The TrapezoidFuzzySet is
+just an LRFuzzySet with both the left and right parts being linear. The
+LRFuzzySet and the TrapezoidFuzzySet are shown below. </p>
+
+<p><img border=0 width=344 height=240 id="_x0000_i1028" src=LRFuzzySet2.gif><img
+border=0 width=344 height=240 id="_x0000_i1029" src=TrapezoidFS2.gif><br>
+To repeat, the TrapezoidFuzzyset is an LRFuzzySet with the left and right sides
+defined to be linear rather than arbitrary shapes. The TriangleFuzzySet is a
+TrapezoidFuzzySet with points 2 and 3 at the same location. In terms of
+simplicity of generation the TrapezoidFuzzySet can be defined with 4
+x-coordinates and the TriangleFuzzySet only needs 3 x-coordinates, whereas the
+LRFuzzyset requires that the 4 x-coordinates plus two functions that determine
+the shape of the left and right sides. The simple RectangleFuzzySet only needs
+2 x-coordinates to be defined. <br>
+&nbsp; </p>
+
+<h4><a name="Where_are_FuzzySets_Used"></a><a name="_Where_are_Fuzzy"></a>Where
+are Fuzzy Sets Used</h4>
+
+<p>Although one can create Fuzzy Sets and perform various operations on them,
+in general they are mainly used when creating Fuzzy Values and to define the
+linguistic terms of Fuzzy Variables.&nbsp; This is described in the section on <a
+href="FuzzyVariable.html#Fuzzy Sets, Fuzzy Values and Fuzzy">Fuzzy Variables</a>.
+At some point it may be an interesting exercise to add FuzzyNumbers to the
+toolkit. These would be specializations of FuzzySets with a set of operations
+such as addition, subtraction, multiplication and division defined on them. </p>
+
+<h4><a name="_Some_of_the"></a>Some of the Operations on FuzzySets</h4>
+
+<p>The API documentation describes a large number of operations and
+manipulations that can be applied to FuzzySets. Most often there is a
+corresponding capability for FuzzyValues with the restriction that the UOD
+(universe of discourse, or range of x values) must be observed for the
+FuzzyValues and for binary operations, such as intersection and union, the two
+FuzzyValues <u>must</u> have the same FuzzyVariable. The most commonly used
+operations will be (see the <a href="APIdocs/index.html">API documentation</a>
+for the complete set of operations): </p>
+
+<p><b>fuzzyComplement</b> <br>
+Takes the compliment of the FuzzySet. More specifically, it takes the
+compliment of the membership (y) values of the SetPoints of the FuzzySet.
+Mathematically (NOT), u<sub>compl</sub>(x) = 1 - u(x), or y<sub>compl</sub> = 1
+- y. </p>
+
+<p><b>fuzzy Intersection</b> <br>
+Returns the intersection of two FuzzySets. The visual representation of the
+intersection of two example FuzzySets is depicted below. One set is black with
+green SetPoints, and the other set is grey with orange SetPoints. The diagram
+on the left is of the two FuzzySets, and the diagram on the right is of the two
+sets showing the intersection set in red (plain red SetPoints and red lines
+joining them). Intersection is synonymous with the logical operator AND. The
+intersection of two fuzzy sets is (often and specifically in FuzzyJ) defined
+such that the membership (y) value at any x value is the minimum of the
+membership values of the two fuzzy sets.</p>
+
+<p><img border=0 width=320 height=228 id="_x0000_i1030" src=twoSets.gif><img
+border=0 width=329 height=228 id="_x0000_i1031" src=twoSetsIntersection.gif></p>
+
+<p><b>fuzzyUnion</b> <br>
+Returns the union of two FuzzySets. The visual representation of the union of
+two example FuzzySets is depicted below. One set is black with green SetPoints,
+and the other set is grey with orange SetPoints. The diagram on the left is of
+the two FuzzySets, and the diagram on the right is of the two sets showing the
+union set in red (plain red SetPoints and red lines joining them). Union is
+synonymous with the logical operator OR. The union of two fuzzy sets is (often
+and specifically in FuzzyJ) defined such that the membership (y) value at any x
+value is the maximum of the membership values of the two fuzzy sets.</p>
+
+<p><img border=0 width=320 height=234 id="_x0000_i1032" src=twoSets.gif><img
+border=0 width=323 height=240 id="_x0000_i1033" src=twoSetsUnion.gif></p>
+
+<p><b>maximumOfIntersection</b> <br>
+Returns the maximum membership value of the intersection set formed by two
+FuzzySets. Consider the two diagrams below. On the right appears a diagram of
+two sets, one set in black with green SetPoints, and the other set in grey with
+orange SetPoints. The maximum y value of the intersection is denoted by a red
+dot on the graph on the right. </p>
+
+<p><img border=0 width=320 height=227 id="_x0000_i1034" src=twoSets.gif><img
+border=0 width=323 height=227 id="_x0000_i1035" src=twoSetsMaxMin.gif></p>
+
+<p><b>Some Defuzzification Operations on FuzzySets<o:p></o:p></b></p>
+
+<p>Below are some methods that convert a FuzzySet back into a single crisp (non-fuzzy)
+value. This is something that is normally done after a fuzzy decision has been
+made and the fuzzy result must be used in the real world. For example, if the
+final fuzzy decision were to adjust the temperature setting on the thermostat a
+‘little higher’, then it would be necessary to convert this ‘little higher’
+fuzzy value to the ‘best’ crisp value to actually move the thermostat setting
+by some real amount.</p>
+
+<p><b>maximumDefuzzify</b> <br>
+Finds the mean of the maximum values of a fuzzy set as the defuzzification
+value. NOTE: This doesn't always work well because there can be x ranges where
+the y value is constant at the max value and other places where the maximum
+value is only reached for a single x value. When this happens the single value
+gets too much of a say in the defuzzified value. </p>
+
+<p><img border=0 width=433 height=145 id="_x0000_i1036" src=meanOfMaxProb.gif></p>
+
+<p><b>momentDefuzzify</b> <br>
+Moment defuzzification defuzzifies a fuzzy set returning a floating point
+(double value) that represents the fuzzy set. It calculates the first moment of
+area of a fuzzy set about the y axis. The set is subdivided into different
+shapes by partitioning vertically at each point in the set, resulting in
+rectangles, triangles, and trapezoids. The centre of gravity (moment) and area
+of&nbsp;each subdivision is calculated using the appropriate formulas for each
+shape. The first moment of area of the whole set is then: <br>
+<img border=0 width=457 height=121 id="_x0000_i1037" src=momentEquation.gif><br>
+where x<sub>i</sub>' is the local centre of gravity, A<sub>i</sub> is the local
+area of the shape underneath line segment (p<sub>i-1</sub>, p<sub>i</sub>), and
+n is the total number of points. As an example, <br>
+<img border=0 width=408 height=288 id="_x0000_i1038" src=momentGraph.gif><br>
+For each shaded subsection in the diagram above, the area and centre of gravity
+is calculated according to the shape identified (i.e., triangle, rectangle or
+trapezoid). The centre of gravity of the whole set is then determined: </p>
+
+<p style='margin-left:1.0in'>x' = (2.333*1.0 + 3.917*1.6 + 5.5*0.6 +
+6.333*0.3)/(1.0+1.6+0.6+0.3) = 3.943…</p>
+
+<p><b>centerOfAreaDefuzzify (new in version 1.8)<o:p></o:p></b></p>
+
+<p>Center of Area (COA) defuzzification finds the x value such that half of the
+area under the fuzzy set is on each side of the x value. In the case above (in
+the momentDefuzzify section) the total area under the fuzzy set is 3.5
+(1.0+1.6+0.6+0.3). So we would want to find the x value where the area to the
+left and the right both had values of 1.75. This occurs where x <span
+style='color:black'>= </span><span style='mso-bidi-font-size:10.0pt;color:black;
+background:silver;mso-highlight:silver'>3.816699867329622</span><span
+style='mso-bidi-font-size:10.0pt;color:black'>. Note that in general the result
+of momentDefuzzify and centerOfAreaDefuzzify are not the same. Also note that
+in some cases the center of area can be satisfied by more than one value. For
+example, for the fuzzy set defined by the points:<o:p></o:p></span></p>
+
+<p><span style='mso-bidi-font-size:10.0pt;color:black'><span
+style="mso-spacerun: yes">     </span><span style="mso-spacerun:
+yes">    </span>(5,0) (6,1) (7,0) (15,0) (16,1) (17,0)<o:p></o:p></span></p>
+
+<p><span style='mso-bidi-font-size:10.0pt;color:black'>the COA could be any
+value from 7.0 to 15.0 since the 2 identical triangles centered at x=6 and x=16
+lie on either side of 7.0 and 15.0. We will return a value of 11.0 in this case
+(in general we try to find the middle of the possible x values). </span></p>
+
+<p><b>weightedAverageDefuzzify (new in version 1.3)<o:p></o:p></b></p>
+
+<p>Finds the weighted average of the x values of the points that define a fuzzy
+set using the membership values of the points as the weights. This value is
+returned as the defuzzification value.&nbsp; For example, if we have the
+following fuzzy set definition:</p>
+
+<p><img border=0 width=468 height=324 id="_x0000_i1039"
+src=FuzzySet1ForWeightedAvg.jpg></p>
+
+<p>Then the weighted average value of the fuzzy set points will be:</p>
+
+<p style='margin-left:1.0in'>(1.0*0.9 + 4.0*1.0) / (0.9 + 1.0) = 2.579</p>
+
+<p>This is only moderately useful since the value at 1.0 has too much influence
+on the defuzzified result. The moment defuzzification is probably most useful
+in this case. However, a place where this defuzzification method is very useful
+is when the fuzzy set is in fact a series of singleton values. It might be that
+a set of rules is of the Takagi-Sugeno-Kang type (1<sup>st</sup> order) with
+formats like:</p>
+
+<p style='margin-left:1.0in'>If x is A and y is B then c = k</p>
+
+<p>where x and y are fuzzy variables and k is a constant that is represented by
+a singleton fuzzy set. For example we might have rules that look like:</p>
+
+<p style='margin-left:1.0in'>If temperature is low and pressure is low then set
+hot valve to medium_high position</p>
+
+<p style='margin-left:1.0in'>If temperature is high and pressure is high then
+set hot valve to medium_low position</p>
+
+<p style='margin-left:4.0in'><b>. . .<o:p></o:p></b></p>
+
+<p>where the setting of the hot valve has several possibilities, say
+full_closed, low, medium_low, medium_high, high and full_open, and these are
+singleton values rather than normal fuzzy sets. In this case medium_low might
+be 2 on a scale from 0 to 5. </p>
+
+<p>An aggregated conclusion for setting the hot valve position (after all of
+the rules have contributed to the decision) might look like:</p>
+
+<p>&nbsp;<img border=0 width=468 height=324 id="_x0000_i1040"
+src=FuzzySet2ForWeightedAvg.jpg></p>
+
+<p>And the weighted average defuzzification value for this output would be:</p>
+
+<p style='margin-left:1.0in'>(1.0*0.25 + 2.0*1.0 + 3.0*0.5 + 4.0*0.5) / (0.25 +
+1.0 + 0.5 + 0.5) = 2.556</p>
+
+<p>Note that neither a maximum defuzzification nor a moment defuzzification
+would produce a useful result in this situation. The maximum version would use
+only 1 of the points (the maximum one) giving a result of 2.0 (the x value of
+that point), while the moment version would not find any area to work with and
+would generate an exception. This description of the weightedAverageDefuzzify
+method will be clearer after you have completed the sections on <a
+href="FuzzyValue.html">FuzzyValues</a> and <a href="FuzzyRule.html">FuzzyRules</a>.</p>
+
+<h4><a name="Operations_on_FuzzySets"></a><a name="_A_comment_on"></a>A Comment
+on the Range of Membership Values</h4>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'>Although
+the range of allowed membership values is normally [0, 1], it is possible to
+form FuzzySets with membership values &gt; 1.0. There are instances where this
+is desirable. For example in some approaches it is preferred to collect the
+outputs of fuzzy rules by doing a <b>fuzzySum</b> of the resultant FuzzyValues
+(global contribution of rules). The fuzzySum operation can result in FuzzySets
+with membership values &gt; 1.0. When a FuzzySet/FuzzyValue is created with a
+constructor (that uses arrays of Doubles or an array of SetPoints) the values
+are restricted to being between 0 and 1. However, when the fuzzySum operation
+or the methods appendSetPoint and insertSetPoint are used to add points to the
+FuzzySet, membership values &gt; 1 are allowed. </p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'>This
+does have some implications of which the user needs to be aware. For example,
+the fuzzyComplement operation on a FuzzySet will treat membership values &gt; 1
+as if they were 1. It may be desirable at certain times to normalize (or scale)
+FuzzySets that have membership values &gt; 1. </p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'>Do
+note that membership values are always restricted to values &gt;= 0. In most
+cases the negative value is simply changed to a value of 0.</p>
+
+<p>A case where a user might want to allow this to happen is when one wants to
+use the SAM (Standard Additive Model) method as described in Bart Kosko’s book,
+Fuzzy Engineering (<a href="references.html">see reference section</a>). In
+this case, the collection of fuzzy outputs from multiple rules (global
+contribution) is done by adding (a fuzzySum of) the outputs. The resultant sum
+is then defuzzified using the momentDefuzzify method to give the required
+result. In order to completely perform the SAM method one would also need to
+ensure that the RuleExecutor was set to be a MamdaniMinMaxMinRuleExecutor and
+that the operator used to collect the results from multiple antecedents in a
+rule was the ProductAntecedentCombineOperator. This is explained in more detail
+elsewhere.</p>
+
+<p><a href="index.html">Return to Table of Contents</a></p>
+
+</div>
+
+</body>
+
+</html>

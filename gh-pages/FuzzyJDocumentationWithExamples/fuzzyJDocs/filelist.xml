@@ -1,0 +1,8 @@
+<xml xmlns:o="urn:schemas-microsoft-com:office:office">
+ <o:MainFile HRef="./"/>
+ <o:File HRef="SingletonFuzzySet.gif"/>
+ <o:File HRef="LeftLinearFuzzySet.gif"/>
+ <o:File HRef="RightLinearFuzzySet.gif"/>
+ <o:File HRef="confineToXBounds.gif"/>
+ <o:File HRef="filelist.xml"/>
+</xml>
