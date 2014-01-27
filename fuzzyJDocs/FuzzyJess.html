@@ -18,17 +18,17 @@ xmlns:css="http://macVmlSchemaUri" xmlns="http://www.w3.org/TR/REC-html40">
   <o:Author>rorchard</o:Author>
   <o:Template>Normal.dotm</o:Template>
   <o:LastAuthor>Bob Orchard</o:LastAuthor>
-  <o:Revision>54</o:Revision>
-  <o:TotalTime>1164</o:TotalTime>
+  <o:Revision>56</o:Revision>
+  <o:TotalTime>1168</o:TotalTime>
   <o:Created>2002-07-25T12:11:00Z</o:Created>
-  <o:LastSaved>2014-01-27T18:07:00Z</o:LastSaved>
+  <o:LastSaved>2014-01-27T18:13:00Z</o:LastSaved>
   <o:Pages>4</o:Pages>
-  <o:Words>4503</o:Words>
-  <o:Characters>25671</o:Characters>
+  <o:Words>4526</o:Words>
+  <o:Characters>25801</o:Characters>
   <o:Company>National Research Council</o:Company>
-  <o:Lines>213</o:Lines>
+  <o:Lines>215</o:Lines>
   <o:Paragraphs>51</o:Paragraphs>
-  <o:CharactersWithSpaces>31525</o:CharactersWithSpaces>
+  <o:CharactersWithSpaces>31685</o:CharactersWithSpaces>
   <o:Version>12.0</o:Version>
  </o:DocumentProperties>
  <o:OfficeDocumentSettings>
@@ -37,6 +37,7 @@ xmlns:css="http://macVmlSchemaUri" xmlns="http://www.w3.org/TR/REC-html40">
 </xml><![endif]--><!--[if gte mso 9]><xml>
  <w:WordDocument>
   <w:Zoom>150</w:Zoom>
+  <w:GrammarState>Clean</w:GrammarState>
   <w:TrackMoves>false</w:TrackMoves>
   <w:TrackFormatting/>
   <w:ValidateAgainstSchemas/>
@@ -45,11 +46,6 @@ xmlns:css="http://macVmlSchemaUri" xmlns="http://www.w3.org/TR/REC-html40">
   <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
   <w:Compatibility>
    <w:SplitPgBreakAndParaMark/>
-   <w:DontVertAlignCellWithSp/>
-   <w:DontBreakConstrainedForcedTables/>
-   <w:DontVertAlignInTxbx/>
-   <w:Word11KerningPairs/>
-   <w:CachedColBalance/>
    <w:UseFELayout/>
   </w:Compatibility>
  </w:WordDocument>
@@ -64,6 +60,18 @@ li.MSOBODYTEXTINDENT
 	{mso-bidi-font-size:10pt;}
 div.MSOBODYTEXTINDENT
 	{mso-bidi-font-size:10pt;}
+h3
+	{mso-bidi-font-size:10pt;
+	mso-bidi-font-weight:normal;}
+h4
+	{mso-bidi-font-size:10pt;
+	mso-bidi-font-weight:normal;}
+span.BODYTEXTINDENTCHAR
+	{mso-style-locked:yes;}
+span.HEADING3CHAR
+	{mso-style-locked:yes;}
+span.HEADING4CHAR
+	{mso-style-locked:yes;}
 
  /* Font Definitions */
 @font-face
@@ -105,7 +113,6 @@ h3
 	mso-pagination:widow-orphan;
 	mso-outline-level:3;
 	font-size:13.5pt;
-	mso-bidi-font-size:10.0pt;
 	font-family:"Times New Roman";
 	mso-ascii-font-family:Times;
 	mso-fareast-font-family:"Times New Roman";
@@ -113,8 +120,7 @@ h3
 	mso-hansi-font-family:Times;
 	mso-bidi-font-family:"Times New Roman";
 	mso-bidi-theme-font:minor-bidi;
-	font-weight:bold;
-	mso-bidi-font-weight:normal;}
+	font-weight:bold;}
 h4
 	{mso-style-link:"Heading 4 Char";
 	margin:0cm;
@@ -122,7 +128,6 @@ h4
 	mso-pagination:widow-orphan;
 	mso-outline-level:4;
 	font-size:12.0pt;
-	mso-bidi-font-size:10.0pt;
 	font-family:"Times New Roman";
 	mso-ascii-font-family:Times;
 	mso-fareast-font-family:"Times New Roman";
@@ -130,8 +135,7 @@ h4
 	mso-hansi-font-family:Times;
 	mso-bidi-font-family:"Times New Roman";
 	mso-bidi-theme-font:minor-bidi;
-	font-weight:bold;
-	mso-bidi-font-weight:normal;}
+	font-weight:bold;}
 p.MsoBodyTextIndent, li.MsoBodyTextIndent, div.MsoBodyTextIndent
 	{mso-style-link:"Body Text Indent Char";
 	margin-top:0cm;
@@ -169,18 +173,8 @@ tt
 	mso-fareast-font-family:"Courier New";
 	mso-hansi-font-family:"Courier New";
 	mso-bidi-font-family:"Courier New";}
-span.BodyTextIndentChar
-	{mso-style-name:"Body Text Indent Char";
-	mso-style-noshow:yes;
-	mso-style-locked:yes;
-	mso-style-link:"Body Text Indent";
-	font-family:"Times New Roman";
-	mso-ascii-font-family:"Times New Roman";
-	mso-fareast-font-family:"Times New Roman";
-	mso-hansi-font-family:"Times New Roman";}
 span.Heading3Char
 	{mso-style-name:"Heading 3 Char";
-	mso-style-noshow:yes;
 	mso-style-locked:yes;
 	mso-style-link:"Heading 3";
 	font-family:Calibri;
@@ -196,7 +190,6 @@ span.Heading3Char
 	font-weight:bold;}
 span.Heading4Char
 	{mso-style-name:"Heading 4 Char";
-	mso-style-noshow:yes;
 	mso-style-locked:yes;
 	mso-style-link:"Heading 4";
 	font-family:Calibri;
@@ -211,6 +204,17 @@ span.Heading4Char
 	color:#4F81BD;
 	font-weight:bold;
 	font-style:italic;}
+span.BodyTextIndentChar
+	{mso-style-name:"Body Text Indent Char";
+	mso-style-locked:yes;
+	mso-style-link:"Body Text Indent";
+	font-family:"Times New Roman";
+	mso-ascii-font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	mso-hansi-font-family:"Times New Roman";}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
 @page Section1
 	{size:612.0pt 792.0pt;
 	margin:72.0pt 90.0pt 72.0pt 90.0pt;
@@ -243,6 +247,7 @@ table.MsoNormalTable
 </style>
 <![endif]-->
 <meta name=Author content="Bob Orchard">
+<meta name=Author content="Bob Orchard">
 <!--[if gte mso 9]><xml>
  <o:shapedefaults v:ext="edit" spidmax="1027"/>
 </xml><![endif]--><!--[if gte mso 9]><xml>
@@ -250,14 +255,14 @@ table.MsoNormalTable
   <o:idmap v:ext="edit" data="1"/>
  </o:shapelayout></xml><![endif]-->
 <meta name=Author content="Bob Orchard">
+<meta name=Author content="Bob Orchard">
 </head>
 
 <body lang=EN-US link=blue vlink=blue style='tab-interval:36.0pt'>
 
 <div class=Section1>
 
-<h3 align=center style='margin-top:.1pt;margin-right:0cm;margin-bottom:.1pt;
-margin-left:0cm;text-align:center'><span style='font-family:"Comic Sans MS"'>FuzzyJess</span></h3>
+<h3 align=center style='text-align:center'><span style='font-family:"Comic Sans MS"'>FuzzyJess</span></h3>
 
 <p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman"'><a
 href="#Some_Background">Background</a> <br>
@@ -276,8 +281,9 @@ href="#_Summary_of_the">Summary of the FuzzyJess Functions</a> <o:p></o:p></span
 
 <p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
 
-<h4 style='margin-top:.1pt;margin-right:0cm;margin-bottom:.1pt;margin-left:
-0cm'><a name="Some_Background"></a>Some Background</h4>
+<h4><a name="Some_Background"></a>Some Background</h4>
+
+<h4><o:p>&nbsp;</o:p></h4>
 
 <p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman"'>The NRC
 FuzzyJ Toolkit can be used to create Java programs that encode fuzzy operations
@@ -303,18 +309,21 @@ reasonable to expend the effort to create a portable set of classes in Java and
 link these with Jess. This fits well with the concept of Jess. There is no
 object system (like the COOL of CLIPS) provided in Jess. Instead it is well
 integrated with the objects of Java. This provides a good mix between an object
-system and a rule based system allowing one to do the most appropriate things
-in each. The challenge has been to provide an integration of the FuzzyJ Toolkit
-and Jess, providing many of the capabilities of a FuzzyCLIPS, while minimizing
-the code changes to Jess classes. What we describe here is the result of this
-effort, what we call FuzzyJess. Of course there have been tradeoffs and the
-syntax from FuzzyCLIPS did not survive, but the result is in many ways better
-and more flexible, allowing users to be more creative and making it much
-simpler to maintain. <o:p></o:p></span></p>
+system and a <span class=GramE>rule based</span> system allowing one to do the
+most appropriate things in each. The challenge has been to provide an
+integration of the FuzzyJ Toolkit and Jess, providing many of the capabilities
+of a FuzzyCLIPS, while minimizing the code changes to Jess classes. What we
+describe here is the result of this effort, what we call FuzzyJess. Of course
+there have been tradeoffs and the syntax from FuzzyCLIPS did not survive, but
+the result is in many ways better and more flexible, allowing users to be more
+creative and making it much simpler to maintain. <o:p></o:p></span></p>
 
-<h4 style='margin-top:.1pt;margin-right:0cm;margin-bottom:.1pt;margin-left:
-0cm'><a name="Simple_Example_Using_Only_Jess_Code"></a><a
+<p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+
+<h4><a name="Simple_Example_Using_Only_Jess_Code"></a><a
 name="_Simple_Example_Using"></a>Simple Example Using Only Jess Code</h4>
+
+<h4><o:p>&nbsp;</o:p></h4>
 
 <p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman"'>A small
 example will serve to introduce the basic concepts for creating fuzzy rules in
@@ -324,53 +333,65 @@ easily reference Java classes and this allows one to work entirely in Jess when
 appropriate. This example is pretty much identical to the one we coded in the
 section on FuzzyRules (<a
 href="FuzzyRule.html#Simple%20Example%20using%20Java%20Code">Simple Example
-using Java code</a>) where we only used Java. An assumption is made that the
-reader has a reasonable knowledge of Jess and has at least a basic
-understanding of the FuzzyJ Toolkit (Fuzzy Variables, Fuzzy Values, and
-FuzzyRules). <o:p></o:p></span></p>
+using Java code</a>) where we only used Java. An assumption is made that the reader
+has a reasonable knowledge of Jess and has at least a basic understanding of
+the FuzzyJ Toolkit (Fuzzy Variables, Fuzzy Values, and FuzzyRules). <o:p></o:p></span></p>
 
-<p style='margin-top:.1pt;margin-right:0cm;margin-bottom:.1pt;margin-left:0cm'>In
-English-like syntax the rule being implemented can be written as: </p>
+<p>In English-like syntax the rule being implemented can be written as: </p>
 
-<p class=MsoNormal style='margin-top:.1pt;margin-right:36.0pt;margin-bottom:
-.1pt;margin-left:36.0pt;mso-para-margin-top:.01gd;mso-para-margin-right:36.0pt;
-mso-para-margin-bottom:.01gd;mso-para-margin-left:36.0pt'><tt><b
-style='mso-bidi-font-weight:normal'><span style='font-size:10.0pt'>if</span></b></tt><tt><span
-style='font-size:10.0pt'>&nbsp;&nbsp; temperature is hot</span></tt><span
-style='mso-bidi-font-family:"Times New Roman"'> <br>
-</span><tt><b style='mso-bidi-font-weight:normal'><span style='font-size:10.0pt'>then</span></b></tt><tt><span
-style='font-size:10.0pt'> pressure is low or medium</span></tt><span
-style='mso-bidi-font-family:"Times New Roman"'><o:p></o:p></span></p>
+<p><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:72.0pt;margin-bottom:
+0cm;margin-left:72.0pt;margin-bottom:.0001pt'><span class=GramE><tt><b
+style='mso-bidi-font-weight:normal;mso-bidi-font-weight:normal'><span
+style='font-size:10.0pt'>if</span></b></tt></span><tt><span style='font-size:
+10.0pt'>&nbsp;&nbsp; temperature is hot</span></tt><span style='mso-bidi-font-family:
+"Times New Roman"'> <br>
+</span><tt><b style='mso-bidi-font-weight:normal;mso-bidi-font-weight:normal'><span
+style='font-size:10.0pt'>then</span></b></tt><tt><span style='font-size:10.0pt'>
+pressure is low or medium<o:p></o:p></span></tt></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:72.0pt;margin-bottom:
+0cm;margin-left:72.0pt;margin-bottom:.0001pt'><span style='mso-bidi-font-family:
+"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
 
 <p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman"'>Then by
 providing an input value for the temperature, in this case <i style='mso-bidi-font-style:
-normal'>temperature is very medium</i>, the rule can be fired and a fuzzy
-conclusion is provided as the output of the rule firing. <o:p></o:p></span></p>
+normal;mso-bidi-font-style:normal'>temperature is very medium</i>, the rule can
+be fired and a fuzzy conclusion is provided as the output of the rule firing. <o:p></o:p></span></p>
 
-<p class=MsoNormal style='margin-top:.1pt;margin-right:36.0pt;margin-bottom:
-.1pt;margin-left:36.0pt;mso-para-margin-top:.01gd;mso-para-margin-right:36.0pt;
-mso-para-margin-bottom:.01gd;mso-para-margin-left:36.0pt'><tt><b
-style='mso-bidi-font-weight:normal'><span style='font-size:10.0pt'>;; Two
-globals to hold our two FuzzyVariables for temperature and pressure</span></b></tt><span
-style='mso-bidi-font-family:"Times New Roman"'> <br>
-</span><tt><span style='font-size:10.0pt'>(defglobal ?*tempFvar* = (new
-nrc.fuzzy.FuzzyVariable &quot;temperature&quot; 0.0 100.0 &quot;C&quot;))</span></tt><span
-style='mso-bidi-font-family:"Times New Roman"'> <br>
-</span><tt><span style='font-size:10.0pt'>(defglobal ?*pressFvar* = (new
-nrc.fuzzy.FuzzyVariable &quot;pressure&quot; 0.0 10.0
-&quot;kilo-pascals&quot;))</span></tt><span style='mso-bidi-font-family:"Times New Roman"'>
-<o:p></o:p></span></p>
+<p class=MsoNormal style='margin-top:0cm;margin-right:72.0pt;margin-bottom:
+0cm;margin-left:72.0pt;margin-bottom:.0001pt'><span style='mso-bidi-font-family:
+"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
 
-<p style='margin-top:.1pt;margin-right:36.0pt;margin-bottom:.1pt;margin-left:
-36.0pt'><tt><b style='mso-bidi-font-weight:normal'><span style='font-size:10.0pt'>;;
-An initialization rule that adds the terms to the FuzzyVariables and</span></b></tt>
-<br>
-<tt><b style='mso-bidi-font-weight:normal'><span style='font-size:10.0pt'>;;
-asserts the input FuzzyValue 'temperature is very medium'</span></b></tt> <br>
+<p class=MsoNormal style='margin-top:0cm;margin-right:72.0pt;margin-bottom:
+0cm;margin-left:36.0pt;margin-bottom:.0001pt'><span class=GramE><tt><b
+style='mso-bidi-font-weight:normal'><span style='font-size:10.0pt'>;;</span></b></tt></span><tt><b
+style='mso-bidi-font-weight:normal'><span style='font-size:10.0pt'> Two globals
+to hold our two FuzzyVariables for temperature and pressure</span></b></tt><span
+style='mso-bidi-font-family:"Times New Roman"'> <br>
+</span><tt><span style='font-size:10.0pt'><span style="mso-spacerun:
+yes">&nbsp;</span>(defglobal ?*tempFvar* = (new nrc.fuzzy.FuzzyVariable
+&quot;temperature&quot; 0.0 100.0 &quot;C&quot;))</span></tt><span
+style='mso-bidi-font-family:"Times New Roman"'> <br>
+</span><tt><span style='font-size:10.0pt'><span style="mso-spacerun:
+yes">&nbsp;</span>(defglobal ?*pressFvar* = (new nrc.fuzzy.FuzzyVariable
+&quot;pressure&quot; 0.0 10.0 &quot;kilo-pascals&quot;))</span></tt><span
+style='mso-bidi-font-family:"Times New Roman"'> <o:p></o:p></span></p>
+
+<p style='margin-top:0cm;margin-right:36.0pt;margin-bottom:0cm;margin-left:
+36.0pt;margin-bottom:.0001pt'><span class=GramE><tt><b style='mso-bidi-font-weight:
+normal;mso-bidi-font-weight:normal'><span style='font-size:10.0pt'>;;</span></b></tt></span><tt><b
+style='mso-bidi-font-weight:normal'><span style='font-size:10.0pt'> An initialization
+rule that adds the terms to the FuzzyVariables and</span></b></tt> <br>
+<tt><b style='mso-bidi-font-weight:normal;mso-bidi-font-weight:normal'><span
+style='font-size:10.0pt'>;; asserts the input FuzzyValue 'temperature is very
+medium'</span></b></tt> <br>
 <tt><span style='font-size:10.0pt'>(defrule init</span></tt> <br>
 <tt><span style='font-size:10.0pt'>&nbsp; =&gt;</span></tt> <br>
 <tt><span style='font-size:10.0pt'>&nbsp;&nbsp; (<b style='mso-bidi-font-weight:
-normal'>load-package</b> nrc.fuzzy.jess.<b style='mso-bidi-font-weight:normal'>FuzzyFunctions</b>)</span></tt>
+normal;mso-bidi-font-weight:normal'>load-package</b> nrc.fuzzy.jess.<b
+style='mso-bidi-font-weight:normal;mso-bidi-font-weight:normal'>FuzzyFunctions</b>)</span></tt>
 <br>
 <tt><span style='font-size:10.0pt'>&nbsp;&nbsp; (bind ?xHot&nbsp; (create$ 25.0
 35.0))</span></tt> <br>
@@ -386,8 +407,8 @@ Fuzzy Variable</span></tt> <br>
 &quot;hot&quot; ?xHot ?yHot 2)</span></tt> <br>
 <tt><span style='font-size:10.0pt'>&nbsp;&nbsp; (?*tempFvar* addTerm
 &quot;cold&quot; ?xCold ?yCold 2)</span></tt> <br>
-<tt><span style='font-size:10.0pt'>&nbsp;&nbsp; (?*tempFvar* addTerm
-&quot;veryHot&quot; &quot;very hot&quot;)</span></tt> <br>
+<tt><span style='font-size:10.0pt'>&nbsp;&nbsp; (?*tempFvar* addTerm &quot;veryHot&quot;
+&quot;very hot&quot;)</span></tt> <br>
 <tt><span style='font-size:10.0pt'>&nbsp;&nbsp; (?*tempFvar* addTerm
 &quot;medium&quot; &quot;not hot and (not cold)&quot;)</span></tt> <br>
 <tt><span style='font-size:10.0pt'>&nbsp;&nbsp; ;; terms for the pressure Fuzzy
@@ -399,29 +420,34 @@ Variable</span></tt> <br>
 <tt><span style='font-size:10.0pt'>&nbsp;&nbsp; (?*pressFvar* addTerm
 &quot;high&quot; (new nrc.fuzzy.SFuzzySet 2.0 5.0))</span></tt> </p>
 
-<p style='margin-top:.1pt;margin-right:36.0pt;margin-bottom:.1pt;margin-left:
-36.0pt'><tt><span style='font-size:10.0pt'>&nbsp;&nbsp; ;; add the fuzzy input
--- temperature is very medium</span></tt> <br>
+<p style='margin-top:0cm;margin-right:36.0pt;margin-bottom:0cm;margin-left:
+36.0pt;margin-bottom:.0001pt'><tt><span style='font-size:10.0pt'>&nbsp;&nbsp; <span
+class=GramE>;;</span> add the fuzzy input -- temperature is very medium</span></tt>
+<br>
 <tt><span style='font-size:10.0pt'>&nbsp;&nbsp; (assert (theTemp (new
 nrc.fuzzy.FuzzyValue ?*tempFvar* &quot;very medium&quot;)))</span></tt> <br>
-<tt><span style='font-size:10.0pt'>)</span></tt> </p>
+<tt><span style='font-size:10.0pt'>)</span></tt> <o:p></o:p></p>
 
-<p style='margin-top:.1pt;margin-right:36.0pt;margin-bottom:.1pt;margin-left:
-36.0pt'><tt><b style='mso-bidi-font-weight:normal'><span style='font-size:10.0pt'>;;
-the rule 'if temperature hot then pressure low or medium'</span></b></tt> <br>
+<p style='margin-top:0cm;margin-right:36.0pt;margin-bottom:0cm;margin-left:
+36.0pt;margin-bottom:.0001pt'><span class=GramE><tt><b style='mso-bidi-font-weight:
+normal;mso-bidi-font-weight:normal'><span style='font-size:10.0pt'>;;</span></b></tt></span><tt><b
+style='mso-bidi-font-weight:normal'><span style='font-size:10.0pt'> the rule
+'if temperature hot then pressure low or medium'</span></b></tt> <br>
 <tt><span style='font-size:10.0pt'>(defrule temp-hot-press-lowOrMedium</span></tt>
 <br>
 <tt><span style='font-size:10.0pt'>&nbsp;&nbsp; (theTemp ?t&amp;:(<b
-style='mso-bidi-font-weight:normal'>fuzzy-match</b> ?t &quot;hot&quot;))</span></tt>
-<br>
+style='mso-bidi-font-weight:normal;mso-bidi-font-weight:normal'>fuzzy-match</b>
+?t &quot;hot&quot;))</span></tt> <br>
 <tt><span style='font-size:10.0pt'>&nbsp;=&gt;</span></tt> <br>
 <tt><span style='font-size:10.0pt'>&nbsp;&nbsp; (assert (thePress (new
 nrc.fuzzy.FuzzyValue ?*pressFvar* &quot;low or medium&quot;)))</span></tt> <br>
-<tt><span style='font-size:10.0pt'>)</span></tt> </p>
+<tt><span style='font-size:10.0pt'>)</span></tt> <o:p></o:p></p>
 
-<p style='margin-top:.1pt;margin-right:36.0pt;margin-bottom:.1pt;margin-left:
-36.0pt'><tt><b style='mso-bidi-font-weight:normal'><span style='font-size:10.0pt'>;;
-a rule to print some interesting things</span></b></tt> <br>
+<p style='margin-top:0cm;margin-right:36.0pt;margin-bottom:0cm;margin-left:
+36.0pt;margin-bottom:.0001pt'><span class=GramE><tt><b style='mso-bidi-font-weight:
+normal;mso-bidi-font-weight:normal'><span style='font-size:10.0pt'>;;</span></b></tt></span><tt><b
+style='mso-bidi-font-weight:normal'><span style='font-size:10.0pt'> a rule to
+print some interesting things</span></b></tt> <br>
 <tt><span style='font-size:10.0pt'>(defrule do-the-printing</span></tt> <br>
 <tt><span style='font-size:10.0pt'>&nbsp;&nbsp; (theTemp ?t)</span></tt> <br>
 <tt><span style='font-size:10.0pt'>&nbsp;&nbsp; (thePress ?p)</span></tt> <br>
@@ -434,48 +460,54 @@ a rule to print some interesting things</span></b></tt> <br>
 (create$ (new nrc.fuzzy.FuzzyValue ?*tempFvar* &quot;hot&quot;) ?t)</span></tt>
 <br>
 <tt><span style='font-size:10.0pt'>&nbsp;&nbsp; )</span></tt> <br>
-<tt><span style='font-size:10.0pt'>&nbsp;&nbsp; (printout t (call
-nrc.fuzzy.FuzzyValue plotFuzzyValues &quot;*+&quot; ?theFzVals) crlf)</span></tt>
-<br>
+<tt><span style='font-size:10.0pt'>&nbsp;&nbsp; (printout t (call nrc.fuzzy.FuzzyValue
+plotFuzzyValues &quot;*+&quot; ?theFzVals) crlf)</span></tt> <br>
 <tt><span style='font-size:10.0pt'>&nbsp;&nbsp; (printout t (call (new
 nrc.fuzzy.FuzzyValue ?*pressFvar* &quot;low or medium&quot;)</span></tt> <br>
 <tt><span style='font-size:10.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 plotFuzzyValue &quot;*&quot;) crlf)</span></tt> <br>
 <tt><span style='font-size:10.0pt'>&nbsp;&nbsp; (printout t (?p plotFuzzyValue
 &quot;*&quot;) crlf)</span></tt> <br>
-<tt><span style='font-size:10.0pt'>)</span></tt></p>
+<tt><span style='font-size:10.0pt'>)<o:p></o:p></span></tt></p>
+
+<p style='margin-top:0cm;margin-right:36.0pt;margin-bottom:0cm;margin-left:
+36.0pt;margin-bottom:.0001pt'><o:p>&nbsp;</o:p></p>
 
 <p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman"'>The
 first part is pretty straightforward; create the FuzzyVariables we need to
 represent the concepts of temperature and pressure. We store these in global
 variables. Do note that the code will look much less complicated if we use the <i
-style='mso-bidi-font-style:normal'>import</i> function of Jess since we could
-then just use FuzzyVariable and FuzzyValue etc. rather than
-nrc.fuzzy.FuzzyVariable (package names dropped). <o:p></o:p></span></p>
+style='mso-bidi-font-style:normal;mso-bidi-font-style:normal'>import</i>
+function of Jess since we could then just use FuzzyVariable and FuzzyValue etc.
+rather than nrc.fuzzy.FuzzyVariable (package names dropped). <o:p></o:p></span></p>
 
-<p style='margin-top:.1pt;margin-right:0cm;margin-bottom:.1pt;margin-left:0cm'>Then
-we have an initialization rule that adds the appropriate terms to the
+<p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+
+<p>Then we have an initialization rule that adds the appropriate terms to the
 FuzzyVariables so we can describe our concepts. We add many more terms than we
 need for the example but it does show various ways to define the terms. Nothing
 too weird here or hard to understand if you check out the addTerm method for a
 FuzzyVariable in the API documentation and you know that the load-package
 function loads some necessary user functions (such as <b style='mso-bidi-font-weight:
-normal'>fuzzy-match</b>) that support fuzzy capabilities. The last thing to be
-done in the init rule is to assert a temperature fact that has a FuzzyValue in
-it. We used an <i style='mso-bidi-font-style:normal'>ordered</i> fact in this
-case but slots in <i style='mso-bidi-font-style:normal'>unordered</i> facts can
-also hold FuzzyValues. </p>
+normal;mso-bidi-font-weight:normal'>fuzzy-match</b>) that support fuzzy
+capabilities. The last thing to be done in the init rule is to assert a
+temperature fact that has a FuzzyValue in it. We used an <i style='mso-bidi-font-style:
+normal;mso-bidi-font-style:normal'>ordered</i> fact in this case but slots in <i
+style='mso-bidi-font-style:normal;mso-bidi-font-style:normal'>unordered</i>
+facts can also hold FuzzyValues. </p>
 
-<p style='margin-top:.1pt;margin-right:0cm;margin-bottom:.1pt;margin-left:0cm'>The
-next rule is the heart of the program. Notice that it is quite compact and not
-too difficult to read the intent. It is not quite as clean as a FuzzyCLIPS rule
-(for those of you familiar with FuzzyCLIPS) but is still pretty simple. In
-FuzzyCLIPS it would have been: </p>
+<p><o:p>&nbsp;</o:p></p>
 
-<p class=MsoNormal style='margin-top:.1pt;margin-right:36.0pt;margin-bottom:
-.1pt;margin-left:36.0pt;mso-para-margin-top:.01gd;mso-para-margin-right:36.0pt;
-mso-para-margin-bottom:.01gd;mso-para-margin-left:36.0pt'><tt><span
-style='font-size:10.0pt'>(defrule temp-hot-press-lowOrMedium</span></tt><span
+<p>The next rule is the heart of the program. Notice that it is quite compact
+and not too difficult to read the intent. It is not quite as clean as a
+FuzzyCLIPS rule (for those of you familiar with FuzzyCLIPS) but is still pretty
+simple. In FuzzyCLIPS it would have been:</p>
+
+<p><span style="mso-spacerun: yes">&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:72.0pt;margin-bottom:
+0cm;margin-left:72.0pt;margin-bottom:.0001pt'><tt><span style='font-size:10.0pt'>(<span
+class=GramE>defrule</span> temp-hot-press-lowOrMedium</span></tt><span
 style='mso-bidi-font-family:"Times New Roman"'> <br>
 </span><tt><span style='font-size:10.0pt'>&nbsp;&nbsp; (temperature hot)</span></tt><span
 style='mso-bidi-font-family:"Times New Roman"'> <br>
@@ -483,8 +515,11 @@ style='mso-bidi-font-family:"Times New Roman"'> <br>
 style='mso-bidi-font-family:"Times New Roman"'> <br>
 </span><tt><span style='font-size:10.0pt'>&nbsp;&nbsp; (assert (pressure low or
 medium))</span></tt><span style='mso-bidi-font-family:"Times New Roman"'> <br>
-</span><tt><span style='font-size:10.0pt'>)</span></tt><span style='mso-bidi-font-family:
-"Times New Roman"'><o:p></o:p></span></p>
+</span><tt><span style='font-size:10.0pt'>)<o:p></o:p></span></tt></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:72.0pt;margin-bottom:
+0cm;margin-left:72.0pt;margin-bottom:.0001pt'><span style='mso-bidi-font-family:
+"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
 
 <p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman"'>Note
 the lack of strings for &quot;hot&quot; and &quot;low or medium&quot;. Also
@@ -492,253 +527,272 @@ there is no function (fuzzy-match) required to compare the fuzzy pattern
 &quot;hot&quot; to the fuzzy value in the input, This comparison is implicit
 and the parse of FuzzyCLIPS generates some internal code to do this. However,
 in some sense one might argue that the FuzzyJess code is easier to understand.
-So, what is happening here? When a <i style='mso-bidi-font-style:normal'>temperature</i>
-fact is asserted that has a FuzzyValue in it, the <b style='mso-bidi-font-weight:
+So, what is happening here? When a <i style='mso-bidi-font-style:normal;
+mso-bidi-font-style:normal'>temperature</i> fact is asserted that has a
+FuzzyValue in it, the <b style='mso-bidi-font-weight:normal;mso-bidi-font-weight:
 normal'>fuzzy-match</b> will compare the FuzzyValue in the fact to the
-FuzzyValue <i style='mso-bidi-font-style:normal'>hot</i>. In this case the
-fuzzy-match function will succeed since there is overlap between the two
-FuzzyValues. Internally Jess will <i style='mso-bidi-font-style:normal'>remember</i>
-the pair of FuzzyValues that matched and will use them when the rule fires and
-tries to assert other facts with FuzzyValues. The default value for matching is
-that the intersection of the two fuzzy values must have a maximum value greater
-than 0. In other words if they intersect at all they match enough to allow the
-function to return true. A user can change this behaviour by setting the <i
-style='mso-bidi-font-style:normal'>tolerance</i> for fuzzy matching to be
+FuzzyValue <i style='mso-bidi-font-style:normal;mso-bidi-font-style:normal'>hot</i>.
+In this case the fuzzy-match function will succeed since there is overlap
+between the two FuzzyValues. Internally Jess will <i style='mso-bidi-font-style:
+normal;mso-bidi-font-style:normal'>remember</i> the pair of FuzzyValues that
+matched and will use them when the rule fires and tries to assert other facts
+with FuzzyValues. The default value for matching is that the intersection of
+the two fuzzy values must have a maximum value greater than 0. In other words
+if they intersect at all they match enough to allow the function to return
+true. A user can change this behaviour by setting the <i style='mso-bidi-font-style:
+normal;mso-bidi-font-style:normal'>tolerance</i> for fuzzy matching to be
 greater than 0. This is done using the static method of the FuzzyValue class.
 In Jess one would do, <o:p></o:p></span></p>
 
-<p class=MsoNormal style='margin-top:.1pt;margin-right:36.0pt;margin-bottom:
-.1pt;margin-left:36.0pt;mso-para-margin-top:.01gd;mso-para-margin-right:36.0pt;
-mso-para-margin-bottom:.01gd;mso-para-margin-left:36.0pt'><tt><span
-style='font-size:10.0pt'>(call nrc.fuzzy.FuzzyValue setMatchThreshold 0.2)</span></tt><span
-style='mso-bidi-font-family:"Times New Roman"'><o:p></o:p></span></p>
+<p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
 
-<p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman"'>for
-example. This has the effect of strengthening the matching requirement. Here
-again it is the user who must determine the meaning of such an act. <o:p></o:p></span></p>
+<p class=MsoNormal style='margin-top:0cm;margin-right:72.0pt;margin-bottom:
+0cm;margin-left:72.0pt;margin-bottom:.0001pt'><tt><span style='font-size:10.0pt'>(<span
+class=GramE>call</span> nrc.fuzzy.FuzzyValue setMatchThreshold 0.2)<o:p></o:p></span></tt></p>
 
-<p style='margin-top:.1pt;margin-right:0cm;margin-bottom:.1pt;margin-left:0cm'>On
-the right hand side nothing special occurs unless <i style='mso-bidi-font-style:
-normal'>theTemp</i> fact with a fuzzy value in it is asserted. In the example
-we have such a fact asserted: </p>
+<p class=MsoNormal style='margin-top:0cm;margin-right:72.0pt;margin-bottom:
+0cm;margin-left:72.0pt;margin-bottom:.0001pt'><span style='mso-bidi-font-family:
+"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
 
-<p style='margin-top:.1pt;margin-right:0cm;margin-bottom:.1pt;margin-left:0cm'><tt><span
-style='font-size:10.0pt'>&nbsp;&nbsp;&nbsp; (theTemp (new nrc.fuzzy.FuzzyValue
-?*tempFvar* &quot;very medium&quot;))</span></tt> </p>
+<p class=MsoNormal><span class=GramE><span style='mso-bidi-font-family:"Times New Roman"'>for</span></span><span
+style='mso-bidi-font-family:"Times New Roman"'> example. This has the effect of
+strengthening the matching requirement. Here again it is the user who must
+determine the meaning of such an act. <o:p></o:p></span></p>
 
-<p style='margin-top:.1pt;margin-right:0cm;margin-bottom:.1pt;margin-left:0cm'>At
-this point a number of things are done. Using all of the <i style='mso-bidi-font-style:
-normal'>remembered</i> antecendent/input pairs that matched on the LHS (left
-hand side) of the rule, a FuzzyRule is constructed (if it has not already been
-constructed by another assert on the RHS (right hand side) of the rule). The
-FuzzyValues identified in the fact being asserted are added as outputs for the
-FuzzyRule and it is fired, producing the actual FuzzyValues that will be placed
-in the FuzzyValue positions of the asserted fact. In our case, the antecedent
-and the input FuzzyValues are <i style='mso-bidi-font-style:normal'>temperature
-hot</i> and <i style='mso-bidi-font-style:normal'>temperature very medium</i>.
-They overlapped and were remembered and used to construct the FuzzyRule. The
-output FuzzyValue from the assert function, <i style='mso-bidi-font-style:normal'>pressure
-low or medium</i>, is added to the rule and it is fired. The output FuzzyValue
-is then placed into the actual fact that is asserted. The results are shown
-below. This might sound complicated but the FuzzyJess user does not need to be
-aware of all of these details. The user simply needs to know that it is
-necessary to use the fuzzy-match function on the RHS of a rule to match
-FuzzyValues and that assertions done on the LHS of a rule that have FuzzyValues
-in them will automatically be adjusted to account for fuzzy matching on the LHS
-of the rule. </p>
+<p>On the right hand side nothing special occurs unless <i style='mso-bidi-font-style:
+normal;mso-bidi-font-style:normal'>theTemp</i> fact with a fuzzy value in it is
+asserted. In the example we have such a fact asserted: </p>
 
-<p style='margin-top:.1pt;margin-right:0cm;margin-bottom:.1pt;margin-left:0cm'>There
-are a few other things to mention here. First is that in Java we can specify
-one of two methods for doing the inferencing when a FuzzyRule is executed.
-These are the <a href="APIdocs/nrc/fuzzy/MamdaniMinMaxMinRuleExecutor.html">MamdaniMinMaxMinRuleExecutor</a>,
+<p><o:p>&nbsp;</o:p></p>
+
+<p><tt><span style='font-size:10.0pt'>&nbsp;&nbsp;&nbsp; (<span class=GramE>theTemp</span>
+(new nrc.fuzzy.FuzzyValue ?*tempFvar* &quot;very medium&quot;))</span></tt> </p>
+
+<p><o:p>&nbsp;</o:p></p>
+
+<p>At this point a number of things are done. Using all of the <i
+style='mso-bidi-font-style:normal;mso-bidi-font-style:normal'>remembered</i>
+antecendent/input pairs that matched on the LHS (left hand side) of the rule, a
+FuzzyRule is constructed (if it has not already been constructed by another
+assert on the RHS (right hand side) of the rule). The FuzzyValues identified in
+the fact being asserted are added as outputs for the FuzzyRule and it is fired,
+producing the actual FuzzyValues that will be placed in the FuzzyValue
+positions of the asserted fact. In our case, the antecedent and the input
+FuzzyValues are <i style='mso-bidi-font-style:normal;mso-bidi-font-style:normal'>temperature
+hot</i> and <i style='mso-bidi-font-style:normal;mso-bidi-font-style:normal'>temperature
+very medium</i>. They overlapped and were remembered and used to construct the
+FuzzyRule. The output FuzzyValue from the assert function, <i style='mso-bidi-font-style:
+normal;mso-bidi-font-style:normal'>pressure low or medium</i>, is added to the
+rule and it is fired. The output FuzzyValue is then placed into the actual fact
+that is asserted. The results are shown below. This might sound complicated but
+the FuzzyJess user does not need to be aware of all of these details. The user
+simply needs to know that it is necessary to use the fuzzy-match function on
+the RHS of a rule to match FuzzyValues and that assertions done on the LHS of a
+rule that have FuzzyValues in them will automatically be adjusted to account
+for fuzzy matching on the LHS of the rule. </p>
+
+<p><o:p>&nbsp;</o:p></p>
+
+<p>There are a few other things to mention here. First is that in Java we can
+specify one of two methods for doing the inferencing when a FuzzyRule is
+executed. These are the <a
+href="APIdocs/nrc/fuzzy/MamdaniMinMaxMinRuleExecutor.html">MamdaniMinMaxMinRuleExecutor</a>,
 the <a href="APIdocs/nrc/fuzzy/LarsenProductMaxMinRuleExecutor.html">LarsenProductMaxMinRuleExecutor</a>
 and the <a href="APIdocs/nrc/fuzzy/TsukamotoRuleExecutor.html">TsukamotoRuleExecutor</a>.
 This is covered in more detail in <a href="FuzzyRule.html#The_Rule_Executors">Rule
 Executors</a> in the section on FuzzyRules. When a FuzzyRule is constructed in
 Jess, it uses the default RuleExecutor to determine how to perform the
 inferencing. In Jess one can change the FuzzyRuleExecutor that is used by using
-the static FuzzyRule method <span><span style='font-size:10.0pt;font-family:
-"Courier New"'>setDefaultRuleExecutor</span></span> or (as of version 1.5 of
-FuzzyJ/FuzzyJess) one can use a Jess function, <span style='font-size:10.0pt;
-font-family:"Courier New"'>set-default-fuzzy-rule-executor</span><span
+the static FuzzyRule method <span style='font-size:10.0pt;font-family:"Courier New"'>setDefaultRuleExecutor</span>
+or (as of version 1.5 of FuzzyJ/FuzzyJess) one can use a Jess function, <span
+style='font-size:10.0pt;font-family:"Courier New"'>set-default-fuzzy-rule-executor</span><span
 style='font-family:"Courier New"'>. </span>To get the results shown below one
 would need to do something like the following after loading the program into
 FuzzyJess. </p>
 
-<p class=MsoNormal style='margin-top:.1pt;margin-right:36.0pt;margin-bottom:
-.1pt;margin-left:36.0pt;mso-para-margin-top:.01gd;mso-para-margin-right:36.0pt;
-mso-para-margin-bottom:.01gd;mso-para-margin-left:36.0pt'><tt><span
-style='font-size:10.0pt'>1. (reset)</span></tt><span style='mso-bidi-font-family:
+<p><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:72.0pt;margin-bottom:
+0cm;margin-left:72.0pt;margin-bottom:.0001pt'><tt><span style='font-size:10.0pt'>1.
+(<span class=GramE>reset</span>)</span></tt><span style='mso-bidi-font-family:
 "Times New Roman"'> <br>
-</span><tt><span style='font-size:10.0pt'>2.
-(run)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;--- uses the initial default
-MamdaniMinMaxMinRuleExecutor</span></tt><span style='mso-bidi-font-family:"Times New Roman"'>
+</span><tt><span style='font-size:10.0pt'>2. (<span class=GramE>run</span>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;--- uses the initial default MamdaniMinMaxMinRuleExecutor</span></tt><span
+style='mso-bidi-font-family:"Times New Roman"'> <br>
+</span><tt><span style='font-size:10.0pt'>3. (<span class=GramE>reset</span>)</span></tt><span
+style='mso-bidi-font-family:"Times New Roman"'> <br>
+</span><tt><span style='font-size:10.0pt'>4. (<span class=GramE>call</span>
+nrc.fuzzy.FuzzyRule</span></tt><span style='mso-bidi-font-family:"Times New Roman"'>
 <br>
-</span><tt><span style='font-size:10.0pt'>3. (reset)</span></tt><span
-style='mso-bidi-font-family:"Times New Roman"'> <br>
-</span><tt><span style='font-size:10.0pt'>4. (call nrc.fuzzy.FuzzyRule</span></tt><span
-style='mso-bidi-font-family:"Times New Roman"'> <br>
 </span><tt><span style='font-size:10.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 setDefaultRuleExecutor (new nrc.fuzzy.LarsenProductMaxMinRuleExecutor))</span></tt><span
 style='mso-bidi-font-family:"Times New Roman"'> <br>
-</span><tt><span style='font-size:10.0pt'>5. (run)</span></tt><span
-style='mso-bidi-font-family:"Times New Roman"'><o:p></o:p></span></p>
+</span><tt><span style='font-size:10.0pt'>5. (<span class=GramE>run</span>)<o:p></o:p></span></tt></p>
 
-<p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman"'>This
-executes the rules once with each of the inferencing techniques. Step 4 could
-have been done using the </span><span style='font-size:10.0pt;font-family:"Courier New";
-mso-bidi-font-family:"Times New Roman"'>set-default-fuzzy-rule-executor </span><span><span
+<p class=MsoNormal style='margin-top:0cm;margin-right:72.0pt;margin-bottom:
+0cm;margin-left:72.0pt;margin-bottom:.0001pt'><span style='mso-bidi-font-family:
+"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman"'>This executes
+the rules once with each of the inferencing techniques. Step 4 could have been
+done using the </span><span style='font-size:10.0pt;font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>set-default-fuzzy-rule-executor </span><span
 style='font-family:Times;mso-bidi-font-family:"Courier New"'>FuzzyJess
 function. The allowed values for the argument to this function are mamdanimin,
 larsenproduct or tsukamoto. <o:p></o:p></span></p>
-
-</span>
 
 <p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New";
 mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
 
 <p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman"'><span
-style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>(set-default-fuzzy-rule-executor
-larsenproduct)<o:p></o:p></span></p>
+style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>(<span
+class=GramE>set</span>-default-fuzzy-rule-executor larsenproduct)<o:p></o:p></span></p>
 
-<p style='margin-top:.1pt;margin-right:0cm;margin-bottom:.1pt;margin-left:0cm'><a
-name="Multiple_Antecedants"></a>A second consideration (although we don’t find
-it in this example) is that, when there are multiple FuzzyValues on the LHS of
-the rule that are matched using the fuzzy-match function, the FuzzyRule created
-will have multiple antecedents. This means that we can, if desired, specify the
-operator (minimum, product, etc.) to be used to combine the results of the
-matches of the individual antecedent/input pair matches (<a
+<p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+
+<p><a name="Multiple_Antecedants"></a>A second consideration (although we don’t
+find it in this example) is that, when there are multiple FuzzyValues on the
+LHS of the rule that are matched using the fuzzy-match function, the FuzzyRule
+created will have multiple antecedents. This means that we can, if desired,
+specify the operator (minimum, product, etc.) to be used to combine the results
+of the matches of the individual antecedent/input pair matches (<a
 href="FuzzyRule.html#Multiple_Antecedents_in_a_Rule">see the details of this in
 the FuzzyRules section</a>). Again this can be done in two ways: using a static
-method, <span style='font-size:10.0pt;font-family:"Courier New";color:black'>setDefaultAntecedentCombineOperator</span><span><span
+method, <span style='font-size:10.0pt;font-family:"Courier New";color:black'>setDefaultAntecedentCombineOperator</span><span
 style='color:black'>, or (as of version 1.5 of FuzzyJ/FuzzyJess) a FuzzyJess
-function</span></span><span style='font-size:10.0pt;font-family:"Courier New"'>,
-set-default-antecedent-combine-operator</span><span>. So we could do:<o:p></o:p></p>
+function</span><span style='font-size:10.0pt;font-family:"Courier New"'>,
+set-default-antecedent-combine-operator</span>. So we could do:</p>
 
-</span>
+<p><o:p>&nbsp;</o:p></p>
 
-<p><span><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
-style='font-size:10.0pt;font-family:"Courier New"'>(call FuzzyRule <span
-style='color:black'>setDefaultAntecedentCombineOperator (new
+<p><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:10.0pt;font-family:"Courier New"'>(<span class=GramE>call</span>
+FuzzyRule <span style='color:black'>setDefaultAntecedentCombineOperator (new
 ProductAntecedentCombineOperator))<o:p></o:p></span></span></p>
 
-<p>or</p>
+<p><span class=GramE>or</span></p>
 
-<p><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span><span
-style='font-size:10.0pt;font-family:"Courier New"'>(</span>set-default-antecedent-combine-operator
-product)<o:p></o:p></span></p>
+<p><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:10.0pt;font-family:"Courier New"'>(</span><span class=GramE>set</span>-default-antecedent-combine-operator
+product)</p>
 
 <p><span style='font-size:10.0pt;font-family:"Courier New"'><o:p>&nbsp;</o:p></span></p>
 
-<p><span>This would cause the match values for the antecedent/input pairs to be
-combined by multiplying their values, rather than the default method of taking
-the minimum of the values. Using the FuzzyJess function is simpler and provided
-for convenience but it only supports setting the combine operator to one of
-those supplied by FuzzyJ. If a user defines her own AntecedentCombineOperator
-then the (</span><span style='font-size:10.0pt;font-family:"Courier New"'>call
-FuzzyRule …)</span><span> version would have to be used.</span></p>
+<p>This would cause the match values for the antecedent/input pairs to be combined
+by multiplying their values, rather than the default method of taking the
+minimum of the values. Using the FuzzyJess function is simpler and provided for
+convenience but it only supports setting the combine operator to one of those
+supplied by FuzzyJ. If a user defines her own AntecedentCombineOperator then
+the (<span style='font-size:10.0pt;font-family:"Courier New"'>call <span
+class=GramE>FuzzyRule …)</span></span> version would have to be used.</p>
 
-<p style='margin-top:.1pt;margin-right:0cm;margin-bottom:.1pt;margin-left:0cm'>The
-final item of interest is the Global Contribution of FuzzyValues that are
-created. This, again,<span style="mso-spacerun: yes">&nbsp; </span>is described
-in more detail in the FuzzyRule section (<a
-href="FuzzyRule.html#Global_Contribution">Global Contribution</a>). Basically
-if there already exists the <i style='mso-bidi-font-style:normal'>same</i>
-FuzzyValue when a new one is asserted, then the two are combined to aggregate
-the contribution that each has made to the solution. In our example this is not
-the case, but it is important to note that this will happen automatically in
-FuzzyJess (as it does in FuzzyCLIPS). It is also important to understand what
-is meant when we say the FuzzyValues are the <i style='mso-bidi-font-style:
+<p><o:p>&nbsp;</o:p></p>
+
+<p>The final item of interest is the Global Contribution of FuzzyValues that <span
+class=GramE>are</span> created. This, again<span class=GramE>,<span
+style="mso-spacerun: yes">&nbsp; </span>is</span> described in more detail in
+the FuzzyRule section (<a href="FuzzyRule.html#Global_Contribution">Global
+Contribution</a>). Basically if there already exists the <i style='mso-bidi-font-style:
+normal;mso-bidi-font-style:normal'>same</i> FuzzyValue when a new one is
+asserted, then the two are combined to aggregate the contribution that each has
+made to the solution. In our example this is not the case, but it is important
+to note that this will happen automatically in FuzzyJess (as it does in
+FuzzyCLIPS). It is also important to understand what is meant when we say the
+FuzzyValues are the <i style='mso-bidi-font-style:normal;mso-bidi-font-style:
 normal'>same</i>. In fact the FuzzyJess system will look for another fact that
-is identical in <b style='mso-bidi-font-weight:normal'>all</b> of the non-fuzzy
-components and has FuzzyValues with the same FuzzyVariable in the other
-components of the fact. It will then identify these to be the same and perform
-the global contribution of these facts. Our example could be easily extended to
-see this result. If we added the rule: </p>
+is identical in <b style='mso-bidi-font-weight:normal;mso-bidi-font-weight:
+normal'>all</b> of the non-fuzzy components and has FuzzyValues with the same
+FuzzyVariable in the other components of the fact. It will then identify these
+to be the same and perform the global contribution of these facts. Our example
+could be easily extended to see this result. If we added the rule: </p>
 
-<p class=MsoNormal style='margin-top:.1pt;margin-right:36.0pt;margin-bottom:
-.1pt;margin-left:36.0pt;mso-para-margin-top:.01gd;mso-para-margin-right:36.0pt;
-mso-para-margin-bottom:.01gd;mso-para-margin-left:36.0pt'><tt><span
-style='font-size:10.0pt'>(defrule temp-medium-press-high</span></tt><span
+<p><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:72.0pt;margin-bottom:
+0cm;margin-left:72.0pt;margin-bottom:.0001pt'><tt><span style='font-size:10.0pt'>(<span
+class=GramE>defrule</span> temp-medium-press-high</span></tt><span
 style='mso-bidi-font-family:"Times New Roman"'> <br>
 </span><tt><span style='font-size:10.0pt'>&nbsp;&nbsp; (theTemp ?t&amp;:(<b
-style='mso-bidi-font-weight:normal'>fuzzy-match</b> ?t &quot;medium&quot;))</span></tt><span
-style='mso-bidi-font-family:"Times New Roman"'> <br>
+style='mso-bidi-font-weight:normal;mso-bidi-font-weight:normal'>fuzzy-match</b>
+?t &quot;medium&quot;))</span></tt><span style='mso-bidi-font-family:"Times New Roman"'>
+<br>
 </span><tt><span style='font-size:10.0pt'>&nbsp;=&gt;</span></tt><span
 style='mso-bidi-font-family:"Times New Roman"'> <br>
 </span><tt><span style='font-size:10.0pt'>&nbsp;&nbsp; (assert (thePress (new
 nrc.fuzzy.FuzzyValue ?*pressFvar* &quot;high&quot;)))</span></tt><span
 style='mso-bidi-font-family:"Times New Roman"'> <br>
-</span><tt><span style='font-size:10.0pt'>)</span></tt><span style='mso-bidi-font-family:
-"Times New Roman"'><o:p></o:p></span></p>
+</span><tt><span style='font-size:10.0pt'>)<o:p></o:p></span></tt></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:72.0pt;margin-bottom:
+0cm;margin-left:72.0pt;margin-bottom:.0001pt'><span style='mso-bidi-font-family:
+"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
 
 <p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman"'>In this
 case both rules, temp-medium-press-high and temp-hot-press-lowOrMedium, would
-fire. Since each asserts a <i style='mso-bidi-font-style:normal'>thePress</i>
-fact with a FuzzyValue for pressure, the two outputs will be combined and the
-output will reflect this combination (by default the union) of the FuzzyValues.
-Prior to version 1.5 of FuzzyJess, the union was the only possibility for
-combining FuzzyValues. In Java the user takes care of the global contribution
-by explicitly doing a union or some other operation. But in FuzzyJess since it
-is done automatically for the user, union was the default and only choice. Now
-there are three options provided to the user: fuzzy union, fuzzy sum, or none.
-The choices can be extended if desired by providing an implementation of a <span></span><span
-style='font-size:10.0pt;font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'>nrc.fuzzy.jess.</span><span
-style='color:black'>GlobalContributionOperator</span></span><span><span
-style='mso-bidi-font-family:"Times New Roman";color:black'>, but the three
-choices are likely to be sufficient for almost any system. To specify the
-operation to use when doing the global contribution of FuzzyValues one can do:<o:p></o:p></span></p>
+fire. Since each asserts a <i style='mso-bidi-font-style:normal;mso-bidi-font-style:
+normal'>thePress</i> fact with a FuzzyValue for pressure, the two outputs will
+be combined and the output will reflect this combination (by default the union)
+of the FuzzyValues. Prior to version 1.5 of FuzzyJess, the union was the only
+possibility for combining FuzzyValues. In Java the user takes care of the
+global contribution by explicitly doing a union or some other operation. But in
+FuzzyJess since it is done automatically for the user, union was the default
+and only choice. Now there are three options provided to the user: fuzzy union,
+fuzzy sum, or none. The choices can be extended if desired by providing an
+implementation of <span class=GramE>a</span> </span><span style='font-size:
+10.0pt;font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'>nrc.fuzzy.jess.</span><span
+style='mso-bidi-font-family:"Times New Roman";color:black'>GlobalContributionOperator,
+but the three choices are likely to be sufficient for almost any system. To
+specify the operation to use when doing the global contribution of FuzzyValues
+one can do:<o:p></o:p></span></p>
 
-</span>
-
-<p class=MsoNormal><span><span style='mso-bidi-font-family:"Times New Roman";
+<p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman";
 color:black'><o:p>&nbsp;</o:p></span></p>
 
-</span>
-
-<p><span><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
-style='font-size:10.0pt;font-family:"Courier New"'>(call (engine) </span><span
-style='font-size:10.0pt;font-family:Courier;color:black'>setFuzzyGlobalContributionOperator</span><span
+<p><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:10.0pt;font-family:"Courier New"'>(<span class=GramE>call</span>
+(engine) </span><span style='font-size:10.0pt;font-family:Courier;color:black'>setFuzzyGlobalContributionOperator</span><span
 style='font-size:10.0pt;font-family:"Courier New";color:black'> (new </span><span
 style='font-size:10.0pt;font-family:Courier;color:black'>SumGlobalContributionOperator</span><span
 style='font-size:10.0pt;font-family:"Courier New";color:black'>))<o:p></o:p></span></p>
 
-<p>or</p>
+<p><span class=GramE>or</span></p>
 
-<p><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span><span
-style='font-size:10.0pt;font-family:"Courier New"'>(</span>set-default-antecedent-combine-operator
-sum)<o:p></o:p></span></p>
+<p><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:10.0pt;font-family:"Courier New"'>(</span><span class=GramE>set</span>-default-antecedent-combine-operator
+sum)</p>
 
-<p style='margin-top:.1pt;margin-right:0cm;margin-bottom:.1pt;margin-left:0cm'>The
-valid arguments for the FuzzyJess function <span style='font-size:10.0pt;
-font-family:"Courier New"'>set-default-antecedent-combine-operator</span><span>
-are union, sum and none. <o:p></o:p></p>
+<p><o:p>&nbsp;</o:p></p>
 
-</span>
+<p>The valid arguments for the FuzzyJess function <span style='font-size:10.0pt;
+font-family:"Courier New"'>set-default-antecedent-combine-operator</span> are
+union, sum and none. </p>
 
-<p style='margin-top:.1pt;margin-right:0cm;margin-bottom:.1pt;margin-left:0cm'><span>There
-is one final comment on the setting of the operator for Global Contribution or
-for Antecedent Combining or the choosing of the desired Rule Executor. These
-can be done at any time in the execution of the program. They take effect when
-an assert is done for a fact having one or more FuzzyValues. This means that it
-is possible to have facts asserted in the same RHS of a rule using different
-values for these options. For example, one could set the RuleExecutor to
-mandamimin, assert a fact with FuzzyValues, set the RuleExecutor to
-larsenproduct and then assert another fact with FuzzyValues. This would be an
-extremely unusual thing to do but in some specific case might make sense. With
-this flexibility comes responsibility. Be sure you understand what the implications
-of such actions are. </span></p>
+<p>There is one final comment on the setting of the operator for Global
+Contribution or for Antecedent Combining or the choosing of the desired Rule
+Executor. These can be done at any time in the execution of the program. They
+take effect when <span class=GramE>an assert</span> is done for a fact having
+one or more FuzzyValues. This means that it is possible to have facts asserted
+in the same RHS of a rule using different values for these options. For
+example, one could set the RuleExecutor to mandamimin, assert a fact with
+FuzzyValues, set the RuleExecutor to larsenproduct and then assert another fact
+with FuzzyValues. This would be an extremely unusual thing to do but in some
+specific case might make sense. With this flexibility comes responsibility. Be
+sure you understand what the implications of such actions are. </p>
 
-<p style='margin-top:.1pt;margin-right:0cm;margin-bottom:.1pt;margin-left:0cm'>Of
-course it is possible to create rules with many FuzzyValue patterns on the LHS
-and many FuzzyValues asserted in facts on the RHS. These can be mixed with
-non-fuzzy facts and various tests. With minimal internal modifications to Jess
-and the FuzzyJess function (fuzzy-match), much of the essence of FuzzyCLIPS is
-captured. </p>
+<p><o:p>&nbsp;</o:p></p>
 
-<h4 style='margin-top:.1pt;margin-right:0cm;margin-bottom:.1pt;margin-left:
-0cm'><a name="Simple_Example_Results"></a><a name="_Simple_Example_Results"></a>Simple
+<p>Of course it is possible to create rules with many FuzzyValue patterns on
+the LHS and many FuzzyValues asserted in facts on the RHS. These can be mixed
+with non-fuzzy facts and various tests. With minimal internal modifications to
+Jess and the FuzzyJess function (fuzzy-match), much of the essence of
+FuzzyCLIPS is captured. </p>
+
+<p><o:p>&nbsp;</o:p></p>
+
+<h4><a name="Simple_Example_Results"></a><a name="_Simple_Example_Results"></a>Simple
 Example Results</h4>
+
+<h4><o:p>&nbsp;</o:p></h4>
 
 <p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman"'>The
 Jess rules in the example would produce the following graphs as output (the
@@ -748,19 +802,25 @@ too that when displaying these text plots it is necessary to use a mono-spaced
 (non-proportional) font. The standard Jess Console does not and the plots will
 look incorrect. <o:p></o:p></span></p>
 
-<p class=MsoNormal style='margin-top:.1pt;margin-right:36.0pt;margin-bottom:
-.1pt;margin-left:36.0pt;mso-para-margin-top:.01gd;mso-para-margin-right:36.0pt;
-mso-para-margin-bottom:.01gd;mso-para-margin-left:36.0pt'><tt><span
-style='font-size:10.0pt'>The Antecedent (hot) and the input (very medium) fuzzy
-values</span></tt><span style='mso-bidi-font-family:"Times New Roman"'> <o:p></o:p></span></p>
+<p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
 
-<p style='margin-top:.1pt;margin-right:36.0pt;margin-bottom:.1pt;margin-left:
-36.0pt'><tt><span style='font-size:7.5pt'>Fuzzy Value: temperature</span></tt> <br>
-<tt><span style='font-size:7.5pt'>Linguistic Value: hot (*),&nbsp; very medium
-(+)</span></tt> </p>
+<p class=MsoNormal style='margin-top:0cm;margin-right:72.0pt;margin-bottom:
+0cm;margin-left:36.0pt;margin-bottom:.0001pt'><tt><span style='font-size:10.0pt'>The
+Antecedent (hot) and the input (very medium) fuzzy values</span></tt><span
+style='mso-bidi-font-family:"Times New Roman"'> <o:p></o:p></span></p>
 
-<p style='margin-top:.1pt;margin-right:36.0pt;margin-bottom:.1pt;margin-left:
-36.0pt'><tt><span style='font-size:7.5pt'>1.00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<p class=MsoNormal style='margin-top:0cm;margin-right:72.0pt;margin-bottom:
+0cm;margin-left:36.0pt;margin-bottom:.0001pt'><span style='mso-bidi-font-family:
+"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+
+<p style='margin-top:0cm;margin-right:36.0pt;margin-bottom:0cm;margin-left:
+36.0pt;margin-bottom:.0001pt'><tt><span style='font-size:7.5pt'>Fuzzy Value:
+temperature</span></tt> <br>
+<tt><span style='font-size:7.5pt'>Linguistic Value: hot (*)<span class=GramE>,&nbsp;
+very</span> medium (+)</span></tt> </p>
+
+<p style='margin-top:0cm;margin-right:36.0pt;margin-bottom:0cm;margin-left:
+36.0pt;margin-bottom:.0001pt'><tt><span style='font-size:7.5pt'>1.00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 +++++++++++&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ****************</span></tt>
 <br>
 <tt><span style='font-size:7.5pt'>0.95</span></tt> <br>
@@ -812,17 +872,25 @@ values</span></tt><span style='mso-bidi-font-family:"Times New Roman"'> <o:p></o
 10.00&nbsp;&nbsp;&nbsp;&nbsp; 20.00&nbsp;&nbsp;&nbsp;&nbsp;
 30.00&nbsp;&nbsp;&nbsp;&nbsp; 40.00&nbsp;&nbsp;&nbsp;&nbsp; 50.00</span></tt> </p>
 
-<p style='margin-top:.1pt;margin-right:36.0pt;margin-bottom:.1pt;margin-left:
-36.0pt'><tt><span style='font-size:10.0pt'>The conclusion fuzzy value.</span></tt>
-</p>
+<p style='margin-top:0cm;margin-right:36.0pt;margin-bottom:0cm;margin-left:
+36.0pt;margin-bottom:.0001pt'><tt><span style='font-size:10.0pt'><o:p>&nbsp;</o:p></span></tt></p>
 
-<p style='margin-top:.1pt;margin-right:36.0pt;margin-bottom:.1pt;margin-left:
-36.0pt'><tt><span style='font-size:7.5pt'>Fuzzy Value: pressure</span></tt> <br>
+<p style='margin-top:0cm;margin-right:36.0pt;margin-bottom:0cm;margin-left:
+36.0pt;margin-bottom:.0001pt'><span class=GramE><tt><span style='font-size:
+10.0pt'>The conclusion fuzzy value.</span></tt></span><tt><span
+style='font-size:10.0pt'><o:p></o:p></span></tt></p>
+
+<p style='margin-top:0cm;margin-right:36.0pt;margin-bottom:0cm;margin-left:
+36.0pt;margin-bottom:.0001pt'><span style="mso-spacerun: yes">&nbsp;</span></p>
+
+<p style='margin-top:0cm;margin-right:36.0pt;margin-bottom:0cm;margin-left:
+36.0pt;margin-bottom:.0001pt'><tt><span style='font-size:7.5pt'>Fuzzy Value:
+pressure</span></tt> <br>
 <tt><span style='font-size:7.5pt'>Linguistic Value: low or medium (*)</span></tt>
 </p>
 
-<p style='margin-top:.1pt;margin-right:36.0pt;margin-bottom:.1pt;margin-left:
-36.0pt'><tt><span style='font-size:7.5pt'>1.00************&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<p style='margin-top:0cm;margin-right:36.0pt;margin-bottom:0cm;margin-left:
+36.0pt;margin-bottom:.0001pt'><tt><span style='font-size:7.5pt'>1.00************&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 ***</span></tt> <br>
 <tt><span style='font-size:7.5pt'>0.95&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 *&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *&nbsp;&nbsp; *</span></tt>
@@ -870,16 +938,25 @@ values</span></tt><span style='mso-bidi-font-family:"Times New Roman"'> <o:p></o
 4.00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 6.00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 8.00&nbsp;&nbsp;&nbsp;&nbsp; 10.00</span></tt> </p>
 
-<p style='margin-top:.1pt;margin-right:36.0pt;margin-bottom:.1pt;margin-left:
-36.0pt'><tt><span style='font-size:10.0pt'>The output using
-MamdaniMinMaxMinRuleExecutor</span></tt> </p>
+<p style='margin-top:0cm;margin-right:36.0pt;margin-bottom:0cm;margin-left:
+36.0pt;margin-bottom:.0001pt'><tt><span style='font-size:10.0pt'><o:p>&nbsp;</o:p></span></tt></p>
 
-<p style='margin-top:.1pt;margin-right:36.0pt;margin-bottom:.1pt;margin-left:
-36.0pt'><tt><span style='font-size:7.5pt'>Fuzzy Value: pressure</span></tt> <br>
-<tt><span style='font-size:7.5pt'>Linguistic Value: ??? (*)</span></tt> </p>
+<p style='margin-top:0cm;margin-right:36.0pt;margin-bottom:0cm;margin-left:
+36.0pt;margin-bottom:.0001pt'><tt><span style='font-size:10.0pt'>The output
+using MamdaniMinMaxMinRuleExecutor</span></tt> </p>
 
-<p style='margin-top:.1pt;margin-right:36.0pt;margin-bottom:.1pt;margin-left:
-36.0pt'><tt><span style='font-size:7.5pt'>1.00</span></tt> <br>
+<p style='margin-top:0cm;margin-right:36.0pt;margin-bottom:0cm;margin-left:
+36.0pt;margin-bottom:.0001pt'><o:p>&nbsp;</o:p></p>
+
+<p style='margin-top:0cm;margin-right:36.0pt;margin-bottom:0cm;margin-left:
+36.0pt;margin-bottom:.0001pt'><tt><span style='font-size:7.5pt'>Fuzzy Value:
+pressure</span></tt> <br>
+<tt><span style='font-size:7.5pt'>Linguistic Value<span class=GramE>: ?</span>??
+(*)</span></tt> </p>
+
+<p style='margin-top:0cm;margin-right:36.0pt;margin-bottom:0cm;margin-left:
+36.0pt;margin-bottom:.0001pt'><tt><span style='font-size:7.5pt'>1.00</span></tt>
+<br>
 <tt><span style='font-size:7.5pt'>0.95</span></tt> <br>
 <tt><span style='font-size:7.5pt'>0.90</span></tt> <br>
 <tt><span style='font-size:7.5pt'>0.85</span></tt> <br>
@@ -908,21 +985,32 @@ MamdaniMinMaxMinRuleExecutor</span></tt> </p>
 **************</span></tt> <br>
 <tt><span style='font-size:7.5pt'>&nbsp;&nbsp;&nbsp;
 |----|----|----|----|----|----|----|----|----|----|</span></tt> <br>
-<tt><span style='font-size:7.5pt'>&nbsp;&nbsp;
-0.00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-4.00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 6.00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-8.00&nbsp;&nbsp;&nbsp;&nbsp; 10.00</span></tt> </p>
+<span class=GramE><tt><span style='font-size:7.5pt'>&nbsp;&nbsp; 0.00</span></tt></span><tt><span
+style='font-size:7.5pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2.00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4.00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+6.00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 8.00&nbsp;&nbsp;&nbsp;&nbsp; 10.00</span></tt>
+</p>
 
-<p style='margin-top:.1pt;margin-right:36.0pt;margin-bottom:.1pt;margin-left:
-36.0pt'><tt><span style='font-size:10.0pt'>The conclusion using
-LarsenProductMaxMinRuleExecutor.</span></tt> </p>
+<p style='margin-top:0cm;margin-right:36.0pt;margin-bottom:0cm;margin-left:
+36.0pt;margin-bottom:.0001pt'><tt><span style='font-size:10.0pt'><o:p>&nbsp;</o:p></span></tt></p>
 
-<p style='margin-top:.1pt;margin-right:36.0pt;margin-bottom:.1pt;margin-left:
-36.0pt'><tt><span style='font-size:7.5pt'>Fuzzy Value: pressure</span></tt> <br>
-<tt><span style='font-size:7.5pt'>Linguistic Value: ??? (*)</span></tt> </p>
+<p style='margin-top:0cm;margin-right:36.0pt;margin-bottom:0cm;margin-left:
+36.0pt;margin-bottom:.0001pt'><span class=GramE><tt><span style='font-size:
+10.0pt'>The conclusion using LarsenProductMaxMinRuleExecutor.</span></tt></span>
+</p>
 
-<p style='margin-top:.1pt;margin-right:36.0pt;margin-bottom:.1pt;margin-left:
-36.0pt'><tt><span style='font-size:7.5pt'>1.00</span></tt> <br>
+<p style='margin-top:0cm;margin-right:36.0pt;margin-bottom:0cm;margin-left:
+36.0pt;margin-bottom:.0001pt'><o:p>&nbsp;</o:p></p>
+
+<p style='margin-top:0cm;margin-right:36.0pt;margin-bottom:0cm;margin-left:
+36.0pt;margin-bottom:.0001pt'><tt><span style='font-size:7.5pt'>Fuzzy Value:
+pressure</span></tt> <br>
+<tt><span style='font-size:7.5pt'>Linguistic Value<span class=GramE>: ?</span>??
+(*)</span></tt> </p>
+
+<p style='margin-top:0cm;margin-right:36.0pt;margin-bottom:0cm;margin-left:
+36.0pt;margin-bottom:.0001pt'><tt><span style='font-size:7.5pt'>1.00</span></tt>
+<br>
 <tt><span style='font-size:7.5pt'>0.95</span></tt> <br>
 <tt><span style='font-size:7.5pt'>0.90</span></tt> <br>
 <tt><span style='font-size:7.5pt'>0.85</span></tt> <br>
@@ -955,14 +1043,16 @@ LarsenProductMaxMinRuleExecutor.</span></tt> </p>
 ***************</span></tt> <br>
 <tt><span style='font-size:7.5pt'>&nbsp;&nbsp;&nbsp;
 |----|----|----|----|----|----|----|----|----|----|</span></tt> <br>
-<tt><span style='font-size:7.5pt'>&nbsp;&nbsp;
-0.00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-4.00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 6.00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-8.00&nbsp;&nbsp;&nbsp;&nbsp; 10.00</span></tt></p>
+<span class=GramE><tt><span style='font-size:7.5pt'>&nbsp;&nbsp; 0.00</span></tt></span><tt><span
+style='font-size:7.5pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2.00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4.00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+6.00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 8.00&nbsp;&nbsp;&nbsp;&nbsp; 10.00</span></tt></p>
 
-<h4 style='margin-top:.1pt;margin-right:0cm;margin-bottom:.1pt;margin-left:
-0cm'><a name="Certainty_Factors"></a><a name="_Certainty_Factors"></a>Certainty
-Factors</h4>
+<h4><a name="Certainty_Factors"></a><a name="_Certainty_Factors"></a><o:p>&nbsp;</o:p></h4>
+
+<h4>Certainty Factors</h4>
+
+<h4><o:p>&nbsp;</o:p></h4>
 
 <p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman"'>This
 topic is covered with some examples in the special section on <a
@@ -971,61 +1061,61 @@ only code. There we explain two FuzzyJess user defined functions, </span><tt><sp
 style='font-size:10.0pt'>(fuzzy-rule-similarity) and (fuzzy-rule-match-score).</span></tt><span
 style='mso-bidi-font-family:"Times New Roman"'> <o:p></o:p></span></p>
 
-<h4 style='margin-top:.1pt;margin-right:0cm;margin-bottom:.1pt;margin-left:
-0cm'><a name="Mixed_Jess_and_Java_Code"></a><a name="_Mixed_Jess_and"></a>Mixed
+<p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+
+<h4><a name="Mixed_Jess_and_Java_Code"></a><a name="_Mixed_Jess_and"></a>Mixed
 Jess and Java Code</h4>
 
-<p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman"'>If you
-have mastered (at least the simple examples) of Jess only programs and Java
-only programs using the FuzzyJ Toolkit, then you will appreciate the potential
-of mixing the two in quite powerful ways. There are too many possibilities to
+<h4><o:p>&nbsp;</o:p></h4>
+
+<p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman"'>If you have
+mastered (at least the simple examples) of Jess only programs and Java only
+programs using the FuzzyJ Toolkit, then you will appreciate the potential of
+mixing the two in quite powerful ways. There are too many possibilities to
 tackle here (perhaps more insight will be added at a later time) so we leave it
 by pointing to the examples included with the toolkit, especially the fuzzy
 shower examples (completely Java and a mix of Jess and Java) and the so-called
 Fuzzy Compiler example (compiles a set of rules and the output from a range of
 inputs into a table). <o:p></o:p></span></p>
 
-<h4 style='margin-top:.1pt;margin-right:0cm;margin-bottom:.1pt;margin-left:
-0cm'><a name="JavaBeans_and_JessShadowFacts"></a><a name="_Java_Beans_and"></a>Java
+<p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+
+<h4><a name="JavaBeans_and_JessShadowFacts"></a><a name="_Java_Beans_and"></a>Java
 Beans and Jess Shadow Facts with Fuzzy Slots – special consideration</h4>
 
-<p style='margin-top:.1pt;margin-right:0cm;margin-bottom:.1pt;margin-left:0cm'>The
-following indented and reduced size text applies to FuzzyJess prior to version
-1.10. In the version 1.10 and later changes were made that remove the
+<h4><o:p>&nbsp;</o:p></h4>
+
+<p>The following indented and reduced size text applies to FuzzyJess prior to
+version 1.10. In the version 1.10 and later changes were made that remove the
 requirement to do anything special for Java Beans with Fuzzy properties. It is
 important to upgrade to 1.10 or later if you use Java Beans with FuzzyValues
 since changes to Jess have led to incorrect operation of the shadow fact
-updates.<o:p></o:p></p>
+updates.</p>
 
-<p style='margin-top:.1pt;margin-right:0cm;margin-bottom:.1pt;margin-left:36.0pt'><span><span
-style='font-size:10.0pt'>In Jess when a fact is asserted that is ‘identical’ to
-an existing fact nothing happens since duplicate facts are not allowed. In
-FuzzyJess where slots can have FuzzyValues facts are considered to be
-‘identical’ when all of the non-fuzzy (crisp) slots are the same (equal) and
-when the fuzzy values have the same FuzzyVariable. For example, if a fact is
-created by the assert<o:p></o:p></span></p>
+<p><o:p>&nbsp;</o:p></p>
 
-</span>
+<p style='margin-left:36.0pt'><span style='font-size:10.0pt'>In Jess when a
+fact is asserted that is ‘identical’ to an existing fact nothing happens since
+duplicate facts are not allowed. In FuzzyJess where slots can have FuzzyValues
+facts are considered to be ‘identical’ when all of the non-fuzzy (crisp) slots
+are the same (equal) and when the fuzzy values have the same FuzzyVariable. For
+example, if a fact is created by the assert<o:p></o:p></span></p>
 
-<p style='margin-top:.1pt;margin-right:0cm;margin-bottom:.1pt;margin-left:36.0pt'><span><span
-style='font-size:10.0pt'><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>(assert
-(fan (ID fan1) (speed (new FuzzyValue ?*speedFuzzyVar* “slow”))))<o:p></o:p></span></p>
+<p style='margin-left:36.0pt'><span style='font-size:10.0pt'><span
+style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>(<span
+class=GramE>assert</span> (fan (ID fan1) (speed (new FuzzyValue
+?*speedFuzzyVar* “slow”))))<o:p></o:p></span></p>
 
-</span>
+<p style='margin-left:36.0pt'><span class=GramE><span style='font-size:10.0pt'>and</span></span><span
+style='font-size:10.0pt'> later another assert<o:p></o:p></span></p>
 
-<p style='margin-top:.1pt;margin-right:0cm;margin-bottom:.1pt;margin-left:36.0pt'><span><span
-style='font-size:10.0pt'>and later another assert<o:p></o:p></span></p>
+<p style='margin-left:36.0pt'><span style='font-size:10.0pt'><span
+style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>(<span
+class=GramE>assert</span> (fan (ID fan1) (speed (new FuzzyValue
+?*speedFuzzyVar* “medium”))))<o:p></o:p></span></p>
 
-</span>
-
-<p style='margin-top:.1pt;margin-right:0cm;margin-bottom:.1pt;margin-left:36.0pt'><span><span
-style='font-size:10.0pt'><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>(assert
-(fan (ID fan1) (speed (new FuzzyValue ?*speedFuzzyVar* “medium”))))<o:p></o:p></span></p>
-
-</span>
-
-<p style='margin-top:.1pt;margin-right:0cm;margin-bottom:.1pt;margin-left:36.0pt'><span><span
-style='font-size:10.0pt'>is executed, then the 2 facts are considered to be
+<p style='margin-left:36.0pt'><span class=GramE><span style='font-size:10.0pt'>is</span></span><span
+style='font-size:10.0pt'> executed, then the 2 facts are considered to be
 ‘identical’. If these were ‘identical’ non-fuzzy facts, then the second assert
 would have no effect since the fact already exists. For fuzzy facts these 2
 facts are combined (global contribution) such that the crisp values are the
@@ -1036,27 +1126,27 @@ using shadow facts, facts created from Java Bean classes in Jess. The first
 issue is that for a Java Bean to cause an update to a shadow fact it uses the
 firePropertyChange method:<o:p></o:p></span></p>
 
-</span>
-
 <p class=MsoNormal style='margin-left:36.0pt;mso-layout-grid-align:none;
-text-autospace:none'><span><span style='font-size:10.0pt;mso-bidi-font-family:
-"Times New Roman"'><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span
-style='font-size:10.0pt;font-family:Courier;mso-bidi-font-family:"Times New Roman";
-color:black'>m_pcs.firePropertyChange(&quot;beanAttribute&quot;,</span><span
+text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-family:"Times New Roman"'><span
+style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+class=GramE><span style='font-size:10.0pt;font-family:Courier;mso-bidi-font-family:
+"Times New Roman";color:black'>m</span></span><span style='font-size:10.0pt;
+font-family:Courier;mso-bidi-font-family:"Times New Roman";color:black'>_pcs.firePropertyChange(&quot;beanAttribute&quot;,</span><span
 style='font-size:10.0pt;font-family:Courier;mso-bidi-font-family:"Times New Roman"'><o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-left:36.0pt;mso-layout-grid-align:none;
 text-autospace:none'><span style='font-size:10.0pt;font-family:Courier;
 mso-bidi-font-family:"Times New Roman"'><span style="mso-spacerun:
-yes">&nbsp;</span><span style="mso-spacerun:
-yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span><span style='color:black'>oldAttributeValue,</span><o:p></o:p></span></p>
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span class=GramE><span style='color:black'>oldAttributeValue</span></span><span
+style='color:black'>,</span><o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-left:36.0pt;mso-layout-grid-align:none;
 text-autospace:none'><span style='font-size:10.0pt;font-family:Courier;
 mso-bidi-font-family:"Times New Roman"'><span style="mso-spacerun:
 yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span><span style='color:black'>newAttributeValue);<o:p></o:p></span></span></p>
+</span><span class=GramE><span style='color:black'>newAttributeValue</span></span><span
+style='color:black'>);<o:p></o:p></span></span></p>
 
 <p class=MsoNormal style='margin-left:36.0pt;mso-layout-grid-align:none;
 text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-family:"Times New Roman";
@@ -1075,85 +1165,90 @@ as required. The solution here is to use:<o:p></o:p></span></p>
 text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
 
 <p class=MsoNormal style='margin-left:36.0pt;mso-layout-grid-align:none;
-text-autospace:none'><span><span style='font-size:10.0pt;mso-bidi-font-family:
-"Times New Roman"'><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span
-style='font-size:10.0pt;font-family:Courier;mso-bidi-font-family:"Times New Roman";
-color:black'>m_pcs.firePropertyChange(&quot;beanAttribute&quot;,</span><span
+text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-family:"Times New Roman"'><span
+style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+class=GramE><span style='font-size:10.0pt;font-family:Courier;mso-bidi-font-family:
+"Times New Roman";color:black'>m</span></span><span style='font-size:10.0pt;
+font-family:Courier;mso-bidi-font-family:"Times New Roman";color:black'>_pcs.firePropertyChange(&quot;beanAttribute&quot;,</span><span
 style='font-size:10.0pt;font-family:Courier;mso-bidi-font-family:"Times New Roman"'><o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-left:36.0pt;mso-layout-grid-align:none;
 text-autospace:none'><span style='font-size:10.0pt;font-family:Courier;
 mso-bidi-font-family:"Times New Roman"'><span style="mso-spacerun:
 yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span><span style='color:black'>null,</span><o:p></o:p></span></p>
+</span><span class=GramE><span style='color:black'>null</span></span><span
+style='color:black'>,</span><o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-left:36.0pt;mso-layout-grid-align:none;
 text-autospace:none'><span style='font-size:10.0pt;font-family:Courier;
 mso-bidi-font-family:"Times New Roman"'><span style="mso-spacerun:
 yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span><span style='color:black'>newAttributeValue);</span></span><span
-style='font-size:10.0pt;mso-bidi-font-family:"Times New Roman";color:black'><o:p></o:p></span></p>
+</span><span class=GramE><span style='color:black'>newAttributeValue</span></span><span
+style='color:black'>);</span></span><span style='font-size:10.0pt;mso-bidi-font-family:
+"Times New Roman";color:black'><o:p></o:p></span></p>
 
-<p style='margin-top:.1pt;margin-right:0cm;margin-bottom:.1pt;margin-left:36.0pt'><span><span
-style='font-size:10.0pt'>and do a test of the values using equalsStar for the
+<p style='margin-left:36.0pt'><span class=GramE><span style='font-size:10.0pt'>and</span></span><span
+style='font-size:10.0pt'> do a test of the values using equalsStar for the
 FuzzyValues before calling the firePropertyChange method if desired. This will
 ensure that the slot is updated. Well, actually it won’t in version 6.1a2 (or
 earlier) of Jess since Jess internally also checks for the equality of the
-slots and will not replace the slot with the new one if they are ‘equal’. This required
-a change to the Jess code so that it does not block the update of the slot. So
-use Jess 6.1a3 or later and do not specify an ‘oldAttributeValue’ in the call
-to firePropertyChange when updating fuzzy slots.</span></span></p>
+slots and will not replace the slot with the new one if they are ‘equal’. This
+required a change to the Jess code so that it does not block the update of the
+slot. So use Jess 6.1a3 or later and do not specify <span class=GramE>an
+‘oldAttributeValue’</span> in the call to firePropertyChange when updating
+fuzzy slots.<o:p></o:p></span></p>
 
-<p style='margin-top:.1pt;margin-right:0cm;margin-bottom:.1pt;margin-left:0cm'>In
-version 1.10 and later the FuzzyValue equals method returns true only if the
-FuzzyValues being compared have the same FuzzyVariable and identical FuzzySets.
-This means that the updating of shadow facts will occur properly for FuzzyValue
-properties of beans without doing anything special. In fact programs written to
-work with previous versions may have to be updated to work properly now. For
-example, if equalsStar was used to decide if a call to firePropertyChange was
-to be done then this code should be removed. Also one can use the ‘old’ value in
-the call to firePropertyChange. The equalsStar method now returns true if the
-FuzzyValues have the same FuzzyVariable. The handling of Global Contribution is
-taken care of internally.</p>
+<p style='margin-left:36.0pt'><o:p>&nbsp;</o:p></p>
 
-<h4 style='margin-top:.1pt;margin-right:0cm;margin-bottom:.1pt;margin-left:
-0cm'><a name=HowTo></a>How to use the Fuzzy Extensions with Jess</h4>
+<p>In version 1.10 and later the FuzzyValue equals method returns true only if
+the FuzzyValues being compared have the same FuzzyVariable and identical
+FuzzySets. This means that the updating of shadow facts will occur properly for
+FuzzyValue properties of beans without doing anything special. In fact programs
+written to work with previous versions may have to be updated to work properly
+now. For example, if equalsStar was used to decide if a call to
+firePropertyChange was to be done then this code should be removed. Also one
+can use the ‘old’ value in the call to firePropertyChange. The equalsStar
+method now returns true if the FuzzyValues have the same FuzzyVariable. The
+handling of Global Contribution is taken care of internally.</p>
+
+<p><o:p>&nbsp;</o:p></p>
+
+<h4><a name=HowTo></a>How to use the Fuzzy Extensions with Jess</h4>
+
+<h4><o:p>&nbsp;</o:p></h4>
 
 <p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman"'>To use
 the extension with Jess is really quite simple. You need to have access to the
 FuzzyJ Toolkit and FuzzyJess packages (nrc.fuzzy and nrc.fuzzy.jess). These
 will have been obtained with the appropriate <a href="../fuzzyLicence.html">licence</a>
 requirements being met. Normally these will be in a Java jar file for easy
-inclusion in the <b style='mso-bidi-font-weight:normal'><i style='mso-bidi-font-style:
-normal'>classpath</i></b> variable. The only other thing that is required is
-that instead of using the <b style='mso-bidi-font-weight:normal'>Rete</b>
-object in programs, you must use the <b style='mso-bidi-font-weight:normal'>FuzzyRete</b>
-object. For convenience the classes nrc.fuzzy.jess.FuzzyConsole and
-nrc.fuzzy.jess.FuzzyMain have been provided and they can simply replace any use
-of jess.Console or jess.Main. <o:p></o:p></span></p>
+inclusion in the <b style='mso-bidi-font-weight:normal;mso-bidi-font-weight:
+normal'><i style='mso-bidi-font-style:normal;mso-bidi-font-style:normal'>classpath</i></b>
+variable. The only other thing that is required is that instead of using the <b
+style='mso-bidi-font-weight:normal;mso-bidi-font-weight:normal'>Rete</b> object
+in programs, you must use the <b style='mso-bidi-font-weight:normal;mso-bidi-font-weight:
+normal'>FuzzyRete</b> object. For convenience the classes
+nrc.fuzzy.jess.FuzzyConsole and nrc.fuzzy.jess.FuzzyMain have been provided and
+they can simply replace any use of <span class=GramE>jess.Console</span> or
+jess.Main. <o:p></o:p></span></p>
 
 <p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
 
 <p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman"'>Consider
 the code for FuzzyMain: <o:p></o:p></span></p>
 
-<p class=MsoNormal style='margin-top:.1pt;margin-right:36.0pt;margin-bottom:
-.1pt;margin-left:36.0pt;mso-para-margin-top:.01gd;mso-para-margin-right:36.0pt;
-mso-para-margin-bottom:.01gd;mso-para-margin-left:36.0pt'><tt><span><span
-style='font-size:8.0pt'><o:p>&nbsp;</o:p></span></tt></p>
+<p class=MsoNormal style='margin-top:0cm;margin-right:72.0pt;margin-bottom:
+0cm;margin-left:72.0pt;margin-bottom:.0001pt'><tt><span style='font-size:8.0pt'><o:p>&nbsp;</o:p></span></tt></p>
 
-</span>
-
-<p class=MsoNormal style='margin-top:.1pt;margin-right:36.0pt;margin-bottom:
-.1pt;margin-left:36.0pt;mso-para-margin-top:.01gd;mso-para-margin-right:36.0pt;
-mso-para-margin-bottom:.01gd;mso-para-margin-left:36.0pt'><tt><span
-style='font-size:10.0pt'>public class FuzzyMain extends Main</span></tt><span
-style='mso-bidi-font-family:"Times New Roman"'> <br>
+<p class=MsoNormal style='margin-top:0cm;margin-right:72.0pt;margin-bottom:
+0cm;margin-left:72.0pt;margin-bottom:.0001pt'><span class=GramE><tt><span
+style='font-size:10.0pt'>public</span></tt></span><tt><span style='font-size:
+10.0pt'> class FuzzyMain extends Main</span></tt><span style='mso-bidi-font-family:
+"Times New Roman"'> <br>
 </span><tt><span style='font-size:10.0pt'>{</span></tt><span style='mso-bidi-font-family:
 "Times New Roman"'> <br>
-</span><tt><span style='font-size:10.0pt'>&nbsp; public static void
-main(String[] argv)</span></tt><span style='mso-bidi-font-family:"Times New Roman"'>
-<br>
+</span><tt><span style='font-size:10.0pt'>&nbsp; public static void main(String[]
+argv)</span></tt><span style='mso-bidi-font-family:"Times New Roman"'> <br>
 </span><tt><span style='font-size:10.0pt'>&nbsp; {</span></tt><span
 style='mso-bidi-font-family:"Times New Roman"'> <br>
 </span><tt><span style='font-size:10.0pt'>&nbsp;&nbsp;&nbsp; FuzzyMain m = new
@@ -1165,28 +1260,27 @@ new FuzzyRete());</span></tt><span style='mso-bidi-font-family:"Times New Roman"
 style='mso-bidi-font-family:"Times New Roman"'> <br>
 </span><tt><span style='font-size:10.0pt'>&nbsp; }</span></tt><span
 style='mso-bidi-font-family:"Times New Roman"'> <br>
-</span><tt><span style='font-size:10.0pt'>}</span></tt><span style='mso-bidi-font-family:
-"Times New Roman"'><o:p></o:p></span></p>
+</span><tt><span style='font-size:10.0pt'>}<o:p></o:p></span></tt></p>
 
-<p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman"'>and the
-code for FuzzyConsole: <o:p></o:p></span></p>
+<p class=MsoNormal style='margin-top:0cm;margin-right:72.0pt;margin-bottom:
+0cm;margin-left:72.0pt;margin-bottom:.0001pt'><span style='mso-bidi-font-family:
+"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
 
-<p class=MsoNormal style='margin-top:.1pt;margin-right:36.0pt;margin-bottom:
-.1pt;margin-left:36.0pt;mso-para-margin-top:.01gd;mso-para-margin-right:36.0pt;
-mso-para-margin-bottom:.01gd;mso-para-margin-left:36.0pt'><tt><span><span
-style='font-size:8.0pt'><o:p>&nbsp;</o:p></span></tt></p>
+<p class=MsoNormal><span class=GramE><span style='mso-bidi-font-family:"Times New Roman"'>and</span></span><span
+style='mso-bidi-font-family:"Times New Roman"'> the code for FuzzyConsole: <o:p></o:p></span></p>
 
-</span>
+<p class=MsoNormal style='margin-top:0cm;margin-right:72.0pt;margin-bottom:
+0cm;margin-left:72.0pt;margin-bottom:.0001pt'><tt><span style='font-size:8.0pt'><o:p>&nbsp;</o:p></span></tt></p>
 
-<p class=MsoNormal style='margin-top:.1pt;margin-right:36.0pt;margin-bottom:
-.1pt;margin-left:36.0pt;mso-para-margin-top:.01gd;mso-para-margin-right:36.0pt;
-mso-para-margin-bottom:.01gd;mso-para-margin-left:36.0pt'><tt><span
-style='font-size:10.0pt'>public class FuzzyConsole extends Console</span></tt><span
-style='mso-bidi-font-family:"Times New Roman"'> <br>
+<p class=MsoNormal style='margin-top:0cm;margin-right:72.0pt;margin-bottom:
+0cm;margin-left:72.0pt;margin-bottom:.0001pt'><span class=GramE><tt><span
+style='font-size:10.0pt'>public</span></tt></span><tt><span style='font-size:
+10.0pt'> class FuzzyConsole extends Console</span></tt><span style='mso-bidi-font-family:
+"Times New Roman"'> <br>
 </span><tt><span style='font-size:10.0pt'>{</span></tt><span style='mso-bidi-font-family:
 "Times New Roman"'> <br>
-</span><tt><span style='font-size:10.0pt'>&nbsp; public FuzzyConsole(String name)</span></tt><span
-style='mso-bidi-font-family:"Times New Roman"'> <br>
+</span><tt><span style='font-size:10.0pt'>&nbsp; public FuzzyConsole(String
+name)</span></tt><span style='mso-bidi-font-family:"Times New Roman"'> <br>
 </span><tt><span style='font-size:10.0pt'>&nbsp; {</span></tt><span
 style='mso-bidi-font-family:"Times New Roman"'> <br>
 </span><tt><span style='font-size:10.0pt'>&nbsp;&nbsp;&nbsp; super(name, new
@@ -1194,47 +1288,44 @@ FuzzyRete());</span></tt><span style='mso-bidi-font-family:"Times New Roman"'> <
 </span><tt><span style='font-size:10.0pt'>&nbsp; }</span></tt><span
 style='mso-bidi-font-family:"Times New Roman"'> <o:p></o:p></span></p>
 
-<p style='margin-top:.1pt;margin-right:36.0pt;margin-bottom:.1pt;margin-left:
-36.0pt'><tt><span style='font-size:10.0pt'>&nbsp; public static void
-main(String[] argv)</span></tt> <br>
+<p style='margin-top:0cm;margin-right:36.0pt;margin-bottom:0cm;margin-left:
+36.0pt;margin-bottom:.0001pt'><tt><span style='font-size:10.0pt'>&nbsp; <span
+class=GramE>public</span> static void main(String[] argv)</span></tt> <br>
 <tt><span style='font-size:10.0pt'>&nbsp; {</span></tt> <br>
 <tt><span style='font-size:10.0pt'>&nbsp;&nbsp;&nbsp; new
 FuzzyConsole(&quot;Fuzzy Jess Console&quot;).execute(argv);</span></tt> <br>
 <tt><span style='font-size:10.0pt'>&nbsp; }</span></tt> <br>
-<tt><span style='font-size:10.0pt'>}</span></tt></p>
+<tt><span style='font-size:10.0pt'>}<o:p></o:p></span></tt></p>
+
+<p style='margin-top:0cm;margin-right:36.0pt;margin-bottom:0cm;margin-left:
+36.0pt;margin-bottom:.0001pt'><o:p>&nbsp;</o:p></p>
 
 <p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman"'>To
 start the FuzzyConsole one might execute a command line similar to the one to
 start the standard Jess Console: <o:p></o:p></span></p>
 
-<p class=MsoNormal style='margin-top:.1pt;margin-right:36.0pt;margin-bottom:
-.1pt;margin-left:36.0pt;mso-para-margin-top:.01gd;mso-para-margin-right:36.0pt;
-mso-para-margin-bottom:.01gd;mso-para-margin-left:36.0pt'><tt><span><span
-style='font-size:8.0pt'><o:p>&nbsp;</o:p></span></tt></p>
+<p class=MsoNormal style='margin-top:0cm;margin-right:72.0pt;margin-bottom:
+0cm;margin-left:72.0pt;margin-bottom:.0001pt'><tt><span style='font-size:8.0pt'><o:p>&nbsp;</o:p></span></tt></p>
 
-</span>
-
-<p class=MsoNormal style='margin-top:.1pt;margin-right:36.0pt;margin-bottom:
-.1pt;margin-left:36.0pt;mso-para-margin-top:.01gd;mso-para-margin-right:36.0pt;
-mso-para-margin-bottom:.01gd;mso-para-margin-left:36.0pt'><tt><span
-style='font-size:10.0pt'>java -classpath
-&quot;%classpath%&quot;;f:\fuzzyjtoolkit\fuzzyj15a.jar;.\
+<p class=MsoNormal style='margin-top:0cm;margin-right:72.0pt;margin-bottom:
+0cm;margin-left:72.0pt;margin-bottom:.0001pt'><span class=GramE><tt><span
+style='font-size:10.0pt'>java</span></tt></span><tt><span style='font-size:
+10.0pt'> -classpath &quot;%classpath%&quot;;f:\fuzzyjtoolkit\fuzzyj15a.jar;.\
 nrc.fuzzy.jess.FuzzyConsole</span></tt><span style='mso-bidi-font-family:"Times New Roman"'><o:p></o:p></span></p>
 
-<p class=MsoNormal><span><span style='font-size:8.0pt;mso-bidi-font-family:
-"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+<p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
 
-</span>
-
-<p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman"'>with
-appropriate entries in the -classpath option to allow all necessary classes to
-be located. If you have been able to use standard Jess then you will no doubt
-have little trouble using FuzzyJess. <br style='mso-special-character:line-break'>
+<p class=MsoNormal><span class=GramE><span style='mso-bidi-font-family:"Times New Roman"'>with</span></span><span
+style='mso-bidi-font-family:"Times New Roman"'> appropriate entries in the
+-classpath option to allow all necessary classes to be located. If you have
+been able to use standard Jess then you will no doubt have little trouble using
+FuzzyJess. <br style='mso-special-character:line-break'>
 <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
 <![endif]><o:p></o:p></span></p>
 
-<h4 style='margin-top:.1pt;margin-right:0cm;margin-bottom:.1pt;margin-left:
-0cm'><a name="_Summary_of_the"></a>Summary of the FuzzyJess Functions</h4>
+<h4><a name="_Summary_of_the"></a>Summary of the FuzzyJess Functions</h4>
+
+<h4><o:p>&nbsp;</o:p></h4>
 
 <p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman"'>There
 are a number of functions that have been added to FuzzyJess to make it simpler
@@ -1243,303 +1334,243 @@ they are mentioned in the context of creating FuzzyJess programs.<o:p></o:p></sp
 
 <p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
 
-<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span><span
-style='mso-bidi-font-family:"Times New Roman"'>(<b style='mso-bidi-font-weight:
-normal'>fuzzy-match</b> FuzzyValue1 FuzzyValue2)<o:p></o:p></span></p>
-
-</span>
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='mso-bidi-font-family:"Times New Roman"'>(<span class=GramE><b
+style='mso-bidi-font-weight:normal;mso-bidi-font-weight:normal'>fuzzy</b></span><b
+style='mso-bidi-font-weight:normal'>-match</b> FuzzyValue1 FuzzyValue2)<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-left:36.0pt;mso-layout-grid-align:none;
-text-autospace:none'><span><span style='mso-bidi-font-family:"Times New Roman"'>Returns
+text-autospace:none'><span style='mso-bidi-font-family:"Times New Roman"'>Returns
 true if the 2 FuzzyValues have some overlapping portion that has a membership
-value at least as large as the current setting of the FuzzyValue match
-Threshold; both arguments can be Fuzzy Values (with the same FuzzyVariable) or
-one can be a string that is a valid linguistic expression for the FuzzyVariable
-associated with the FuzzyValue.<o:p></o:p></span></p>
+value at least as large as the current setting of the FuzzyValue match Threshold;
+both arguments can be Fuzzy Values (with the same FuzzyVariable) or one can be
+a string that is a valid linguistic expression for the FuzzyVariable associated
+with the FuzzyValue.<o:p></o:p></span></p>
 
-</span>
-
-<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span><span
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
 style='mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
 
-</span>
-
-<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span><span
-style='mso-bidi-font-family:"Times New Roman"'>(<b style='mso-bidi-font-weight:
-normal'>fuzzy-rule-similarity</b>)<o:p></o:p></span></p>
-
-</span>
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='mso-bidi-font-family:"Times New Roman"'>(<span class=GramE><b
+style='mso-bidi-font-weight:normal;mso-bidi-font-weight:normal'>fuzzy</b></span><b
+style='mso-bidi-font-weight:normal'>-rule-similarity</b>)<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-left:36.0pt;mso-layout-grid-align:none;
-text-autospace:none'><span><span style='mso-bidi-font-family:"Times New Roman"'>Returns
-a value between 0 and 1 which indicates the overall fuzzy similarity of the
-patterns that matched on the left hand side (LHS) of a rule, if the function is
-called from the right hand side (RHS) of a rule. If not called from the RHS of
-a rule it will always return 0. The value is determined by calculating the
-minimum (or product -- depends on the current rule's antecedentCombineOperator)
-similarity of all of the fuzzy matches that were made on the LHS of the rule.
-If there were no fuzzy matches on the LHS of the rule a value of 1 is returned.<o:p></o:p></span></p>
-
-</span>
+text-autospace:none'><span style='mso-bidi-font-family:"Times New Roman"'>Returns
+a value between 0 and <span class=GramE>1 which</span> indicates the overall
+fuzzy similarity of the patterns that matched on the left hand side (LHS) of a
+rule, if the function is called from the right hand side (RHS) of a rule. If
+not called from the RHS of a rule it will always return 0. The value is
+determined by calculating the minimum (or product -- depends on the current
+rule's antecedentCombineOperator) similarity of all of the fuzzy matches that
+were made on the LHS of the rule. If there were no fuzzy matches on the LHS of
+the rule a value of 1 is returned.<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-left:36.0pt;mso-layout-grid-align:none;
-text-autospace:none'><span><span style='mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+text-autospace:none'><span style='mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
 
-</span>
-
-<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span><span
-style='mso-bidi-font-family:"Times New Roman"'>(<b style='mso-bidi-font-weight:
-normal'>fuzzy-rule-match-score</b>)<o:p></o:p></span></p>
-
-</span>
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='mso-bidi-font-family:"Times New Roman"'>(<span class=GramE><b
+style='mso-bidi-font-weight:normal;mso-bidi-font-weight:normal'>fuzzy</b></span><b
+style='mso-bidi-font-weight:normal'>-rule-match-score</b>)<o:p></o:p></span></p>
 
 <p class=MsoBodyTextIndent><span style='mso-bidi-font-family:"Times New Roman"'>Returns
-a value between 0 and 1 which indicates the overall fuzzy match scores of the
-patterns that matched on the left hand side (LHS) of a rule, if the function is
-called from the right hand side (RHS) of a rule. If not called from the RHS of
-a rule it will always return 0. The value is determined by calculating the
-minimum (or product -- depends on the current rule's antecedentCombineOperator)
-of all of the fuzzy matches that were made on the LHS of the rule. If there
-were no fuzzy matches on the LHS of the rule a value of 1 is returned. A
-fuzzy-match score is the maximum value of the intersection of the 2 fuzzy
-values. This is different than the fuzzy-similarity of 2 fuzzy values, which
-provides a more complex (and possibly more useful) measure of the similarity of
-2 fuzzy values.<o:p></o:p></span></p>
+a value between 0 and <span class=GramE>1 which</span> indicates the overall
+fuzzy match scores of the patterns that matched on the left hand side (LHS) of
+a rule, if the function is called from the right hand side (RHS) of a rule. If
+not called from the RHS of a rule it will always return 0. The value is
+determined by calculating the minimum (or product -- depends on the current
+rule's antecedentCombineOperator) of all of the fuzzy matches that were made on
+the LHS of the rule. If there were no fuzzy matches on the LHS of the rule a
+value of 1 is returned. A fuzzy-match score is the maximum value of the
+intersection of the 2 fuzzy values. This is different than the fuzzy-similarity
+of 2 fuzzy values, which provides a more complex (and possibly more useful)
+measure of the similarity of 2 fuzzy values.<o:p></o:p></span></p>
 
-<p style='mso-layout-grid-align:none;text-autospace:none'><span><o:p>&nbsp;</o:p></p>
+<p style='mso-layout-grid-align:none;text-autospace:none'><o:p>&nbsp;</o:p></p>
 
-</span>
-
-<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span><span
-style='mso-bidi-font-family:"Times New Roman"'>(<b style='mso-bidi-font-weight:
-normal'>set-fuzzy-global-contribution-operator</b> operator)<o:p></o:p></span></p>
-
-</span>
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='mso-bidi-font-family:"Times New Roman"'>(<span class=GramE><b
+style='mso-bidi-font-weight:normal;mso-bidi-font-weight:normal'>set</b></span><b
+style='mso-bidi-font-weight:normal'>-fuzzy-global-contribution-operator</b>
+operator)<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-left:36.0pt;mso-layout-grid-align:none;
-text-autospace:none'><span><span style='mso-bidi-font-family:"Times New Roman"'>Takes
+text-autospace:none'><span style='mso-bidi-font-family:"Times New Roman"'>Takes
 one argument that specifies the way fuzzy global contribution should be done
 when 'identical' facts with fuzzy values are asserted. The values can be one
 of:<o:p></o:p></span></p>
 
-</span>
+<p class=MsoNormal style='margin-left:36.0pt;mso-layout-grid-align:none;
+text-autospace:none'><span style='mso-bidi-font-family:"Times New Roman"'><span
+style="mso-spacerun: yes">&nbsp;</span><span class=GramE><b style='mso-bidi-font-weight:
+normal;mso-bidi-font-weight:normal'>union</b></span> - combine the fuzzy values
+using the fuzzy union operation (this is the default).<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-left:36.0pt;mso-layout-grid-align:none;
-text-autospace:none'><span><span style='mso-bidi-font-family:"Times New Roman"'><span
-style="mso-spacerun: yes">&nbsp;</span><b style='mso-bidi-font-weight:normal'>union</b>
-- combine the fuzzy values using the fuzzy union operation (this is the
-default).<o:p></o:p></span></p>
-
-</span>
+text-autospace:none'><span style='mso-bidi-font-family:"Times New Roman"'><span
+style="mso-spacerun: yes">&nbsp;</span><span class=GramE><b style='mso-bidi-font-weight:
+normal;mso-bidi-font-weight:normal'>sum</b></span> - combine the fuzzy values
+using the fuzzy sum operation.<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-left:36.0pt;mso-layout-grid-align:none;
-text-autospace:none'><span><span style='mso-bidi-font-family:"Times New Roman"'><span
-style="mso-spacerun: yes">&nbsp;</span><b style='mso-bidi-font-weight:normal'>sum</b>
-- combine the fuzzy values using the fuzzy sum operation.<o:p></o:p></span></p>
+text-autospace:none'><span style='mso-bidi-font-family:"Times New Roman"'><span
+style="mso-spacerun: yes">&nbsp;</span><span class=GramE><b style='mso-bidi-font-weight:
+normal;mso-bidi-font-weight:normal'>none</b></span> - do not combine the fuzzy
+values; replace the old value with the new one.<o:p></o:p></span></p>
 
-</span>
-
-<p class=MsoNormal style='margin-left:36.0pt;mso-layout-grid-align:none;
-text-autospace:none'><span><span style='mso-bidi-font-family:"Times New Roman"'><span
-style="mso-spacerun: yes">&nbsp;</span><b style='mso-bidi-font-weight:normal'>none</b>
-- do not combine the fuzzy values; replace the old value with the new one.<o:p></o:p></span></p>
-
-</span>
-
-<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span><span
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
 style='mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
 
-</span>
-
-<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span><span
-style='mso-bidi-font-family:"Times New Roman"'>(<b style='mso-bidi-font-weight:
-normal'>get-fuzzy-global-contribution-operator</b>)<o:p></o:p></span></p>
-
-</span>
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='mso-bidi-font-family:"Times New Roman"'>(<span class=GramE><b
+style='mso-bidi-font-weight:normal;mso-bidi-font-weight:normal'>get</b></span><b
+style='mso-bidi-font-weight:normal'>-fuzzy-global-contribution-operator</b>)<o:p></o:p></span></p>
 
 <p class=MsoBodyTextIndent><span style='mso-bidi-font-family:"Times New Roman"'>Takes
 no arguments and returns an indicator of the way fuzzy global contribution will
-be done when 'identical' facts with fuzzy values are asserted. The value returned
-will be one of:<o:p></o:p></span></p>
+be done when 'identical' facts with fuzzy values are asserted. The value
+returned will be one of:<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-left:36.0pt;mso-layout-grid-align:none;
-text-autospace:none'><span><span style='mso-bidi-font-family:"Times New Roman"'><span
-style="mso-spacerun: yes">&nbsp;</span><b style='mso-bidi-font-weight:normal'>union</b>
-- combine the fuzzy values using the fuzzy union operation (this is the
-default).<o:p></o:p></span></p>
-
-</span>
+text-autospace:none'><span style='mso-bidi-font-family:"Times New Roman"'><span
+style="mso-spacerun: yes">&nbsp;</span><span class=GramE><b style='mso-bidi-font-weight:
+normal;mso-bidi-font-weight:normal'>union</b></span> - combine the fuzzy values
+using the fuzzy union operation (this is the default).<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-left:36.0pt;mso-layout-grid-align:none;
-text-autospace:none'><span><span style='mso-bidi-font-family:"Times New Roman"'><span
-style="mso-spacerun: yes">&nbsp;</span><b style='mso-bidi-font-weight:normal'>sum</b>
-- combine the fuzzy values using the fuzzy sum operation.<o:p></o:p></span></p>
-
-</span>
+text-autospace:none'><span style='mso-bidi-font-family:"Times New Roman"'><span
+style="mso-spacerun: yes">&nbsp;</span><span class=GramE><b style='mso-bidi-font-weight:
+normal;mso-bidi-font-weight:normal'>sum</b></span> - combine the fuzzy values
+using the fuzzy sum operation.<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-left:36.0pt;mso-layout-grid-align:none;
-text-autospace:none'><span><span style='mso-bidi-font-family:"Times New Roman"'><span
-style="mso-spacerun: yes">&nbsp;</span><b style='mso-bidi-font-weight:normal'>none</b>
-- do not combine the fuzzy values; replace the old value with the new one.<o:p></o:p></span></p>
+text-autospace:none'><span style='mso-bidi-font-family:"Times New Roman"'><span
+style="mso-spacerun: yes">&nbsp;</span><span class=GramE><b style='mso-bidi-font-weight:
+normal;mso-bidi-font-weight:normal'>none</b></span> - do not combine the fuzzy
+values; replace the old value with the new one.<o:p></o:p></span></p>
 
-</span>
-
-<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span><span
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
 style='mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
 
-</span>
-
-<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span><span
-style='mso-bidi-font-family:"Times New Roman"'>(<b style='mso-bidi-font-weight:
-normal'>set-default-fuzzy-rule-executor executor</b>)<o:p></o:p></span></p>
-
-</span>
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='mso-bidi-font-family:"Times New Roman"'>(<span class=GramE><b
+style='mso-bidi-font-weight:normal;mso-bidi-font-weight:normal'>set</b></span><b
+style='mso-bidi-font-weight:normal'>-default-fuzzy-rule-executor executor</b>)<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-left:36.0pt;mso-layout-grid-align:none;
-text-autospace:none'><span><span style='mso-bidi-font-family:"Times New Roman"'>Takes
+text-autospace:none'><span style='mso-bidi-font-family:"Times New Roman"'>Takes
 one argument that specifies which fuzzy rule executor should be used when a
 rule is fired. The values can be one of:<o:p></o:p></span></p>
 
-</span>
+<p class=MsoNormal style='margin-left:36.0pt;mso-layout-grid-align:none;
+text-autospace:none'><span style='mso-bidi-font-family:"Times New Roman"'><span
+style="mso-spacerun: yes">&nbsp;</span><span class=GramE><b style='mso-bidi-font-weight:
+normal;mso-bidi-font-weight:normal'>mamdanimin</b></span> - use the
+MamdaniMinMaxMin rule executor (this is the default).<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-left:36.0pt;mso-layout-grid-align:none;
-text-autospace:none'><span><span style='mso-bidi-font-family:"Times New Roman"'><span
-style="mso-spacerun: yes">&nbsp;</span><b style='mso-bidi-font-weight:normal'>mamdanimin</b>
-- use the MamdaniMinMaxMin rule executor (this is the default).<o:p></o:p></span></p>
-
-</span>
-
-<p class=MsoNormal style='margin-left:36.0pt;mso-layout-grid-align:none;
-text-autospace:none'><b style='mso-bidi-font-weight:normal'><span><span
-style='mso-bidi-font-family:"Times New Roman"'>larsenproduct</span></span></b><span><span
+text-autospace:none'><span class=GramE><b style='mso-bidi-font-weight:normal;
+mso-bidi-font-weight:normal'><span style='mso-bidi-font-family:"Times New Roman"'>larsenproduct</span></b></span><span
 style='mso-bidi-font-family:"Times New Roman"'> - use the LarsenProductMaxMin
 rule executor.<o:p></o:p></span></p>
 
-</span>
-
 <p class=MsoNormal style='margin-left:36.0pt;mso-layout-grid-align:none;
-text-autospace:none'><b style='mso-bidi-font-weight:normal'><span><span
-style='mso-bidi-font-family:"Times New Roman"'>tsukamoto</span></span></b><span><span
+text-autospace:none'><span class=GramE><b style='mso-bidi-font-weight:normal;
+mso-bidi-font-weight:normal'><span style='mso-bidi-font-family:"Times New Roman"'>tsukamoto</span></b></span><span
 style='mso-bidi-font-family:"Times New Roman"'> - use the Tsukamoto rule
 executor.<o:p></o:p></span></p>
 
-</span>
+<p style='mso-layout-grid-align:none;text-autospace:none'><o:p>&nbsp;</o:p></p>
 
-<p style='mso-layout-grid-align:none;text-autospace:none'><span><o:p>&nbsp;</o:p></p>
-
-</span>
-
-<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span><span
-style='mso-bidi-font-family:"Times New Roman"'>(<b style='mso-bidi-font-weight:
-normal'>get-default-fuzzy-rule-executor</b>)<o:p></o:p></span></p>
-
-</span>
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='mso-bidi-font-family:"Times New Roman"'>(<span class=GramE><b
+style='mso-bidi-font-weight:normal;mso-bidi-font-weight:normal'>get</b></span><b
+style='mso-bidi-font-weight:normal'>-default-fuzzy-rule-executor</b>)<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-left:36.0pt;mso-layout-grid-align:none;
-text-autospace:none'><span><span style='mso-bidi-font-family:"Times New Roman"'>Takes
+text-autospace:none'><span style='mso-bidi-font-family:"Times New Roman"'>Takes
 no arguments and returns one of:<o:p></o:p></span></p>
 
-</span>
-
 <p class=MsoNormal style='margin-left:36.0pt;mso-layout-grid-align:none;
-text-autospace:none'><span><span style='mso-bidi-font-family:"Times New Roman"'><span
-style="mso-spacerun: yes">&nbsp;</span><b style='mso-bidi-font-weight:normal'>mamdanimin</b>
-- the MamdaniMinMaxMin rule executor is the default.<o:p></o:p></span></p>
+text-autospace:none'><span style='mso-bidi-font-family:"Times New Roman"'><span
+style="mso-spacerun: yes">&nbsp;</span><span class=GramE><b style='mso-bidi-font-weight:
+normal;mso-bidi-font-weight:normal'>mamdanimin</b></span> - the
+MamdaniMinMaxMin rule executor is the default.<o:p></o:p></span></p>
 
-</span>
-
-<p class=MsoBodyTextIndent><b style='mso-bidi-font-weight:normal'><span
-style='mso-bidi-font-family:"Times New Roman"'>larsenproduct</span></b><span
+<p class=MsoBodyTextIndent><span class=GramE><b style='mso-bidi-font-weight:
+normal;mso-bidi-font-weight:normal'><span style='mso-bidi-font-family:"Times New Roman"'>larsenproduct</span></b></span><span
 style='mso-bidi-font-family:"Times New Roman"'> - the LarsenProductMaxMin rule
 executor is the default.<o:p></o:p></span></p>
 
-<p class=MsoBodyTextIndent><b style='mso-bidi-font-weight:normal'><span
-style='mso-bidi-font-family:"Times New Roman"'>tsukamoto</span></b><span
+<p class=MsoBodyTextIndent><span class=GramE><b style='mso-bidi-font-weight:
+normal;mso-bidi-font-weight:normal'><span style='mso-bidi-font-family:"Times New Roman"'>tsukamoto</span></b></span><span
 style='mso-bidi-font-family:"Times New Roman"'> - the Tsukamoto rule executor
 is the default.<o:p></o:p></span></p>
 
-<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span><span
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
 style='mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
 
-</span>
-
-<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span><span
-style='mso-bidi-font-family:"Times New Roman"'>(<b style='mso-bidi-font-weight:
-normal'>set-default-antecedent-combine-operator</b> operator)<o:p></o:p></span></p>
-
-</span>
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='mso-bidi-font-family:"Times New Roman"'>(<span class=GramE><b
+style='mso-bidi-font-weight:normal;mso-bidi-font-weight:normal'>set</b></span><b
+style='mso-bidi-font-weight:normal'>-default-antecedent-combine-operator</b>
+operator)<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-left:36.0pt;mso-layout-grid-align:none;
-text-autospace:none'><span><span style='mso-bidi-font-family:"Times New Roman"'>Takes
+text-autospace:none'><span style='mso-bidi-font-family:"Times New Roman"'>Takes
 one argument that specifies which operator should be used to combine the
 antecedent/input match values when a fuzzy rule is fired. The values can be one
 of:<o:p></o:p></span></p>
 
-</span>
+<p class=MsoNormal style='margin-left:36.0pt;mso-layout-grid-align:none;
+text-autospace:none'><span style='mso-bidi-font-family:"Times New Roman"'><span
+style="mso-spacerun: yes">&nbsp;</span><span class=GramE><b style='mso-bidi-font-weight:
+normal;mso-bidi-font-weight:normal'>minimum</b></span> - use the minimum of the
+match values of the antecedent/input pairs (this is the default).<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-left:36.0pt;mso-layout-grid-align:none;
-text-autospace:none'><span><span style='mso-bidi-font-family:"Times New Roman"'><span
-style="mso-spacerun: yes">&nbsp;</span><b style='mso-bidi-font-weight:normal'>minimum</b>
-- use the minimum of the match values of the antecedent/input pairs (this is
-the default).<o:p></o:p></span></p>
-
-</span>
+text-autospace:none'><span style='mso-bidi-font-family:"Times New Roman"'><span
+style="mso-spacerun: yes">&nbsp;</span><span class=GramE><b style='mso-bidi-font-weight:
+normal;mso-bidi-font-weight:normal'>product</b></span> - use the product of the
+match values of the antecedent/input pairs.<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-left:36.0pt;mso-layout-grid-align:none;
-text-autospace:none'><span><span style='mso-bidi-font-family:"Times New Roman"'><span
-style="mso-spacerun: yes">&nbsp;</span><b style='mso-bidi-font-weight:normal'>product</b>
-- use the product of the match values of the antecedent/input pairs.<o:p></o:p></span></p>
+text-autospace:none'><span style='mso-bidi-font-family:"Times New Roman"'><span
+style="mso-spacerun: yes">&nbsp;</span><b style='mso-bidi-font-weight:normal;
+mso-bidi-font-weight:normal'>CompensatoryAnd</b> – use a special operator that
+gives a value larger than the minimum (see details in the FuzzyJ API)<o:p></o:p></span></p>
 
-</span>
+<p style='mso-layout-grid-align:none;text-autospace:none'><o:p>&nbsp;</o:p></p>
 
-<p class=MsoNormal style='margin-left:36.0pt;mso-layout-grid-align:none;
-text-autospace:none'><span><span style='mso-bidi-font-family:"Times New Roman"'><span
-style="mso-spacerun: yes">&nbsp;</span><b style='mso-bidi-font-weight:normal'>CompensatoryAnd</b>
-– use a special operator that gives a value larger than the minimum (see
-details in the FuzzyJ API)<o:p></o:p></span></p>
-
-</span>
-
-<p style='mso-layout-grid-align:none;text-autospace:none'><span><o:p>&nbsp;</o:p></p>
-
-</span>
-
-<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span><span
-style='mso-bidi-font-family:"Times New Roman"'>(<b style='mso-bidi-font-weight:
-normal'>get-default-antecedent-combine-operator</b>)<o:p></o:p></span></p>
-
-</span>
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='mso-bidi-font-family:"Times New Roman"'>(<span class=GramE><b
+style='mso-bidi-font-weight:normal;mso-bidi-font-weight:normal'>get</b></span><b
+style='mso-bidi-font-weight:normal'>-default-antecedent-combine-operator</b>)<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-left:36.0pt;mso-layout-grid-align:none;
-text-autospace:none'><span><span style='mso-bidi-font-family:"Times New Roman"'>Takes
+text-autospace:none'><span style='mso-bidi-font-family:"Times New Roman"'>Takes
 no arguments and returns a value that specifies which operator will be used to
 combine the antecedent/input match values when a fuzzy rule is fired. The value
 returned will be one of:<o:p></o:p></span></p>
 
-</span>
+<p class=MsoNormal style='margin-left:36.0pt;mso-layout-grid-align:none;
+text-autospace:none'><span style='mso-bidi-font-family:"Times New Roman"'><span
+style="mso-spacerun: yes">&nbsp;</span><span class=GramE><b style='mso-bidi-font-weight:
+normal;mso-bidi-font-weight:normal'>minimum</b></span> - using the minimum of
+the match values of the antecedent/input pairs (this is the default).<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-left:36.0pt;mso-layout-grid-align:none;
-text-autospace:none'><span><span style='mso-bidi-font-family:"Times New Roman"'><span
-style="mso-spacerun: yes">&nbsp;</span><b style='mso-bidi-font-weight:normal'>minimum</b>
-- using the minimum of the match values of the antecedent/input pairs (this is
-the default).<o:p></o:p></span></p>
-
-</span>
+text-autospace:none'><span style='mso-bidi-font-family:"Times New Roman"'><span
+style="mso-spacerun: yes">&nbsp;</span><span class=GramE><b style='mso-bidi-font-weight:
+normal;mso-bidi-font-weight:normal'>product</b></span> - using the product of
+the match values of the antecedent/input pairs.<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-left:36.0pt;mso-layout-grid-align:none;
-text-autospace:none'><span><span style='mso-bidi-font-family:"Times New Roman"'><span
-style="mso-spacerun: yes">&nbsp;</span><b style='mso-bidi-font-weight:normal'>product</b>
-- using the product of the match values of the antecedent/input pairs.<o:p></o:p></span></p>
-
-</span>
-
-<p class=MsoNormal style='margin-left:36.0pt;mso-layout-grid-align:none;
-text-autospace:none'><b style='mso-bidi-font-weight:normal'><span><span
-style='mso-bidi-font-family:"Times New Roman"'>CompensatoryAnd</span></span></b><span><span
+text-autospace:none'><b style='mso-bidi-font-weight:normal;mso-bidi-font-weight:
+normal'><span style='mso-bidi-font-family:"Times New Roman"'>CompensatoryAnd</span></b><span
 style='mso-bidi-font-family:"Times New Roman"'> – using a special operator that
 gives a value larger than the minimum (see details in the FuzzyJ API)<o:p></o:p></span></p>
-
-</span>
 
 <p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
 
