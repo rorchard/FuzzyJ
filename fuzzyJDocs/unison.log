@@ -1,0 +1,25 @@
+-------------------------------------------------------------------------------
+DATE = Fri Nov 26 16:44:16.489 1999
+PID = 71
+dx_getservbyname: getservbyname failed
+                  service="unieng", protocol="tcp"
+-------------------------------------------------------------------------------
+DATE = Fri Nov 26 16:44:16.489 1999
+PID = 71
+dx_getservbyname: using default port 5730
+-------------------------------------------------------------------------------
+DATE = Sun Nov 28 14:43:36.443 1999
+PID = 71
+DEXOTEK ERRCODE Ox11910 -> ReadTrHeader: EOF returned by TrnDescRead
+-------------------------------------------------------------------------------
+DATE = Sun Nov 28 14:43:36.473 1999
+PID = 71
+DEXOTEK ERRCODE Ox11910 -> GetTrResponse: ReadTrHeader
+-------------------------------------------------------------------------------
+DATE = Sun Nov 28 14:43:36.503 1999
+PID = 71
+DEXOTEK ERRCODE Ox11910 -> GetTrResponseVarg: GetTrResponse
+-------------------------------------------------------------------------------
+DATE = Sun Nov 28 14:43:36.503 1999
+PID = 71
+DEXOTEK ERRCODE Ox11910 -> AttendSelectByReminders: GetTrResponseVarg()

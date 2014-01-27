@@ -1,0 +1,374 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./FuzzyModifier_files/filelist.xml">
+<link rel=Edit-Time-Data href="./FuzzyModifier_files/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>FuzzyModifier</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Bob Orchard</o:Author>
+  <o:LastAuthor>Bob Orchard</o:LastAuthor>
+  <o:Revision>6</o:Revision>
+  <o:TotalTime>9</o:TotalTime>
+  <o:Created>2003-05-13T15:21:00Z</o:Created>
+  <o:LastSaved>2005-11-15T13:08:00Z</o:LastSaved>
+  <o:Pages>5</o:Pages>
+  <o:Words>1317</o:Words>
+  <o:Characters>7508</o:Characters>
+  <o:Company>NRCC</o:Company>
+  <o:Lines>62</o:Lines>
+  <o:Paragraphs>15</o:Paragraphs>
+  <o:CharactersWithSpaces>9220</o:CharactersWithSpaces>
+  <o:Version>9.6926</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:"Comic Sans MS";
+	panose-1:3 15 7 2 3 3 2 2 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:script;
+	mso-font-pitch:variable;
+	mso-font-signature:647 0 0 0 159 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+p
+	{margin-right:0in;
+	mso-margin-top-alt:auto;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+tt
+	{mso-ascii-font-family:"Courier New";
+	mso-fareast-font-family:"Courier New";
+	mso-hansi-font-family:"Courier New";
+	mso-bidi-font-family:"Courier New";}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1026"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+<meta name=Author content="Bob Orchard">
+</head>
+
+<body lang=EN-US link=blue vlink=blue style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<h3 align=center style='text-align:center'><span style='font-family:"Comic Sans MS"'>Fuzzy
+Modifiers</span></h3>
+
+<p class=MsoNormal><a href="#_A_Visual_Guide">A Visual Guide To Modifiers</a> <br>
+<a href="#_Creating_User-defined_Modifiers">Creating User-defined Modifiers</a>
+<br>
+<a href="#_Linguistic_Expression_Grammar">Linguistic Expression Grammar</a> <br>
+<a href="#_Examples_in_Java">Examples in Java code</a> <br>
+<a href="#_Adding_User_Defined">Adding User Defined Modifiers</a> </p>
+
+<p>A modifier may be used to further enhance the ability to describe our fuzzy
+concepts. Modifiers (very, slightly, etc.) used in phrases such as <i><span
+style='color:red'>very hot or slightly cold</span> </i>change (modify) the
+shape of a fuzzy set in a way that suits the meaning of the word used. These
+modifiers are commonly referred to as <i>hedges</i>. The Fuzzy Toolkit has a
+set of predefined modifiers that can be used at any time to describe fuzzy
+concepts when defining fuzzy terms in fuzzy variables and in the creation fuzzy
+values. For complete details of modifiers see the class description for <a
+href="APIdocs/nrc/fuzzy/ModifierFunction.html">ModifierFunction</a> and the
+individual class descriptions for each modifier in the <a
+href="APIdocs/index.html">API documentation</a>. </p>
+
+<p>These modifiers change the shape of a fuzzy set using mathematical
+operations on each point of the set. Note that when a modifier is used it is
+not case sensitive so it can be used in upper or lower case (NOT or not) or
+even a mix of cases (NoT). </p>
+
+<h4><a name="A_Visual_Guide_To_Modifiers"></a><a name="_A_Visual_Guide"></a>A
+Visual Guide To Modifiers</h4>
+
+<p class=MsoNormal><u>Unmodified Fuzzy Set</u> <br>
+&nbsp;This FuzzyValue has not yet been&nbsp; modified. It will be the
+FuzzyValue to which the modifiers are applied for all of the following examples
+except 'norm'. </p>
+
+<p><img border=0 width=300 height=200 id="_x0000_i1025"
+src=basicFuzzyValue.gif hspace=10></p>
+
+<p><u>Not</u> <br>
+The NOT modifier returns the complement of the FuzzyValue passed as its
+argument: y(x) = 1 - y(x) </p>
+
+<p><img border=0 width=300 height=200 id="_x0000_i1026" src=not.gif hspace=10></p>
+
+<p><u>Norm</u> <br>
+The NORM modifier returns the normalized FuzzyValue. Normalizing the FuzzyValue
+refers to scaling it so that at least one point on the FuzzyValue has a
+membership value of 1.0. </p>
+
+<p>Before
+Normalization&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+After Normalization </p>
+
+<p><img border=0 width=300 height=200 id="_x0000_i1027" src="not_normal.gif"
+hspace=10><img border=0 width=300 height=200 id="_x0000_i1028" src=normal.gif
+hspace=10></p>
+
+<p><u>&nbsp;More_Or_Less</u> <br>
+The MORE_OR_LESS modifier returns the expanded FuzzyValue passed as its
+argument, having raised all the membership values of the FuzzyValue by a factor
+of 1/3. </p>
+
+<p><img border=0 width=300 height=200 id="_x0000_i1029" src="more_or_less.gif"
+hspace=10></p>
+
+<p><u>&nbsp;Somewhat</u> <br>
+The SOMEWHAT modifier returns the expanded FuzzyValue passed as its argument,
+having raised all the membership values of the FuzzyValue by a factor of 1/2. </p>
+
+<p><img border=0 width=300 height=200 id="_x0000_i1030" src=somewhat.gif
+hspace=10></p>
+
+<p><u>&nbsp;Plus</u> <br>
+The PLUS modifier returns the expanded FuzzyValue passed as its argument,
+having raised all the membership values of the FuzzyValue by a factor of 1.25. </p>
+
+<p><img border=0 width=300 height=199 id="_x0000_i1031" src=plus.gif hspace=10></p>
+
+<p><u>&nbsp;Very</u> <br>
+The VERY modifier returns the expanded FuzzyValue passed as its argument,
+having raised all the membership values of the FuzzyValue by a factor of 2. </p>
+
+<p><img border=0 width=300 height=200 id="_x0000_i1032" src=very.gif hspace=10></p>
+
+<p><u>&nbsp;Extremely</u> </p>
+
+<p>The EXTREMELY modifier returns the expanded FuzzyValue passed as its argument,
+having raised all the membership values of the FuzzyValue by a factor of 3. </p>
+
+<p><img border=0 width=300 height=200 id="_x0000_i1033" src=extremely.gif
+hspace=10></p>
+
+<p><u>&nbsp;Slightly</u> <br>
+The SLIGHTLY modifier returns the expanded FuzzyValue A passed as its argument,
+having performed the following modifications on it: <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; intensify [ norm
+(plus A AND not very A) ] </p>
+
+<p>&nbsp;Consider the partial breakdown, shown below, of this example. On the
+left, directly below, is shown this FuzzyValue after applying the plus
+modifier. On the right is this FuzzyValue after applying both the not and the
+very modifiers. Below these is depicted plus FuzzyValue AND not very
+FuzzyValue, showing the portion of the FuzzyValue that is selected which
+intuitively matches our linguistic understanding of the word
+&quot;slightly&quot;. </p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PLUS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+NOT VERY <br>
+<img border=0 width=300 height=200 id="_x0000_i1034" src="plus_1.gif"
+hspace=10><img border=0 width=300 height=200 id="_x0000_i1035"
+src="not_very_1.gif" hspace=10></p>
+
+<p>Now, put them together. Intensify( PLUS FuzzyValue AND NOT VERY FuzzyValue )
+</p>
+
+<p><img border=0 width=300 height=200 id="_x0000_i1036"
+src="plus_1_and_not_very_1.gif" hspace=10></p>
+
+<p><u>&nbsp;Intensify</u> <br>
+The INTENSIFY modifier returns the expanded FuzzyValue passed as its argument,
+having having performed the following modifications on it: </p>
+
+<p><tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (0.0 &lt;= y &lt;= 0.5), y = 2*y<sup>2</sup></span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (0.5 &lt; y &lt;= 1.0),&nbsp; y = 1 - 2*(1-y)<sup>2</sup></span></tt> </p>
+
+<p>This has the effect of emphasizing the sections of the FuzzyValue that have
+a membership value greater than 0.5, and understating any sections of the FuzzyValue
+with a membership value less than or equal to 0.5. </p>
+
+<p><img border=0 width=300 height=199 id="_x0000_i1037" src=intensify.gif
+hspace=10></p>
+
+<p><u>&nbsp;Above</u> <br>
+The ABOVE modifier identifies the first x value at which the maximum value is
+reached. All membership values below this point are set to zero and all
+membership values above this value are set to 1-y. For convex fuzzy sets this
+gives an intuitive result. </p>
+
+<p><img border=0 width=300 height=200 id="_x0000_i1038" src=above.gif
+hspace=10></p>
+
+<p><u>&nbsp;Below</u> <br>
+The BELOW modifier identifies the first x value at which the maximum value is
+reached. All membership values above this point are set to zero and all
+membership values below this value are set to 1-y. For convex fuzzy sets this
+gives an intuitive result. </p>
+
+<p><img border=0 width=300 height=200 id="_x0000_i1039" src=below.gif
+hspace=10><br>
+&nbsp; </p>
+
+<h4><a name="Creating_User-defined_Modifiers"></a><a
+name="_Creating_User-defined_Modifiers"></a>Creating User-defined Modifiers</h4>
+
+<p class=MsoNormal>Each individual fuzzy modifier is created as a subclass of
+the ModifierFunction class. If created according to the instructions <br>
+provided these fuzzy modifer classes when Constructed will automatically call
+the Modifiers.add method to add themselves to <br>
+the list of available modifiers. So the preferred way to add new modifiers is
+described in the <a href="APIdocs/nrc/fuzzy/ModifierFunction.html">API
+documentation for the class ModifierFunction</a>. </p>
+
+<h4><a name="Linguistic_Expression_Grammar"></a><a
+name="_Linguistic_Expression_Grammar"></a>Linguistic Expression Grammar</h4>
+
+<p class=MsoNormal>The BNF description of the syntax of linguistic expressions
+can be written as: </p>
+
+<p><tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&lt;LExpr&gt;&nbsp;&nbsp;
+::= &lt;LTerm&gt;&nbsp; |&nbsp; &lt;LExpr&gt; OR &lt;LTerm&gt;</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&lt;LTerm&gt;&nbsp;&nbsp;
+::= &lt;modExpr&gt;&nbsp; |&nbsp; &lt;LTerm&gt; AND &lt;modExpr&gt;</span></tt>
+<br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&lt;modExpr&gt;
+::= MODIFIER &lt;modExpr&gt;&nbsp; |&nbsp; &lt;element&gt;</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&lt;element&gt;
+::= PRIMARY-TERM&nbsp; |&nbsp; ( &lt;LExpr&gt; )</span></tt> </p>
+
+<p>where <br>
+&nbsp;&nbsp; MODIFIER is a valid system supplied or user defined modifier (not,
+very, etc. as described above) <br>
+&nbsp;&nbsp; PRIMARY-TERM is a term defined in the fuzzy variable </p>
+
+<p>Note that this gives <i>and</i> higher precedence than <i>or</i> and that
+modifiers are basically unary operators with the highest precedence. One can
+control the order of the expression evaluation through the use of parenthesis (
+and ). Also note that linguistic expressions are case insensitive, that is to
+say that modifiers and terms are all coverted to upper case and the operators
+OR and AND can be in&nbsp; upper, lower or mixed case. </p>
+
+<p>This allows one to write expressions such as: </p>
+
+<p>&nbsp;&nbsp;&nbsp; very hot OR slightly cold <br>
+&nbsp;&nbsp;&nbsp; cold and warm or very hot </p>
+
+<h4><a name="Examples_in_Java_code"></a><a name="_Examples_in_Java"></a>Examples
+in Java code</h4>
+
+<p class=MsoNormal>Below are some examples extracted from Java and Jess code
+showing the use of modifiers and linguistic expressions. </p>
+
+<p><tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;
+// creation of fuzzy values</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;
+fval2 = new FuzzyValue(temp, &quot;not hot&quot;);</span></tt> </p>
+
+<p><tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;
+fval2 = new FuzzyValue( pressure, &quot;low or medium&quot;);</span></tt> </p>
+
+<p><tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;
+// fuzzy values for antecedents and conclusions of rules</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;
+FuzzyRule hotLow = new FuzzyRule();</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;
+hotLow.addAntecedent(new FuzzyValue(outTemp,&quot;hot&quot;));</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;
+hotLow.addAntecedent(new FuzzyValue(outFlow,&quot;low&quot;));</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;
+hotLow.addConclusion(new FuzzyValue(hotValveChange,&quot;Z&quot;));</span></tt>
+<br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;
+hotLow.addConclusion(new FuzzyValue(coldValveChange,&quot;PB&quot;));</span></tt>
+</p>
+
+<p class=MsoNormal style='margin-right:.5in;mso-margin-top-alt:auto;mso-margin-bottom-alt:
+auto;margin-left:.5in'><tt><span style='font-size:10.0pt;font-family:"Courier New"'>;;
+in Jess rules, pattern matching and asserting facts with FuzzyValues</span></tt>
+<br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>(defrule cold_low</span></tt>
+<br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp; (temp
+?t&amp;:(fuzzy-match ?t &quot;cold&quot;))</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp; (flow
+?f&amp;:(fuzzy-match ?f &quot;low&quot;))</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;=&gt;</span></tt>
+<br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp; (assert
+(change_hv (new nrc.fuzzy.FuzzyValue ?*hotValveChangeFvar* &quot;PB&quot;))</span></tt>
+<br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+(change_cv (new nrc.fuzzy.FuzzyValue ?*coldValveChangeFvar* &quot;Z&quot;))</span></tt>
+<br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp; )</span></tt>
+<br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>)</span></tt></p>
+
+<h4><a name="Adding_User_Defined_Modifiers"></a><a name="_Adding_User_Defined"></a>Adding
+User Defined Modifiers</h4>
+
+<p class=MsoNormal>There are a large number of system supplied modifiers but it
+is possible that users will find a need to define some special modifier in their
+work. The techniques to do this are covered in the Fuzzy Toolkit API
+documentation under the <a href="APIdocs/nrc/fuzzy/ModifierFunction.html">ModifierFunction
+class</a>. <br>
+&nbsp; </p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><a href="index.html">Return to Table of Contents</a></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+</div>
+
+</body>
+
+</html>

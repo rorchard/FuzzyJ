@@ -1,0 +1,1654 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./FuzzyRule_files/filelist.xml">
+<link rel=Edit-Time-Data href="./FuzzyRule_files/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>FuzzyRule</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Bob Orchard</o:Author>
+  <o:LastAuthor>Bob Orchard</o:LastAuthor>
+  <o:Revision>37</o:Revision>
+  <o:TotalTime>303</o:TotalTime>
+  <o:Created>2003-05-13T15:30:00Z</o:Created>
+  <o:LastSaved>2005-11-15T13:12:00Z</o:LastSaved>
+  <o:Pages>9</o:Pages>
+  <o:Words>4752</o:Words>
+  <o:Characters>27089</o:Characters>
+  <o:Company>NRCC</o:Company>
+  <o:Lines>225</o:Lines>
+  <o:Paragraphs>54</o:Paragraphs>
+  <o:CharactersWithSpaces>33267</o:CharactersWithSpaces>
+  <o:Version>9.6926</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:Courier;
+	panose-1:0 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:0;
+	mso-generic-font-family:modern;
+	mso-font-format:other;
+	mso-font-pitch:fixed;
+	mso-font-signature:3 0 0 0 1 0;}
+@font-face
+	{font-family:"Comic Sans MS";
+	panose-1:3 15 7 2 3 3 2 2 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:script;
+	mso-font-pitch:variable;
+	mso-font-signature:647 0 0 0 159 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+p
+	{margin-right:0in;
+	mso-margin-top-alt:auto;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+tt
+	{mso-ascii-font-family:"Courier New";
+	mso-fareast-font-family:"Courier New";
+	mso-hansi-font-family:"Courier New";
+	mso-bidi-font-family:"Courier New";}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:101800358;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-169326674 1843448854 135791376 -851548780 1740297788 930410264 846378336 -1271081724 2023280952 213789296;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1120"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+<meta name=Author content="Bob Orchard">
+</head>
+
+<body lang=EN-US link=blue vlink=blue style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<h3 align=center style='text-align:center'><span style='font-family:"Comic Sans MS"'>Fuzzy
+Rules</span></h3>
+
+<p class=MsoNormal><a href="#_Simple_Example_using">Simple Example using Java
+Code</a> <br>
+<a href="#_The_Rule_Executors">The Rule Executors and Other Things to Consider</a>
+<br>
+<a href="#_Graphical_Explanation_of">Graphical Explanation of&nbsp;Rule Firing</a>
+<br>
+<a href="#_Detailed_Example">Detailed Example</a> </p>
+
+<p class=MsoNormal><a href="#_Multiple_Antecedents_in">Multiple Antecedents in
+a Rule</a> </p>
+
+<p class=MsoNormal><a href="#OtherRuleTypes">Other Rule Types and Inferencing
+Methods (Kosko&#8217;s SAM, <span style='mso-bidi-font-size:10.0pt'>Takagi-Sugeno-Kang,
+Tsukamoto)</span></a><br>
+<a href="#_Jess_Integration">Jess Integration</a> <br>
+&nbsp; </p>
+
+<p>A FuzzyRule holds three sets of FuzzyValues representing the <i>antecedents</i>,
+<i>conclusions</i> and <i>input</i> values of a fuzzy rule. A rule might be
+written as follows: </p>
+
+<p class=MsoNormal style='margin-right:.5in;mso-margin-top-alt:auto;mso-margin-bottom-alt:
+auto;margin-left:.5in'><tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;
+<b>if</b> antecedent<sub>1</sub> and</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+antecedent<sub>2</sub> and</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+...</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+antecedent<sub>n</sub></span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp; <b>then</b></span></tt>
+<br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+conclusion<sub>1</sub> and</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+conclusion<sub>2</sub> and</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+...</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+conclusion<sub>m</sub></span></tt></p>
+
+<p class=MsoNormal>The antecedents are the premises of the rule that must be <i><span
+style='color:#FF6600'>true</span></i> before the conclusions of the rule can be
+asserted. By attaching a set of fuzzy value inputs to the rule that correspond
+to actual values for the antecedents, a set of actual conclusions can be
+determined by executing (firing) the rule, using the FuzzyRuleExecutor that is
+associated with the rule. The executor will generally implement one of the
+common algorithms for fuzzy inferencing <a
+href="references.html#Tsoukalas and Uhrig">[Tsoukalas and Uhrig]</a> such as
+the Mamdani min inference operator with the Max-Min composition operator. </p>
+
+<p>Note that this allows only very simple (but still very useful) rules that
+have only fuzzy values on the left hand side (antecedents) and right hand side
+(conclusions). The FuzzyJ Toolkit is integrated with the Jess expert system
+shell and provides the ability to create much more complex rules, combining
+crisp and fuzzy values. </p>
+
+<h4><a name="Simple_Example_using_Java_Code"></a><a name="_Simple_Example_using"></a>Simple
+Example using Java Code</h4>
+
+<p class=MsoNormal>A very simple example of Java code that implements a rule
+and its firing follows. In English-like syntax the rule being implemented can
+be written as: </p>
+
+<p class=MsoNormal style='margin-right:.5in;mso-margin-top-alt:auto;mso-margin-bottom-alt:
+auto;margin-left:.5in'><tt><b><span style='font-size:10.0pt;font-family:"Courier New"'>if</span></b></tt><tt><span
+style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp; temperature is
+hot</span></tt> <br>
+<tt><b><span style='font-size:10.0pt;font-family:"Courier New"'>then</span></b></tt><tt><span
+style='font-size:10.0pt;font-family:"Courier New"'> pressure is low or medium</span></tt></p>
+
+<p class=MsoNormal>Then by providing an input value for the temperature, in
+this case <i>temperature is very medium</i>, the rule can be fired and a
+conclusion is provided as the output of the rule firing. Note that this example
+is also coded in Jess using no Java code in the <a
+href="FuzzyJess.html#Simple Example Using Only Jess Code">section on FuzzyJess</a>.
+</p>
+
+<p>In order to create a rule that can be executed (fired) we need to create an
+instance of a FuzzyRule and then add the <a href="FuzzyValue.html">FuzzyValues</a>
+that make up the antecedents, the conclusions and the inputs. In order to
+create the appropriate FuzzyValues for the rule we need to create the <a
+href="FuzzyVariable.html">FuzzyVariables</a> for the concepts we are using
+(temperature and pressure). </p>
+
+<p class=MsoNormal style='margin-right:.5in;mso-margin-top-alt:auto;mso-margin-bottom-alt:
+auto;margin-left:.5in'><tt><b><span style='font-size:10.0pt;font-family:"Courier New"'>//
+some values used to describe the fuzzy terms in the temperature FuzzyVariable</span></b></tt>
+<br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>double xHot[] =
+{25, 35};</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>double yHot[] =
+{0, 1};</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>double xCold[] =
+{5, 15};</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>double yCold[] =
+{1, 0};</span></tt> <br>
+<tt><b><span style='font-size:10.0pt;font-family:"Courier New"'>// define our
+temperature FuzzyVariable with terms hot,</span></b></tt> <br>
+<tt><b><span style='font-size:10.0pt;font-family:"Courier New"'>// cold, very
+hot and medium</span></b></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>FuzzyVariable temp
+= new FuzzyVariable(&quot;temperature&quot;, 0, 100, &quot;C&quot;);</span></tt>
+<br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>temp.addTerm(&quot;hot&quot;,
+xHot, yHot, 2);</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>temp.addTerm(&quot;cold&quot;,
+xCold, yCold, 2);</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>temp.addTerm(&quot;veryHot&quot;,
+&quot;very hot&quot;);</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>temp.addTerm(&quot;medium&quot;,
+&quot;(not hot and (not cold))&quot;);</span></tt> <br>
+<tt><b><span style='font-size:10.0pt;font-family:"Courier New"'>// define our
+pressure FuzzyVariable with terms low, medium and high</span></b></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>FuzzyVariable
+pressure = new FuzzyVariable(&quot;pressure&quot;, 0, 10,
+&quot;kilo-pascals&quot;);</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>pressure.addTerm(&quot;low&quot;,
+new ZFuzzySet(2.0, 5.0));</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>pressure.addTerm(&quot;medium&quot;,
+new PIFuzzySet(5.0, 2.5));</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>pressure.addTerm(&quot;high&quot;,
+new SFuzzySet(5.0, 8.0));</span></tt> <br>
+<tt><b><span style='font-size:10.0pt;font-family:"Courier New"'>// let's build
+a rule ---</span></b></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>FuzzyRule rule1 =
+new FuzzyRule();</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>FuzzyValue
+antecedentFval = new FuzzyValue(temp, &quot;hot&quot;);</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>FuzzyValue
+conclusionFval = new FuzzyValue(pressure, &quot;low or medium&quot;);</span></tt>
+<br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>FuzzyValue
+inputFval = new FuzzyValue(temp, &quot;very medium&quot;);</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>rule1.addAntecedent(antecedentFval);</span></tt>
+<br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>rule1.addConclusion(conclusionFval);</span></tt>
+<br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>rule1.addInput(inputFval);</span></tt>
+<br>
+<tt><b><span style='font-size:10.0pt;font-family:"Courier New"'>// execute this
+simple rule with a single antecedent and</span></b></tt> <br>
+<tt><b><span style='font-size:10.0pt;font-family:"Courier New"'>// a single
+consequent using default rule executor --</span></b></tt> <br>
+<tt><b><span style='font-size:10.0pt;font-family:"Courier New"'>//
+MamdaniMinMaxMinRuleExecutor</span></b></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>FuzzyValueVector
+fvv = rule1.execute();</span></tt> <br>
+<tt><b><span style='font-size:10.0pt;font-family:"Courier New"'>// show the
+results using the plotting methods for FuzzyValues</span></b></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>FuzzyValue fvals[]
+= new FuzzyValue[2];</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>fvals[0] =
+antecedentFval;</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>fvals[1] =
+inputFval;</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>System.out.println(FuzzyValue.plotFuzzyValues(&quot;*+&quot;,
+0, 50, fvals));</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>System.out.println(fval2.plotFuzzyValue(&quot;*&quot;,
+0, 10));</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>System.out.println(fvv.fuzzyValueAt(0).plotFuzzyValue(&quot;*&quot;,
+0, 10));</span></tt> <br>
+<tt><b><span style='font-size:10.0pt;font-family:"Courier New"'>// execute
+again with a different rule executor --</span></b></tt> <br>
+<tt><b><span style='font-size:10.0pt;font-family:"Courier New"'>//
+LarsenProductMaxMinRuleExecutor</span></b></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>fvv =
+rule1.execute(new LarsenProductMaxMinRuleExecutor());</span></tt> <br>
+<tt><b><span style='font-size:10.0pt;font-family:"Courier New"'>// and show
+results</span></b></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>System.out.println(fvv.fuzzyValueAt(0).plotFuzzyValue(&quot;*&quot;,
+0, 10));</span></tt></p>
+
+<p class=MsoNormal>The above would produce the following graphs as output: </p>
+
+<p class=MsoNormal style='margin-right:.5in;mso-margin-top-alt:auto;mso-margin-bottom-alt:
+auto;margin-left:.5in'><tt><span style='font-size:10.0pt;font-family:"Courier New"'>The
+Antecedent (hot) and the input (very medium) fuzzy values</span></tt> </p>
+
+<p style='margin-right:.5in;margin-left:.5in'><tt><span style='font-size:7.5pt;
+font-family:"Courier New"'>Fuzzy Value: temperature</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>Linguistic Value:
+hot (*),&nbsp; very medium (+)</span></tt> </p>
+
+<p style='margin-right:.5in;margin-left:.5in'><tt><span style='font-size:7.5pt;
+font-family:"Courier New"'>1.00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
++++++++++++&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ****************</span></tt>
+<br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.95</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.90&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+*</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.85</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.80&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
++&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
++&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.75</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.70&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+*</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.65&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
++&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; +</span></tt>
+<br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.60&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+*</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.55</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.50&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
++&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
++ *</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.45</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.40&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+*</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.35&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
++&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
++</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.30&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+*</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.25&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
++&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
++</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.20&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+*</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.15&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
++&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
++</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
++&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+*&nbsp;&nbsp;&nbsp;&nbsp; +</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.05&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
++&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
++</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.00+++++++*******************&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
++++++++++++++++++</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+|----|----|----|----|----|----|----|----|----|----|</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>&nbsp;&nbsp;
+0.00&nbsp;&nbsp;&nbsp;&nbsp; 10.00&nbsp;&nbsp;&nbsp;&nbsp;
+20.00&nbsp;&nbsp;&nbsp;&nbsp; 30.00&nbsp;&nbsp;&nbsp;&nbsp;
+40.00&nbsp;&nbsp;&nbsp;&nbsp; 50.00</span></tt> </p>
+
+<p style='margin-right:.5in;margin-left:.5in'><tt><span style='font-size:10.0pt;
+font-family:"Courier New"'>The conclusion fuzzy value.</span></tt> </p>
+
+<p style='margin-right:.5in;margin-left:.5in'><tt><span style='font-size:7.5pt;
+font-family:"Courier New"'>Fuzzy Value: pressure</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>Linguistic Value:
+low or medium (*)</span></tt> </p>
+
+<p style='margin-right:.5in;margin-left:.5in'><tt><span style='font-size:7.5pt;
+font-family:"Courier New"'>1.00************&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+***</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.95&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *&nbsp;&nbsp; *</span></tt>
+<br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.90&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *&nbsp;&nbsp;&nbsp;&nbsp; *</span></tt>
+<br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.85&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+*</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.80&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.75&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+*</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.70&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+*</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.65&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *</span></tt>
+<br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.60</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.55&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+* *&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.50</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.45&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+*</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.40&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *</span></tt>
+<br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.35</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.30</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.25&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+*</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.20</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.15&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+*</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+*</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.05&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+*</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+**************</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+|----|----|----|----|----|----|----|----|----|----|</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>&nbsp;&nbsp;
+0.00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+4.00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 6.00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+8.00&nbsp;&nbsp;&nbsp;&nbsp; 10.00</span></tt> </p>
+
+<p style='margin-right:.5in;margin-left:.5in'><tt><span style='font-size:10.0pt;
+font-family:"Courier New"'>The output using MamdaniMinMaxMinRuleExecutor</span></tt>
+</p>
+
+<p style='margin-right:.5in;margin-left:.5in'><tt><span style='font-size:7.5pt;
+font-family:"Courier New"'>Fuzzy Value: pressure</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>Linguistic Value:
+??? (*)</span></tt> </p>
+
+<p style='margin-right:.5in;margin-left:.5in'><tt><span style='font-size:7.5pt;
+font-family:"Courier New"'>1.00</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.95</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.90</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.85</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.80</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.75</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.70</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.65</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.60</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.55</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.50</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.45</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.40*********************************</span></tt>
+<br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.35</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.30</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.25&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+*</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.20</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.15&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+*</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+*</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.05&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+*</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+**************</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+|----|----|----|----|----|----|----|----|----|----|</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>&nbsp;&nbsp;
+0.00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+4.00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 6.00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+8.00&nbsp;&nbsp;&nbsp;&nbsp; 10.00</span></tt> </p>
+
+<p style='margin-right:.5in;margin-left:.5in'><tt><span style='font-size:10.0pt;
+font-family:"Courier New"'>The conclusion using
+LarsenProductMaxMinRuleExecutor.</span></tt> </p>
+
+<p style='margin-right:.5in;margin-left:.5in'><tt><span style='font-size:7.5pt;
+font-family:"Courier New"'>Fuzzy Value: pressure</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>Linguistic Value:
+??? (*)</span></tt> </p>
+
+<p style='margin-right:.5in;margin-left:.5in'><tt><span style='font-size:7.5pt;
+font-family:"Courier New"'>1.00</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.95</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.90</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.85</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.80</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.75</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.70</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.65</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.60</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.55</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.50</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.45</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.40************&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+*</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.35&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+***&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *** ***</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.30&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+*&nbsp;&nbsp;&nbsp;&nbsp; *&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.25&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+*&nbsp;&nbsp; *&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.20&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+* *&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.15&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *</span></tt>
+<br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+*</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.05&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+**</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>0.00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+***************</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+|----|----|----|----|----|----|----|----|----|----|</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>&nbsp;&nbsp;
+0.00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+4.00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 6.00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+8.00&nbsp;&nbsp;&nbsp;&nbsp; 10.00</span></tt></p>
+
+<h4><a name="The_Rule_Executors"></a><a name="_The_Rule_Executors"></a>The Rule
+Executors and Other Things to Consider</h4>
+
+<p class=MsoNormal>There are a lot of methods that allow the antecedents,
+conclusions and inputs to be added, removed, and accessed more precisely than
+is shown by methods such as the addAntecedent method in the example above. The
+details can be checked in the <a href="APIdocs/index.html">Fuzzy Java Toolkit
+API documentation</a> and by browsing other examples. However, let's look a bit
+more closely at some things that must be considered before executing rules. </p>
+
+<p>First, in the example above we just went ahead and executed the rule after
+the inputs had been added to the rule. In this case everything works fine
+because we know (by the construction of the antecedent and the input) that in
+fact there is some matching (overlap) of the input and the antecedent fuzzy
+values. This means that the output will have a non-empty fuzzy value. However,
+had the input not matched the antecedent, the resulting output would have been
+an empty fuzzy value (i.e. the fuzzy set would have had zero values
+everywhere). A simple solution here is to execute the rule only when the method
+testRuleMatching returns true. In the above example we would have done: </p>
+
+<p class=MsoNormal style='margin-right:.5in;mso-margin-top-alt:auto;mso-margin-bottom-alt:
+auto;margin-left:.5in'><tt><span style='font-size:10.0pt;font-family:"Courier New"'>if
+(rule1.testRuleMatching())</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>{</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;
+FuzzyValueVector fvv = rule1.execute();</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp; ...</span></tt>
+<br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>}</span></tt></p>
+
+<p class=MsoNormal>This also in general saves a lot of unnecessary time
+executing a rule when it will not yield a result. This is especially true for
+rules that have many antecedents. In a rule based system (like Jess with the
+Fuzzy extensions), this will be taken care of in the pattern matching of the
+antecedents as inputs are asserted into the system. It is also possible to
+control the degree of matching of the inputs and antecedents required to return
+a true from the testRuleMatching method. Normally any matching will result in a
+true value since the threshold value is defaulted to 0.0. One can change the
+threshold by calling the method testRuleMatching with an argument between 0 and
+1. Suppose we use the value 0.1. Then the result is true only if the matching
+(overlap) of all of the corresponding inputs and antecedents is &gt; 0.1. That
+is each pair of values must have an intersection with maximum value &gt; 0.1.
+The default value for matching can also be controlled by calling the static
+FuzzyValue method, setMatchThreshold. </p>
+
+<p><a name="Global_Contribution"></a>Secondly, if there are many rules that
+affect the same output variable (this is common in many applications), then it
+is often useful to merge the output variable of all of these rules into a
+single one. This is known as <b>global contribution</b>. A common strategy is
+to perform the union of all of the results from all of the rules using a fuzzy
+union. Then after all of the rules have fired we have the global effect of the
+contribution of each rule to an answer. The result is often then defuzzified to
+provide a crisp value to feed back to the system being controlled. The fuzzy
+shower problem provided as an example with the FuzzyJ Toolkit (and presented on
+the FuzzyJ web pages) is an example of this complete process. Note that in the
+FuzzyJess extensions, this global contribution is done for the user
+automatically as part of the rule's execution (when facts with fuzzy slots are
+asserted). As of Version 1.5 of FuzzyJ/FuzzyJess there is a Jess function <i><span
+style='font-size:10.0pt;font-family:Courier'>set-fuzzy-global-contribution-operator</span></i><span
+style='font-size:10.0pt;font-family:Courier;color:#2A00FF'> </span>that allows
+the user to control what operator (fuzzy union, fuzzy sum, none, etc.) is used
+to do this global contribution. In pure Java programs, the type of global
+contribution is easily controlled by performing the require operation in Java
+code. But previous to FuzzyJess 1.5 the global contribution was automatic and
+always a union operation. This provides the Jess programmer with the same
+flexibility and a way to extend the operators that can be used if required.</p>
+
+<p>So the steps often used in many applications are: </p>
+
+<ol start=1 type=1>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo3;tab-stops:list .5in'>collect the system inputs.</li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo3;tab-stops:list .5in'>fuzzify the inputs (make them
+     appropriate fuzzy values).</li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo3;tab-stops:list .5in'>apply the inputs to all of the
+     rules in the system, executing the rules 1 at a time and performing a
+     global accumulation of the outputs.</li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo3;tab-stops:list .5in'>defuzzify the outputs (create
+     crisp numbers from the output fuzzy values).</li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo3;tab-stops:list .5in'>apply the crisp outputs to
+     the system.</li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo3;tab-stops:list .5in'>repeat all steps until the
+     system is in a controlled state.</li>
+</ol>
+
+<p class=MsoNormal>Each rule has associated with it a <a
+href="APIdocs/nrc/fuzzy/FuzzyRuleExecutor.html">FuzzyRuleExecutor</a>. These
+FuzzyRuleExecutors are classes that implement the FuzzyRuleExecutorInterface
+and the Cloneable interface, so they must supply execute and clone methods.
+These execute methods are called when the FuzzyRule execute method is called.
+It is the FuzzyRuleExecutor's execute method that performs the magic of rule
+firing and produces the fuzzy outputs. There are many ways to perform this set
+of calculations. Currently three system defined FuzzyRuleExecutors are
+supplied, the <a href="APIdocs/nrc/fuzzy/MamdaniMinMaxMinRuleExecutor.html">MamdaniMinMaxMinRuleExecutor</a>
+the <a href="APIdocs/nrc/fuzzy/LarsenProductMaxMinRuleExecutor.html">LarsenProductMaxMinRuleExecutor</a>
+and the <a href="APIdocs/nrc/fuzzy/TsukamotoRuleExecutor.html">TsukamotoRuleExecutor</a>.
+These correspond using the Mamdani Min inference operator with MaxMin
+composition, the Larsen Product inference operator with MaxMin composition
+respectively and a special rule execution defined by Tsukamoto (details later
+in this text and in the <a name="OLE_LINK1"></a><a
+href="newFeatures.html#ImplementingTsukamoto"><span style='mso-bookmark:OLE_LINK1'>New
+Features, Changes and Helpful Hints</span><span style='mso-bookmark:OLE_LINK1'></span></a><span
+style='mso-bookmark:OLE_LINK1'></span> of the FuzzyJ User Guide). This is
+covered in detail in <a href="references.html#Tsoukalas and Uhrig">[Tsoukalas
+and Uhrig]</a>. Other combinations may be implemented in the future but they do
+not lend themselves to such a simple and efficient implementation as these do
+due to some special characteristics. The first two are also the most commonly
+used approaches. </p>
+
+<p>When a FuzzyRule is constructed, it will either be given a default rule
+executor (this can be controlled by the user, see method setDefaultRuleExecutor
+of the FuzzyRule class) or a specific rule executor is supplied to the
+constructor. Because the rule executors may want to store state from invocation
+to invocation, each FuzzyRule is given its own instance of the executor. This
+assists the executor in providing an efficient implementation. This is also the
+reason that FuzzyRuleExecutors must implement the Cloneable interface. <br>
+&nbsp; </p>
+
+<h4><a name="Graphical_Explanation_of__Rule_Firing"></a><a
+name="_Graphical_Explanation_of"></a>Graphical Explanation of&nbsp; Rule Firing</h4>
+
+<p class=MsoNormal>Below is a graphical look at how the 2 system supplied
+executors operate using a simple fuzzy rule. </p>
+
+<p>The diagrams depict the rule: </p>
+
+<p>&nbsp;&nbsp;&nbsp; <b>If</b> <i>temperature is hot</i> <b>then</b> <i>turn
+thermostat down a lot</i>, with the input <i>temperature is warm</i>. </p>
+
+<p>Fist we&#8217;ll look at the MamdaniMinMaxMinRuleExecutor. The effect of this type
+of inference is to generate an output fuzzy value that is the conclusion fuzzy
+value <i><span style='color:#CC0000'>clipped</span></i> at the&nbsp;maximum
+value of the intersection of the antecedent fuzzy value and the input fuzzy
+value. </p>
+
+<p><img border=0 width=588 height=241 id="_x0000_i1025" src=ruleMamdani.gif
+hspace=10></p>
+
+<p>The next graphic depicts the use of the LarsenProductMaxMinRuleExecutor.
+This is similar to the previous method, except that the output is <i><span
+style='color:#990000'>scaled</span></i> by the maximum intersection value
+rather than being <i><span style='color:red'>clipped</span></i>. </p>
+
+<p><img border=0 width=588 height=241 id="_x0000_i1026" src=ruleLarsen.gif
+hspace=10></p>
+
+<p>Next is an example of the firing of 2 rules and the effect of globally
+combining the outputs of the two rules (using the default MamdaniMinMaxMinRuleExecutor
+and the default fuzzy union operation to combine the output of the 2 rules).
+The rules are: </p>
+
+<p style='margin-bottom:0in;margin-bottom:.0001pt'>&nbsp;&nbsp;&nbsp; <b>If</b>
+<i>temperature is hot</i> <b>then</b> <i>turn thermostat down a lot</i>. <br>
+&nbsp;&nbsp;&nbsp; <b>If</b> <i>temperature is cool</i> <b>then </b><i>turn
+thermostat up a little</i> </p>
+
+<p style='margin-top:0in'><br>
+&nbsp;&nbsp;&nbsp; with the input <i>temperature is warm</i>. </p>
+
+<p>Notice that in this case the outputs from each rule firing are combined
+using a fuzzy union operator. The graphic also depicts the value of the <i>crisp
+output </i>of the result if the output fuzzy value was <i>defuzzified</i> using
+the momentDefuzzify method.</p>
+
+<p><img border=0 width=612 height=503 id="_x0000_i1027" src=multipleRule.gif
+hspace=10></p>
+
+<h4><a name="Detailed_Example"></a><a name="_Detailed_Example"></a>Detailed
+Example</h4>
+
+<p class=MsoNormal>A partial listing of key parts of the Fuzzy Compiler example
+that is included with the FuzzyJ Toolkit are shown below. It shows the steps
+outlined above in some detail with a slightly more complex set of rules. </p>
+
+<p>In this example we have 2 antecedent fuzzy variables and 1 conclusion fuzzy
+variable. They are: </p>
+
+<p>&nbsp;&nbsp;&nbsp; <u>Antecedent Fuzzy Variables</u> <br>
+&nbsp;&nbsp;&nbsp; <b>temperature</b> 0 100 degrees
+C&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>pressure</b> 0 500 kPa <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; terms: low, medium,
+high&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+terms: low, medium, high </p>
+
+<p>&nbsp;&nbsp;&nbsp; <u>Conclusion Fuzzy Variable</u> <br>
+&nbsp;&nbsp;&nbsp; <b>throttle</b> 0 1 units <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; terms: verylow, low, midlow, medium,
+midhigh, high </p>
+
+<p>The 9 rules can be written as: <br>
+&nbsp; <o:p></o:p></p>
+
+<table border=1 cellpadding=0 width=642 style='width:420.0pt;mso-cellspacing:
+ 1.5pt;mso-padding-alt:0in 0in 0in 0in' cols=3>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;&nbsp;&nbsp; if&nbsp; temperature is low <br>
+  &nbsp;&nbsp;&nbsp; and pressure is low <br>
+  &nbsp;&nbsp;&nbsp; then set throttle to high</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;&nbsp;&nbsp; if&nbsp; temperature is low <br>
+  &nbsp;&nbsp;&nbsp; and pressure is medium <br>
+  &nbsp;&nbsp;&nbsp; then set throttle to medium</p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;&nbsp;&nbsp; if&nbsp; temperature is low <br>
+  &nbsp;&nbsp;&nbsp; and pressure is high <br>
+  &nbsp;&nbsp;&nbsp; then set throttle to midlow</p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;&nbsp;&nbsp; if&nbsp; temperature is medium <br>
+  &nbsp;&nbsp;&nbsp; and pressure is low <br>
+  &nbsp;&nbsp;&nbsp; then set throttle to midhigh</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;&nbsp;&nbsp; if&nbsp; temperature is medium <br>
+  &nbsp;&nbsp;&nbsp; and pressure is medium <br>
+  &nbsp;&nbsp;&nbsp; then set throttle to midlow</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;&nbsp;&nbsp; if&nbsp; temperature is medium <br>
+  &nbsp;&nbsp;&nbsp; and pressure is high <br>
+  &nbsp;&nbsp;&nbsp; then set throttle to low</p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;&nbsp;&nbsp; if&nbsp; temperature is high <br>
+  &nbsp;&nbsp;&nbsp; and pressure is low <br>
+  &nbsp;&nbsp;&nbsp; then set throttle to midlow</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;&nbsp;&nbsp; if&nbsp; temperature is high <br>
+  &nbsp;&nbsp;&nbsp; and pressure is medium <br>
+  &nbsp;&nbsp;&nbsp; then set throttle to low</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>&nbsp;&nbsp;&nbsp; if&nbsp; temperature is high <br>
+  &nbsp;&nbsp;&nbsp; and pressure is high <br>
+  &nbsp;&nbsp;&nbsp; then set throttle to verylow</p>
+  </td>
+ </tr>
+</table>
+
+<p>The partial code: (note that the rules could have been put into an array for
+efficiency but for readability this is better; in fact in the example shipped with
+version 1.5 or later of the FuzzyJ Toolkit some of the code was rewritten to
+use an array of rules; it is suggested that the new code be looked at as well) </p>
+
+<p><tt><b><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+// define the FuzzyRules and Fuzzy Variables we will use</span></b></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+FuzzyRule lowTempLowPressure = new FuzzyRule();</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+FuzzyRule lowTempMediumPressure = new FuzzyRule();</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+FuzzyRule lowTempHighPressure = new FuzzyRule();</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+FuzzyRule mediumTempLowPressure = new FuzzyRule();</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+FuzzyRule mediumTempMediumPressure = new FuzzyRule();</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+FuzzyRule mediumTempHighPressure = new FuzzyRule();</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+FuzzyRule highTempLowPressure = new FuzzyRule();</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+FuzzyRule highTempMediumPressure = new FuzzyRule();</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+FuzzyRule highTempHighPressure = new FuzzyRule();</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+FuzzyVariable temperature;</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+FuzzyVariable pressure;</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+FuzzyVariable throttle;</span></tt> </p>
+
+<p><tt><b><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+// define temperature variable with its terms</span></b></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+temperature = new FuzzyVariable(&quot;temperature&quot;, 0.0, 100.0,
+&quot;Degrees C&quot;);</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+temperature.addTerm(&quot;low&quot;, new PIFuzzySet(20, 20));</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+temperature.addTerm(&quot;medium&quot;, new PIFuzzySet(50, 20));</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+temperature.addTerm(&quot;high&quot;, new PIFuzzySet(80, 20));</span></tt> <br>
+<tt><b><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+// define pressure variable with its terms</span></b></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+pressure = new FuzzyVariable(&quot;pressure&quot;, 0.0, 500.0,
+&quot;kPa&quot;);</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+pressure.addTerm(&quot;low&quot;, new PIFuzzySet(100, 100));</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+pressure.addTerm(&quot;medium&quot;, new PIFuzzySet(250, 100));</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+pressure.addTerm(&quot;high&quot;, new PIFuzzySet(400, 100));</span></tt> <br>
+<tt><b><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+// define the throttle fuzzy variable with its terms</span></b></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+throttle = new FuzzyVariable(&quot;throttle&quot;, 0.0, 1.0,
+&quot;units&quot;);</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+throttle.addTerm(&quot;verylow&quot;, new PIFuzzySet(.1, .1));</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+throttle.addTerm(&quot;low&quot;, new PIFuzzySet(.25, .15));</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+throttle.addTerm(&quot;midlow&quot;, new PIFuzzySet(.4, .1));</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+throttle.addTerm(&quot;medium&quot;, new PIFuzzySet(.55, .15));</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+throttle.addTerm(&quot;midhigh&quot;, new PIFuzzySet(.75, .1));</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+throttle.addTerm(&quot;high&quot;, new PIFuzzySet(.9, .1));</span></tt> </p>
+
+<p><tt><b><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+// define the 9 rules</span></b></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+lowTempLowPressure.addAntecedent(new FuzzyValue(temperature,&quot;low&quot;));</span></tt>
+<br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+lowTempLowPressure.addAntecedent(new FuzzyValue(pressure,&quot;low&quot;));</span></tt>
+<br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+lowTempLowPressure.addConclusion(new FuzzyValue(throttle,&quot;high&quot;));</span></tt>
+<br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+lowTempMediumPressure.addAntecedent(new
+FuzzyValue(temperature,&quot;low&quot;));</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+lowTempMediumPressure.addAntecedent(new
+FuzzyValue(pressure,&quot;medium&quot;));</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+lowTempMediumPressure.addConclusion(new
+FuzzyValue(throttle,&quot;medium&quot;));</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+lowTempHighPressure.addAntecedent(new FuzzyValue(temperature,&quot;low&quot;));</span></tt>
+<br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+lowTempHighPressure.addAntecedent(new FuzzyValue(pressure,&quot;high&quot;));</span></tt>
+<br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+lowTempHighPressure.addConclusion(new FuzzyValue(throttle,&quot;midlow&quot;));</span></tt>
+<br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+mediumTempLowPressure.addAntecedent(new
+FuzzyValue(temperature,&quot;medium&quot;));</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+mediumTempLowPressure.addAntecedent(new FuzzyValue(pressure,&quot;low&quot;));</span></tt>
+<br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+mediumTempLowPressure.addConclusion(new
+FuzzyValue(throttle,&quot;midhigh&quot;));</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+mediumTempMediumPressure.addAntecedent(new
+FuzzyValue(temperature,&quot;medium&quot;));</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+mediumTempMediumPressure.addAntecedent(new
+FuzzyValue(pressure,&quot;medium&quot;));</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+mediumTempMediumPressure.addConclusion(new
+FuzzyValue(throttle,&quot;midlow&quot;));</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+mediumTempHighPressure.addAntecedent(new
+FuzzyValue(temperature,&quot;medium&quot;));</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+mediumTempHighPressure.addAntecedent(new
+FuzzyValue(pressure,&quot;high&quot;));</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+mediumTempHighPressure.addConclusion(new FuzzyValue(throttle,&quot;low&quot;));</span></tt>
+<br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+highTempLowPressure.addAntecedent(new FuzzyValue(temperature,&quot;high&quot;));</span></tt>
+<br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+highTempLowPressure.addAntecedent(new FuzzyValue(pressure,&quot;low&quot;));</span></tt>
+<br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+highTempLowPressure.addConclusion(new FuzzyValue(throttle,&quot;midlow&quot;));</span></tt>
+<br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+highTempMediumPressure.addAntecedent(new
+FuzzyValue(temperature,&quot;high&quot;));</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+highTempMediumPressure.addAntecedent(new
+FuzzyValue(pressure,&quot;medium&quot;));</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+highTempMediumPressure.addConclusion(new FuzzyValue(throttle,&quot;low&quot;));</span></tt>
+<br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+highTempHighPressure.addAntecedent(new
+FuzzyValue(temperature,&quot;high&quot;));</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+highTempHighPressure.addAntecedent(new FuzzyValue(pressure,&quot;high&quot;));</span></tt>
+<br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+highTempHighPressure.addConclusion(new
+FuzzyValue(throttle,&quot;verylow&quot;));</span></tt> </p>
+
+<p><tt><b><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+// fire the rules for values of temp from 5 to 95 (increments of 5)</span></b></tt>
+<br>
+<tt><b><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+// and of pressure from 10 to 490, storing the results of the rule firings</span></b></tt>
+<br>
+<tt><b><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+// (i.e. the de-fuzzified result of the combination of all rules) in a</span></b></tt>
+<br>
+<tt><b><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+// 2D array.</span></b></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+for (i=0; i&lt;19; i++)</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+{ for (j=0; j&lt;49; j++)</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+{ try</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+{ <b>// each iteration corresponds to collecting a set of inputs</b></span></tt>
+<br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// could have done this below more efficiently (codewise) but ...</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// ie. use an array of rules rather than specific named rules</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+double temp = i*5+5;&nbsp;&nbsp;&nbsp; // temperature crisp input</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+double press = j*10+10; // pressure crisp input</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+globalOutput = null;&nbsp;&nbsp;&nbsp; // global contribution of outputs of
+each rule</span></tt> <br>
+<tt><b><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// Fuzzify the crisp inputs as fuzzy values</span></b></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+FuzzyValue tempFv = new FuzzyValue(this.temperature,new PIFuzzySet(temp, 0.5));</span></tt>
+<br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+FuzzyValue pressFv = new FuzzyValue(this.pressure,new PIFuzzySet(press, 0.5));</span></tt>
+<br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+FuzzyValue fv;</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<b>// add inputs to rules and fire them and do global contribution</b></span></tt>
+<br>
+<tt><b><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// Note: we use testRuleMatching</span></b></tt><b><span style='font-size:10.0pt'>
+</span></b><tt><b><span style='font-size:10.0pt;font-family:"Courier New"'>to
+see if the rule really needed to fire</span></b></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+this.lowTempLowPressure.removeAllInputs(); // clear previous inputs if any</span></tt>
+<br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+this.lowTempLowPressure.addInput(tempFv);</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+this.lowTempLowPressure.addInput(pressFv);</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (this.lowTempLowPressure.testRuleMatching())</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+{</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+fvv = lowTempLowPressure.execute(); // get output of the rule</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+globalOutput = fvv.fuzzyValueAt(0); // 1st rule ... it becomes global output</span></tt>
+<br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+this.lowTempMediumPressure.removeAllInputs();</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+this.lowTempMediumPressure.addInput(tempFv);</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+this.lowTempMediumPressure.addInput(pressFv);</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (this.lowTempMediumPressure.testRuleMatching())</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+{</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+fvv = lowTempMediumPressure.execute(); // get output of the rule</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+fv =
+fvv.fuzzyValueAt(0);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// not 1st rule so add to previous</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (globalOutput ==
+null)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// global output</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+globalOutput = fv;</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+else</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+globalOutput = globalOutput.fuzzyUnion(fv);</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+this.lowTempHighPressure.removeAllInputs();</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+this.lowTempHighPressure.addInput(tempFv);</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+this.lowTempHighPressure.addInput(pressFv);</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (this.lowTempHighPressure.testRuleMatching())</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+{</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+fvv = lowTempHighPressure.execute();</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+fv = fvv.fuzzyValueAt(0);</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (globalOutput == null)</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+globalOutput = fv;</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+else</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+globalOutput = globalOutput.fuzzyUnion(fv);</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+this.mediumTempLowPressure.removeAllInputs();</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+this.mediumTempLowPressure.addInput(tempFv);</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+this.mediumTempLowPressure.addInput(pressFv);</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (this.mediumTempLowPressure.testRuleMatching())</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+{</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+fvv = mediumTempLowPressure.execute();</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+fv = fvv.fuzzyValueAt(0);</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (globalOutput == null)</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+globalOutput = fv;</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+else</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+globalOutput = globalOutput.fuzzyUnion(fv);</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+this.mediumTempMediumPressure.removeAllInputs();</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+this.mediumTempMediumPressure.addInput(tempFv);</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+this.mediumTempMediumPressure.addInput(pressFv);</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (this.mediumTempMediumPressure.testRuleMatching())</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+{</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+fvv = mediumTempMediumPressure.execute();</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+fv = fvv.fuzzyValueAt(0);</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (globalOutput == null)</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+globalOutput = fv;</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+else</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+globalOutput = globalOutput.fuzzyUnion(fv);</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+this.mediumTempHighPressure.removeAllInputs();</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+this.mediumTempHighPressure.addInput(tempFv);</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+this.mediumTempHighPressure.addInput(pressFv);</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (this.mediumTempHighPressure.testRuleMatching())</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+{</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+fvv = mediumTempHighPressure.execute();</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+fv = fvv.fuzzyValueAt(0);</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (globalOutput == null)</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+globalOutput = fv;</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+else</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+globalOutput = globalOutput.fuzzyUnion(fv);</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+this.highTempLowPressure.removeAllInputs();</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+this.highTempLowPressure.addInput(tempFv);</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+this.highTempLowPressure.addInput(pressFv);</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (this.highTempLowPressure.testRuleMatching())</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+{</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+fvv = highTempLowPressure.execute();</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+fv = fvv.fuzzyValueAt(0);</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (globalOutput == null)</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+globalOutput = fv;</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+else</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+globalOutput = globalOutput.fuzzyUnion(fv);</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+this.highTempMediumPressure.removeAllInputs();</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+this.highTempMediumPressure.addInput(tempFv);</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+this.highTempMediumPressure.addInput(pressFv);</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (this.highTempMediumPressure.testRuleMatching())</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+{</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+fvv = highTempMediumPressure.execute();</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+fv = fvv.fuzzyValueAt(0);</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (globalOutput == null)</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+globalOutput = fv;</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+else</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+globalOutput = globalOutput.fuzzyUnion(fv);</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+this.highTempHighPressure.removeAllInputs();</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+this.highTempHighPressure.addInput(tempFv);</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+this.highTempHighPressure.addInput(pressFv);</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (this.highTempHighPressure.testRuleMatching())</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+{</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+fvv = highTempHighPressure.execute();</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+fv = fvv.fuzzyValueAt(0);</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (globalOutput == null)</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+globalOutput = fv;</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+else</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+globalOutput = globalOutput.fuzzyUnion(fv);</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</span></tt> <br>
+<tt><b><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// defuzzify the final output (global) to get a crisp value</span></b></tt> <br>
+<tt><b><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// ... in this case store it in an array</span></b></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+results[i][j] = globalOutput.momentDefuzzify();</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+catch (FuzzyException e)</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+{ System.out.println(e);</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+System.out.println(&quot;At &quot;+i+&quot;,&quot;+j+&quot; .../n&quot;+
+globalOutput);</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;
+}</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp; }</span></tt>
+<br>
+&nbsp; </p>
+
+<h4><a name="Multiple_Antecedents_in_a_Rule"></a><a
+name="_Multiple_Antecedents_in"></a><span style='mso-bookmark:Multiple_Antecedents_in_a_Rule'>Multiple
+Antecedents in a Rule</span></h4>
+
+<p>In the last example there were two antecedents in the rule. Previous
+examples with one fuzzy antecedent showed that we used the match value (maximum
+value of the intersection of the antecedent and its input) to determine how to
+modify the output fuzzy values. For the MamdaniMinMaxMinRuleExecutor we <i>clipped</i>
+the output at this value and for the LarsenProductMaxMinRuleExecutor we <i>scaled</i>
+the outputs. However, when there are several match values due to multiple
+antecedents then we have to determine how these values should be combined to
+affect the output values. By default (and in all versions of FuzzyJ before
+1.5), the combining operator was a <i>minimum</i> of the match values. As of
+version 1.5 an interface (<span style='font-size:10.0pt;font-family:"Courier New";
+color:black'>AntecedentCombineOperatorInterface</span>), an abstract class (<span
+style='font-size:10.0pt;font-family:"Courier New";color:black'>AntecedentCombineOperator</span>)
+and a couple of classes that extend the abstract class (<span style='font-size:
+10.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'>Minimum</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black'>AntecedentCombineOperator</span>
+and <span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'>Product</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black'>AntecedentCombineOperator</span>)
+were added to allow us to easily control how these match values are combined.
+Each rule can determine it&#8217;s own combining operator and the default operator
+can be controlled as well (See the FuzzyRule class documentation in the <a
+href="APIdocs/index.html">FuzzyJ API</a>). All of the Rule Executors use this
+information to decide how to manage multiple antecedents. In FuzzyJ version
+1.5a a third combine operator was added (<span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:"Courier New"'>CompensatoryAnd</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black'>AntecedentCombineOperator</span><span
+style='mso-bidi-font-size:10.0pt;color:black'>). This is described in the API,
+but basically it provides an operator that gives a value larger than the
+minimum or product operators. For example, if you have three antecedents and
+two match at 1.0 and one at 0.1, then the CompensatoryAnd operator will give a
+value larger than 0.1 (it can be adjusted by a parameter setting).</span></p>
+
+<p>The Fuzzy Compiler example shown above has been modified (in FuzzyJ Toolkit
+1.5 and later) to allow the user to control the Rule Executor (as before), plus
+the Antecedent Combining Operator (minimum or product) and the operator to use
+when global contribution of output fuzzy values is done (fuzzy union or fuzzy
+sum). Take a look at the code of this example to see how these options can be
+controlled.</p>
+
+<h4><a name=OtherRuleTypes>Other Rule Types and Inferencing Methods (Kosko&#8217;s
+SAM, </a><span style='mso-bookmark:OtherRuleTypes'><span style='mso-bidi-font-size:
+10.0pt;color:black'>Takagi-Sugeno-Kang, Tsukamoto)</span></span></h4>
+
+<span style='mso-bookmark:OtherRuleTypes'></span>
+
+<p>So we see that there are now quite a few options that control the execution
+of rules: the Rule Executor, the Antecedent Combining Operator and the Global
+Contribution Operator. In many cases the defaults (mandami, minimum, union) are
+just fine. However, there are valid reasons to have a choice. In particular,
+Bart Kosko, in his book Fuzzy Engineering (<a href="references.html">see
+references section</a>), clearly argues for a method called SAM (the Standard
+Additive Model), which is implemented in FuzzyJ using the
+MamdaniMinMaxMinRuleExecutor, the Product<span style='mso-bidi-font-size:10.0pt;
+color:black'>AntecedentCombineOperator, the fuzzySum for Global Contribution
+and the momentDefuzzify method. <o:p></o:p></span></p>
+
+<p><span style='mso-bidi-font-size:10.0pt;color:black'>We have discussed the
+two most common rule inference procedures using MandaminiMinMaxMin or
+LarsenProductMaxMin rule executors. However, there are two other commonly used
+methods for creating and executing rules that can be implemented in FuzzyJ.
+These are the Tsukamoto inference method and Takagi-Sugeno-Kang (TSK) type
+rules. <o:p></o:p></span></p>
+
+<p><span style='mso-bidi-font-size:10.0pt;color:black'>Takagi-Sugeno-Kang rules
+have</span> fuzzy inputs but they have specialized crisp outputs that are
+generally either constants (zero order TSK rules) or crisp outputs that are
+defined by a function that computes a crisp value (usually a function of the
+crisp values of the input variable). A description of how to implement these
+TSK rules in FuzzyJ/FuzzyJess is provided in the section <a
+href="newFeatures.html#Takagi_Sugeno_Kang_Rules">New Features, Changes and
+Helpful Hints</a>. </p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none'>Tsukamoto rules use
+consequents that are strictly increasing or strictly decreasing functions. When
+a rule fires and the outputs are generated a crisp x value and a membership
+value are recorded. The membership value is the DOF (Degree of Fulfillment or
+degree of matching) of the rule. The x value is chosen by looking at the
+consequent fuzzy set to see which x value has that membership value. <span
+style='mso-bidi-font-size:10.0pt'>The final output of all of the rules is the
+weighted average of all the x values, using the membership values as the
+weights. In FuzzyJ we have a special RuleExecutor, TsukamotoRuleExecutor, that
+generates outputs that are singleton fuzzy values at the selected x value with
+a membership value equal to the DOF of the rule. These output fuzzy values
+should be combined using the fuzzySum method (rather than the default fuzzyUnion)
+and then defuzzified using the weightedAverageDefuzzify method. This produces
+the Tsukamoto inference results. In summary to implement Tsukamoto type rules:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none'><span style='mso-bidi-font-size:
+10.0pt'>&nbsp;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none'><span style='mso-bidi-font-size:
+10.0pt'>1. Make sure the rules fuzzy outputs are defined using strictly
+increasing or strictly decreasing functions that cover all of the membership
+values from 0.0 to 1.0 (some example fuzzy sets that have this property are
+SFuzzySet, ZFuzzySet, LeftLinearFuzzySet, and RightLineraFuzzySet.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none'><span style='mso-bidi-font-size:
+10.0pt'>&nbsp;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none'><span style='mso-bidi-font-size:
+10.0pt'>2. Use the fuzzySum method as the rule output combine (global
+contribution) operator.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none'><span style='mso-bidi-font-size:
+10.0pt'>&nbsp;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none'><span style='mso-bidi-font-size:
+10.0pt'>3. Use the weightedAverageDefuzzify method to defuzzify the combined
+output of the rules.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none'><span style='mso-bidi-font-size:
+10.0pt'>&nbsp;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none'>This is shown below for a
+simple 2-rule situation.</p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<h4><!--[if gte vml 1]><o:wrapblock><v:group id="_x0000_s1071" style='position:absolute;
+  margin-left:5.6pt;margin-top:0;width:495.55pt;height:233.75pt;z-index:1;
+  mso-position-vertical:top' coordorigin="203,15343" coordsize="9911,4675">
+  <v:group id="_x0000_s1072" style='position:absolute;left:203;top:15343;
+   width:9911;height:4675' coordorigin="203,15343" coordsize="9911,4675">
+   <v:group id="_x0000_s1073" style='position:absolute;left:203;top:15343;
+    width:9911;height:4675' coordorigin="203,315" coordsize="9911,4675">
+    <v:rect id="_x0000_s1074" style='position:absolute;left:203;top:315;
+     width:9911;height:4675;mso-position-horizontal:absolute;
+     mso-position-vertical:absolute' fillcolor="silver"/>
+    <v:group id="_x0000_s1075" style='position:absolute;left:951;top:667;
+     width:1683;height:1496' coordorigin="951,5353" coordsize="1683,1496">
+     <v:line id="_x0000_s1076" style='position:absolute' from="951,5353" to="951,6849"/>
+     <v:line id="_x0000_s1077" style='position:absolute' from="951,6849" to="2634,6849"/>
+    </v:group><v:group id="_x0000_s1078" style='position:absolute;left:951;
+     top:2537;width:1683;height:1496' coordorigin="951,5353" coordsize="1683,1496">
+     <v:line id="_x0000_s1079" style='position:absolute' from="951,5353" to="951,6849"/>
+     <v:line id="_x0000_s1080" style='position:absolute' from="951,6849" to="2634,6849"/>
+    </v:group><v:group id="_x0000_s1081" style='position:absolute;left:3382;
+     top:667;width:1683;height:1496' coordorigin="951,5353" coordsize="1683,1496">
+     <v:line id="_x0000_s1082" style='position:absolute' from="951,5353" to="951,6849"/>
+     <v:line id="_x0000_s1083" style='position:absolute' from="951,6849" to="2634,6849"/>
+    </v:group><v:group id="_x0000_s1084" style='position:absolute;left:3382;
+     top:2538;width:1683;height:1496' coordorigin="951,5353" coordsize="1683,1496">
+     <v:line id="_x0000_s1085" style='position:absolute' from="951,5353" to="951,6849"/>
+     <v:line id="_x0000_s1086" style='position:absolute' from="951,6849" to="2634,6849"/>
+    </v:group><v:group id="_x0000_s1087" style='position:absolute;left:5626;
+     top:1602;width:1683;height:1496' coordorigin="951,5353" coordsize="1683,1496">
+     <v:line id="_x0000_s1088" style='position:absolute' from="951,5353" to="951,6849"/>
+     <v:line id="_x0000_s1089" style='position:absolute' from="951,6849" to="2634,6849"/>
+    </v:group><v:line id="_x0000_s1090" style='position:absolute;flip:y'
+     from="1138,667" to="1699,2163" strokecolor="blue" strokeweight="1.5pt"/>
+    <v:line id="_x0000_s1091" style='position:absolute' from="1699,667" to="2073,2163"
+     strokecolor="blue" strokeweight="1.5pt"/>
+    <v:line id="_x0000_s1092" style='position:absolute;flip:x y' from="951,2538"
+     to="1886,4033" strokecolor="blue" strokeweight="1.5pt"/>
+    <v:line id="_x0000_s1093" style='position:absolute;flip:y;
+     mso-position-horizontal:absolute;mso-position-vertical:absolute' from="3730,667"
+     to="4665,2163" strokecolor="red" strokeweight="1.5pt"/>
+    <v:line id="_x0000_s1094" style='position:absolute;
+     mso-position-horizontal:absolute;mso-position-vertical:absolute' from="4252,2539"
+     to="5000,4036" strokecolor="red" strokeweight="1.5pt"/>
+    <v:line id="_x0000_s1095" style='position:absolute;flip:y' from="1325,3098"
+     to="1325,4034" strokecolor="#396">
+     <v:stroke endarrow="block"/>
+    </v:line><v:line id="_x0000_s1096" style='position:absolute;flip:y' from="1325,1788"
+     to="1325,3098" strokecolor="#396">
+     <v:stroke endarrow="block"/>
+    </v:line><v:line id="_x0000_s1097" style='position:absolute' from="1325,1788"
+     to="3943,1788" strokecolor="#396">
+     <v:stroke endarrow="block"/>
+    </v:line><v:line id="_x0000_s1098" style='position:absolute;
+     mso-position-horizontal:absolute;mso-position-vertical:absolute' from="1325,3099"
+     to="4504,3099" strokecolor="#396">
+     <v:stroke endarrow="block"/>
+    </v:line><v:line id="_x0000_s1099" style='position:absolute' from="3943,1788"
+     to="3943,2162" strokecolor="#396">
+     <v:stroke endarrow="block"/>
+    </v:line><v:line id="_x0000_s1100" style='position:absolute' from="4504,3099"
+     to="4504,4033" strokecolor="#396">
+     <v:stroke endarrow="block"/>
+    </v:line><v:line id="_x0000_s1101" style='position:absolute;
+     mso-position-horizontal:absolute;mso-position-vertical:absolute' from="6187,2725"
+     to="6187,3099" strokecolor="#f60" strokeweight="2.25pt"/>
+    <v:line id="_x0000_s1102" style='position:absolute;
+     mso-position-horizontal:absolute;mso-position-vertical:absolute' from="6935,2165"
+     to="6935,3099" strokecolor="#f60" strokeweight="2.25pt"/>
+   </v:group><v:shapetype id="_x0000_t202" coordsize="21600,21600" o:spt="202"
+    path="m0,0l0,21600,21600,21600,21600,0xe">
+    <v:stroke joinstyle="miter"/>
+    <v:path gradientshapeok="t" o:connecttype="rect"/>
+   </v:shapetype><v:shape id="_x0000_s1103" type="#_x0000_t202" style='position:absolute;
+    left:203;top:16455;width:935;height:362;mso-position-horizontal:absolute;
+    mso-position-vertical:absolute' filled="f" stroked="f">
+    <v:textbox style='mso-next-textbox:#_x0000_s1103'>
+     <![if !mso]>
+     <table cellpadding=0 cellspacing=0 width="100%">
+      <tr>
+       <td><![endif]>
+       <div>
+       <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:
+       12.0pt'>Rule 1<o:p></o:p></span></p>
+       </div>
+       <![if !mso]></td>
+      </tr>
+     </table>
+     <![endif]></v:textbox>
+   </v:shape><v:shape id="_x0000_s1104" type="#_x0000_t202" style='position:absolute;
+    left:203;top:18127;width:935;height:362;mso-position-horizontal:absolute;
+    mso-position-vertical:absolute' filled="f" stroked="f">
+    <v:textbox style='mso-next-textbox:#_x0000_s1104'>
+     <![if !mso]>
+     <table cellpadding=0 cellspacing=0 width="100%">
+      <tr>
+       <td><![endif]>
+       <div>
+       <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:
+       12.0pt'>Rule 2<o:p></o:p></span></p>
+       </div>
+       <![if !mso]></td>
+      </tr>
+     </table>
+     <![endif]></v:textbox>
+   </v:shape><v:shape id="_x0000_s1105" type="#_x0000_t202" style='position:absolute;
+    left:1138;top:19064;width:1496;height:374;mso-position-horizontal:absolute;
+    mso-position-vertical:absolute' filled="f" stroked="f">
+    <v:textbox style='mso-next-textbox:#_x0000_s1105'>
+     <![if !mso]>
+     <table cellpadding=0 cellspacing=0 width="100%">
+      <tr>
+       <td><![endif]>
+       <div>
+       <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:
+       12.0pt'>x input<o:p></o:p></span></p>
+       </div>
+       <![if !mso]></td>
+      </tr>
+     </table>
+     <![endif]></v:textbox>
+   </v:shape><v:shape id="_x0000_s1106" type="#_x0000_t202" style='position:absolute;
+    left:2917;top:17950;width:813;height:374;mso-position-horizontal:absolute;
+    mso-position-vertical:absolute' filled="f" stroked="f">
+    <v:textbox style='mso-next-textbox:#_x0000_s1106'>
+     <![if !mso]>
+     <table cellpadding=0 cellspacing=0 width="100%">
+      <tr>
+       <td><![endif]>
+       <div>
+       <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:
+       12.0pt'>0.6<o:p></o:p></span></p>
+       </div>
+       <![if !mso]></td>
+      </tr>
+     </table>
+     <![endif]></v:textbox>
+   </v:shape><v:shape id="_x0000_s1107" type="#_x0000_t202" style='position:absolute;
+    left:2917;top:16641;width:813;height:374;mso-position-horizontal:absolute;
+    mso-position-vertical:absolute' filled="f" stroked="f">
+    <v:textbox style='mso-next-textbox:#_x0000_s1107'>
+     <![if !mso]>
+     <table cellpadding=0 cellspacing=0 width="100%">
+      <tr>
+       <td><![endif]>
+       <div>
+       <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:
+       12.0pt'>0.2<o:p></o:p></span></p>
+       </div>
+       <![if !mso]></td>
+      </tr>
+     </table>
+     <![endif]></v:textbox>
+   </v:shape><v:shape id="_x0000_s1108" type="#_x0000_t202" style='position:absolute;
+    left:5226;top:17015;width:626;height:374;mso-position-horizontal:absolute;
+    mso-position-vertical:absolute' filled="f" stroked="f">
+    <v:textbox style='mso-next-textbox:#_x0000_s1108'>
+     <![if !mso]>
+     <table cellpadding=0 cellspacing=0 width="100%">
+      <tr>
+       <td><![endif]>
+       <div>
+       <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:
+       12.0pt'>0.6<o:p></o:p></span></p>
+       </div>
+       <![if !mso]></td>
+      </tr>
+     </table>
+     <![endif]></v:textbox>
+   </v:shape><v:shape id="_x0000_s1109" type="#_x0000_t202" style='position:absolute;
+    left:5226;top:17576;width:813;height:374;mso-position-horizontal:absolute;
+    mso-position-vertical:absolute' filled="f" stroked="f">
+    <v:textbox style='mso-next-textbox:#_x0000_s1109'>
+     <![if !mso]>
+     <table cellpadding=0 cellspacing=0 width="100%">
+      <tr>
+       <td><![endif]>
+       <div>
+       <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:
+       12.0pt'>0.2<o:p></o:p></span></p>
+       </div>
+       <![if !mso]></td>
+      </tr>
+     </table>
+     <![endif]></v:textbox>
+   </v:shape><v:shape id="_x0000_s1110" type="#_x0000_t202" style='position:absolute;
+    left:3730;top:17190;width:813;height:374;mso-position-horizontal:absolute;
+    mso-position-vertical:absolute' filled="f" stroked="f">
+    <v:textbox style='mso-next-textbox:#_x0000_s1110'>
+     <![if !mso]>
+     <table cellpadding=0 cellspacing=0 width="100%">
+      <tr>
+       <td><![endif]>
+       <div>
+       <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:
+       12.0pt'>3.0<o:p></o:p></span></p>
+       </div>
+       <![if !mso]></td>
+      </tr>
+     </table>
+     <![endif]></v:textbox>
+   </v:shape><v:shape id="_x0000_s1111" type="#_x0000_t202" style='position:absolute;
+    left:4187;top:19061;width:813;height:374;mso-position-horizontal:absolute;
+    mso-position-vertical:absolute' filled="f" stroked="f">
+    <v:textbox style='mso-next-textbox:#_x0000_s1111'>
+     <![if !mso]>
+     <table cellpadding=0 cellspacing=0 width="100%">
+      <tr>
+       <td><![endif]>
+       <div>
+       <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:
+       12.0pt'>6.0<o:p></o:p></span></p>
+       </div>
+       <![if !mso]></td>
+      </tr>
+     </table>
+     <![endif]></v:textbox>
+   </v:shape><v:shape id="_x0000_s1112" type="#_x0000_t202" style='position:absolute;
+    left:5878;top:18137;width:813;height:374;mso-position-horizontal:absolute;
+    mso-position-vertical:absolute' filled="f" stroked="f">
+    <v:textbox style='mso-next-textbox:#_x0000_s1112'>
+     <![if !mso]>
+     <table cellpadding=0 cellspacing=0 width="100%">
+      <tr>
+       <td><![endif]>
+       <div>
+       <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:
+       12.0pt'>3.0<o:p></o:p></span></p>
+       </div>
+       <![if !mso]></td>
+      </tr>
+     </table>
+     <![endif]></v:textbox>
+   </v:shape><v:shape id="_x0000_s1113" type="#_x0000_t202" style='position:absolute;
+    left:6691;top:18115;width:813;height:374;mso-position-horizontal:absolute;
+    mso-position-vertical:absolute' filled="f" stroked="f">
+    <v:textbox style='mso-next-textbox:#_x0000_s1113'>
+     <![if !mso]>
+     <table cellpadding=0 cellspacing=0 width="100%">
+      <tr>
+       <td><![endif]>
+       <div>
+       <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:
+       12.0pt'>6.0<o:p></o:p></span></p>
+       </div>
+       <![if !mso]></td>
+      </tr>
+     </table>
+     <![endif]></v:textbox>
+   </v:shape></v:group><v:shape id="_x0000_s1114" type="#_x0000_t202" style='position:absolute;
+   left:5603;top:18472;width:1977;height:1269;mso-position-horizontal:absolute;
+   mso-position-vertical:absolute' filled="f" stroked="f">
+   <v:textbox style='mso-next-textbox:#_x0000_s1114'>
+    <![if !mso]>
+    <table cellpadding=0 cellspacing=0 width="100%">
+     <tr>
+      <td><![endif]>
+      <div>
+      <p class=MsoBodyText>Resultant FuzzySet after 2 rules fire with Tsukamoto
+      inference and fuzzySum of results</p>
+      </div>
+      <![if !mso]></td>
+     </tr>
+    </table>
+    <![endif]></v:textbox>
+  </v:shape><v:shape id="_x0000_s1115" type="#_x0000_t202" style='position:absolute;
+   left:7711;top:16599;width:2317;height:2213;mso-position-horizontal:absolute;
+   mso-position-vertical:absolute' filled="f" stroked="f">
+   <v:textbox style='mso-next-textbox:#_x0000_s1115'>
+    <![if !mso]>
+    <table cellpadding=0 cellspacing=0 width="100%">
+     <tr>
+      <td><![endif]>
+      <div>
+      <p class=MsoNormal>Final Crisp Result (weighted Average)</p>
+      <p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+      <div style='border:none;border-bottom:solid windowtext .75pt;padding:
+      0in 0in 1.0pt 0in'>
+      <p class=MsoNormal style='border:none;mso-border-bottom-alt:solid windowtext .75pt;
+      padding:0in;mso-padding-alt:0in 0in 1.0pt 0in'>3.0*0.2 + 6.0*.06</p>
+      </div>
+      <p class=MsoNormal><span style="mso-spacerun:
+      yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>0.2 + 0.6</p>
+      <p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+      <p class=MsoNormal>=<span style="mso-spacerun: yes">&nbsp; </span>5.25</p>
+      </div>
+      <![if !mso]></td>
+     </tr>
+    </table>
+    <![endif]></v:textbox>
+  </v:shape><w:wrap type="topAndBottom"/>
+ </v:group><![endif]--><![if !vml]><span style='mso-ignore:vglayout'>
+ <table cellpadding=0 cellspacing=0>
+  <tr>
+   <td width=7 height=0></td>
+  </tr>
+  <tr>
+   <td></td>
+   <td><img width=662 height=312 src="./FuzzyRule_files/image001.gif" v:shapes="_x0000_s1071 _x0000_s1072 _x0000_s1073 _x0000_s1074 _x0000_s1075 _x0000_s1076 _x0000_s1077 _x0000_s1078 _x0000_s1079 _x0000_s1080 _x0000_s1081 _x0000_s1082 _x0000_s1083 _x0000_s1084 _x0000_s1085 _x0000_s1086 _x0000_s1087 _x0000_s1088 _x0000_s1089 _x0000_s1090 _x0000_s1091 _x0000_s1092 _x0000_s1093 _x0000_s1094 _x0000_s1095 _x0000_s1096 _x0000_s1097 _x0000_s1098 _x0000_s1099 _x0000_s1100 _x0000_s1101 _x0000_s1102 _x0000_s1103 _x0000_s1104 _x0000_s1105 _x0000_s1106 _x0000_s1107 _x0000_s1108 _x0000_s1109 _x0000_s1110 _x0000_s1111 _x0000_s1112 _x0000_s1113 _x0000_s1114 _x0000_s1115"></td>
+  </tr>
+ </table>
+ </span><![endif]><!--[if gte vml 1]></o:wrapblock><![endif]--><br
+style='mso-ignore:vglayout' clear=ALL>
+<a name="Jess_Integration"></a><a name="_Jess_Integration"></a>Jess Integration</h4>
+
+<p class=MsoNormal>For details on building rules in Jess that have fuzzy
+components see the section on <a href="FuzzyJess.html">FuzzyJess</a>. </p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><a href="index.html">Return to Table of Contents</a></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,354 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./FuzzyVariable_files/filelist.xml">
+<link rel=Edit-Time-Data href="./FuzzyVariable_files/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>FuzzyVariable</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Bob Orchard</o:Author>
+  <o:LastAuthor>Bob Orchard</o:LastAuthor>
+  <o:Revision>5</o:Revision>
+  <o:TotalTime>35</o:TotalTime>
+  <o:Created>2003-05-13T11:21:00Z</o:Created>
+  <o:LastSaved>2005-12-07T16:04:00Z</o:LastSaved>
+  <o:Pages>3</o:Pages>
+  <o:Words>971</o:Words>
+  <o:Characters>5535</o:Characters>
+  <o:Company>NRCC</o:Company>
+  <o:Lines>46</o:Lines>
+  <o:Paragraphs>11</o:Paragraphs>
+  <o:CharactersWithSpaces>6797</o:CharactersWithSpaces>
+  <o:Version>9.6926</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:"Comic Sans MS";
+	panose-1:3 15 7 2 3 3 2 2 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:script;
+	mso-font-pitch:variable;
+	mso-font-signature:647 0 0 0 159 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h1
+	{mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:10.0pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-font-kerning:0pt;
+	font-weight:bold;}
+h4
+	{margin-right:0in;
+	mso-margin-top-alt:auto;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:4;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+p
+	{margin-right:0in;
+	mso-margin-top-alt:auto;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+tt
+	{mso-ascii-font-family:"Courier New";
+	mso-fareast-font-family:"Courier New";
+	mso-hansi-font-family:"Courier New";
+	mso-bidi-font-family:"Courier New";}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1026"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+<meta name=Author content="Bob Orchard">
+</head>
+
+<body lang=EN-US link=blue vlink=blue style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<h3 align=center style='text-align:center'><span style='font-family:"Comic Sans MS"'>Fuzzy
+Variables</span></h3>
+
+<p class=MsoNormal><a href="#Example">Example</a> <br>
+<a href="#_Fuzzy_Sets,_Fuzzy">Fuzzy Sets, Fuzzy Values and Fuzzy Variables</a> </p>
+
+<p>A <b>fuzzy variable </b>defines the language that will be used to discuss a
+fuzzy concept such as temperature, pressure, age, or height. The class
+FuzzyVariable is used to create instances of a fuzzy variable, providing a <i>name</i>
+(for example, temperature), the <i>units</i> of the variable if required (for
+example, degrees C), the <i>universe of discourse</i> for the variable (for
+example a range from 0 to 100), and a set of primary fuzzy terms (like hot,
+cold and warm) that will be used when describing the specific fuzzy concepts
+associated with the fuzzy variable. </p>
+
+<p>The name and units are strings that are mainly used for textual display in a
+program. </p>
+
+<p>The universe of discourse defines a set of upper and lower bounds for the
+values of the fuzzy sets used to describe the concepts of the fuzzy variable. </p>
+
+<p>The fuzzy terms are described using a term name such as <i>hot</i>, along
+with a <a href="FuzzySet.html">fuzzy set</a> that represents that term. The
+fuzzy variable terms along with a set of system supplied and user defined <a
+href="FuzzyModifier.html">fuzzy modifiers</a>, as well as the operators 'and'
+and 'or' (fuzzy set intersection and union respectively) and the left and right
+parentheses provide the basis for a grammar that allows one to write <i>fuzzy
+linguistic expressions</i> that describe fuzzy concepts in an english-like
+manner. For example, the expression</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp; (very hot or warm) and slightly cold </p>
+
+<p>consists of the terms hot, warm and cold, along with the fuzzy modifiers
+very and slightly. These expressions are used when defining <a
+href="FuzzyValue.html">fuzzy values</a>, the specific fuzzy concepts that are
+appropriate for the problem at hand. A fuzzy value associates a fuzzy set with
+a fuzzy variable to describe the fuzzy concept. The fuzzy sets can be described
+using the linguistic expressions definable for the fuzzy variable&nbsp;and
+restricted by the universe of discourse for the variable. The fuzzy sets can
+also be described using an instance of a FuzzySet object or by sets of (x, y)
+pairs. </p>
+
+<p>The BNF description of the syntax of such expressions can be written as: </p>
+
+<p><tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&lt;LExpr&gt;&nbsp;&nbsp;
+::= &lt;LTerm&gt;&nbsp; |&nbsp; &lt;LExpr&gt; OR &lt;LTerm&gt;</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&lt;LTerm&gt;&nbsp;&nbsp;
+::= &lt;modExpr&gt;&nbsp; |&nbsp; &lt;LTerm&gt; AND &lt;modExpr&gt;</span></tt>
+<br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&lt;modExpr&gt;
+::= MODIFIER &lt;modExpr&gt;&nbsp; |&nbsp; &lt;element&gt;</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&lt;element&gt;
+::= PRIMARY-TERM&nbsp; |&nbsp; ( &lt;LExpr&gt; )</span></tt> </p>
+
+<p>where </p>
+
+<p>&nbsp;MODIFIER is a valid system supplied or user defined modifier (not,
+very, slightly, etc.) <br>
+&nbsp;PRIMARY-TERM is a term defined in the fuzzy variable </p>
+
+<p>Note that this gives <i>and</i> higher precedence than <i>or</i> and that
+modifiers are basically unary operators with the highest precedence. One can
+control the order of the expression evaluation through the use of parenthesis (
+and ). Also note that linguistic expressions are case insensitive. </p>
+
+<h4><a name=Example></a>Example</h4>
+
+<p class=MsoNormal>The following code shows a simple example of creating a
+FuzzyVariable and a FuzzyValue: </p>
+
+<p><tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+// There are many ways to define the terms for the fuzzy variable</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+// Here we use 2 of those methods:</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+//&nbsp;&nbsp; 1. using arrays of x and y values to define the shape of the
+fuzzy set</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+//&nbsp;&nbsp; 2. using already defined terms of the fuzzy variable and
+linguistic</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; expressions</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+double xHot[] = {25, 35};</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+double yHot[] = {0, 1};</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+double xCold[] = {5, 15};</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+double yCold[] = {1, 0};</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+FuzzyValue fval = null;</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+...</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+// Create new fuzzy variable for temperature with Universe of discourse</span></tt>
+<br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+// from 0 to 100 and units &quot;C&quot;.</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+FuzzyVariable temp = new FuzzyVariable(&quot;temperature&quot;, 0, 100,
+&quot;C&quot;);</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+...</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+// Add three terms hot, cold and medium</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+temp.addTerm(&quot;hot&quot;, xHot, yHot, 2);</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+temp.addTerm(&quot;cold&quot;, xCold, yCold, 2);</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+// Note: once a term is added it can be used to define other terms</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+temp.addTerm(&quot;medium&quot;, &quot;not hot and not cold&quot;);</span></tt>
+<br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+...</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+// Now we can define fuzzy values using the terms in the fuzzy variable.</span></tt>
+<br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+// Note: fuzzy values can also be created using fuzzy sets, etc. and not</span></tt>
+<br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; just with linguistic expressions.</span></tt>
+<br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+fval = new FuzzyValue(temp, &quot;very hot or cold&quot;);</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+System.out.println(fval);</span></tt> </p>
+
+<p>The output from this would be: </p>
+
+<p><tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;FuzzyVariable&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+-&gt; temperature [ 0.0, 100.0 ] C</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;Linguistic
+Expression -&gt; very hot or cold</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;FuzzySet&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+-&gt; { 1/5 0/15 0/25 0.01/26 0.04/27 0.09/28 0.16/29 0.25/30</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0.36/31 0.49/32 0.64/33 0.81/34 1/35&nbsp; }</span></tt> </p>
+
+<p>After this has been done we will have defined a fuzzy variable that has the
+3 terms hot, cold and medium defined and shown below graphically. </p>
+
+<p><img border=0 width=460 height=288 id="_x0000_i1025" src=tempFV.gif></p>
+
+<p>The fuzzy value that we created, <i>temperature is very hot or cold</i>,&nbsp;will
+have a graphical depiction as follows: </p>
+
+<p><img border=0 width=460 height=271 id="_x0000_i1026" src=veryHotOrCold.gif></p>
+
+<p>Other sections will provide more information about <a
+href="FuzzyModifier.html">modifiers</a>, <a href="FuzzySet.html">fuzzy sets</a>
+and <a href="FuzzyValue.html">fuzzy values</a>. </p>
+
+<h4><a name="Fuzzy_Sets,_Fuzzy_Values_and_Fuzzy"></a><a
+name="_Fuzzy_Sets,_Fuzzy"></a>Fuzzy Sets, Fuzzy Values and Fuzzy Variables</h4>
+
+<p class=MsoNormal>Something that can be confusing initially is the
+relationship between fuzzy variables, fuzzy sets and fuzzy values. This will
+likely take some time to grasp and hopefully the examples will assist in
+showing the differences. In brief, let's try to get a basic understanding of
+the differences (complete details are found in each of the associated
+sections). A FuzzySet is used to define a set of x and y values that determine the
+shape of that fuzzy set. It has no meaning attached to it. That is, it is not
+tied to any specific concept such as temperature. It is simply an object for
+representing and storing the shape of a fuzzy set. A FuzzyValue associates a
+fuzzy set with a fuzzy variable. That is it provides some meaning to a fuzzy
+set. The fuzzy set will be restricted so that its range of points lies within
+the universe of discourse for the fuzzy variable (the x values now mean
+something). The fuzzy value will generally (but not always) provide a
+linguistic expression that provides a human understandable form to the shape of
+the fuzzy set. So it is the fuzzy value that defines the specific fuzzy
+concepts that we are working with. The FuzzyVariable defines the generic
+concept that we want to reason about, the range of allowed values and a set of
+linguistic terms that can be used when describing the specific concepts as
+fuzzy values. Internally the terms are stored as fuzzy values (with the fuzzy
+set that describes the shape and an association to this fuzzy variable in which
+they are defined). </p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<h4>CUP Parser copyright notice, permission notice and warranty disclaimer<span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></h4>
+
+<p class=MsoNormal>FuzzyJ uses the CUP Parser Generator for Java to generate a
+parser for handling the linguistic expressions. In compliance with the terms
+for using the software we include the following notice.</p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<h1>CUP Parser Generator Copyright Notice, License, and Disclaimer<o:p></o:p></h1>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Copyright
+1996-1999 by Scott Hudson, Frank Flannery, C. Scott Ananian <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Permission
+to use, copy, modify, and distribute this software and its documentation for
+any purpose and without fee is hereby granted, provided that the above
+copyright notice appear in all copies and that both the copyright notice and
+this permission notice and warranty disclaimer appear in supporting
+documentation, and that the names of the authors or their employers not be used
+in advertising or publicity pertaining to distribution of the software without
+specific, written prior permission. <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>The
+authors and their employers disclaim all warranties with regard to this
+software, including all implied warranties of merchantability and fitness. In
+no event shall the authors or their employers be liable for any special,
+indirect or consequential damages or any damages whatsoever resulting from loss
+of use, data or profits, whether in an action of contract, negligence or other
+tortious action, arising out of or in connection with the use or performance of
+this software. <o:p></o:p></span></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><a href="index.html">Back to Table of Contents</a></p>
+
+</div>
+
+</body>
+
+</html>

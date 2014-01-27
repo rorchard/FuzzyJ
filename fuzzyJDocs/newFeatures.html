@@ -1,0 +1,2438 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./newFeatures_files/filelist.xml">
+<link rel=Edit-Time-Data href="./newFeatures_files/editdata.mso">
+<link rel=OLE-Object-Data href="./newFeatures_files/oledata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>Introduction to NRC FuzzyJ Toolkit</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>rorchard</o:Author>
+  <o:LastAuthor>Bob Orchard</o:LastAuthor>
+  <o:Revision>46</o:Revision>
+  <o:TotalTime>2194</o:TotalTime>
+  <o:Created>2005-11-01T18:23:00Z</o:Created>
+  <o:LastSaved>2006-09-05T18:00:00Z</o:LastSaved>
+  <o:Pages>13</o:Pages>
+  <o:Words>5543</o:Words>
+  <o:Characters>31600</o:Characters>
+  <o:Company>National Research Council</o:Company>
+  <o:Lines>263</o:Lines>
+  <o:Paragraphs>63</o:Paragraphs>
+  <o:CharactersWithSpaces>38807</o:CharactersWithSpaces>
+  <o:Version>9.6926</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:DrawingGridHorizontalSpacing>9.35 pt</w:DrawingGridHorizontalSpacing>
+  <w:DrawingGridVerticalSpacing>9.35 pt</w:DrawingGridVerticalSpacing>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:Courier;
+	panose-1:0 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:0;
+	mso-generic-font-family:modern;
+	mso-font-format:other;
+	mso-font-pitch:fixed;
+	mso-font-signature:3 0 0 0 1 0;}
+@font-face
+	{font-family:"Comic Sans MS";
+	panose-1:3 15 7 2 3 3 2 2 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:script;
+	mso-font-pitch:variable;
+	mso-font-signature:647 0 0 0 159 0;}
+@font-face
+	{font-family:"Arial Narrow";
+	panose-1:2 11 5 6 2 2 2 3 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:647 0 0 0 159 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h1
+	{mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:8.0pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:Arial;
+	color:#3366FF;
+	mso-font-kerning:0pt;
+	font-weight:bold;}
+h2
+	{mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:2;
+	font-size:8.0pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:Arial;
+	color:#FF6600;
+	font-weight:bold;}
+h3
+	{margin-right:0in;
+	mso-margin-top-alt:auto;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:3;
+	font-size:13.5pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+h4
+	{mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:4;
+	font-size:8.0pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:Arial;
+	font-weight:bold;}
+p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+p
+	{margin-right:0in;
+	mso-margin-top-alt:auto;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+code
+	{mso-ascii-font-family:"Courier New";
+	mso-fareast-font-family:"Courier New";
+	mso-hansi-font-family:"Courier New";
+	mso-bidi-font-family:"Courier New";}
+tt
+	{mso-ascii-font-family:"Courier New";
+	mso-fareast-font-family:"Courier New";
+	mso-hansi-font-family:"Courier New";
+	mso-bidi-font-family:"Courier New";}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:7103732;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-87134944 1965617706 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l0:level1
+	{mso-level-start-at:0;
+	mso-level-number-format:bullet;
+	mso-level-text:-;
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+@list l0:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.25in;
+	mso-level-number-position:left;
+	margin-left:1.25in;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1353">
+  <o:colormenu v:ext="edit" fillcolor="none" strokecolor="none"/>
+ </o:shapedefaults></xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+  <o:regrouptable v:ext="edit">
+   <o:entry new="1" old="0"/>
+   <o:entry new="2" old="0"/>
+  </o:regrouptable>
+ </o:shapelayout></xml><![endif]-->
+<meta name=Author content="Bob Orchard">
+</head>
+
+<body lang=EN-US link=blue vlink=blue style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<h3 align=center style='text-align:center'><span style='font-family:"Comic Sans MS"'>New
+Features, Changes and Helpful Hints</span></h3>
+
+<p>This section describes new features that have been added as well as changes
+or fixes that have been made to FuzzyJ. It also provides some helpful hints
+about how to use the Toolkit (beyond what is covered in the basic parts of the
+User Guide).</p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><b><u>Modifications<o:p></o:p></u></b></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><b><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></b><a
+href="#Version1_5aMods"><span style='mso-field-code:"HYPERLINK  \\l \0022Version1_10aMods\0022"'>Version
+1.10a Modifications</span></a></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='mso-tab-count:2'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><a
+href="#Version1_10aMods">Fixed problem with Similarity calculations caused by
+release of version 1.10 (due to new definitions for equals and equalsStar
+methods)</a></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><b><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></b><a
+href="#Version1_5aMods"><span style='mso-field-code:"HYPERLINK  \\l \0022Version1_10Mods\0022"'>Version
+1.10 Modifications</span></a></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='mso-tab-count:2'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><a
+href="#Version1_10Mods">Fixed problem with firePropertyChange for FuzzyValues
+(new definitions for equals and equalsStar methods)</a></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><b><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></b><a
+href="#Version1_5aMods"><span style='mso-field-code:"HYPERLINK  \\l \0022Version1_9Mods\0022"'>Version
+1.9 Modifications</span></a></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='mso-tab-count:2'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><a
+href="#FuzzyJess_and_Jess7">FuzzyJess requires Jess 7.x or later</a></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='mso-tab-count:2'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><a
+href="#new_similarity_options">New ways to calculate the similarity of two
+FuzzyValues</a></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='mso-tab-count:2'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><a
+href="#findterm_removeterm_bug">Fixed problem with findTerm and removeTerm
+methods of FuzzyVariable</a></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='mso-tab-count:2'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><a
+href="#ValidTermNames">Added Checks for Valid Term Names</a></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><b><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></b><a
+href="#Version1_5aMods"><span style='mso-field-code:"HYPERLINK  \\l \0022Version1_8Mods\0022"'>Version
+1.8 Modifications</span></a></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='mso-tab-count:2'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><a
+href="#centerOfAreaDefuzzify">centerOfAreaDefuzzify</a></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><b><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></b><a
+href="#Version1_5aMods"><span style='mso-field-code:"HYPERLINK  \\l \0022Version1_7Mods\0022"'>Version
+1.7 Modifications</span></a></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='mso-tab-count:2'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><a
+href="#NewTsukamotoRuleExecutor">New Rule Executor TsukamotoRuleExecutor</a></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='mso-tab-count:2'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><a
+href="#getXForMembership">Added method getXForMembership in FuzzySet and
+FuzzyValue (and new exception)</a></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><b><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></b><a
+href="#Version1_5aMods"><span style='mso-field-code:"HYPERLINK  \\l \0022Version1_6Mods\0022"'>Version
+1.6 Modifications</span></a></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='mso-tab-count:2'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><a
+href="#FuzzySetPlottingErrors">Fuzzy Set Plotting Errors</a></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='mso-tab-count:2'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><a
+href="#GaussianFuzzySets">New FuzzySet types GaussianFuzzySet,
+LeftGaussianFuzzySet and RightGaussianFuzzySet added</a></p>
+
+<p style='margin:0in;margin-bottom:.0001pt;text-indent:.5in'><a
+href="#Version1_5aMods">Version 1.5a Modifications</a></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='mso-tab-count:2'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><a
+href="#ChangesToClassesforMultipleAntecedents">Changes to Combining Fuzzy Match
+Scores When Multiple Fuzzy Antecedents</a></p>
+
+<p style='margin:0in;margin-bottom:.0001pt;text-indent:.5in'><a
+href="#Version1_5Mods">Version 1.5 Modifications</a></p>
+
+<p style='margin:0in;margin-bottom:.0001pt;text-indent:.5in'><span
+style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><a
+href="#NewDefuzzificationMethods">New Defuzzification<span style="mso-spacerun:
+yes">&nbsp; </span>Methods for FuzzyValueVector Class</a></p>
+
+<p style='margin:0in;margin-bottom:.0001pt;text-indent:.5in'><span
+style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><a
+href="#NewClassesforMultipleAntecedents">Combining Fuzzy Match Scores When
+Multiple Fuzzy Antecedents</a></p>
+
+<p style='margin:0in;margin-bottom:.0001pt;text-indent:.5in'><span
+style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><a
+href="#FuzzySetsWithMembershipGreaterThan1">FuzzySets Can Have Membership
+Values Larger Than 1</a></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt;text-indent:.5in'><a href="#FuzzySumOperation">fuzzySum
+Operation for FuzzyValues/FuzzySets</a></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt;text-indent:.5in'><a href="#NewJessFunctionsFor1_5">New
+FuzzyJess Functions</a></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt;text-indent:.5in'><a
+href="#FuzzySetMethodSimplifySetFixed">FuzzySet Method simplifySet Fixed</a></p>
+
+<p style='margin:0in;margin-bottom:.0001pt;text-indent:.5in'><a
+href="#Version1_4Mods">Version 1.4 Modifications</a></p>
+
+<p style='margin:0in;margin-bottom:.0001pt;text-indent:.5in'><span
+style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><a
+href="#FuzzyVariableMods13">FuzzyVariable</a></p>
+
+<p style='margin:0in;margin-bottom:.0001pt;text-indent:.5in'><span
+style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><a
+href="#TriangleFuzzySetMods14">TriangleFuzzySet</a></p>
+
+<p style='margin:0in;margin-bottom:.0001pt;text-indent:.5in'><a
+href="#Version1_3Mods">Version 1.3 Modifications</a></p>
+
+<p style='margin:0in;margin-bottom:.0001pt;text-indent:.5in'><span
+style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><a
+href="#SingletonFuzzySet">SingletonFuzzySet</a></p>
+
+<p style='margin:0in;margin-bottom:.0001pt;text-indent:.5in'><span
+style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><a
+href="#LeftLinearFuzzySet_and_RightLinearFuzzyS">LeftLinearFuzzySet and
+RightLinearFuzzySet</a></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='mso-tab-count:2'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><a
+href="#WeightedAverageDefuzzify">WeightedAverageDefuzzify</a></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='mso-tab-count:2'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><a
+href="#fixedProblemsIn1_3">Problems fixed</a></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><b><u>Programming Helpers<o:p></o:p></u></b></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><a
+href="#FuzzifyingCrispValues">Fuzzifying Crisp Values</a></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='color:black'><a href="#Takagi_Sugeno_Kang_Rules">Implementing <span
+style='mso-bidi-font-size:10.0pt'>Takagi-Sugeno-Kang type rules</span></a></span><a
+name="Version1_3Mods"></a><a name="Version1_1Mods"></a></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='font-size:8.0pt;
+mso-bidi-font-size:12.0pt'><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='mso-bidi-font-size:10.0pt'><a href="#ImplementingKoskoSAM">Implementing
+Kosko&#8217;s SAM (Standard Additive Method)</a><o:p></o:p></span></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='mso-bidi-font-size:
+10.0pt'><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><a
+href="#ImplementingTsukamoto">Implementing Tsukamoto type rules</a></span></p>
+
+<p><b><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></b></p>
+
+<p><a name="Version1_10aMods"></a><b>Version 1.10a Modifications<o:p></o:p></b></p>
+
+<p><b>Fixed a problem with Similarity calculations: </b>When changes to the
+definition/implementation of equals and equalsStar for FuzzyValues were
+introduced in version 1.10 of the FuzzyJ Toolkit, it was noted that ALL
+existing code using these methods on FuzzyValues should be changed. A couple of
+missed code changes led to Similarity always returning a 1.0 value. Version 1.10
+should be replaced by version 1.10a.</p>
+
+<p><a name="Version1_10Mods"></a><b>Version 1.10 Modifications<o:p></o:p></b></p>
+
+<p><b>Fixed apparent problem with firePropertyChange for FuzzyValues (*** new
+definitions for equals and equalsStar methods): </b>A change in a recent
+version of Jess has led to a bug in FuzzyJess where a Java bean with a
+FuzzyValue property appears not to be propagated to Jess when a
+firePropertyChange is executed. The problem is that Jess will only assert the
+new fact that is changed if the FuzzyValue is different than the previous
+FuzzyValue that was in the slot. The equals method is used to check for a
+difference and the FuzzyValues equals used a weak test for equality (the 2
+FuzzyValues only needed to have the same FuzzyVariable associated with them).
+This was required so that other parts of FuzzyJess would work as expected, in
+particular so that Global Contribution would happen automatically. But the
+correct operation of FuzzyJess required that Jess did not do this check when a
+property was being updated and FuzzyJess users were required to use a call to
+firePropertyChange like:</p>
+
+<p><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'>pcs.firePropertyChange(&quot;myFuzzyValueProperty&quot;,
+null, theNewFuzzyValue);<o:p></o:p></span></p>
+
+<p>where the &#8216;old&#8217; argument was set to null. This forced the change to be
+propagated. Some recent changes to Jess led to a problem since the new fact
+would not be asserted if there was no change in the property and with the weak
+definition of equals for FuzzyValues, even if the FuzzySet changed they would
+appear to be the same to Jess code. The solution was to change the equals
+method for FuzzyValue to require the same FuzzyVariable and identical FuzzySets
+for equality. This was the test done in the equalsStar method previously. So
+now the equalsStar method performs the weak test for equality. </p>
+
+<p>This was still not enough to provide correct operation of FuzzyJess since
+the code that does automatic Global Contribution calculations to combine the
+FuzzyValues asserted from multiple rules relied on the weak equals operator.
+This led to some &#8216;internal&#8217; changes to allow the equals method to change how it
+compares FuzzyValues, strong compare by default or a weak compare when
+required. If the FuzzyJess API were in the nrc.fuzzy package rather than the
+nrc.fuzzy.jess package this &#8216;internal&#8217; change would have been completely hidden
+from the public interface. Instead a method to change the behaviour was added
+but it can only be used if one has knowledge of a private code (or password).
+So effectively no public user of the API can or should change it&#8217;s behaviour
+from the default strong equality check.</p>
+
+<p><b><i><u>Note</u></i></b> that from version 1.10 and on:</p>
+
+<p style='margin-left:.75in;text-indent:-.25in;mso-list:l0 level1 lfo2;
+tab-stops:list .75in'><![if !supportLists]>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>equals does a strong comparison of FuzzyValues (same
+FuzzyVariable and identical FuzzySets)</p>
+
+<p style='margin-left:.75in;text-indent:-.25in;mso-list:l0 level1 lfo2;
+tab-stops:list .75in'><![if !supportLists]>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>equalsStar does a weak comparison of FuzzyValues (same
+FuzzyVaribles only)</p>
+
+<p style='margin-left:.75in;text-indent:-.25in;mso-list:l0 level1 lfo2;
+tab-stops:list .75in'><![if !supportLists]>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>no need to use firePropertyChange differently than for any
+other property</p>
+
+<p style='margin-left:1.0in'>e.g. <span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:"Courier New"'>pcs.firePropertyChange(&quot;myFuzzyValueProperty&quot;,
+theOldFuzzyValue, theNewFuzzyValue);<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l0 level1 lfo2;
+tab-stops:list .75in'><![if !supportLists]>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>ALL existing programs should modify their use of the &#8216;equals&#8217;
+and &#8216;equalsStar&#8217; FuzzyValue methods to correspond to the revised definitions
+and in particular look at the use of firePropertyChange for FuzzyValue
+properties.</p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p><a name="Version1_9Mods"></a><b>Version 1.9 Modifications<o:p></o:p></b></p>
+
+<p><a name="FuzzyJess_and_Jess7"></a><b>FuzzyJess requires Jess 7.x or later
+now &#8211; </b>In version 1.9 of FuzzyJess we have updated the code to get rid of
+deprecated items. This means that users of FuzzyJess will need to use Jess
+version 7.x or later.</p>
+
+<p><a name="new_similarity_options"></a><b>Added a choice for calculating the
+similarity of FuzzyValues (SimilarityByPossibilityOperator,
+SimilarityByAreaOperator)<span style="mso-spacerun: yes">&nbsp; </span>&#8211; </b>There
+are many ways that have been suggested for calculating the similarity of two
+FuzzyValues. In previous versions of FuzzyJ only a single method was
+implemented. It used the concepts of possibility and necessity. The calculation
+was done as: </p>
+
+<p><tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+similarity = if&nbsp;&nbsp;&nbsp; necessity(f1,f2) &gt; 0.5</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+then&nbsp; possibility(f1,f2)</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+else&nbsp; (necessity(f1,f2) + 0.5) * possibility(f1,f2)</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+and</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+necessity(f1,f2) = 1 - possibility(not f1,f2)</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+and</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+possibility(f1,f2) = max<sub>x</sub>(min(u<sub>f1</sub>(x),u<sub>f2</sub>(x))</span></tt>
+</p>
+
+<p>In many cases this provides a reasonable value as a measure of the
+similarity of the FuzzyValues. However, in some cases the value appears to be
+non-intuitive and perhaps less useful. Consider the following code:</p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><tt><span style='font-size:10.0pt;
+font-family:"Courier New"'><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>FuzzyVariablefVarX
+= new FuzzyVariable(&quot;TestFVar&quot;, 0, 1);<span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></tt></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><tt><span style='font-size:10.0pt;
+font-family:"Courier New"'><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>FuzzyValue
+fval1 = new FuzzyValue(fVarX, new RightLinearFuzzySet(0.25, 0.26));<o:p></o:p></span></tt></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><tt><span style='font-size:10.0pt;
+font-family:"Courier New"'><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>FuzzyValue
+fval2 = new FuzzyValue(fVarX, new LeftLinearFuzzySet(0.24, 0.25)); <o:p></o:p></span></tt></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><tt><span style='font-size:10.0pt;
+font-family:"Courier New"'><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>System.out.println(&quot;\nSimilarity
+using possibility/necessity between fuzzy values (expect to be near 0.0):
+&quot; + fval1.similarity(fval2));<o:p></o:p></span></tt></p>
+
+<p>The resulting similarity value of this is 0.5. However, these FuzzyValues
+overlap only slightly so one would not expect such a large measure of
+similarity. We added the ability for the <i>similarity</i> method to easily use
+different ways to calculate the similarity measure. In particular for this
+version of FuzzyJ we&#8217;ve added a second operation that measures similarity as
+the ratio of area of the intersection of the fuzzy values to the area of the
+union of the fuzzy values. This is a quite commonly used measure and perhaps
+more intuitive. To allow this flexibility we added an abstract
+SimilarityOperator class that implements a SimilarityOperatorInterface. This
+abstract class is extended (sub-classed) by 2 classes,
+SimilarityByPossibilityOperator (implements the original similarity measure)
+and SimilarityByAreaOperator (implements the ratio of areas measure). The <i>similarity</i>
+method uses the operator associated with the FuzzyValue&#8217;s defaultSimilarityOperator
+static variable. This can be changed using the setDefaultSimilarityOperator
+method of the FuzzyValue and is initially associated with the
+SimilarityByPossibilityOperator. So in the above example we could do the
+following to have the <i>similarity</i> method use the alternate
+SimilarityByAreaOperator:</p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><tt><span style='font-size:10.0pt;
+font-family:"Courier New"'><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>FuzzyVariablefVarX
+= new FuzzyVariable(&quot;TestFVar&quot;, 0, 1);<span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></tt></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><tt><span style='font-size:10.0pt;
+font-family:"Courier New"'><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>FuzzyValue
+fval1 = new FuzzyValue(fVarX, new RightLinearFuzzySet(0.25, 0.26));<o:p></o:p></span></tt></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><tt><span style='font-size:10.0pt;
+font-family:"Courier New"'><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>FuzzyValue
+fval2 = new FuzzyValue(fVarX, new LeftLinearFuzzySet(0.24, 0.25)); <o:p></o:p></span></tt></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><tt><span style='font-size:10.0pt;
+font-family:"Courier New"'><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><b>FuzzyValue.setDefaultSimilarityOperator(new
+SimilarityByAreaOperator());<o:p></o:p></b></span></tt></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><tt><span style='font-size:10.0pt;
+font-family:"Courier New"'><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>System.out.println(&quot;\nSimilarity
+using ratio of areas between fuzzy values (expect to be near 0.0): &quot; +
+fval1.similarity(fval2));<o:p></o:p></span></tt></p>
+
+<p>In this case the result is 0.01, perhaps a much more intuitive similarity
+measure for this pair of FuzzyValues. There is also a second version of the <i>similarity</i>
+method with a second argument that specifies the similarity operator to be used
+only for that execution of the <i>similarity</i> method. So, for example one
+could have replaced the code above by:</p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><tt><span style='font-size:10.0pt;
+font-family:"Courier New"'><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>FuzzyVariablefVarX
+= new FuzzyVariable(&quot;TestFVar&quot;, 0, 1);<span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></tt></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><tt><span style='font-size:10.0pt;
+font-family:"Courier New"'><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>FuzzyValue
+fval1 = new FuzzyValue(fVarX, new RightLinearFuzzySet(0.25, 0.26));<o:p></o:p></span></tt></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><tt><span style='font-size:10.0pt;
+font-family:"Courier New"'><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>FuzzyValue
+fval2 = new FuzzyValue(fVarX, new LeftLinearFuzzySet(0.24, 0.25)); <o:p></o:p></span></tt></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><tt><span style='font-size:10.0pt;
+font-family:"Courier New"'><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>System.out.println(&quot;\nSimilarity
+using ratio of areas between fuzzy values (expect to be near 0.0): &quot; <o:p></o:p></span></tt></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><tt><span style='font-size:10.0pt;
+font-family:"Courier New"'><span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>+ <b>fval1.similarity(fval2, new SimilarityByAreaOperator()));</b></span></tt></p>
+
+<p>For FuzzyJess users we also added two functions to allow the default
+similarity operator to be changed. These are set-default-similarity-operator
+and get-default-similarity-operator. For example in Jess code one would write:</p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><tt><span style='font-size:10.0pt;
+font-family:"Courier New"'><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>(set-default-similarity-operator
+area)<span style="mso-spacerun: yes">&nbsp; </span>or
+(set-default-similarity-operator possibility)<o:p></o:p></span></tt></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><tt><span style='font-size:10.0pt;
+font-family:"Courier New"'><span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></tt></p>
+
+<p><a name="findterm_removeterm_bug"></a><b>Fixed a problem with the
+FuzzyVariable methods <i>findTerm</i> and <i>removeTerm</i><span
+style="mso-spacerun: yes">&nbsp; </span>&#8211; </b>Term names are not case sensitive
+in FuzzyJ and the methods findTerm and removeTerm would fail when any term name
+was supplied with non-lowercase characters.</p>
+
+<p><a name=ValidTermNames></a><b>Added checks for valid term names in
+FuzzyVariables &#8211; </b>Added some code to check for valid names for terms when
+creating FuzzyVariables or adding terms to FuzzyVariables. Name must not
+contain spaces (e.g. &#8220;quite hot&#8221;) and must not contain left or right
+parenthesis (e.g. &#8220;(&#8220; or &#8220;)&#8221; ). They also cannot be the reserved words &#8216;and&#8217; or
+&#8216;or&#8217;. They could be the same as predefined modifiers such as &#8216;very&#8217; or
+&#8216;extremely&#8217; but users should be aware that those modifiers would no longer be
+useable and they might get unexpected errors in linguistic expressions that
+were trying to use those modifiers.</p>
+
+<p><a name="Version1_8Mods"></a><b>Version 1.8 Modifications<o:p></o:p></b></p>
+
+<p><a name=centerOfAreaDefuzzify></a><b>centerOfAreaDefuzzify &#8211; </b>Added a new
+method to defuzzify FuzzySets and FuzzyValues (and FuzzyValueVectors). This
+type of defuzzification returns the x value that has one half of the area of
+the fuzzy set on each side of it. In the case of a FuzzyValueVector, a fuzzySum
+is done on each of the fuzzy sets in the FuzzyValueVector and the
+centerOfAreaDefuzzify is done on this result. See the method definitions for
+details.</p>
+
+<p><a name="Version1_7Mods"></a><b>Version 1.7 Modifications <o:p></o:p></b></p>
+
+<p><a name=NewTsukamotoRuleExecutor></a><b>New Rule Executor
+TsukamotoRuleExecutor - </b>Added a special RuleExecutor (like
+MamdaniMinMaxMinRule Executor and LarsenProductMaxMinRuleExecutor) to implement
+the Tsukamoto type rules. In this case the conclusion fuzzy values are always
+expected to have strictly increasing or strictly decreasing functions fuzzy
+sets that cover all membership values from 0.0 to 1.0.<span
+style="mso-spacerun: yes">&nbsp; </span>When the rule fires the outputs are
+fuzzy sets that have a single value (singletons) with the membership value
+equal to the degree of match of the antecedents (or the DOF, Degree of
+Fulfillment of the rule). For Details see <a href="#ImplementingTsukamoto">Implementing
+Tsukamoto Rules</a>.<a name=getXForMembership></a><b><o:p></o:p></b></p>
+
+<p><b>Method getXForMembership for FuzzyValues &amp;FuzzySets</b><span
+style="mso-spacerun: yes">&nbsp; </span>&#8211; Added a method that when given a
+membership value returns the first X value that has that membership value. This
+is most useful with FuzzySets that are strictly increasing or strictly
+decreasing and cover all membership values (like SFuzzySet, ZFuzzySet,
+LeftLinearFuzzySet, RightLinearFuzzySet, etc.). Consider the following
+examples:</p>
+
+<p><!--[if gte vml 1]><o:wrapblock><v:group id="_x0000_s1298" style='position:absolute;
+  margin-left:14.4pt;margin-top:0;width:398.5pt;height:137.7pt;z-index:3;
+  mso-position-vertical:top' coordorigin="1334,12730" coordsize="7970,2754"
+  o:allowoverlap="f">
+  <v:group id="_x0000_s1297" style='position:absolute;left:1334;top:12730;
+   width:7970;height:2754;mso-position-vertical:top' coordorigin="1334,12730"
+   coordsize="7970,2754">
+   <v:group id="_x0000_s1295" style='position:absolute;left:1334;top:12730;
+    width:7970;height:2754' coordorigin="1334,12730" coordsize="7970,2754">
+    <v:rect id="_x0000_s1253" style='position:absolute;left:1334;top:12730;
+     width:7970;height:2754;mso-position-horizontal:absolute;
+     mso-position-vertical:top' o:allowoverlap="f" fillcolor="silver"/>
+    <v:group id="_x0000_s1266" style='position:absolute;left:1761;top:12965;
+     width:3420;height:1800' coordorigin="1161,12964" coordsize="3420,1800"
+     o:regroupid="2">
+     <v:rect id="_x0000_s1267" style='position:absolute;left:1161;top:12964;
+      width:3420;height:1800;mso-position-horizontal:absolute;
+      mso-position-vertical:absolute'/>
+     <v:line id="_x0000_s1268" style='position:absolute;
+      mso-position-horizontal:absolute;mso-position-vertical:absolute' from="1701,13324"
+      to="1701,14404"/>
+     <v:line id="_x0000_s1269" style='position:absolute' from="1701,14404"
+      to="4041,14404"/>
+     <v:line id="_x0000_s1270" style='position:absolute;flip:y' from="2601,13324"
+      to="3681,14404" strokecolor="blue" strokeweight="1pt"/>
+     <v:line id="_x0000_s1271" style='position:absolute' from="1341,13684"
+      to="3321,13684" strokecolor="#396">
+      <v:stroke endarrow="block"/>
+     </v:line><v:line id="_x0000_s1272" style='position:absolute' from="3321,13684"
+      to="3321,14404" strokecolor="#396">
+      <v:stroke endarrow="block"/>
+     </v:line></v:group><v:group id="_x0000_s1290" style='position:absolute;
+     left:5439;top:12965;width:3420;height:1800' coordorigin="5439,12965"
+     coordsize="3420,1800">
+     <v:group id="_x0000_s1275" style='position:absolute;left:5439;top:12965;
+      width:3420;height:1800' coordorigin="5301,12965" coordsize="3420,1800">
+      <v:group id="_x0000_s1273" style='position:absolute;left:5301;top:12965;
+       width:3420;height:1800' coordorigin="5301,12965" coordsize="3420,1800">
+       <v:rect id="_x0000_s1254" style='position:absolute;left:5301;top:12965;
+        width:3420;height:1800;mso-position-horizontal:absolute;
+        mso-position-vertical:absolute' o:regroupid="1"/>
+       <v:line id="_x0000_s1256" style='position:absolute;
+        mso-position-horizontal:absolute;mso-position-vertical:absolute'
+        from="5841,13325" to="5841,14405" o:regroupid="1"/>
+       <v:line id="_x0000_s1261" style='position:absolute' from="5841,14405"
+        to="8181,14405" o:regroupid="1"/>
+       <v:line id="_x0000_s1263" style='position:absolute;flip:y;
+        mso-position-horizontal:absolute;mso-position-vertical:absolute'
+        from="5481,13686" to="6921,13687" o:regroupid="1" strokecolor="#396">
+        <v:stroke endarrow="block"/>
+       </v:line><v:line id="_x0000_s1264" style='position:absolute;
+        mso-position-horizontal:absolute;mso-position-vertical:absolute'
+        from="6921,13686" to="6921,14406" o:regroupid="1" strokecolor="#396">
+        <v:stroke endarrow="block"/>
+       </v:line></v:group><v:line id="_x0000_s1274" style='position:absolute;
+       flip:x y' from="6561,13328" to="7683,14405" strokecolor="blue"
+       strokeweight="2.25pt"/>
+     </v:group><v:shapetype id="_x0000_t202" coordsize="21600,21600" o:spt="202"
+      path="m0,0l0,21600,21600,21600,21600,0xe">
+      <v:stroke joinstyle="miter"/>
+      <v:path gradientshapeok="t" o:connecttype="rect"/>
+     </v:shapetype><v:shape id="_x0000_s1289" type="#_x0000_t202" style='position:absolute;
+      left:6852;top:14329;width:506;height:436;mso-position-horizontal:absolute;
+      mso-position-vertical:absolute' filled="f" stroked="f">
+      <v:textbox style='mso-next-textbox:#_x0000_s1289'>
+       <![if !mso]>
+       <table cellpadding=0 cellspacing=0 width="100%">
+        <tr>
+         <td><![endif]>
+         <div>
+         <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:
+         12.0pt'>X<o:p></o:p></span></p>
+         </div>
+         <![if !mso]></td>
+        </tr>
+       </table>
+       <![endif]></v:textbox>
+     </v:shape></v:group><v:shape id="_x0000_s1293" type="#_x0000_t202"
+     style='position:absolute;left:1795;top:13582;width:506;height:436;
+     mso-position-horizontal:absolute;mso-position-vertical:absolute' filled="f"
+     stroked="f">
+     <v:textbox style='mso-next-textbox:#_x0000_s1293'>
+      <![if !mso]>
+      <table cellpadding=0 cellspacing=0 width="100%">
+       <tr>
+        <td><![endif]>
+        <div>
+        <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:
+        12.0pt'>m<o:p></o:p></span></p>
+        </div>
+        <![if !mso]></td>
+       </tr>
+      </table>
+      <![endif]></v:textbox>
+    </v:shape><v:shape id="_x0000_s1294" type="#_x0000_t202" style='position:absolute;
+     left:5473;top:13626;width:506;height:436;mso-position-horizontal:absolute;
+     mso-position-vertical:absolute' filled="f" stroked="f">
+     <v:textbox style='mso-next-textbox:#_x0000_s1294'>
+      <![if !mso]>
+      <table cellpadding=0 cellspacing=0 width="100%">
+       <tr>
+        <td><![endif]>
+        <div>
+        <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:
+        12.0pt'>m<o:p></o:p></span></p>
+        </div>
+        <![if !mso]></td>
+       </tr>
+      </table>
+      <![endif]></v:textbox>
+    </v:shape></v:group><v:shape id="_x0000_s1296" type="#_x0000_t202" style='position:absolute;
+    left:3715;top:14329;width:506;height:436;mso-position-horizontal:absolute;
+    mso-position-vertical:absolute' filled="f" stroked="f">
+    <v:textbox>
+     <![if !mso]>
+     <table cellpadding=0 cellspacing=0 width="100%">
+      <tr>
+       <td><![endif]>
+       <div>
+       <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt'>X<o:p></o:p></span></p>
+       </div>
+       <![if !mso]></td>
+      </tr>
+     </table>
+     <![endif]></v:textbox>
+   </v:shape></v:group><v:shape id="_x0000_s1292" type="#_x0000_t202" style='position:absolute;
+   left:2056;top:14910;width:6479;height:445;mso-position-horizontal:absolute;
+   mso-position-vertical:absolute' filled="f" stroked="f">
+   <v:textbox style='mso-next-textbox:#_x0000_s1292'>
+    <![if !mso]>
+    <table cellpadding=0 cellspacing=0 width="100%">
+     <tr>
+      <td><![endif]>
+      <div>
+      <p class=MsoNormal>Given the membership value m, find the corresponding X
+      value</p>
+      </div>
+      <![if !mso]></td>
+     </tr>
+    </table>
+    <![endif]></v:textbox>
+  </v:shape><w:wrap type="topAndBottom"/>
+ </v:group><![endif]--><![if !vml]><span style='mso-ignore:vglayout'>
+ <table cellpadding=0 cellspacing=0 align=left>
+  <tr>
+   <td width=19 height=0></td>
+  </tr>
+  <tr>
+   <td></td>
+   <td><img width=532 height=185 src="./newFeatures_files/image001.gif" v:shapes="_x0000_s1298 _x0000_s1297 _x0000_s1295 _x0000_s1253 _x0000_s1266 _x0000_s1267 _x0000_s1268 _x0000_s1269 _x0000_s1270 _x0000_s1271 _x0000_s1272 _x0000_s1290 _x0000_s1275 _x0000_s1273 _x0000_s1254 _x0000_s1256 _x0000_s1261 _x0000_s1263 _x0000_s1264 _x0000_s1274 _x0000_s1289 _x0000_s1293 _x0000_s1294 _x0000_s1296 _x0000_s1292"></td>
+  </tr>
+ </table>
+ </span><![endif]><!--[if gte vml 1]></o:wrapblock><![endif]--><br
+style='mso-ignore:vglayout' clear=ALL>
+<a name=TopOfPage></a><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<br style='mso-ignore:vglayout' clear=ALL>
+
+<p><!--[if gte vml 1]><v:shape id="_x0000_s1288" type="#_x0000_t202" style='position:absolute;
+ margin-left:179.2pt;margin-top:80.9pt;width:25.3pt;height:21.8pt;z-index:2;
+ mso-position-horizontal:absolute;mso-position-vertical:absolute' o:regroupid="2"
+ filled="f" stroked="f">
+ <v:textbox style='mso-next-textbox:#_x0000_s1288'/>
+</v:shape><![endif]--><![if !vml]><span style='mso-ignore:vglayout;position:
+absolute;z-index:0;margin-left:239px;margin-top:108px;width:35px;height:31px'>
+
+<table cellpadding=0 cellspacing=0>
+ <tr>
+  <td width=35 height=31 align=left valign=top style='vertical-align:top'><![endif]><![if !mso]><span
+  style='position:absolute;z-index:2'>
+  <table cellpadding=0 cellspacing=0 width="100%">
+   <tr>
+    <td><![endif]>
+    <div v:shape="_x0000_s1288" style='padding:3.6pt 7.2pt 3.6pt 7.2pt'
+    class=shape>
+    <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt'>X<o:p></o:p></span></p>
+    </div>
+    <![if !mso]></td>
+   </tr>
+  </table>
+  </span><![endif]><![if !mso & !vml]>&nbsp;<![endif]><![if !vml]></td>
+ </tr>
+</table>
+
+</span><![endif]><b>V<a name="Version1_6Mods"></a>ersion 1.6 Modifications <o:p></o:p></b></p>
+
+<p><a name=FuzzySetPlottingErrors></a><a name="Version1_5aMods"></a><b><i>Fixed
+Fuzzy Set Plotting errors </i></b>&#8211; Some minor problems with the plots of fuzzy
+sets were fixed. The plotted points were sometimes missing (at the right end of
+the plot) or too far to the left.</p>
+
+<p><a name=GaussianFuzzySets></a><b>New FuzzySet types GaussianFuzzySet, LeftGaussianFuzzySet
+and RightGaussianFuzzySet</b><span style="mso-spacerun: yes">&nbsp; </span>&#8211;
+Added new fuzzy sets that have a Gaussian distribution shape. For details see
+the <a href="APIdocs/index.html">FuzzyJ API</a>. These are similar to the PI,
+S, and Z fuzzy sets but may be more useful in some situations.</p>
+
+<p><b>Version 1.5a Modifications<o:p></o:p></b></p>
+
+<p><a name=ChangesToClassesforMultipleAntecedents></a><b><i>Change to Classes
+for Combining Fuzzy Match Scores When Multiple Fuzzy Antecedents</i></b> &#8211; In
+version 1.5 the classes added to do the combining of match score when there
+were multiple fuzzy values in the antecedents were not implemented as well as
+they should have been. The implementation required that each <span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'>AntecedentCombineOperator</span>
+provide an <i>execute</i> method that took two doubles and returned the result
+of the operator on these two arguments. However, performing the operator pair
+wise on the match values severely restricts the type of operators that one can
+use. It has been changed so that the <i>execute</i> method receives the entire
+list of match scores as an array instead of pairs of values. This allows for more
+flexibility in the type of operators that can be implemented. To demonstrate
+the point, a new class, <span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:"Courier New"'>CompensatoryAddAntecedentCombineOperator</span>, has
+been included in version 1.5a. This implements an operator that can give a
+value that will be greater than the minimum of the values and will always be
+greater than or equal to the product of the values. In some cases this may be a
+better choice. For example, if two of three match scores are 1.0 and the third
+is 0.1. Then in some situations it might be more acceptable to use a value
+somewhere between 0.1 and 1 as the combining value. The <i>compensatory add</i>
+operation is described in Fuzzy Set Theory and Its Application by Zimmermann
+(Kluwer Academic Publishers, 1990). The equation for the compensatory add is
+shown below.</p>
+
+<p style='margin-left:.5in;text-indent:.5in'><!--[if gte vml 1]><v:shapetype
+ id="_x0000_t75" coordsize="21600,21600" o:spt="75" o:preferrelative="t"
+ path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:185.9pt;
+ height:39.25pt'>
+ <v:imagedata src="./newFeatures_files/image002.wmz" o:title="image001"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=248 height=53
+src="./newFeatures_files/image003.gif" v:shapes="_x0000_i1025"><![endif]></p>
+
+<p>where x<sub>i </sub>are the m match values and <span style='font-family:
+Symbol'>g</span> is a parameter that controls the compensation factor for the
+calculation. If <span style='font-family:Symbol'>g</span> is 0 then this
+reduces to the product of the match values. The default value of <span
+style='font-family:Symbol'>g</span> is 0.562, which is supposed to give
+reasonable and expected (intuitive?) results. Again this depends on the
+application and what is suitable. With the previous (rather poor)
+implementation this type of operator could not have been implemented. Note that
+when a <span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:
+"Courier New"'>CompensatoryAddAntecedentCombineOperator</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> </span>object is created
+one can specify the <span style='font-family:Symbol'>g </span>value (or one can
+use a setGamma method on the object).</p>
+
+<p><a name="Version1_5Mods"></a><b>Version 1.5 Modifications<o:p></o:p></b></p>
+
+<p><a name=NewDefuzzificationMethods></a><b><i>New Defuzzification<span
+style="mso-spacerun: yes">&nbsp; </span>Methods for FuzzyValueVector Class</i></b>
+&#8211; Previously one could not do Defuzzification on a FuzzyValueVector object. Now
+all of the defuzzification strategies can be applied to a FuzzyValueVector. The
+details for these methods can be found in the <a
+href="APIdocs/nrc/fuzzy/FuzzyValueVector.html">FuzzyJ API</a> but we&#8217;ll
+describe them here briefly. In all cases the FuzzyValues in the
+FuzzyValueVector must have the same FuzzyVariable. The motivation for this was
+to allow more flexibility in performing Global Contribution for the outputs of
+FuzzyRules. Rather than doing a union (or sum or other operation) as the rules fire,
+one can store the individual results in FuzzyValueVectors and decide how to
+combine them after all of the rules have fired. The weightedAverageDefuzzify
+method uses all of the x-values in all of the FuzzyValues in the vector to
+perform its calculation. This is a different than one would obtain by doing a
+fuzzy union of the outputs and then a weightedAverageDefuzzify on the single
+FuzzyValue. In particular if the outputs were all singletons and some of the
+singleton outputs were at the same x value (with perhaps different membership
+values) then the extra weighting of the singletons at the same value would be
+lost since the union operation would just record one membership value at that x
+position (the maximum). In the FuzzyValueVector, the defuzzification would use
+both membership values at the same x position giving more weight to this x
+position in the calculation. The question remains, is this a good thing to do?
+Well it depends on your needs and this provides the flexibility to achieve the
+desired outcome. For the maximumDefuzzify method we calculate the mean of the x
+values with maximum membership values over the entire set of FuzzyValues.
+Similar comments can be made as for the weightedAverageDefuzzify. In the case
+of momentDefuzzify, the moments and areas for each are of each FuzzyValue is
+used to calculate the defuzzified value. This means that the overlapping areas
+if the individual FuzzyValues contribute more than they would have if the
+FuzzyValues were combined first using a union operation. Again, in some
+instance this is the desired method of defuzzification. One can get an
+identical result to the momentDefuzzify on a FuzzyValueVector by doing Global
+Contribution of the output values with a fuzzy sum operation (rather than the
+default union). Then a momentDefuzzify on the resultant &#8216;summed&#8217; FuzzyValue
+would give the same result. This is common in methods like Kosko&#8217;s SAM method
+(Standard Additive Method).<span style="mso-spacerun: yes">&nbsp; </span>The
+bottom line here is the increase in flexibility in how one collects the results
+of multiple rules that fire and how the results can be defuzzified.</p>
+
+<p>Note that in version 1.8 the centerOfAreaDefuzzification method has been
+added for Fuzzy sets and fuzzy values. It has also been included with the
+FuzzyValueVector and is implemented by doing a fuzzySum on all of the fuzzy
+sets and then a centerOfArea on this result.</p>
+
+<p><a name=NewClassesforMultipleAntecedents></a><b><i>New Classes to Control
+the Operation Used to Combine Fuzzy Match Scores When Multiple Fuzzy
+Antecedents</i></b> &#8211; Several Classes have been added to provide a general way
+to combine the match scores of multiple fuzzy antecedents and their
+corresponding fuzzy inputs. Prior to this release there was only one choice &#8211;
+the minimum of the match scores was used. Some techniques, such as Kosko&#8217;s SAM
+method (Standard Additive Method) require that the combining of these fuzzy
+match scores be done by multiplying the individual scores. So an interface, <span
+style='font-size:10.0pt;font-family:Courier;color:black'>AntecedentCombineOperatorInterface</span><span
+style='mso-bidi-font-size:10.0pt;color:black'>, an abstract class, </span><span
+style='font-size:10.0pt;font-family:Courier;color:black'>AntecedentCombineOperator</span><span
+style='mso-bidi-font-size:10.0pt;color:black'>, that implements the interface
+and two extensions of the abstract class, </span><span style='font-size:10.0pt;
+font-family:Courier;color:black'>MinimumAntecedentCombineOperatorInterface </span><span
+style='mso-bidi-font-size:10.0pt;color:black'>and</span><span style='font-size:
+10.0pt;font-family:Courier;color:black'> ProductAntecedentCombineOperator</span>
+were created to provide two ways to perform this combining of the scores. By
+extending the abstract class other operators could also be defined if needed.
+At the same time the FuzzyRule class was modified to allow it to maintain a
+default antecedent combine operator (that is used when a rule is created
+without specifying a particular operator) and a particular operator for each
+rule. This is described in the chapter on <a
+href="FuzzyRule.html#Multiple_Antecedents_in_a_Rule">FuzzyRules</a> and in the
+chapter on <a href="FuzzyJess.html#Multiple_Antecedants">FuzzyJess</a>. </p>
+
+<p><a name=FuzzySetsWithMembershipGreaterThan1></a><b><i>FuzzySets Can Have
+Membership Values Larger Than 1</i></b> &#8211; It has always been true, although not
+necessarily documented, that FuzzySets could have membership values greater
+than 1. However, the documentation has been updated to reflect this and the
+methods that deal with this have been made consistent or have modified to do an
+&#8216;appropriate&#8217; thing when they encounter FuzzySets with membership values
+greater than 1. Normally, FuzzySets will not have values exceeding 1 but in
+certain cases it can happen and it needs to be allowed. Users can create
+FuzzySets to specifically hold such values (using insertSetPoint or
+appendSetPoint). They are responsible for the use and care of such FuzzySets
+and must know what will happen as the operate on them. The new fuzzy operation
+fuzzySum allows one to <i>add</i> FuzzySets (this is described below) and in
+this case FuzzySets with membership values greater than 1 may be created. This
+is especially useful for dong global contribution of fuzzy outputs of rules
+(needed for Kosko&#8217;s SAM method). It must be stressed that the user must be
+careful when creating FuzzySets with membership values greater than 1.</p>
+
+<p><a name=FuzzySumOperation></a><b><i>fuzzySum Operation for
+FuzzyValues/FuzzySets</i></b> &#8211; Two FuzzyValues can now be added together using
+a fuzzySum method. The result is a FuzzyValue with a FuzzySet whose membership
+value at any x position is the sum of the membership values at the
+corresponding x position of the individual FuzzySets. See the description in
+the <a href="APIdocs/nrc/fuzzy/FuzzyValue.html">FuzzyJ API for FuzzyValues</a>.</p>
+
+<p><!--[if gte vml 1]><o:wrapblock><v:group id="_x0000_s1194" style='position:absolute;
+  margin-left:24.3pt;margin-top:0;width:286.6pt;height:271.4pt;z-index:1;
+  mso-position-vertical:top' coordorigin="2548,879" coordsize="5732,5428">
+  <v:group id="_x0000_s1195" style='position:absolute;left:2548;top:879;
+   width:5732;height:5428' coordorigin="2548,879" coordsize="5732,5428">
+   <v:group id="_x0000_s1196" style='position:absolute;left:2548;top:879;
+    width:5732;height:5428' coordorigin="2548,879" coordsize="5732,5428">
+    <v:group id="_x0000_s1197" style='position:absolute;left:2548;top:879;
+     width:5732;height:5428' coordorigin="2548,879" coordsize="5732,5428">
+     <v:rect id="_x0000_s1198" style='position:absolute;left:2548;top:879;
+      width:5732;height:5428' fillcolor="silver"/>
+     <v:rect id="_x0000_s1199" style='position:absolute;left:3109;top:1253;
+      width:4631;height:4675'/>
+     <v:group id="_x0000_s1200" style='position:absolute;left:3109;top:1440;
+      width:4631;height:4114' coordorigin="3109,1440" coordsize="4631,4114">
+      <v:shape id="_x0000_s1201" type="#_x0000_t202" style='position:absolute;
+       left:3483;top:5180;width:561;height:374' filled="f" stroked="f">
+       <v:textbox style='mso-next-textbox:#_x0000_s1201'>
+        <![if !mso]>
+        <table cellpadding=0 cellspacing=0 width="100%">
+         <tr>
+          <td><![endif]>
+          <div>
+          <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:
+          12.0pt;font-family:"Arial Narrow";mso-bidi-font-family:Arial'>0.0<o:p></o:p></span></p>
+          </div>
+          <![if !mso]></td>
+         </tr>
+        </table>
+        <![endif]></v:textbox>
+      </v:shape><v:shape id="_x0000_s1202" type="#_x0000_t202" style='position:absolute;
+       left:4231;top:5180;width:561;height:374' filled="f" stroked="f">
+       <v:textbox style='mso-next-textbox:#_x0000_s1202'>
+        <![if !mso]>
+        <table cellpadding=0 cellspacing=0 width="100%">
+         <tr>
+          <td><![endif]>
+          <div>
+          <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:
+          12.0pt;font-family:"Arial Narrow";mso-bidi-font-family:Arial'>0.2<o:p></o:p></span></p>
+          </div>
+          <![if !mso]></td>
+         </tr>
+        </table>
+        <![endif]></v:textbox>
+      </v:shape><v:shape id="_x0000_s1203" type="#_x0000_t202" style='position:absolute;
+       left:4979;top:5180;width:561;height:374' filled="f" stroked="f">
+       <v:textbox style='mso-next-textbox:#_x0000_s1203'>
+        <![if !mso]>
+        <table cellpadding=0 cellspacing=0 width="100%">
+         <tr>
+          <td><![endif]>
+          <div>
+          <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:
+          12.0pt;font-family:"Arial Narrow";mso-bidi-font-family:Arial'>0.4<o:p></o:p></span></p>
+          </div>
+          <![if !mso]></td>
+         </tr>
+        </table>
+        <![endif]></v:textbox>
+      </v:shape><v:shape id="_x0000_s1204" type="#_x0000_t202" style='position:absolute;
+       left:6475;top:5180;width:561;height:374' filled="f" stroked="f">
+       <v:textbox style='mso-next-textbox:#_x0000_s1204'>
+        <![if !mso]>
+        <table cellpadding=0 cellspacing=0 width="100%">
+         <tr>
+          <td><![endif]>
+          <div>
+          <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:
+          12.0pt;font-family:"Arial Narrow";mso-bidi-font-family:Arial'>0.8<o:p></o:p></span></p>
+          </div>
+          <![if !mso]></td>
+         </tr>
+        </table>
+        <![endif]></v:textbox>
+      </v:shape><v:shape id="_x0000_s1205" type="#_x0000_t202" style='position:absolute;
+       left:5727;top:5180;width:561;height:374' filled="f" stroked="f">
+       <v:textbox style='mso-next-textbox:#_x0000_s1205'>
+        <![if !mso]>
+        <table cellpadding=0 cellspacing=0 width="100%">
+         <tr>
+          <td><![endif]>
+          <div>
+          <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:
+          12.0pt;font-family:"Arial Narrow";mso-bidi-font-family:Arial'>0.6<o:p></o:p></span></p>
+          </div>
+          <![if !mso]></td>
+         </tr>
+        </table>
+        <![endif]></v:textbox>
+      </v:shape><v:shape id="_x0000_s1206" type="#_x0000_t202" style='position:absolute;
+       left:7179;top:5180;width:561;height:374' filled="f" stroked="f">
+       <v:textbox style='mso-next-textbox:#_x0000_s1206'>
+        <![if !mso]>
+        <table cellpadding=0 cellspacing=0 width="100%">
+         <tr>
+          <td><![endif]>
+          <div>
+          <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:
+          12.0pt;font-family:"Arial Narrow";mso-bidi-font-family:Arial'>1.0<o:p></o:p></span></p>
+          </div>
+          <![if !mso]></td>
+         </tr>
+        </table>
+        <![endif]></v:textbox>
+      </v:shape><v:shape id="_x0000_s1207" type="#_x0000_t202" style='position:absolute;
+       left:3109;top:4806;width:561;height:374' filled="f" stroked="f">
+       <v:textbox style='mso-next-textbox:#_x0000_s1207'>
+        <![if !mso]>
+        <table cellpadding=0 cellspacing=0 width="100%">
+         <tr>
+          <td><![endif]>
+          <div>
+          <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:
+          12.0pt;font-family:"Arial Narrow";mso-bidi-font-family:Arial'>0.0<o:p></o:p></span></p>
+          </div>
+          <![if !mso]></td>
+         </tr>
+        </table>
+        <![endif]></v:textbox>
+      </v:shape><v:shape id="_x0000_s1208" type="#_x0000_t202" style='position:absolute;
+       left:3109;top:3684;width:561;height:374' filled="f" stroked="f">
+       <v:textbox style='mso-next-textbox:#_x0000_s1208'>
+        <![if !mso]>
+        <table cellpadding=0 cellspacing=0 width="100%">
+         <tr>
+          <td><![endif]>
+          <div>
+          <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:
+          12.0pt;font-family:"Arial Narrow";mso-bidi-font-family:Arial'>0.4<o:p></o:p></span></p>
+          </div>
+          <![if !mso]></td>
+         </tr>
+        </table>
+        <![endif]></v:textbox>
+      </v:shape><v:shape id="_x0000_s1209" type="#_x0000_t202" style='position:absolute;
+       left:3109;top:4245;width:561;height:374' filled="f" stroked="f">
+       <v:textbox style='mso-next-textbox:#_x0000_s1209'>
+        <![if !mso]>
+        <table cellpadding=0 cellspacing=0 width="100%">
+         <tr>
+          <td><![endif]>
+          <div>
+          <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:
+          12.0pt;font-family:"Arial Narrow";mso-bidi-font-family:Arial'>0.2<o:p></o:p></span></p>
+          </div>
+          <![if !mso]></td>
+         </tr>
+        </table>
+        <![endif]></v:textbox>
+      </v:shape><v:shape id="_x0000_s1210" type="#_x0000_t202" style='position:absolute;
+       left:3109;top:2562;width:561;height:374' filled="f" stroked="f">
+       <v:textbox style='mso-next-textbox:#_x0000_s1210'>
+        <![if !mso]>
+        <table cellpadding=0 cellspacing=0 width="100%">
+         <tr>
+          <td><![endif]>
+          <div>
+          <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:
+          12.0pt;font-family:"Arial Narrow";mso-bidi-font-family:Arial'>0.8<o:p></o:p></span></p>
+          </div>
+          <![if !mso]></td>
+         </tr>
+        </table>
+        <![endif]></v:textbox>
+      </v:shape><v:shape id="_x0000_s1211" type="#_x0000_t202" style='position:absolute;
+       left:3109;top:3123;width:561;height:374' filled="f" stroked="f">
+       <v:textbox style='mso-next-textbox:#_x0000_s1211'>
+        <![if !mso]>
+        <table cellpadding=0 cellspacing=0 width="100%">
+         <tr>
+          <td><![endif]>
+          <div>
+          <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:
+          12.0pt;font-family:"Arial Narrow";mso-bidi-font-family:Arial'>0.6<o:p></o:p></span></p>
+          </div>
+          <![if !mso]></td>
+         </tr>
+        </table>
+        <![endif]></v:textbox>
+      </v:shape><v:shape id="_x0000_s1212" type="#_x0000_t202" style='position:absolute;
+       left:3109;top:2001;width:561;height:374' filled="f" stroked="f">
+       <v:textbox style='mso-next-textbox:#_x0000_s1212'>
+        <![if !mso]>
+        <table cellpadding=0 cellspacing=0 width="100%">
+         <tr>
+          <td><![endif]>
+          <div>
+          <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:
+          12.0pt;font-family:"Arial Narrow";mso-bidi-font-family:Arial'>1.0<o:p></o:p></span></p>
+          </div>
+          <![if !mso]></td>
+         </tr>
+        </table>
+        <![endif]></v:textbox>
+      </v:shape><v:group id="_x0000_s1213" style='position:absolute;left:3483;
+       top:1627;width:3927;height:3553' coordorigin="3483,1627" coordsize="3927,3553">
+       <v:group id="_x0000_s1214" style='position:absolute;left:3483;top:1627;
+        width:3927;height:3553' coordorigin="3483,1627" coordsize="3927,3553">
+        <v:line id="_x0000_s1215" style='position:absolute' from="3670,1627"
+         to="3670,5180"/>
+        <v:line id="_x0000_s1216" style='position:absolute' from="3483,4993"
+         to="7410,4993"/>
+        <v:line id="_x0000_s1217" style='position:absolute;flip:y' from="4418,4993"
+         to="4418,5180"/>
+        <v:line id="_x0000_s1218" style='position:absolute;flip:y' from="5166,4993"
+         to="5166,5180"/>
+        <v:line id="_x0000_s1219" style='position:absolute;flip:y' from="6662,4993"
+         to="6662,5180"/>
+        <v:line id="_x0000_s1220" style='position:absolute;flip:y' from="5914,4993"
+         to="5914,5180"/>
+        <v:line id="_x0000_s1221" style='position:absolute;flip:y' from="7410,4993"
+         to="7410,5180"/>
+        <v:line id="_x0000_s1222" style='position:absolute' from="3483,4432"
+         to="3670,4432"/>
+        <v:line id="_x0000_s1223" style='position:absolute' from="3483,3871"
+         to="3670,3871"/>
+        <v:line id="_x0000_s1224" style='position:absolute' from="3483,2749"
+         to="3670,2749"/>
+        <v:line id="_x0000_s1225" style='position:absolute' from="3483,3310"
+         to="3670,3310"/>
+        <v:line id="_x0000_s1226" style='position:absolute' from="3483,2188"
+         to="3670,2188"/>
+       </v:group><v:line id="_x0000_s1227" style='position:absolute' from="3483,1627"
+        to="3670,1627"/>
+      </v:group><v:shape id="_x0000_s1228" type="#_x0000_t202" style='position:absolute;
+       left:3109;top:1440;width:561;height:374' filled="f" stroked="f">
+       <v:textbox style='mso-next-textbox:#_x0000_s1228'>
+        <![if !mso]>
+        <table cellpadding=0 cellspacing=0 width="100%">
+         <tr>
+          <td><![endif]>
+          <div>
+          <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:
+          12.0pt;font-family:"Arial Narrow";mso-bidi-font-family:Arial'>1.2<o:p></o:p></span></p>
+          </div>
+          <![if !mso]></td>
+         </tr>
+        </table>
+        <![endif]></v:textbox>
+      </v:shape></v:group></v:group><v:group id="_x0000_s1229" style='position:absolute;
+     left:3670;top:1814;width:3740;height:3179' coordorigin="3670,1814"
+     coordsize="3740,3179">
+     <v:line id="_x0000_s1230" style='position:absolute;flip:y' from="3670,4058"
+      to="4418,4993" strokecolor="#9c0" strokeweight="2.25pt"/>
+     <v:line id="_x0000_s1231" style='position:absolute;flip:y' from="4418,3310"
+      to="4605,4058" strokecolor="#9c0" strokeweight="2.25pt"/>
+     <v:line id="_x0000_s1232" style='position:absolute;flip:y' from="4605,2749"
+      to="4792,3310" strokecolor="#9c0" strokeweight="2.25pt"/>
+     <v:line id="_x0000_s1233" style='position:absolute;flip:y' from="4792,1814"
+      to="5166,2749" strokecolor="#9c0" strokeweight="2.25pt"/>
+     <v:line id="_x0000_s1234" style='position:absolute' from="5166,1814" to="5914,2188"
+      strokecolor="#9c0" strokeweight="2.25pt"/>
+     <v:line id="_x0000_s1235" style='position:absolute' from="5914,2188" to="6288,3310"
+      strokecolor="#9c0" strokeweight="2.25pt"/>
+     <v:line id="_x0000_s1236" style='position:absolute' from="6288,3310" to="7410,4993"
+      strokecolor="#9c0" strokeweight="2.25pt"/>
+    </v:group><v:group id="_x0000_s1237" style='position:absolute;left:6288;
+     top:1666;width:1265;height:1344' coordorigin="6475,1666" coordsize="1265,1344">
+     <v:shape id="_x0000_s1238" type="#_x0000_t202" style='position:absolute;
+      left:6475;top:1666;width:1265;height:448' filled="f" stroked="f">
+      <v:textbox style='mso-next-textbox:#_x0000_s1238'>
+       <![if !mso]>
+       <table cellpadding=0 cellspacing=0 width="100%">
+        <tr>
+         <td><![endif]>
+         <div>
+         <h3><span style='font-size:8.0pt;mso-bidi-font-size:13.5pt;font-family:
+         Arial;color:#99CC00'>A sum B<o:p></o:p></span></h3>
+         </div>
+         <![if !mso]></td>
+        </tr>
+       </table>
+       <![endif]></v:textbox>
+     </v:shape><v:shape id="_x0000_s1239" type="#_x0000_t202" style='position:absolute;
+      left:6475;top:2562;width:875;height:448' filled="f" stroked="f">
+      <v:textbox style='mso-next-textbox:#_x0000_s1239'>
+       <![if !mso]>
+       <table cellpadding=0 cellspacing=0 width="100%">
+        <tr>
+         <td><![endif]>
+         <div>
+         <h1>A</h1>
+         </div>
+         <![if !mso]></td>
+        </tr>
+       </table>
+       <![endif]></v:textbox>
+     </v:shape><v:shape id="_x0000_s1240" type="#_x0000_t202" style='position:absolute;
+      left:6475;top:2114;width:875;height:448' filled="f" stroked="f">
+      <v:textbox style='mso-next-textbox:#_x0000_s1240'>
+       <![if !mso]>
+       <table cellpadding=0 cellspacing=0 width="100%">
+        <tr>
+         <td><![endif]>
+         <div>
+         <h2>B</h2>
+         </div>
+         <![if !mso]></td>
+        </tr>
+       </table>
+       <![endif]></v:textbox>
+     </v:shape></v:group></v:group><v:group id="_x0000_s1241" style='position:absolute;
+    left:3670;top:3871;width:3740;height:1122' coordorigin="3670,3871"
+    coordsize="3740,1122">
+    <v:line id="_x0000_s1242" style='position:absolute;flip:y' from="3670,3871"
+     to="4605,4993" strokecolor="#36f" strokeweight="2.25pt"/>
+    <v:line id="_x0000_s1243" style='position:absolute' from="4605,3871" to="5914,3871"
+     strokecolor="#36f" strokeweight="2.25pt"/>
+    <v:line id="_x0000_s1244" style='position:absolute' from="5914,3871" to="7410,4993"
+     strokecolor="#36f" strokeweight="2.25pt"/>
+   </v:group><v:group id="_x0000_s1245" style='position:absolute;left:4418;
+    top:2936;width:2244;height:2057' coordorigin="4418,2936" coordsize="2244,2057">
+    <v:line id="_x0000_s1246" style='position:absolute;flip:y' from="4418,2936"
+     to="5166,4993" strokecolor="#f60" strokeweight="2.25pt"/>
+    <v:line id="_x0000_s1247" style='position:absolute' from="5166,2936" to="5914,3310"
+     strokecolor="#f60" strokeweight="2.25pt"/>
+    <v:line id="_x0000_s1248" style='position:absolute' from="5914,3310" to="6662,4993"
+     strokecolor="#f60" strokeweight="2.25pt"/>
+   </v:group></v:group><v:shape id="_x0000_s1249" type="#_x0000_t202" style='position:absolute;
+   left:4418;top:5554;width:2805;height:374' filled="f" stroked="f">
+   <v:textbox style='mso-next-textbox:#_x0000_s1249'>
+    <![if !mso]>
+    <table cellpadding=0 cellspacing=0 width="100%">
+     <tr>
+      <td><![endif]>
+      <div>
+      <h4>Fuzzy Sum operation</h4>
+      </div>
+      <![if !mso]></td>
+     </tr>
+    </table>
+    <![endif]></v:textbox>
+  </v:shape><w:wrap type="topAndBottom"/>
+ </v:group><![endif]--><![if !vml]><span style='mso-ignore:vglayout'>
+ <table cellpadding=0 cellspacing=0 align=left>
+  <tr>
+   <td width=32 height=0></td>
+  </tr>
+  <tr>
+   <td></td>
+   <td><img width=383 height=363 src="./newFeatures_files/image004.gif" v:shapes="_x0000_s1194 _x0000_s1195 _x0000_s1196 _x0000_s1197 _x0000_s1198 _x0000_s1199 _x0000_s1200 _x0000_s1201 _x0000_s1202 _x0000_s1203 _x0000_s1204 _x0000_s1205 _x0000_s1206 _x0000_s1207 _x0000_s1208 _x0000_s1209 _x0000_s1210 _x0000_s1211 _x0000_s1212 _x0000_s1213 _x0000_s1214 _x0000_s1215 _x0000_s1216 _x0000_s1217 _x0000_s1218 _x0000_s1219 _x0000_s1220 _x0000_s1221 _x0000_s1222 _x0000_s1223 _x0000_s1224 _x0000_s1225 _x0000_s1226 _x0000_s1227 _x0000_s1228 _x0000_s1229 _x0000_s1230 _x0000_s1231 _x0000_s1232 _x0000_s1233 _x0000_s1234 _x0000_s1235 _x0000_s1236 _x0000_s1237 _x0000_s1238 _x0000_s1239 _x0000_s1240 _x0000_s1241 _x0000_s1242 _x0000_s1243 _x0000_s1244 _x0000_s1245 _x0000_s1246 _x0000_s1247 _x0000_s1248 _x0000_s1249"></td>
+  </tr>
+ </table>
+ </span><![endif]><!--[if gte vml 1]></o:wrapblock><![endif]--><br
+style='mso-ignore:vglayout' clear=ALL>
+<![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<br style='mso-ignore:vglayout' clear=ALL>
+
+<p style='margin-bottom:2.0pt'><a name="NewJessFunctionsFor1_5"></a><b><i>New
+FuzzyJess Functions</i></b> &#8211; Six new functions were added. They can all be
+done using calls to Java functions but these functions might make it simpler to
+perform the actions. The functions are:</p>
+
+<p class=MsoNormal style='margin-left:.5in;mso-layout-grid-align:none;
+text-autospace:none'><span style='mso-bidi-font-size:10.0pt'>(set-fuzzy-global-contribution-operator
+operator)<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;mso-layout-grid-align:none;
+text-autospace:none'><span style='mso-bidi-font-size:10.0pt'>(get-fuzzy-global-contribution-operator)<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;mso-layout-grid-align:none;
+text-autospace:none'><span style='mso-bidi-font-size:10.0pt'>(set-default-fuzzy-rule-executor
+executor)<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;mso-layout-grid-align:none;
+text-autospace:none'><span style='mso-bidi-font-size:10.0pt'>(get-default-fuzzy-rule-executor)<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;mso-layout-grid-align:none;
+text-autospace:none'><span style='mso-bidi-font-size:10.0pt'>(set-default-antecedent-combine-operator
+operator) <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;mso-layout-grid-align:none;
+text-autospace:none'><span style='mso-bidi-font-size:10.0pt'>(get-default-antecedent-combine-operator)<o:p></o:p></span></p>
+
+<p style='margin-top:3.0pt'>For details see the chapter on <a
+href="FuzzyJess.html">FuzzyJess</a>.</p>
+
+<p><a name=FuzzySetMethodSimplifySetFixed></a><b><i>FuzzySet Method simplifySet
+Fixed</i></b> &#8211; This would not be noticed by most users but there was a minor
+problem with the way FuzzySets were being simplified to remove unnecessary
+points.</p>
+
+<p><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p><a name="Version1_4Mods"></a><b>Version 1.4 Modifications<o:p></o:p></b></p>
+
+<p><a name=FuzzyVariableMods13></a><b><i>FuzzyVariable</i> &#8211; </b>This class was
+extended by adding 4 new methods to access and remove fuzzy terms. The new
+methods are:</p>
+
+<p class=MsoNormal><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>findTerms()
+&#8211; returns an enumeration with the set of FuzzyValues that represent the terms
+of the FuzzyVariable</p>
+
+<p class=MsoNormal><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>findTermNames()
+&#8211; returns an enumeration with the set of String names of the terms of the
+FuzzyVariable</p>
+
+<p class=MsoNormal><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>removeTerm(
+String term ) &#8211; removes a specified term from the set of terms of the
+FuzzyVariable</p>
+
+<p class=MsoNormal><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>removeTerms()
+&#8211; removes a all terms from the set of terms of the FuzzyVariable</p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><a name=TriangleFuzzySetMods14></a><b><i>TriangleFuzzySet </i></b>&#8211;
+A constructor with 2 arguments has been in the code since the beginning but for
+some reason was not public so it was redefined to be public. The
+constructor<span style="mso-spacerun: yes">&nbsp; </span>arguments are the
+center x value of the triangle and the <b>full</b> width of the base of the
+triangle. So a triangle fuzzy set constructed with the parameters 3.0 and 2.0
+would create a fuzzy set identical to one created by specifying the 3 points
+(2.0, 0.0), (3.0, 1.0) and (4.0, 0.0).</p>
+
+<p><b>Version 1.3 Modifications<o:p></o:p></b></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><a
+name=SingletonFuzzySet><b><i>SingletonFuzzySet</i></b> </a><span
+style='color:black'>&#8211; </span><span style='mso-bidi-font-size:10.0pt;color:black'><span
+style="mso-spacerun: yes">&nbsp;</span>This class is used to build specialized
+FuzzySets that have a single value with membership value of 1.0. Note that such
+a FuzzySet requires 3 points in it's definition:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='mso-bidi-font-size:10.0pt;color:black'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-indent:.5in;mso-layout-grid-align:none;
+text-autospace:none'><span style='mso-bidi-font-size:10.0pt;color:black'>e.g.
+(x,0) (x,1) (x,0)<o:p></o:p></span></p>
+
+<p style='margin:0in;margin-bottom:.0001pt;mso-layout-grid-align:none;
+text-autospace:none'><span style='mso-bidi-font-size:10.0pt;color:black'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='mso-bidi-font-size:10.0pt;color:black'>The diagram below shows a
+SingletonFuzzySet.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='mso-bidi-font-size:10.0pt;color:black'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='mso-bidi-font-size:10.0pt;color:black'><!--[if gte vml 1]><v:shape id="_x0000_i1026"
+ type="#_x0000_t75" style='width:214.7pt;height:187.85pt' o:ole="">
+ <v:imagedata src="./newFeatures_files/image005.wmz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=286 height=250
+src="./newFeatures_files/image006.gif" v:shapes="_x0000_i1026"><![endif]><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Word.Picture.8" ShapeID="_x0000_i1026"
+  DrawAspect="Content" ObjectID="_1218969967">
+ </o:OLEObject>
+</xml><![endif]--><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='mso-bidi-font-size:10.0pt;color:black'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'>The
+Constructors have been defined to make the generation of such curves as simple
+as possible. Only 1 point is required to define the singleton shape. This is a specialization
+of the TriangleFuzzySet where the left, middle and right x values are the same.
+A common use for such FuzzySets is in the creation of Takagi-Sugeno-Kang type
+rules where the consequents of the rules are singleton values (or expressions
+that result in a single value). See the section on <a
+href="#Takagi_Sugeno_Kang_Rules"><span style='mso-bidi-font-size:10.0pt'>Takagi-Sugeno-Kang
+rules</span></a> below.</p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><a
+name="LeftLinearFuzzySet_and_RightLinearFuzzyS"></a><b><i>LeftLinearFuzzySet
+and RightLinearFuzzySet</i></b> &#8211; These fuzzy sets have been added to make is
+easier to create fuzzy sets similar to the SFuzzySet and ZFuzzySet with
+straight lines rather than curved lines between the 0 and 1 values in the set.
+They are shown below.</p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='page-break-after:avoid;mso-layout-grid-align:none;
+text-autospace:none'>RightLinearFuzzySet <!--[if gte vml 1]><v:shape id="_x0000_i1027"
+ type="#_x0000_t75" style='width:165.6pt;height:106.7pt'>
+ <v:imagedata src="./newFeatures_files/image007.gif" o:title="image008"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=221 height=142
+src="./newFeatures_files/image007.gif" v:shapes="_x0000_i1027"><![endif]></p>
+
+<p class=MsoNormal style='page-break-after:avoid;mso-layout-grid-align:none;
+text-autospace:none'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='page-break-after:avoid;mso-layout-grid-align:none;
+text-autospace:none'>LeftLinearFuzzySet <!--[if gte vml 1]><v:shape id="_x0000_i1028"
+ type="#_x0000_t75" style='width:166.25pt;height:106.05pt'>
+ <v:imagedata src="./newFeatures_files/image008.gif" o:title="image009"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=222 height=142
+src="./newFeatures_files/image008.gif" v:shapes="_x0000_i1028"><![endif]></p>
+
+<p class=MsoNormal style='page-break-after:avoid;mso-layout-grid-align:none;
+text-autospace:none'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p><a name=WeightedAverageDefuzzify><b><i>WeightedAverageDefuzzify</i></b> </a>&#8211;
+This is a new method defined for FuzzyValues that calculates the weighted
+average of the values of a fuzzy set as the defuzzification value. This is
+slightly different than the maximumDefuzzify since maximumDefuzzify uses only
+points that <span style='mso-bidi-font-size:10.0pt;color:black'>have the same
+membership value (the one that is the maximum in the set of points). The
+weightedAverageDefuzzify uses all of the points with non-zero membership values
+and calculates the weighted average of these x values using the membership
+values as weights in this average.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='mso-bidi-font-size:10.0pt;color:black'>This doesn't always work well
+because there can be x ranges where the y value is constant at the max value
+and other places where the max is only reached for a single x value. When this
+happens the single value gets too much of a say in determining the defuzzified
+value. So use moment defuzzify in cases like this.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='mso-bidi-font-size:10.0pt;color:black'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black'><span
+style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>/------\<span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>/\<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black'><span
+style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>/<span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>\<span
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>/<span style="mso-spacerun: yes">&nbsp; </span>\<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black'><span
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>--/<span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>\---------------/<span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;
+</span>\-------------<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black'><span
+style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>^<span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>^<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black'><span
+style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>|<span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>|<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black'><span
+style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>|<span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>| gives this as the weighted average<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black'><span
+style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>| this is more reasonable?<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;mso-layout-grid-align:none;
+text-autospace:none'><span style='mso-bidi-font-size:10.0pt;color:black'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='mso-bidi-font-size:10.0pt;color:black'>However, it is especially
+effective if the output has a number of singleton points in it. This might be,
+for example, when one has only singleton values describing the output fuzzy
+values (<a href="#Takagi_Sugeno_Kang_Rules">Takagi-Sugeno-Kang</a> zero order
+type rules). In this case one gets a result that is expected and one that
+results in an exception with the momentDefuzzify (since the area is 0) and a
+poor result with the maximumDefuzzify (since only the values with the max
+membership are used; maximumDefuzzify would yield a result of 20 in the example
+below).<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='mso-bidi-font-size:10.0pt;color:black'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black'><span
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>1.0<span
+style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>|<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black'><span
+style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>|<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black'><span
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>0.5<span
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>|<span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>|<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black'><span
+style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>|<span style="mso-spacerun: yes">&nbsp; </span><span
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>|<span
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>|<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black'><span
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>--------|--------|--------|--------<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black'><span
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>0<span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>10<span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>20<span
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>30<span
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>40<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black'><span
+style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>^<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black'><span
+style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>|<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black'><span
+style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>| gives 18.57 as the weighted average<span style="mso-spacerun:
+yes">&nbsp;&nbsp; </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black'><span
+style="mso-spacerun: yes">&nbsp;</span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:black'><span
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>(10*0.5 + 20*1
++ 30*0.25) / (0.5 + 1 + 0.25) = 18.57<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p><a name="fixedProblemsIn1_3"></a><b><i>Fixed problem with parsing linguistic
+expressions in multi-threaded systems</i></b> &#8211; The classes responsible for
+parsing linguistic expressions (&#8220;very hot or cold&#8221;) were using static variables
+to store information. This was inappropriate when in a multi-threaded system.
+The static variables were replaced with non-static variables.</p>
+
+<p><b><i>Fixed/recognized a<span style="mso-spacerun: yes">&nbsp;
+</span>problem related to Jess shadow facts that have fuzzy values in a slot</i></b>
+&#8211; In Jess when a fact is asserted that is &#8216;identical&#8217; to an existing fact is
+asserted nothing happens since duplicate facts are not allowed. In FuzzyJess
+where slots can have FuzzyValues facts are considered to be &#8216;identical&#8217; when
+all of the non-fuzzy (crisp) slots are the same (equal) and when the fuzzy
+values have the same FuzzyVariable. For example, if a fact is created by the
+assert</p>
+
+<p><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>(assert
+(fan (ID fan1) (speed (new FuzzyValue ?*speedFuzzyVar* &#8220;slow&#8221;))))</p>
+
+<p>and later another assert</p>
+
+<p><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>(assert
+(fan (ID fan1) (speed (new FuzzyValue ?*speedFuzzyVar* &#8220;medium&#8221;))))</p>
+
+<p>is executed, then the 2 facts are considered to be &#8216;identical&#8217;. If these
+were &#8216;identical&#8217; non-fuzzy facts, then the second assert would have no effect
+since the fact already exists. For fuzzy facts these 2 facts are combined
+(global contribution) such that the crisp values are the same and the fuzzy
+values are merged using a union operation. So in effect the old (initial) fact
+is deleted and the new combined fact is asserted (similar to a fact modify).
+This however, presents 2 problems when using shadow facts, facts created from
+Java Bean classes in Jess. The first issue is that for a Java Bean to cause an
+update to a shadow fact it uses the firePropertyChange method:</p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:10.0pt;font-family:Courier;color:black'>m_pcs.firePropertyChange(&quot;beanAttribute&quot;,</span><span
+style='font-size:10.0pt;font-family:Courier'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:Courier'><span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='color:black'>oldAttributeValue,</span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:Courier'><span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='color:black'>newAttributeValue);<o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='mso-bidi-font-size:10.0pt;color:black'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='mso-bidi-font-size:10.0pt;color:black'>In this case if the old and new
+values are &#8216;equal&#8217; then the slot in the shadow fact is not updated. In the case
+of FuzzyValue attributes (slots) the values are &#8216;equal&#8217; when the FuzzyValues
+share the same FuzzyVariable, even if the fuzzy sets for the FuzzyValues are
+different. This means that the slot will not be updated and the slot values of
+the fuzzy slot will not be combined as required. The solution here is to use:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='mso-bidi-font-size:10.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:10.0pt;font-family:Courier;color:black'>m_pcs.firePropertyChange(&quot;beanAttribute&quot;,</span><span
+style='font-size:10.0pt;font-family:Courier'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:Courier'><span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='color:black'>null,</span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:Courier'><span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='color:black'>newAttributeValue);</span></span><span
+style='mso-bidi-font-size:10.0pt;color:black'><o:p></o:p></span></p>
+
+<p>and do a test of the values using equalsStar for the FuzzyValues before
+calling the firePropertyChange method if desired. This will ensure that the
+slot is updated. Well, actually it won&#8217;t in version 6.1a2 (or earlier) of Jess
+since Jess internally also checks for the equality of the slots and will not
+replace the slot with the new one if they are &#8216;equal&#8217;. This required a change
+to the Jess code so that it does not block the update of the slot. So the
+requirement is to use Jess 6.1a3 or later.<a name=ProgrammingHelpers><b><o:p></o:p></b></a></p>
+
+<p><span style='mso-bookmark:ProgrammingHelpers'><b>Programming Helpers<o:p></o:p></b></span></p>
+
+<span style='mso-bookmark:ProgrammingHelpers'></span>
+
+<p><a name=FuzzifyingCrispValues><b><i>Fuzzifying crisp values</i></b> </a>&#8211;
+One of the steps that is normally required when implementing a fuzzy system is
+to fuzzify a crisp value so that it can be compared to a fuzzy value in the
+antecedents (RHS) of a fuzzy rule. This is commonly done using a
+TriangleFuzzySet or a SingletonFuzzySet. The TriangleFuzzySet allows on to
+encode the inaccuracy of a crisp value. For example if reading a temperature
+the temperature sensor is usually accurate within some precision, say 0.05
+Degrees. So we might encode the crisp value using:</p>
+
+<p><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'>new
+TriangleFuzzySet(x-.05, x, x+0.05)<o:p></o:p></span></p>
+
+<p>However, FuzzyValues have a Universe of Discourse (UOD), that is the range
+of allowed values. If in the above example the x value is closer than 0.05 to
+either end of this UOD range then we will get an exception (out of range). This
+would mean it is necessary to do a lot of checking to make sure that this does
+not happen or catch the exception and treat it differently. A feature of FuzzyJ
+that may not be widely known allows us to deal with this in a fairly simple
+way. For a FuzzyValue one can use the <b>static</b> method
+setConfineFuzzySetsToUOD. </p>
+
+<p><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'>FuzzyValue.setConfineFuzzySetsToUOD(true);<o:p></o:p></span></p>
+
+<p>Once set to true this confines all FuzzySets to the x boundaries specified
+by the Universe of Discourse. This is achieved by truncating the FuzzySet at
+the UOD boundaries. Consider the example below: </p>
+
+<p style='margin-left:.5in'><!--[if gte vml 1]><v:shape id="_x0000_i1029"
+ type="#_x0000_t75" style='width:6in;height:158.4pt'>
+ <v:imagedata src="./newFeatures_files/image009.gif" o:title="image011"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=576 height=212
+src="./newFeatures_files/image010.gif" v:shapes="_x0000_i1029"><![endif]></p>
+
+<p>The FuzzySet on the left is a depiction of the set before being confined to
+the UOD (Universe of Discourse), and the FuzzySet to the right is the same set
+after being confined. Essentially, the set to the right is the same FuzzySet;
+however, all points outside the UOD now have a membership value of zero. Note
+that this is in fact equivalent to doing an intersection between the given
+FuzzySet and the <code><span style='font-size:10.0pt;font-family:"Courier New"'>RectangleFuzzySet(lowXBound,
+highXBound)</span></code>, but this is considerably more efficient. </p>
+
+<p>One should be careful about setting this to true for all time since you may
+miss important exceptions. When fuzzifying crisp values it might be best to do
+something like:</p>
+
+<p style='margin-left:.5in'><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:"Courier New"'>FuzzyValue.setConfineFuzzySetsToUOD(true);<br>
+FuzzyValue fv = new FuzzyValue(myFuzzyVar, TriangleFuzzySet(x-.05, x, x+0.05));<br>
+FuzzyValue.setConfineFuzzySetsToUOD(false);</span></p>
+
+<p><a name="Takagi_Sugeno_Kang_Rules"></a><b><i><span style='color:black'>Implementing
+</span></i></b><b><i><span style='mso-bidi-font-size:10.0pt;color:black'>Takagi-Sugeno-Kang
+(TSK) type rules with FuzzyJ and FuzzyJess</span></i></b><span
+style='mso-bidi-font-size:10.0pt;color:black'> &#8211; </span>A TSK type rule is
+different from the rules we have considered in the rest of this user guide. In
+general the fuzzy rules have had a set of fuzzy inputs and a set of fuzzy
+outputs. However, TSK rules have fuzzy inputs but they have specialized crisp
+outputs that are generally either constants (zero order TSK rules) or crisp
+outputs that are defined by a function that computes a crisp value (usually a
+function of the crisp values of the input variable). For example we might have:</p>
+
+<p><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'>If
+pressure is low and temperature is medium then valve opening is 0.7</span><span
+style="mso-spacerun: yes">&nbsp; </span>&nbsp; </p>
+
+<p>This is a zero order TSK. We might also a rule something like:</p>
+
+<p><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'>If
+pressure is low and temperature is medium then valve opening is 5*p + 3*t</span><span
+style="mso-spacerun: yes">&nbsp; </span>&nbsp; </p>
+
+<p>where p is the current input pressure and t is the current input temperature
+(crisp values). Typically we&#8217;ll have a set of rules.</p>
+
+<p style='margin-left:30.0pt'><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:"Courier New"'>If X is X<sub>1</sub> and Y is Y<sub>1</sub>
+then z = f<sub>1</sub>(x,y)<br>
+If X is X<sub>2</sub> and Y is Y<sub>2</sub> then z = f<sub>2</sub>(x,y)<br>
+...<br>
+If X is X<sub>n</sub> and Y is Y<sub>n</sub> then z = f<sub>n</sub>(x,y)</span></p>
+
+<p>Where x and y are the current crisp values of X and Y. Each of the outputs
+is calculated and the result is a weighted average of the outputs, with the
+weights (w<sub>i</sub>) being the degree of matching of the LHS of the rules.
+So the final crisp value of this set of rules is:</p>
+
+<p><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><span
+style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>(w<sub>1</sub>*f<sub>1</sub>(x,y)
++ w<sub>2</sub>*f<sub>2</sub>(x,y) + &#8230; + w<sub>n</sub>*f<sub>n</sub>(x,y)) / (w<sub>1</sub>
++ w<sub>2</sub> + &#8230; + w<sub>n</sub>)<o:p></o:p></span></p>
+
+<p><span style='mso-bidi-font-size:10.0pt;color:black'>This is easily
+implemented in FuzzyJ and FuzzyJess using singleton fuzzy values and the
+weighted average defuzzify method. In FuzzyJess we might have rules that look
+like:<o:p></o:p></span></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black'><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>(defrule
+tempCold-pressureHot<o:p></o:p></span></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black'><span style='mso-tab-count:2'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>(temperature
+?t&amp;:(fuzzy-match ?t &#8220;cold&#8221;))<o:p></o:p></span></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black'><span style='mso-tab-count:2'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>(pressure
+?p&amp;:(fuzzy-match ?p &#8220;hot&#8221;))<o:p></o:p></span></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black'><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style="mso-spacerun: yes">&nbsp;</span>=&gt;<o:p></o:p></span></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black'><span style='mso-tab-count:2'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>(assert
+(valve-opening (new FuzzyValue ?*valveFV* <o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:1.5in;
+margin-bottom:.0001pt;text-indent:.5in'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black'>(new SingletonFuzzyValue (+ (* 3 ?*t*)
+(* 5 ?*p*))))<o:p></o:p></span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt;text-indent:.5in'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black'>)<o:p></o:p></span></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black'><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>)<o:p></o:p></span></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='mso-bidi-font-size:
+10.0pt;color:black'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p><span style='mso-bidi-font-size:10.0pt;color:black'>where ?*valveFV* is the
+FuzzyVariable for the valve setting and ?*t* and ?*p* hold the current values
+of the temperature and pressure in crisp form. The output of this rule is a
+singleton fuzzy value with a fuzzy set that has a non-zero value only at the x
+position<o:p></o:p></span></p>
+
+<p style='margin:0in;margin-bottom:.0001pt;text-indent:.5in'><span
+style='mso-bidi-font-size:10.0pt;color:black'><span style="mso-spacerun:
+yes">&nbsp;</span></span><span style='font-size:10.0pt;font-family:"Courier New";
+color:black'>(+ (* 3 ?*t*) (* 5 ?*p*))))</span><span style='mso-bidi-font-size:
+10.0pt;color:black'> <o:p></o:p></span></p>
+
+<p style='margin:0in;margin-bottom:.0001pt;text-indent:.5in'><span
+style='mso-bidi-font-size:10.0pt;color:black'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='mso-bidi-font-size:
+10.0pt;color:black'>and a membership value that is the degree of matching for
+the fuzzy inputs of the rule. Each of the rules will provide a singleton output
+and the final output value will be an aggregate these singleton values into a
+FuzzyValue with multiple singleton values each of a (potentially) different
+height. By using the <a href="#WeightedAverageDefuzzify">weightedAverageDefuzzify</a>
+method on the aggregated fuzzy output we will get the required TSK rule result.<o:p></o:p></span></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='mso-bidi-font-size:
+10.0pt;color:black'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='mso-bidi-font-size:
+10.0pt;color:black'>In Java the same thing can be accomplished by setting the
+consequents of the rules just prior to firing the rules. Consider the simple
+example (simpleRule.java) provided with the FuzzyJ Toolkit distribution. The 4<sup>th</sup>
+step is to fire the rule.<o:p></o:p></span></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='mso-bidi-font-size:
+10.0pt;color:black'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:Courier;color:#3F7F5F'>// Step 4 (execute
+the rule with these inputs)</span><span style='font-size:10.0pt;font-family:
+Courier'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:Courier'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:Courier'><span style="mso-spacerun:
+yes">&nbsp;</span><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </span><span
+style='color:#3F7F5F'>// remove any inputs associated with the rule, then add
+the new inputs to the rule</span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:Courier'><span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp; </span><span style='color:black'>hotLow.removeAllInputs();</span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:Courier'><span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp; </span><span style='color:black'>hotLow.addInput(inputTemp);</span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:Courier'><span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp; </span><span style='color:black'>hotLow.addInput(inputFlow);</span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:Courier'><span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp; </span><span style='color:#3F7F5F'>// fire the
+rule to get a vector of FuzzyValues that represents the outputs</span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:Courier'><span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp; </span><span style='color:black'>FuzzyValueVector</span>
+<span style='color:black'>fvv</span> <span style='color:black'>=</span> <span
+style='color:black'>hotLow.execute();</span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:Courier'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='mso-bidi-font-size:
+10.0pt;color:black'>We can change this so that we define the consequent
+(conclusion) just before we fire the rule.<o:p></o:p></span></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='mso-bidi-font-size:
+10.0pt;color:black'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:Courier;color:#3F7F5F'>// Step 4 (execute
+the rule with these inputs)</span><span style='font-size:10.0pt;font-family:
+Courier'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:Courier'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:Courier'><span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp; </span><span style='color:#3F7F5F'>// remove any
+inputs associated with the rule, then add the new inputs to the rule</span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:Courier'><span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp; </span><span style='color:black'>hotLow.removeAllInputs();</span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:Courier'><span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp; </span><span style='color:black'>hotLow.addInput(inputTemp);</span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:Courier'><span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp; </span><span style='color:black'>hotLow.addInput(inputFlow);<o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:Courier;color:black'><span
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp; </span></span><b><span
+style='font-size:10.0pt;font-family:Courier;color:green'>// dynamically define
+the conclusion for the rule based on the crisp inputs<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:Courier;color:green'><span
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp; </span></span></b><b><span
+style='font-size:10.0pt;font-family:Courier;color:black'>double
+crispHotValveChange = 0.0;<span style="mso-spacerun: yes">&nbsp; </span>// this
+could be any function, not just a constant<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:Courier;color:green'><span
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp; </span></span></b><b><span
+style='font-size:10.0pt;font-family:Courier;color:black'>double
+crispColdValveChange = 0.5; // this could be any function, not just a constant<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:Courier;color:black'><span
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;
+</span>hotLow.removeAllConclusions();<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:Courier;color:black'><span
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp; </span>hotLow.addConclusion(</span></b><b><span
+style='font-size:10.0pt;font-family:Courier;color:#7F0055'>new</span></b><b><span
+style='font-size:10.0pt;font-family:Courier'> <span style='color:black'>FuzzyValue(hotValveChange,<o:p></o:p></span></span></b></p>
+
+<p class=MsoNormal style='margin-left:2.0in;text-indent:.5in;mso-layout-grid-align:
+none;text-autospace:none'><b><span style='font-size:10.0pt;font-family:Courier;
+color:black'>new SingletonFuzzySet(crispHotValveChange));</span></b><b><span
+style='font-size:10.0pt;font-family:Courier'><o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:Courier'><span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp; </span><span style='color:black'>hotLow.addConclusion(</span><span
+style='color:#7F0055'>new</span> <span style='color:black'>FuzzyValue(coldValveChange,</span><o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-left:2.0in;text-indent:.5in;mso-layout-grid-align:
+none;text-autospace:none'><b><span style='font-size:10.0pt;font-family:Courier;
+color:black'>new SingletonFuzzySet(crispColdValveChange));</span></b><b><span
+style='font-size:10.0pt;font-family:Courier'><o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:Courier'><span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp; </span><span style='color:#3F7F5F'>// fire the
+rule to get a vector of FuzzyValues that represents the outputs</span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:Courier'><span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp; </span><span style='color:black'>FuzzyValueVector</span>
+<span style='color:black'>fvv</span> <span style='color:black'>=</span> <span
+style='color:black'>hotLow.execute();</span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:Courier'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:Courier'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><a
+name=ImplementingKoskoSAM></a><b><i><span style='mso-bidi-font-size:10.0pt'>Implementing
+Kosko&#8217;s SAM (Standard Additive Method)</span></i></b><span style='mso-bidi-font-size:
+10.0pt'> &#8211; In his book, Fuzzy Engineering (<a href="references.html">see
+references</a>), Bart Kosko describes a method for fuzzy rule systems that he refers
+to as the Standard Additive Method (SAM). This method can be implemented in
+FuzzyJ/FuzzyJess by using the MamdaniMinMaxMinRuleExecutor, the
+ProductAntecedentCombineOperator, doing Global Contribution of fuzzy outputs
+with the fuzzySum operation and defuzzifying the resultant FuzzyValue with the
+momentDefuzzify method.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='mso-bidi-font-size:10.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none'><a
+name=ImplementingTsukamoto></a><b><i>Implementing Tsukamoto Type Rules </i></b>&#8211;
+Tsukamoto rules use consequents that are strictly increasing or strictly
+decreasing functions. When a rule fires and the outputs are generated a crisp x
+value and a membership value are recorded. The membership value is the DOF
+(Degree of Fulfillment or degree of matching) of the rule. The x value is
+chosen by looking at the consequent fuzzy set to see which x value has that
+membership value. <span style='mso-bidi-font-size:10.0pt'>The final output of
+all of the rules is the weighted average of all the x values, using the
+membership values as the weights. In FuzzyJ we have a special RuleExecutor,
+TsukamotoRuleExecutor, that generates outputs that are singleton fuzzy values
+at the selected x value with a membership value equal to the DOF of the rule.
+These output fuzzy values should be combined using the fuzzySum method (rather
+than the default fuzzyUnion) and then defuzzified using the
+weightedAverageDefuzzify method. This produces the Tsukamoto inference results.
+In summary to implement Tsukamoto type rules:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none'><span style='mso-bidi-font-size:
+10.0pt'>&nbsp;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none'><span style='mso-bidi-font-size:
+10.0pt'>1. Make sure the rules fuzzy outputs are defined using strictly
+increasing or strictly decreasing functions that cover all of the membership
+values from 0.0 to 1.0 (some example fuzzy sets that have this property are
+SFuzzySet, ZFuzzySet, LeftLinearFuzzySet, and RightLineraFuzzySet.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none'><span style='mso-bidi-font-size:
+10.0pt'>&nbsp;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none'><span style='mso-bidi-font-size:
+10.0pt'>2. Use the fuzzySum method as the rule output combine (global
+contribution) operator.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none'><span style='mso-bidi-font-size:
+10.0pt'>&nbsp;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none'><span style='mso-bidi-font-size:
+10.0pt'>3. Use the weightedAverageDefuzzify method to defuzzify the combined
+output of the rules.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none'><span style='mso-bidi-font-size:
+10.0pt'>&nbsp;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none'><span style='mso-bidi-font-size:
+10.0pt'>This is shown below for a simple 2-rule situation.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><!--[if gte vml 1]><o:wrapblock><v:group
+  id="_x0000_s1348" style='position:absolute;margin-left:7.2pt;margin-top:0;
+  width:495.55pt;height:233.75pt;z-index:4;mso-position-vertical:top'
+  coordorigin="203,15343" coordsize="9911,4675" o:allowoverlap="f">
+  <v:group id="_x0000_s1345" style='position:absolute;left:203;top:15343;
+   width:9911;height:4675' coordorigin="203,15343" coordsize="9911,4675">
+   <v:group id="_x0000_s1332" style='position:absolute;left:203;top:15343;
+    width:9911;height:4675' coordorigin="203,315" coordsize="9911,4675">
+    <v:rect id="_x0000_s1299" style='position:absolute;left:203;top:315;
+     width:9911;height:4675;mso-position-horizontal:absolute;
+     mso-position-vertical:absolute' fillcolor="silver"/>
+    <v:group id="_x0000_s1302" style='position:absolute;left:951;top:667;
+     width:1683;height:1496' coordorigin="951,5353" coordsize="1683,1496">
+     <v:line id="_x0000_s1300" style='position:absolute' from="951,5353" to="951,6849"/>
+     <v:line id="_x0000_s1301" style='position:absolute' from="951,6849" to="2634,6849"/>
+    </v:group><v:group id="_x0000_s1304" style='position:absolute;left:951;
+     top:2537;width:1683;height:1496' coordorigin="951,5353" coordsize="1683,1496">
+     <v:line id="_x0000_s1305" style='position:absolute' from="951,5353" to="951,6849"/>
+     <v:line id="_x0000_s1306" style='position:absolute' from="951,6849" to="2634,6849"/>
+    </v:group><v:group id="_x0000_s1307" style='position:absolute;left:3382;
+     top:667;width:1683;height:1496' coordorigin="951,5353" coordsize="1683,1496">
+     <v:line id="_x0000_s1308" style='position:absolute' from="951,5353" to="951,6849"/>
+     <v:line id="_x0000_s1309" style='position:absolute' from="951,6849" to="2634,6849"/>
+    </v:group><v:group id="_x0000_s1310" style='position:absolute;left:3382;
+     top:2538;width:1683;height:1496' coordorigin="951,5353" coordsize="1683,1496">
+     <v:line id="_x0000_s1311" style='position:absolute' from="951,5353" to="951,6849"/>
+     <v:line id="_x0000_s1312" style='position:absolute' from="951,6849" to="2634,6849"/>
+    </v:group><v:group id="_x0000_s1313" style='position:absolute;left:5626;
+     top:1602;width:1683;height:1496' coordorigin="951,5353" coordsize="1683,1496">
+     <v:line id="_x0000_s1314" style='position:absolute' from="951,5353" to="951,6849"/>
+     <v:line id="_x0000_s1315" style='position:absolute' from="951,6849" to="2634,6849"/>
+    </v:group><v:line id="_x0000_s1316" style='position:absolute;flip:y'
+     from="1138,667" to="1699,2163" strokecolor="blue" strokeweight="1.5pt"/>
+    <v:line id="_x0000_s1317" style='position:absolute' from="1699,667" to="2073,2163"
+     strokecolor="blue" strokeweight="1.5pt"/>
+    <v:line id="_x0000_s1318" style='position:absolute;flip:x y' from="951,2538"
+     to="1886,4033" strokecolor="blue" strokeweight="1.5pt"/>
+    <v:line id="_x0000_s1319" style='position:absolute;flip:y;
+     mso-position-horizontal:absolute;mso-position-vertical:absolute' from="3730,667"
+     to="4665,2163" strokecolor="red" strokeweight="1.5pt"/>
+    <v:line id="_x0000_s1320" style='position:absolute;
+     mso-position-horizontal:absolute;mso-position-vertical:absolute' from="4252,2539"
+     to="5000,4036" strokecolor="red" strokeweight="1.5pt"/>
+    <v:line id="_x0000_s1322" style='position:absolute;flip:y' from="1325,3098"
+     to="1325,4034" strokecolor="#396">
+     <v:stroke endarrow="block"/>
+    </v:line><v:line id="_x0000_s1323" style='position:absolute;flip:y' from="1325,1788"
+     to="1325,3098" strokecolor="#396">
+     <v:stroke endarrow="block"/>
+    </v:line><v:line id="_x0000_s1324" style='position:absolute' from="1325,1788"
+     to="3943,1788" strokecolor="#396">
+     <v:stroke endarrow="block"/>
+    </v:line><v:line id="_x0000_s1325" style='position:absolute;
+     mso-position-horizontal:absolute;mso-position-vertical:absolute' from="1325,3099"
+     to="4504,3099" strokecolor="#396">
+     <v:stroke endarrow="block"/>
+    </v:line><v:line id="_x0000_s1327" style='position:absolute' from="3943,1788"
+     to="3943,2162" strokecolor="#396">
+     <v:stroke endarrow="block"/>
+    </v:line><v:line id="_x0000_s1328" style='position:absolute' from="4504,3099"
+     to="4504,4033" strokecolor="#396">
+     <v:stroke endarrow="block"/>
+    </v:line><v:line id="_x0000_s1330" style='position:absolute;
+     mso-position-horizontal:absolute;mso-position-vertical:absolute' from="6187,2725"
+     to="6187,3099" strokecolor="#f60" strokeweight="2.25pt"/>
+    <v:line id="_x0000_s1331" style='position:absolute;
+     mso-position-horizontal:absolute;mso-position-vertical:absolute' from="6935,2165"
+     to="6935,3099" strokecolor="#f60" strokeweight="2.25pt"/>
+   </v:group><v:shape id="_x0000_s1333" type="#_x0000_t202" style='position:absolute;
+    left:203;top:16455;width:935;height:362;mso-position-horizontal:absolute;
+    mso-position-vertical:absolute' filled="f" stroked="f">
+    <v:textbox style='mso-next-textbox:#_x0000_s1333'>
+     <![if !mso]>
+     <table cellpadding=0 cellspacing=0 width="100%">
+      <tr>
+       <td><![endif]>
+       <div>
+       <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:
+       12.0pt'>Rule 1<o:p></o:p></span></p>
+       </div>
+       <![if !mso]></td>
+      </tr>
+     </table>
+     <![endif]></v:textbox>
+   </v:shape><v:shape id="_x0000_s1334" type="#_x0000_t202" style='position:absolute;
+    left:203;top:18127;width:935;height:362;mso-position-horizontal:absolute;
+    mso-position-vertical:absolute' filled="f" stroked="f">
+    <v:textbox style='mso-next-textbox:#_x0000_s1334'>
+     <![if !mso]>
+     <table cellpadding=0 cellspacing=0 width="100%">
+      <tr>
+       <td><![endif]>
+       <div>
+       <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:
+       12.0pt'>Rule 2<o:p></o:p></span></p>
+       </div>
+       <![if !mso]></td>
+      </tr>
+     </table>
+     <![endif]></v:textbox>
+   </v:shape><v:shape id="_x0000_s1335" type="#_x0000_t202" style='position:absolute;
+    left:1138;top:19064;width:1496;height:374;mso-position-horizontal:absolute;
+    mso-position-vertical:absolute' filled="f" stroked="f">
+    <v:textbox style='mso-next-textbox:#_x0000_s1335'>
+     <![if !mso]>
+     <table cellpadding=0 cellspacing=0 width="100%">
+      <tr>
+       <td><![endif]>
+       <div>
+       <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:
+       12.0pt'>x input<o:p></o:p></span></p>
+       </div>
+       <![if !mso]></td>
+      </tr>
+     </table>
+     <![endif]></v:textbox>
+   </v:shape><v:shape id="_x0000_s1337" type="#_x0000_t202" style='position:absolute;
+    left:2917;top:17950;width:813;height:374;mso-position-horizontal:absolute;
+    mso-position-vertical:absolute' filled="f" stroked="f">
+    <v:textbox style='mso-next-textbox:#_x0000_s1337'>
+     <![if !mso]>
+     <table cellpadding=0 cellspacing=0 width="100%">
+      <tr>
+       <td><![endif]>
+       <div>
+       <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:
+       12.0pt'>0.6<o:p></o:p></span></p>
+       </div>
+       <![if !mso]></td>
+      </tr>
+     </table>
+     <![endif]></v:textbox>
+   </v:shape><v:shape id="_x0000_s1338" type="#_x0000_t202" style='position:absolute;
+    left:2917;top:16641;width:813;height:374;mso-position-horizontal:absolute;
+    mso-position-vertical:absolute' filled="f" stroked="f">
+    <v:textbox style='mso-next-textbox:#_x0000_s1338'>
+     <![if !mso]>
+     <table cellpadding=0 cellspacing=0 width="100%">
+      <tr>
+       <td><![endif]>
+       <div>
+       <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:
+       12.0pt'>0.2<o:p></o:p></span></p>
+       </div>
+       <![if !mso]></td>
+      </tr>
+     </table>
+     <![endif]></v:textbox>
+   </v:shape><v:shape id="_x0000_s1339" type="#_x0000_t202" style='position:absolute;
+    left:5226;top:17015;width:626;height:374;mso-position-horizontal:absolute;
+    mso-position-vertical:absolute' filled="f" stroked="f">
+    <v:textbox style='mso-next-textbox:#_x0000_s1339'>
+     <![if !mso]>
+     <table cellpadding=0 cellspacing=0 width="100%">
+      <tr>
+       <td><![endif]>
+       <div>
+       <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:
+       12.0pt'>0.6<o:p></o:p></span></p>
+       </div>
+       <![if !mso]></td>
+      </tr>
+     </table>
+     <![endif]></v:textbox>
+   </v:shape><v:shape id="_x0000_s1340" type="#_x0000_t202" style='position:absolute;
+    left:5226;top:17576;width:813;height:374;mso-position-horizontal:absolute;
+    mso-position-vertical:absolute' filled="f" stroked="f">
+    <v:textbox style='mso-next-textbox:#_x0000_s1340'>
+     <![if !mso]>
+     <table cellpadding=0 cellspacing=0 width="100%">
+      <tr>
+       <td><![endif]>
+       <div>
+       <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:
+       12.0pt'>0.2<o:p></o:p></span></p>
+       </div>
+       <![if !mso]></td>
+      </tr>
+     </table>
+     <![endif]></v:textbox>
+   </v:shape><v:shape id="_x0000_s1341" type="#_x0000_t202" style='position:absolute;
+    left:3730;top:17190;width:813;height:374;mso-position-horizontal:absolute;
+    mso-position-vertical:absolute' filled="f" stroked="f">
+    <v:textbox style='mso-next-textbox:#_x0000_s1341'>
+     <![if !mso]>
+     <table cellpadding=0 cellspacing=0 width="100%">
+      <tr>
+       <td><![endif]>
+       <div>
+       <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:
+       12.0pt'>3.0<o:p></o:p></span></p>
+       </div>
+       <![if !mso]></td>
+      </tr>
+     </table>
+     <![endif]></v:textbox>
+   </v:shape><v:shape id="_x0000_s1342" type="#_x0000_t202" style='position:absolute;
+    left:4187;top:19061;width:813;height:374;mso-position-horizontal:absolute;
+    mso-position-vertical:absolute' filled="f" stroked="f">
+    <v:textbox style='mso-next-textbox:#_x0000_s1342'>
+     <![if !mso]>
+     <table cellpadding=0 cellspacing=0 width="100%">
+      <tr>
+       <td><![endif]>
+       <div>
+       <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:
+       12.0pt'>6.0<o:p></o:p></span></p>
+       </div>
+       <![if !mso]></td>
+      </tr>
+     </table>
+     <![endif]></v:textbox>
+   </v:shape><v:shape id="_x0000_s1343" type="#_x0000_t202" style='position:absolute;
+    left:5878;top:18137;width:813;height:374;mso-position-horizontal:absolute;
+    mso-position-vertical:absolute' filled="f" stroked="f">
+    <v:textbox style='mso-next-textbox:#_x0000_s1343'>
+     <![if !mso]>
+     <table cellpadding=0 cellspacing=0 width="100%">
+      <tr>
+       <td><![endif]>
+       <div>
+       <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:
+       12.0pt'>3.0<o:p></o:p></span></p>
+       </div>
+       <![if !mso]></td>
+      </tr>
+     </table>
+     <![endif]></v:textbox>
+   </v:shape><v:shape id="_x0000_s1344" type="#_x0000_t202" style='position:absolute;
+    left:6691;top:18115;width:813;height:374;mso-position-horizontal:absolute;
+    mso-position-vertical:absolute' filled="f" stroked="f">
+    <v:textbox style='mso-next-textbox:#_x0000_s1344'>
+     <![if !mso]>
+     <table cellpadding=0 cellspacing=0 width="100%">
+      <tr>
+       <td><![endif]>
+       <div>
+       <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:
+       12.0pt'>6.0<o:p></o:p></span></p>
+       </div>
+       <![if !mso]></td>
+      </tr>
+     </table>
+     <![endif]></v:textbox>
+   </v:shape></v:group><v:shape id="_x0000_s1346" type="#_x0000_t202" style='position:absolute;
+   left:5603;top:18472;width:1977;height:1269;mso-position-horizontal:absolute;
+   mso-position-vertical:absolute' filled="f" stroked="f">
+   <v:textbox style='mso-next-textbox:#_x0000_s1346'>
+    <![if !mso]>
+    <table cellpadding=0 cellspacing=0 width="100%">
+     <tr>
+      <td><![endif]>
+      <div>
+      <p class=MsoBodyText>Resultant FuzzySet after 2 rules fire with Tsukamoto
+      inference and fuzzySum of results</p>
+      </div>
+      <![if !mso]></td>
+     </tr>
+    </table>
+    <![endif]></v:textbox>
+  </v:shape><v:shape id="_x0000_s1347" type="#_x0000_t202" style='position:absolute;
+   left:7711;top:16599;width:2317;height:2213;mso-position-horizontal:absolute;
+   mso-position-vertical:absolute' filled="f" stroked="f">
+   <v:textbox style='mso-next-textbox:#_x0000_s1347'>
+    <![if !mso]>
+    <table cellpadding=0 cellspacing=0 width="100%">
+     <tr>
+      <td><![endif]>
+      <div>
+      <p class=MsoNormal>Final Crisp Result (weighted Average)</p>
+      <p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+      <div style='border:none;border-bottom:solid windowtext .75pt;padding:
+      0in 0in 1.0pt 0in'>
+      <p class=MsoNormal style='border:none;mso-border-bottom-alt:solid windowtext .75pt;
+      padding:0in;mso-padding-alt:0in 0in 1.0pt 0in'>3.0*0.2 + 6.0*.06</p>
+      </div>
+      <p class=MsoNormal><span style="mso-spacerun:
+      yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>0.2 + 0.6</p>
+      <p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+      <p class=MsoNormal>=<span style="mso-spacerun: yes">&nbsp; </span>5.25</p>
+      </div>
+      <![if !mso]></td>
+     </tr>
+    </table>
+    <![endif]></v:textbox>
+  </v:shape><w:wrap type="topAndBottom"/>
+ </v:group><![endif]--><![if !vml]><span style='mso-ignore:vglayout'>
+ <table cellpadding=0 cellspacing=0 align=left>
+  <tr>
+   <td width=9 height=0></td>
+  </tr>
+  <tr>
+   <td></td>
+   <td><img width=662 height=313 src="./newFeatures_files/image011.gif" v:shapes="_x0000_s1348 _x0000_s1345 _x0000_s1332 _x0000_s1299 _x0000_s1302 _x0000_s1300 _x0000_s1301 _x0000_s1304 _x0000_s1305 _x0000_s1306 _x0000_s1307 _x0000_s1308 _x0000_s1309 _x0000_s1310 _x0000_s1311 _x0000_s1312 _x0000_s1313 _x0000_s1314 _x0000_s1315 _x0000_s1316 _x0000_s1317 _x0000_s1318 _x0000_s1319 _x0000_s1320 _x0000_s1322 _x0000_s1323 _x0000_s1324 _x0000_s1325 _x0000_s1327 _x0000_s1328 _x0000_s1330 _x0000_s1331 _x0000_s1333 _x0000_s1334 _x0000_s1335 _x0000_s1337 _x0000_s1338 _x0000_s1339 _x0000_s1340 _x0000_s1341 _x0000_s1342 _x0000_s1343 _x0000_s1344 _x0000_s1346 _x0000_s1347"></td>
+  </tr>
+ </table>
+ </span><![endif]><!--[if gte vml 1]></o:wrapblock><![endif]--><br
+style='mso-ignore:vglayout' clear=ALL>
+<span style='mso-bidi-font-size:10.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<br style='mso-ignore:vglayout' clear=ALL>
+
+<p><span style='color:black'><a href="index.html">Return to Table of Contents</a><o:p></o:p></span></p>
+
+<p><span style='mso-bidi-font-size:10.0pt'><a href="#TopOfPage">Return to Top
+of Page</a></span><span style='color:black'><o:p></o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

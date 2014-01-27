@@ -1,0 +1,693 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./overview_files/filelist.xml">
+<link rel=Edit-Time-Data href="./overview_files/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>Overview of Fuzzy Concepts</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Bob Orchard</o:Author>
+  <o:LastAuthor>Bob Orchard</o:LastAuthor>
+  <o:Revision>7</o:Revision>
+  <o:TotalTime>30</o:TotalTime>
+  <o:Created>2003-05-12T19:05:00Z</o:Created>
+  <o:LastSaved>2003-05-13T14:37:00Z</o:LastSaved>
+  <o:Pages>5</o:Pages>
+  <o:Words>2272</o:Words>
+  <o:Characters>12955</o:Characters>
+  <o:Company>National Research Council</o:Company>
+  <o:Lines>107</o:Lines>
+  <o:Paragraphs>25</o:Paragraphs>
+  <o:CharactersWithSpaces>15909</o:CharactersWithSpaces>
+  <o:Version>9.3821</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:"Comic Sans MS";
+	panose-1:3 15 7 2 3 3 2 2 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:script;
+	mso-font-pitch:variable;
+	mso-font-signature:647 0 0 0 159 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+p
+	{margin-right:0in;
+	mso-margin-top-alt:auto;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+tt
+	{mso-ascii-font-family:"Courier New";
+	mso-fareast-font-family:"Courier New";
+	mso-hansi-font-family:"Courier New";
+	mso-bidi-font-family:"Courier New";}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+<meta name=Author content="Bob Orchard">
+</head>
+
+<body lang=EN-US link=blue vlink=blue style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<h3 align=center style='text-align:center'><span style='font-family:"Comic Sans MS"'>Overview
+of Fuzzy Concepts</span></h3>
+
+<p class=MsoNormal><a href="#Fuzziness">Fuzziness</a> <br>
+<a href="#FuzzyVaraible,_FuzzySet_and_FuzzyValue">FuzzyVariable, FuzzySet and
+FuzzyValue</a> <br>
+<a href="#FuzzyRule">FuzzyRule</a> </p>
+
+<p>In the real world there exists much fuzzy knowledge, i.e., knowledge that is
+vague, imprecise, uncertain, ambiguous, inexact, or probabilistic in nature.
+Human thinking and reasoning frequently involve fuzzy information, possibly
+originating from inherently inexact human concepts and matching of similar
+rather then identical experiences. In systems based upon classical set theory
+and two-valued logic, it is very difficult to answer some questions because
+they do not have completely true answers. Humans, however, can give
+satisfactory answers, which are probably true. Expert systems should not only
+give such answers but also describe their reality level. This level should be
+calculated using imprecision and the uncertainty of facts and rules that were
+applied. Expert systems should also be able to cope with unreliable and
+incomplete information and with different expert opinions. </p>
+
+<h4><a name=Fuzziness></a>Fuzziness</h4>
+
+<p class=MsoNormal>Fuzziness occurs when the boundary of a piece of information
+is not clear-cut. For example, words such as <i>young</i>, <i>tall</i>, <i>good</i>,
+or <i>high</i> are fuzzy. There is no single quantitative value which defines
+the term young when describing a fuzzy concept (or fuzzy variable) such as age.
+For some people, age 25 is young, and for others, age 35 is young. The concept
+young has no clean boundary. Age 1 is definitely young and age 100 is
+definitely not young; however, age 35 has some possibility of being young and
+usually depends on the context in which it is being considered. In fact an age
+can have some possibility of being young and also some possibility of being old
+at the same time (note that these are NOT probabilities and the sum of all the
+possibilities does not need to sum to 1.0). The representation of this kind of
+information is based on the concept of fuzzy set theory [<a
+href="references.html#Zadeh1">Zadeh</a>, <a href="references.html#Cox">Cox</a>,
+<a href="references.html#Tsoukalas and Uhrig">Tsoukalas and Uhrig</a>, <a
+href="references.html#Kosko">Kosko</a>]. Unlike classical set theory where one
+deals with objects whose membership to a set can be clearly described, in fuzzy
+set theory, membership of an element in a set can be partial, i.e., an element
+belongs to a set with a certain grade (possibility) of membership. More
+formally a fuzzy set A in a universe of discourse U is characterized by a
+membership function </p>
+
+<p><span style='font-size:10.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-size:10.0pt;font-family:Symbol'>m</span><sub><span
+style='font-size:10.0pt'>A</span></sub><span style='font-size:10.0pt'> : U </span><span
+style='font-size:10.0pt;font-family:Symbol'>®</span><span style='font-size:
+10.0pt'> [0,1]</span> </p>
+
+<p>which associates a number <span style='font-family:Symbol'>m</span><sub>A</sub>(x)
+in the interval [0,1] with each element x of U. This number represents the
+grade of membership of x in the fuzzy set A (with 0 meaning that x is
+definitely not a member of the set and 1 meaning that it definitely is a member
+of the set). For example, the fuzzy term <i>young</i> might be defined by the
+fuzzy set in the Table below. <br>
+&nbsp; </p>
+
+<table border=1 cellpadding=0 width=190 style='width:142.5pt;mso-cellspacing:
+ 1.5pt;mso-padding-alt:0in 0in 0in 0in'>
+ <tr>
+  <td colspan=2 style='border:none;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:10.0pt'>&nbsp;Fuzzy Term <i>young</i></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:10.0pt'>Age</span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:10.0pt'>Grade of Membership</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:10.0pt'>25</span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:10.0pt'>1.0</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:10.0pt'>30</span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:10.0pt'>0.8</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:10.0pt'>35</span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:10.0pt'>0.6</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:10.0pt'>40</span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:10.0pt'>0.4</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:10.0pt'>45</span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:10.0pt'>0.2</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:10.0pt'>50</span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:10.0pt'>0.0</span></p>
+  </td>
+ </tr>
+</table>
+
+<p>One might also write </p>
+
+<p>&nbsp; <span style='font-family:Symbol'>m</span><i><sub>young</sub></i>(25)
+= 1, <span style='font-family:Symbol'>m</span><i><sub>young</sub></i>(30) =
+0.8, ... , <span style='font-family:Symbol'>m</span><i><sub>young</sub></i>(50)
+= 0 </p>
+
+<p>Grade of membership values constitute a <b>possibility distribution</b> of
+the term <i>young</i> as applied to the fuzzy variable <i>age</i>. The table
+can also be shown graphically (see Figure below). <br>
+<img border=0 width=370 height=195 id="_x0000_i1025" src=Fig1-young.gif
+align=ABSBOTTOM><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Possibility distribution of <i>young</i> </p>
+
+<p>The possibility distribution of a fuzzy concept like <i>somewhat young</i>
+or <i>very young</i> can be obtained by applying arithmetic operations to the
+fuzzy set of the basic fuzzy term young, where the <b>modifiers </b><i>somewhat</i>
+and <i>very</i> are associated with specific mathematical functions. For
+instance, the possibility values of each age in the fuzzy set representing the
+fuzzy concept <i>somewhat young</i> might be calculated by taking the square
+root of the corresponding possibility values in the fuzzy set of <i>young</i>
+(see Figure 1 below). These modifiers are often referred to as <b>hedges</b>. A
+number of modifiers are supplied with FuzzyJ (see <a href="FuzzyModifier.html">Modifiers</a>).
+</p>
+
+<p><img border=0 width=370 height=188 id="_x0000_i1026"
+src=Fig2-somewhatYoung.gif><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Figure 1: Possibility distribution of <i>somewhat young</i> </p>
+
+<h4><a name="FuzzyVaraible,_FuzzySet_and_FuzzyValue"></a>FuzzyVariable,
+FuzzySet and FuzzyValue</h4>
+
+<p class=MsoNormal>Fuzzy concepts are represented using <a
+href="FuzzyVariable.html">fuzzy variables</a>, <a href="FuzzySet.html">fuzzy sets</a>
+and <a href="FuzzyValue.html">fuzzy values</a> in the FuzzyJ Toolkit. A <b>FuzzyVariable
+</b>defines the basic components that are used to describe a fuzzy concept. It
+consists of a name for the variable (for example, age or hot water temperature)
+the units of the variable if required (for example, years or Degrees C), the
+universe of discourse (UOD) for the variable (for example a range from 0 to
+125), and a set of fuzzy terms that can be used to describe the particular
+fuzzy concepts for this variable. The fuzzy terms are described using a term
+name such as <i>old</i>, along with a <b>FuzzySet</b> that represents that
+term. The fuzzy variable terms along with a set of fuzzy modifiers (such as
+very or slightly), the operators <i>and</i> and <i>or</i> (fuzzy set
+intersection and union respectively) and the left and right parentheses provide
+the basis for a grammar that allows one to write <b>fuzzy linguistic
+expressions</b> that describe fuzzy concepts in an english-like manner. These
+linguistic expressions are encoded in a <b>FuzzyValue</b> which holds a
+specific fuzzy concept such as <i>age is very old</i>. </p>
+
+<p>For example the linguistic expression, </p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp; very old or young </p>
+
+<p>consists of the terms <i>old</i> and <i>young</i>, along with the fuzzy
+modifier <i>very</i>. </p>
+
+<p>A FuzzyValue is normally created by specifying a FuzzyVariable and a
+linguistic expression. The example below shows how this is done in Java code. </p>
+
+<p class=MsoNormal style='margin-right:.5in;mso-margin-top-alt:auto;mso-margin-bottom-alt:
+auto;margin-left:.5in'><tt><span style='font-size:10.0pt;font-family:"Courier New"'>//definition
+of fuzzy variable &#8216;age&#8217; with terms &#8216;young&#8217; and &#8216;old&#8217;</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>FuzzyVariable age
+= new FuzzyVariable(&#8220;age&#8221;, 0, 120, &#8220;years&#8221;);</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>age.addTerm(&#8220;young&#8221;,
+new ZFuzzySet(25, 50));</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>age.addTerm(&#8220;old&#8221;,
+new SFuzzySet(50, 65));</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>// definition of
+FuzzyValue for concept &#8216;age is somewhat young&#8217;</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>FuzzyValue
+ageSomewhatYoung = new FuzzyValue(age, &#8220;somewhat young&#8221;);</span></tt></p>
+
+<p class=MsoNormal>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+FuzzyJ Code to define the concept 'age is somewhat young' </p>
+
+<p>Without getting into too much detail at this point, above we created a
+FuzzyVariable, <i>age</i>, that provides the basis for building fuzzy concepts
+about age. The domain for the variable is from 0 to 120 years and we have
+defined 2 linguistic terms, <i>young</i> and <i>old</i>, that we can now use to
+represent specific <i>age</i> concepts. The terms were defined using FuzzySets.
+In this case <i>young</i> is represented by a sub-class of FuzzySet, ZFuzzySet,
+which defines a Z-shaped fuzzy set like the one shown in Figure 1 above. Once
+the FuzzyVariable and the terms that are to be used to describe concepts about
+that variable are ready, we then can create FuzzyValues. In this case we
+created an object, <tt><span style='font-size:10.0pt;font-family:"Courier New"'>ageSomewhatYoung.</span></tt>
+Note that the definitions of FuzzyValues are actually much more flexible than
+shown here but this example shows the simplest 'linguistic' (i.e. in
+english-like phrases) way to create them. Let's also note here that the
+difference between a FuzzySet and a FuzzyValue may be a bit confusing -- why
+have both. Ultimately the FuzzyValue is just a FuzzySet (or at least it
+contains a FuzzySet) but it also has a context, the FuzzyVariable it is
+associated with. A FuzzySet on its own can be operated on, for example, intersected
+with another FuzzySet. But this has no real meaning. A FuzzyValue on the other
+hand can also be manipulated, but only with other FuzzyValues that share the
+same FuzzyVariable. This is reasonable since doing the intersection of 'hot
+water' and 'low pressure' makes no sense. This is like adding 5 apples to 6
+oranges. Keep this in mind when reading about FuzzySets and FuzzyValues. </p>
+
+<h4><a name=FuzzyRule></a>FuzzyRule</h4>
+
+<p class=MsoNormal>Now let's continue the example and add a simple <b><a
+href="FuzzyRule.html">FuzzyRule</a></b>. In general, in rule based systems,
+rules look something like: </p>
+
+<p><tt><span style='font-size:10.0pt;font-family:"Courier New"'>If A<sub>1</sub>
+and</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp; A<sub>2</sub>
+and</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp; ...</span></tt>
+<br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp; A<sub>n</sub></span></tt>
+<br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>then</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp; C<sub>1</sub>
+and</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp; C<sub>2</sub>
+and</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp; ...</span></tt>
+<br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp; C<sub>m</sub></span></tt>
+</p>
+
+<p>where the A<sub>i</sub> are the <i>antecedents</i> on the <i>left hand side</i>
+(LHS) of the rule and the C<sub>j</sub> are the <i>conclusions</i> on the <i>right
+hand side</i> (RHS) of the rule. In this format, if all of the antecedents
+(conditions) on the LHS of the rule are true then the rule will fire and the
+conclusions will be asserted. In the FuzzyJ Toolkit, the fuzzy rules that are
+supported have FuzzyValue antecedents and FuzzyValue conclusions. (If you are
+familiar with FuzzyCLIPS then this is equivalent to the so-called fuzzy-fuzzy
+rules). The rule we are going to build is: </p>
+
+<p class=MsoNormal style='margin-right:.5in;mso-margin-top-alt:auto;mso-margin-bottom-alt:
+auto;margin-left:.5in'><tt><span style='font-size:10.0pt;font-family:"Courier New"'>If
+temperature is hot and</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp; flow
+is low</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>then</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;
+change cold valve positive big amount and</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;
+change hot valve zero</span></tt></p>
+
+<p class=MsoNormal>We will provide 2 input values to the rule, fire the rule
+and look at the rule outputs. We'll put this simple example together a bit at a
+time and show the final results of<span style="mso-spacerun: yes">&nbsp;
+</span>firing (or executing) the rule. There is a normal sequence of events in
+the execution of a set of fuzzy rules. First the inputs, which are normally <i>crisp</i>
+values, are <i>fuzzified</i>. This corresponds to representing the uncertainty
+in the measure of the inputs (in science class this can be equivalent to
+reading the value of an instrument like a scale and recognizing that the value
+is actually plus or minus the reading by some factor that represents the
+accuracy of the instrument or your ability to read the instrument). It is also
+required for these rules since the FuzzyValue antecedents must be matched
+against FuzzyValue inputs. Once the rule has its inputs the rule can be fired.
+It produces a set of FuzzyValue outputs. These outputs can be left as
+FuzzyValues but in general, and particularly for this example, we go through a
+process of <i>defuzzification</i> of the outputs to get <i>crisp</i> (or
+non-fuzzy) values. This allows the system to take some real world action, such
+as moving the hot and cold water valves by some real-valued amount. </p>
+
+<p><b>Step 1</b> (define the FuzzyVariables for temperature, flow, cold valve
+change and hot valve change) </p>
+
+<p class=MsoNormal style='margin-right:.5in;mso-margin-top-alt:auto;mso-margin-bottom-alt:
+auto;margin-left:.5in'><tt><b><span style='font-size:10.0pt;font-family:"Courier New"'>//
+Temperature Fuzzy Variable has terms cold, OK and hot</span></b></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>FuzzyVariable
+outTemp = new FuzzyVariable(&quot;temperature&quot;, 5.0, 65.0, &quot;Degrees
+C&quot;);</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>outTemp.addTerm(&quot;cold&quot;,
+new TrapezoidFuzzySet(5.0, 5.05, 10.0, 35.0));</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>outTemp.addTerm(&quot;OK&quot;,
+new PIFuzzySet(36.0, 3.5));</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>outTemp.addTerm(&quot;hot&quot;,
+new SFuzzySet(37.0, 60.0));</span></tt> <br>
+<tt><b><span style='font-size:10.0pt;font-family:"Courier New"'>// Flow Fuzzy
+Variable has terms low, OK, and strong</span></b></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>FuzzyVariable
+outFlow = new FuzzyVariable(&quot;flow&quot;, 0, 100.0,
+&quot;litres/minute&quot;);</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>outFlow.addTerm(&quot;low&quot;,
+new TrapezoidFuzzySet(0.0, 0.025, 3.0, 11.5));</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>outFlow.addTerm(&quot;OK&quot;,
+new PIFuzzySet(12.0, 1.8));</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>outFlow.addTerm(&quot;strong&quot;,
+new SFuzzySet(12.5, 25.0));</span></tt> <br>
+<tt><b><span style='font-size:10.0pt;font-family:"Courier New"'>//
+hotValveChange has terms NB, NM, NS, Z, PS, PM, and PB which correspond to</span></b></tt>
+<br>
+<tt><b><span style='font-size:10.0pt;font-family:"Courier New"'>// negative
+big, negative medium, negative small, zero, positive small,</span></b></tt> <br>
+<tt><b><span style='font-size:10.0pt;font-family:"Courier New"'>// positive
+medium and positive big</span></b></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>FuzzyVariable
+hotValveChange = new FuzzyVariable(&quot;hotValveChange&quot;, -1.0, 1.0,
+&quot;&quot;);</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>hotValveChange.addTerm(&quot;NB&quot;,
+new ZFuzzySet(-0.5, -.25));</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>hotValveChange.addTerm(&quot;NM&quot;,
+new TriangleFuzzySet(-.35, -.3, -.15));</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>hotValveChange.addTerm(&quot;NS&quot;,
+new TriangleFuzzySet(-.25, -.15, 0.0));</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>hotValveChange.addTerm(&quot;Z&quot;,
+new TriangleFuzzySet(-.05, 0.0, 0.05));</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>hotValveChange.addTerm(&quot;PS&quot;,
+new TriangleFuzzySet(0.0, .15, .25));</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>hotValveChange.addTerm(&quot;PM&quot;,
+new TriangleFuzzySet(.15, .3, .35));</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>hotValveChange.addTerm(&quot;PB&quot;,
+new SFuzzySet(.25, .5));</span></tt> <br>
+<tt><b><span style='font-size:10.0pt;font-family:"Courier New"'>//
+coldValveChange has terms NB, NM, NS, Z, PS, PM, and PB which correspond to</span></b></tt>
+<br>
+<tt><b><span style='font-size:10.0pt;font-family:"Courier New"'>// negative
+big, negative medium, negative small, zero, positive small,</span></b></tt> <br>
+<tt><b><span style='font-size:10.0pt;font-family:"Courier New"'>// positive
+medium and positive big</span></b></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>FuzzyVariable
+coldValveChange = new FuzzyVariable(&quot;coldValveChange&quot;, -1.0, 1.0,
+&quot;&quot;);</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>coldValveChange.addTerm(&quot;NB&quot;,
+new ZFuzzySet(-0.5, -.25));</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>coldValveChange.addTerm(&quot;NM&quot;,
+new TriangleFuzzySet(-.35, -.3, -.15));</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>coldValveChange.addTerm(&quot;NS&quot;,
+new TriangleFuzzySet(-.25, -.15, 0.0));</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>coldValveChange.addTerm(&quot;Z&quot;,
+new TriangleFuzzySet(-.05, 0.0, 0.05));</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>coldValveChange.addTerm(&quot;PS&quot;,
+new TriangleFuzzySet(0.0, .15, .25));</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>coldValveChange.addTerm(&quot;PM&quot;,
+new TriangleFuzzySet(.15, .3, .35));</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>coldValveChange.addTerm(&quot;PB&quot;,
+new SFuzzySet(.25, .5));</span></tt></p>
+
+<p class=MsoNormal><b>Step 2</b> (define our rules &#8230; in this case only 1 rule
+is defined) </p>
+
+<p class=MsoNormal style='margin-right:.5in;mso-margin-top-alt:auto;mso-margin-bottom-alt:
+auto;margin-left:.5in'><tt><b><span style='font-size:10.0pt;font-family:"Courier New"'>//
+the fuzzy rule ...</span></b></tt> <br>
+<tt><b><span style='font-size:10.0pt;font-family:"Courier New"'>// if
+temperature is hot and flow is low</span></b></tt> <br>
+<tt><b><span style='font-size:10.0pt;font-family:"Courier New"'>// then change
+the hot valve zero and the cold valve positive big</span></b></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>FuzzyRule hotLow =
+new FuzzyRule();</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>hotLow.addAntecedent(new
+FuzzyValue(outTemp,&quot;hot&quot;));</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>hotLow.addAntecedent(new
+FuzzyValue(outFlow,&quot;low&quot;));</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>hotLow.addConclusion(new
+FuzzyValue(hotValveChange,&quot;Z&quot;));</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>hotLow.addConclusion(new
+FuzzyValue(coldValveChange,&quot;PB&quot;));</span></tt></p>
+
+<p class=MsoNormal><b>Step 3</b> (provide the fuzzified inputs for the rule) </p>
+
+<p class=MsoNormal style='margin-right:.5in;mso-margin-top-alt:auto;mso-margin-bottom-alt:
+auto;margin-left:.5in'><tt><b><span style='font-size:10.0pt;font-family:"Courier New"'>//
+temperature reading is 45.0 degrees C and the flow is 8.0 litres/minute</span></b></tt>
+<br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>double showerTemp
+= 45.0;</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>double showerFlow
+= 8.0;</span></tt> <br>
+<tt><b><span style='font-size:10.0pt;font-family:"Courier New"'>// create fuzzy
+values from the crisp values</span></b></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>inputTemp =&nbsp;
+new FuzzyValue(outTemp, new TriangleFuzzySet(showerTemp-0.05, showerTemp,
+showerTemp+0.05));</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>inputFlow =&nbsp;
+new FuzzyValue(outFlow, new TriangleFuzzySet(showerFlow-0.05, showerFlow,
+showerFlow+0.05));</span></tt></p>
+
+<p class=MsoNormal><b>Step 4</b> (execute the rule with these inputs) </p>
+
+<p class=MsoNormal style='margin-right:.5in;mso-margin-top-alt:auto;mso-margin-bottom-alt:
+auto;margin-left:.5in'><b>// remove any inputs associated with the rule, then
+add the new inputs to the rule</b> <br>
+<b>// Note: the order inputs are added is important since the inputs must
+correspond to the antecedents</b> <br>
+hotLow.removeAllInputs(); <br>
+hotLow.addInput(inputTemp); <br>
+hotLow.addInput(inputFlow); <br>
+<b>// fire the rule; the result of firing is a special vector of FuzzyValues
+that represents the output(s)</b> <br>
+FuzzyValueVector fvv = hotLow.execute();</p>
+
+<p class=MsoNormal><b>Step 5</b> (defuzzify the outputs to get crisp values) </p>
+
+<p class=MsoNormal style='margin-right:.5in;mso-margin-top-alt:auto;mso-margin-bottom-alt:
+auto;margin-left:.5in'><tt><b><span style='font-size:10.0pt;font-family:"Courier New"'>//
+get the output FuzzyValues from the vector</span></b></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>FuzzyValue
+hotValveChangeFval = fvv.fuzzyValueAt(0);</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>FuzzyValue
+coldValveChangeFval = fvv.fuzzyValueAt(1);</span></tt> <br>
+<tt><b><span style='font-size:10.0pt;font-family:"Courier New"'>// calculate
+the deffuzified value</span></b></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>double
+crispHotValveChange = hotValveChangeFval.momentDefuzzify();</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>double crispColdValveChange
+= coldValveChangeFval.momentDefuzzify();</span></tt></p>
+
+<p class=MsoNormal><b>Step 6</b> (let's look at the fuzzy sets of the outputs
+and the corresponding crisp values) </p>
+
+<p class=MsoNormal style='margin-right:.5in;mso-margin-top-alt:auto;mso-margin-bottom-alt:
+auto;margin-left:.5in'><tt><span style='font-size:10.0pt;font-family:"Courier New"'>System.out.println(hotValveChangeFval.plotFuzzyValue(&quot;+&quot;));</span></tt>
+<br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>System.out.println(coldValveChangeFval.plotFuzzyValue(&quot;+&quot;));</span></tt>
+<br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>System.out.println(&quot;Defuzzified
+hot valve change is: &quot; + crispHotValveChange);</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>System.out.println(&quot;Defuzzified
+cold valve change is: &quot; + crispColdValveChange);</span></tt></p>
+
+<p class=MsoNormal>The results will appear as follows: </p>
+
+<p class=MsoNormal style='margin-right:.5in;mso-margin-top-alt:auto;mso-margin-bottom-alt:
+auto;margin-left:.5in'><tt><span style='font-size:7.5pt;font-family:"Courier New"'>Fuzzy
+Value: hotValveChange</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>Linguistic Value:
+??? (+)</span></tt> </p>
+
+<p style='margin-right:.5in;margin-left:.5in'><tt><span style='font-size:7.5pt;
+font-family:"Courier New"'>&nbsp;1.00</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>&nbsp;0.95</span></tt>
+<br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>&nbsp;0.90</span></tt>
+<br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>&nbsp;0.85</span></tt>
+<br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>&nbsp;0.80</span></tt>
+<br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>&nbsp;0.75</span></tt>
+<br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>&nbsp;0.70</span></tt>
+<br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>&nbsp;0.65</span></tt>
+<br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>&nbsp;0.60</span></tt>
+<br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>&nbsp;0.55</span></tt>
+<br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>&nbsp;0.50</span></tt>
+<br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>&nbsp;0.45</span></tt>
+<br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>&nbsp;0.40</span></tt>
+<br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>&nbsp;0.35</span></tt>
+<br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>&nbsp;0.30</span></tt>
+<br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>&nbsp;0.25&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
++</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>&nbsp;0.20&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
++ +</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>&nbsp;0.15</span></tt>
+<br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>&nbsp;0.10</span></tt>
+<br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>&nbsp;0.05</span></tt>
+<br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>&nbsp;0.00++++++++++++++++++++++++&nbsp;&nbsp;
+++++++++++++++++++++++++</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;
+|----|----|----|----|----|----|----|----|----|----|</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>&nbsp;&nbsp;
+-1.00&nbsp;&nbsp;&nbsp;&nbsp; -0.60&nbsp;&nbsp;&nbsp;&nbsp;
+-0.20&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.20&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0.60&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.00</span></tt> </p>
+
+<p style='margin-right:.5in;margin-left:.5in'><tt><span style='font-size:7.5pt;
+font-family:"Courier New"'>Fuzzy Value: coldValveChange</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>Linguistic Value:
+??? (+)</span></tt> </p>
+
+<p style='margin-right:.5in;margin-left:.5in'><tt><span style='font-size:7.5pt;
+font-family:"Courier New"'>&nbsp;1.00</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>&nbsp;0.95</span></tt>
+<br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>&nbsp;0.90</span></tt>
+<br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>&nbsp;0.85</span></tt>
+<br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>&nbsp;0.80</span></tt>
+<br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>&nbsp;0.75</span></tt>
+<br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>&nbsp;0.70</span></tt>
+<br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>&nbsp;0.65</span></tt>
+<br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>&nbsp;0.60</span></tt>
+<br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>&nbsp;0.55</span></tt>
+<br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>&nbsp;0.50</span></tt>
+<br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>&nbsp;0.45</span></tt>
+<br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>&nbsp;0.40</span></tt>
+<br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>&nbsp;0.35</span></tt>
+<br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>&nbsp;0.30</span></tt>
+<br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>&nbsp;0.25&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
++++++++++++++++++</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>&nbsp;0.20</span></tt>
+<br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>&nbsp;0.15&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
++</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>&nbsp;0.10</span></tt>
+<br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>&nbsp;0.05&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
++</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>&nbsp;0.00++++++++++++++++++++++++++++++++</span></tt>
+<br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;
+|----|----|----|----|----|----|----|----|----|----|</span></tt> <br>
+<tt><span style='font-size:7.5pt;font-family:"Courier New"'>&nbsp;&nbsp;
+-1.00&nbsp;&nbsp;&nbsp;&nbsp; -0.60&nbsp;&nbsp;&nbsp;&nbsp;
+-0.20&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.20&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0.60&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.00</span></tt> </p>
+
+<p style='margin-right:.5in;margin-left:.5in'><tt><span style='font-size:10.0pt;
+font-family:"Courier New"'>Defuzzified hot valve change is: 0.0</span></tt> <br>
+<tt><span style='font-size:10.0pt;font-family:"Courier New"'>Defuzzified cold
+valve change is: 0.6531280609133145</span></tt></p>
+
+<p><br>
+Of course this example is simple and there is much more to be mastered before
+one can produce useful fuzzy systems with the NRC FuzzyJ Toolkit. Also the
+types of rules and complexity of rules can be enhanced by integration with the <a
+href="FuzzyJess.html">Jess&nbsp; rule-based system</a>. <br>
+&nbsp; <br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></p>
+
+<p><a href="index.html">Return to Table of Contents</a></p>
+
+<p><br>
+&nbsp; </p>
+
+</div>
+
+</body>
+
+</html>
