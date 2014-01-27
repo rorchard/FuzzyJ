@@ -1,0 +1,108 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=iso-8859-1">
+<meta name="Author" content="Bob Orchard">
+<meta name="GENERATOR" content="Microsoft FrontPage Express 2.0">
+<title>Global Contribution Problem</title>
+</head>
+
+<body>
+
+<p><font size="4" face="Comic Sans MS"><b>Global Contribution
+Problem</b></font> </p>
+
+<p><b>2000-Nov-27</b> </p>
+
+<p>ONLY applies to version 1.0 of FuzzyJess and versions before
+6.0a4 of Jess.</p>
+
+<p>Rod Mancisidor reported a problem with FuzzyJess that showed
+different behaviour for a pair of rules that if modified slightly
+gave incorrect results. The modifications should have resulted in
+equivalent rules with the same output but did not. A temporary
+fix (shown below) requires a change to the Jess Class Node2.
+Ernest Friedman-Hill will determine the final fix to be done at
+some later time. </p>
+
+<p>The situation in very simple terms is as follows: </p>
+
+<p><tt>(defrule r1</tt> <br>
+<tt>&nbsp;&nbsp;&nbsp; (theTemp ?t&amp;:(fuzzy-match ?t
+&quot;hot&quot;))</tt> <br>
+<tt>&nbsp; =&gt;</tt> <br>
+<tt>&nbsp;&nbsp;&nbsp; (assert (thePress (new
+nrc.fuzzy.FuzzyValue ?*pressFvar* &quot;low or medium&quot;)))</tt>
+<br>
+<tt>)</tt> </p>
+
+<p><tt>(defrule r2</tt> <br>
+<tt>&nbsp;&nbsp;&nbsp; (theTemp ?t&amp;:(fuzzy-match ?t
+&quot;medium&quot;))</tt> <br>
+<tt>&nbsp; =&gt;</tt> <br>
+<tt>&nbsp;&nbsp;&nbsp; (assert (thePress (new
+nrc.fuzzy.FuzzyValue ?*pressFvar* &quot;high&quot;)))</tt> <br>
+<tt>)</tt> </p>
+
+<p>with an asserted fact <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <tt>(theTemp (new
+nrc.fuzzy.FuzzyValue ?*tempFvar* &quot;very medium&quot;))</tt> </p>
+
+<p>Both rules will fire and the output fuzzy fact 'theTemp' will
+reult in a fuzzy value being calcualted that has the global
+result of the 2 assertions. </p>
+
+<p>By changing the rules slightly to be: </p>
+
+<p><tt>(defrule r1</tt> <br>
+<tt>&nbsp;&nbsp;&nbsp; (hot ?hot)</tt> <br>
+<tt>&nbsp;&nbsp;&nbsp; (theTemp ?t&amp;:(fuzzy-match ?t ?hot))</tt>
+<br>
+<tt>&nbsp; =&gt;</tt> <br>
+<tt>&nbsp;&nbsp;&nbsp; (assert (thePress (new
+nrc.fuzzy.FuzzyValue ?*pressFvar* &quot;low or medium&quot;)))</tt>
+<br>
+<tt>)</tt> </p>
+
+<p><tt>(defrule r2</tt> <br>
+<tt>&nbsp;&nbsp;&nbsp; (medium ?medium)</tt> <br>
+<tt>&nbsp;&nbsp;&nbsp; (theTemp ?t&amp;:(fuzzy-match ?t ?medium))</tt>
+<br>
+<tt>&nbsp; =&gt;</tt> <br>
+<tt>&nbsp;&nbsp;&nbsp; (assert (thePress (new
+nrc.fuzzy.FuzzyValue ?*pressFvar* &quot;high&quot;)))</tt> <br>
+<tt>)</tt> </p>
+
+<p>the results should be the same (2 other facts are asserted to
+provide hot and medium fuzzy values). But the execution resulted
+in no global <br>
+result and instead led to 2 facts for 'theTemp'. </p>
+
+<p>The problem can be fixed by changing 2 lines in the Node2.java
+code of Jess. This is a temporary fix and requires Ernest to
+verify that this is <br>
+in fact the appropriate way to deal with it. </p>
+
+<p>The 2 lines are: (version 6.0a2 of Jess) </p>
+
+<p>1. line 337 in routine doRunTestsVaryRight changes from: </p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+passAlong(Rete.getFactory().newToken(lt, rt)); <br>
+to <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+passAlong(Rete.getFactory().newToken(<b>lt.prepare()</b>, rt)); </p>
+
+<p>2. line 404 in routine doRunTestsVaryLeft changes from </p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Token nt = Rete.getFactory().newToken(lt, rt); <br>
+to <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Token nt = Rete.getFactory().newToken(<b>lt.prepare()</b>, rt); <br>
+&nbsp; <br>
+&nbsp; <br>
+&nbsp; </p>
+</body>
+</html>
