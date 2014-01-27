@@ -1,0 +1,119 @@
+/*
+ * This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0. 
+ * If a copy of the MPL was not distributed with this file, You can obtain one at
+ *  http://mozilla.org/MPL/2.0/. 
+ *
+ * Copyright 2000, 2001, 2002, 2003, 2004, 2005, 2006 National Research Council of Canada 
+ * 
+ * This software was initially developed at the National Research Council of Canada (NRC).
+ *
+ * THE NATIONAL RESEARCH COUNCIL OF CANADA MAKES NO REPRESENTATIONS OR
+ * WARRANTIES ABOUT THE SUITABILITY OF THE SOFTWARE, EITHER EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF
+ * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT.
+ * THE NATIONAL RESEARCH COUNCIL OF CANADA SHALL NOT BE LIABLE FOR ANY DAMAGES
+ * SUFFERED BY LICENSEE AS A RESULT OF USING, MODIFYING OR DISTRIBUTING
+ * THIS SOFTWARE OR ITS DERIVATIVES.
+ *
+ *
+ */
+
+ /**
+  * JavaCup specification for fuzzy linguistic expression evaluator (w/ actions)                                       
+  *                                                             
+  * Parses fuzzy expression with fuzzy terms, modifiers, AND,   
+  * OR and brackets ( and ) 
+  *                            
+  *       eg.  very cold OR slightly hot                                
+  *
+  * Returns fuzzy value structure.                              
+  * Error flag is set to true if an error occurs.               
+  *                                                             
+  * The BNF of the linguistic expressions is:                   
+  *                                                             
+  *  <LExpr> ::= <LTerm> | <LTerm> OR <LExpr>                   
+  *                                                             
+  *  <LTerm> ::= <modExpr> | <LTerm> AND <modExpr>              
+  *                                                             
+  *  <modExpr> ::= FUZZY-MODIFIER <modExpr> | <element>               
+  *                                                             
+  *  <element> ::= FUZZY-TERM | ( <LExpr> )                   
+  *                                                             
+  * Note: This gives AND higher precedence than OR.             
+  *       MODIFIER is a valid fuzzy modifier (not, very, etc.)        
+  *       FUZZY-TERM is a term defined in a fuzzy variable 
+  *                                                             
+  *       In this version of CUP we can allow CUP to deal with
+  *       precendence and associativities, so we can have 
+  *       the simpler grammar defined below
+  */
+
+package nrc.fuzzy;
+
+import java_cup.runtime.*;
+
+/* modifications to the parser */
+parser code {: 
+    /* new constructor to allow the scanner to be specified at runtime 
+       - without this sort of addition we cannot easily have multiple
+         threads using the same parser
+       - NOTE: should NOT use the parser constructor without arguments!
+    */
+    public FuzzyParser(FuzzyScanner fs) 
+       { super();
+         theScanner = fs;
+       }
+
+    /* Varaible that holds the fuzzy scanner */
+    FuzzyScanner theScanner;
+:};
+
+
+/* Preliminaries to set up and use the scanner.  */
+init with {: 
+    if (theScanner == null)
+      report_error("No scanner was specified when the FuzzyParser was constructed", null);
+    else
+      theScanner.init();              
+:};
+scan with {: 
+   if (theScanner == null)
+     {
+      report_error("No scanner was specified when the FuzzyParser was constructed", null);
+      return new java_cup.runtime.Symbol(error_sym());
+     }
+   else
+     return theScanner.next_token(); 
+:};
+
+/* Terminals (tokens returned by the scanner). */
+terminal             AND, OR;
+terminal             LPAREN, RPAREN;
+terminal String      FUZZYMODIFIER;
+terminal FuzzyValue  FUZZYTERM;
+
+/* Non terminals */
+non terminal FuzzyValue  lexpr;
+
+/* Precedences */
+precedence left OR;
+precedence left AND;
+precedence left FUZZYMODIFIER;
+
+/* The grammar of a linguistic expression (lexpr) */
+
+lexpr     ::= lexpr:e1 OR lexpr:e2    
+	      {: RESULT = e1.fuzzyUnion(e2); :} 
+	      | 
+              lexpr:e1 AND lexpr:e2    
+              {: RESULT = e1.fuzzyIntersection(e2); :} 
+	      | 
+              FUZZYTERM:fval                
+	      {: RESULT = fval; :} 
+	      | 
+              FUZZYMODIFIER:fmod lexpr:e             
+	      {: RESULT = Modifiers.call(fmod, e); :} 
+	      | 
+              LPAREN lexpr:e RPAREN     
+	      {: RESULT = e; :} 
+	      ;
