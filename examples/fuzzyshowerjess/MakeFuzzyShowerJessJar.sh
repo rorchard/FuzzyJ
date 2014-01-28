@@ -49,6 +49,7 @@ cd $BFD/$jessDirectory
 if [ -e jess ]; then echo ; else jar -xf jess.jar; fi
 jar -uf $BFD/FuzzyShowerJessAppletNew.jar \
          jess/*.class \
+	 jess/*.clp \
          jess/*/*.class
          
 if [ -e jess ] & [ -e jess.jar ]; then rm -fr jess; fi
@@ -62,6 +63,9 @@ jar -uf $BFD/FuzzyShowerJessAppletNew.jar java_cup/runtime/*.class
 cd $BFD/$fuzzyJDirectory
 jar -uf $BFD/FuzzyShowerJessAppletNew.jar \
          nrc/fuzzy/CUP*.class \
+	 nrc/fuzzy/AntecedentCombineOperator.class \
+	 nrc/fuzzy/AntecedentCombineOperatorInterface.class \
+	 nrc/fuzzy/CompensatoryAndAntecedentCombineOperator.class \
          nrc/fuzzy/FuzzyException.class \
          nrc/fuzzy/FuzzyParser.class \
          nrc/fuzzy/FuzzyRule.class \
@@ -75,7 +79,6 @@ jar -uf $BFD/FuzzyShowerJessAppletNew.jar \
          nrc/fuzzy/FuzzySet.class \
          nrc/fuzzy/FuzzySetException.class \
          nrc/fuzzy/FuzzySetFunction.class \
-         nrc/fuzzy/FuzzySetFunction.class \
          nrc/fuzzy/FuzzyValue.class \
          nrc/fuzzy/FuzzyValueException.class \
          nrc/fuzzy/FuzzyValueVector.class \
@@ -87,24 +90,28 @@ jar -uf $BFD/FuzzyShowerJessAppletNew.jar \
          nrc/fuzzy/IntervalVector.class \
          nrc/fuzzy/InvalidDefuzzifyException.class \
          nrc/fuzzy/InvalidFuzzyVariableNameException.class \
+         nrc/fuzzy/InvalidFuzzyVariableTermNameException.class \
          nrc/fuzzy/InvalidLinguisticExpressionException.class \
          nrc/fuzzy/InvalidUODRangeException.class \
-         nrc/fuzzy/InvalidUODRangeException.class \
+         nrc/fuzzy/LarsenProductMaxMinRuleExecutor.class \
          nrc/fuzzy/LeftLinearFunction.class \
          nrc/fuzzy/LFuzzySet.class \
          nrc/fuzzy/LRFuzzySet.class \
          nrc/fuzzy/MamdaniMinMaxMinRuleExecutor.class \
+	 nrc/fuzzy/MinimumAntecedentCombineOperator.class \
          nrc/fuzzy/ModifierFunction.class \
          nrc/fuzzy/Modifiers.class \
          nrc/fuzzy/NoXValueForMembershipException.class \
          nrc/fuzzy/Parameters.class \
          nrc/fuzzy/PIFuzzySet.class \
+	 nrc/fuzzy/ProductAntecedentCombineOperator.class \
          nrc/fuzzy/RightLinearFunction.class \
          nrc/fuzzy/RFuzzySet.class \
          nrc/fuzzy/SFunction.class \
          nrc/fuzzy/SFuzzySet.class \
          nrc/fuzzy/SetPoint.class \
          nrc/fuzzy/TrapezoidFuzzySet.class \
+	 nrc/fuzzy/TsukamotoRuleExecutor.class \
          nrc/fuzzy/Similarity*.class \
          nrc/fuzzy/TriangleFuzzySet.class \
          nrc/fuzzy/XValueOutsideUODException.class \
