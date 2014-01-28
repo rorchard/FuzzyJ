@@ -25,12 +25,12 @@ public class FuzzyTruckJApplet extends JApplet
 		JPanelRuleButtons.setToolTipText("Click on a Rule Conclusion to change it");
 		JPanelRuleButtons.setLayout(new GridLayout(7,5,2,2));
 		getContentPane().add(JPanelRuleButtons);
-		JPanelRuleButtons.setBounds(472,12,225,210);
+		JPanelRuleButtons.setBounds(480,12,235,210);
 		//$$ etchedBorder1.move(672,480);
 		RadioPanel1.setBorder(etchedBorder1);
 		RadioPanel1.setLayout(new GridLayout(8,1,0,2));
 		getContentPane().add(RadioPanel1);
-		RadioPanel1.setBounds(420,12,48,210);
+		RadioPanel1.setBounds(420,12,58,210);
 		JRadioButtonPB.setText("PB");
 		JRadioButtonPB.setActionCommand("PB");
 		JRadioButtonPB.setToolTipText("Positive Big");
@@ -209,7 +209,7 @@ public class FuzzyTruckJApplet extends JApplet
 		JCheckBoxTracing.setText("Trace Truck Path");
 		JCheckBoxTracing.setToolTipText("Enable/disable tracing of Truck as it parks");
 		getContentPane().add(JCheckBoxTracing);
-		JCheckBoxTracing.setBounds(430,253,138,24);
+		JCheckBoxTracing.setBounds(415,253,150,24);
 		JPanelOuter.setBorder(etchedBorder1);
 		JPanelOuter.setLayout(null);
 		getContentPane().add(JPanelOuter);
@@ -217,7 +217,7 @@ public class FuzzyTruckJApplet extends JApplet
 		JCheckBoxShowRuleFirings.setToolTipText("Set rule button colors as they fire");
 		JCheckBoxShowRuleFirings.setText("Show Rule Firings");
 		getContentPane().add(JCheckBoxShowRuleFirings);
-		JCheckBoxShowRuleFirings.setBounds(430,228,138,24);
+		JCheckBoxShowRuleFirings.setBounds(415,228,150,24);
 		//}}
 	
 		//{{REGISTER_LISTENERS
@@ -256,7 +256,7 @@ public class FuzzyTruckJApplet extends JApplet
 		int rows = Truck.getRows();
 		int columns = Truck.getColumns();
 		conclusionButtons = new JButton[rows][columns];
-		JPanelRuleButtons.setLayout(new GridLayout(rows,columns,2,2));
+		JPanelRuleButtons.setLayout(new GridLayout(rows,columns,1,1));
 		Insets insets = new Insets(2,5,2,5);
 		for (int i=0; i<rows; i++)
 		   for (int j=0; j<columns; j++)
