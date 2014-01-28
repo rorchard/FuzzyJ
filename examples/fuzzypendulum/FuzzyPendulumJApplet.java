@@ -394,12 +394,12 @@ public class FuzzyPendulumJApplet extends JApplet
 		stopBoppingJCheckBox.setText("Stop Bopping");
 		stopBoppingJCheckBox.setActionCommand("Stop Bopping");
 		JPanel1.add(stopBoppingJCheckBox);
-		stopBoppingJCheckBox.setBounds(364,494,112,19);
+		stopBoppingJCheckBox.setBounds(330,494,130,19);
 		stepModeJCheckBox.setToolTipText("Run simulation in step mode");
 		stepModeJCheckBox.setText("Step Mode");
 		stepModeJCheckBox.setActionCommand("Step Mode");
 		JPanel1.add(stepModeJCheckBox);
-		stepModeJCheckBox.setBounds(364,458,112,19);
+		stepModeJCheckBox.setBounds(330,458,130,19);
 		nextStepJButton.setToolTipText("Execute a single step of simulation");
 		nextStepJButton.setText("Next Step");
 		nextStepJButton.setActionCommand("Next Step");
@@ -425,7 +425,7 @@ public class FuzzyPendulumJApplet extends JApplet
 		bobUpDownJCheckBox.setText("Bob Up/Down");
 		bobUpDownJCheckBox.setActionCommand("Bob Up/Down");
 		JPanel1.add(bobUpDownJCheckBox);
-		bobUpDownJCheckBox.setBounds(364,530,112,19);
+		bobUpDownJCheckBox.setBounds(330,530,130,19);
 		JLabelImplication.setText("=>");
 		JPanel1.add(JLabelImplication);
 		JLabelImplication.setForeground(java.awt.Color.gray);
