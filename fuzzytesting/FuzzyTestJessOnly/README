@@ -1,0 +1,19 @@
+This directory contains a series of test that exercise much of 
+the capability of the FuzzyJess extensions for Jess.
+
+To run all the tests ...
+
+1. make sure that any variable definitions are correct in the file
+   runAllFuzzyJessTests.sh (e.g. JESS_JAR and FUZZYJ_JAR)
+   
+   Must identify the jess and fuzzyJ jar files relative to this directory are set correctly. Also
+   note that these .sh files are running on an Mac OS X system (unix) and sepaerator for classpaths is : not ;
+
+2. execute the runAllFuzzyJessTess.sh script
+
+	./runAllFuzzyJessTess.sh
+
+3. check the output of the run looking for unsuccessful results
+
+
+
