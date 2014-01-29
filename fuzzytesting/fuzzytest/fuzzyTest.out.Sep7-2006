@@ -1,0 +1,1320 @@
+3 FuzzyVariables before any terms added using 'addTerm method'
+FuzzyVariable -> temperature [ 0.0, 100.0 ] C
+Terms:
+  cold -> { 1/5 0/15 }
+  hot -> { 0/25 1/35 }
+
+FuzzyVariable -> temp2 [ 0.0, 100.0 ] C
+Terms:
+
+FuzzyVariable -> temp3 [ 5.0, 65.0 ] C
+Terms:
+
+
+Find the max of intersection of the following 2 FuzzyValues, t1 and t2
+t1 = FuzzyVariable         -> temp3 [ 5.0, 65.0 ] C
+Linguistic Expression -> ???
+FuzzySet              -> { 0/41.29 1/41.34 0/41.39 }
+t2 = FuzzyVariable         -> temp3 [ 5.0, 65.0 ] C
+Linguistic Expression -> ???
+FuzzySet              -> { 0/37 0.03/39.88 0.12/42.75 0.28/45.62 }
+t1.max.t2 = 0.08062764941228628
+t2.max.t1 = 0.08062764941228619
+
+3 FuzzyVariables after terms added for 2 of them
+FuzzyVariable -> temperature [ 0.0, 100.0 ] C
+Terms:
+  cold -> { 1/5 0/15 }
+  medium -> { 0/5 1/15 1/25 0/35 }
+  veryhot -> { 0/25 0.01/26 0.04/27 0.09/28 0.16/29 0.25/30 0.36/31 0.49/32 0.64/33 0.81/34 1/35 }
+  hot -> { 0/25 1/35 }
+
+FuzzyVariable -> temp2 [ 0.0, 100.0 ] C
+Terms:
+  cold -> { 1/5 0/15 }
+  medium -> { 0/5 1/15 1/25 0/35 }
+  veryhot -> { 0/25 0.01/26 0.04/27 0.09/28 0.16/29 0.25/30 0.36/31 0.49/32 0.64/33 0.81/34 1/35 }
+  hot -> { 0/25 1/35 }
+
+FuzzyVariable -> temp3 [ 5.0, 65.0 ] C
+Terms:
+
+
+
+FuzzyVariable pressure
+FuzzyVariable -> pressure [ 0.0, 10.0 ] kilo-pascals
+Terms:
+  low -> { 1/2 0.97/2.38 0.88/2.75 0.72/3.12 0.5/3.5 0.28/3.88 0.12/4.25 0.03/4.62 0/5 }
+  medium -> { 0/2.5 0.12/3.12 0.5/3.75 0.88/4.38 1/5 0.88/5.62 0.5/6.25 0.12/6.88 0/7.5 }
+  high -> { 0/5 0.03/5.38 0.12/5.75 0.28/6.12 0.5/6.5 0.72/6.88 0.88/7.25 0.97/7.62 1/8 }
+
+
+All of the defined Modifiers:
+	norm
+	intensify
+	very
+	not
+	slightly
+	plus
+	more_or_less
+	above
+	below
+	extremely
+	somewhat
+
+Use these modifiers on the FuzzyVariable: 
+FuzzyVariable         -> temperature [ 0.0, 100.0 ] C
+Linguistic Expression -> ???
+FuzzySet              -> { 0/1 1/2 0/3 }
+
+FuzzyVariable         -> temperature [ 0.0, 100.0 ] C
+Linguistic Expression -> ???
+FuzzySet              -> { 0/1 1/2 0/3 }
+(no modifier)Value at x=1.25 is :0.25
+FuzzyVariable         -> temperature [ 0.0, 100.0 ] C
+Linguistic Expression -> ???
+FuzzySet              -> { 1/1 0/2 1/3 }
+(NOT modifier) Value at x=1.25 is :0.75
+FuzzyVariable         -> temperature [ 0.0, 100.0 ] C
+Linguistic Expression -> ???
+FuzzySet              -> { 0/1 0.01/1.1 0.04/1.2 0.09/1.3 0.16/1.4 0.25/1.5 0.36/1.6 0.49/1.7 0.64/1.8 0.81/1.9 1/2 0.81/2.1 0.64/2.2 0.49/2.3 0.36/2.4 0.25/2.5 0.16/2.6 0.09/2.7 0.04/2.8 0.01/2.9 0/3 }
+(VERY modifier) Value at x=1.25 is :0.06500000000000002
+FuzzyVariable         -> temperature [ 0.0, 100.0 ] C
+Linguistic Expression -> ???
+FuzzySet              -> { 0/1 0/1.1 0.01/1.2 0.03/1.3 0.06/1.4 0.12/1.5 0.22/1.6 0.34/1.7 0.51/1.8 0.73/1.9 1/2 0.73/2.1 0.51/2.2 0.34/2.3 0.22/2.4 0.12/2.5 0.06/2.6 0.03/2.7 0.01/2.8 0/2.9 0/3 }
+(EXTREMELY modifier) Value at x=1.25 is :0.01750000000000001
+FuzzyVariable         -> temperature [ 0.0, 100.0 ] C
+Linguistic Expression -> ???
+FuzzySet              -> { 0/1 0.32/1.1 0.45/1.2 0.55/1.3 0.63/1.4 0.71/1.5 0.77/1.6 0.84/1.7 0.89/1.8 0.95/1.9 1/2 0.95/2.1 0.89/2.2 0.84/2.3 0.77/2.4 0.71/2.5 0.63/2.6 0.55/2.7 0.45/2.8 0.32/2.9 0/3 }
+(SOMEWHAT modifier) Value at x=1.25 is :0.49746807650256203
+FuzzyVariable         -> temperature [ 0.0, 100.0 ] C
+Linguistic Expression -> ???
+FuzzySet              -> { 0/1 0.46/1.1 0.58/1.2 0.67/1.3 0.74/1.4 0.79/1.5 0.84/1.6 0.89/1.7 0.93/1.8 0.97/1.9 1/2 0.97/2.1 0.93/2.2 0.89/2.3 0.84/2.4 0.79/2.5 0.74/2.6 0.67/2.7 0.58/2.8 0.46/2.9 0/3 }
+(MORE_OR_LESS modifier) Value at x=1.25 is :0.6271182488623714
+FuzzyVariable         -> temperature [ 0.0, 100.0 ] C
+Linguistic Expression -> ???
+FuzzySet              -> { 0/1 0.46/1.1 0.58/1.2 0.67/1.3 0.74/1.4 0.79/1.5 0.84/1.6 0.89/1.7 0.93/1.8 0.97/1.9 1/2 0.97/2.1 0.93/2.2 0.89/2.3 0.84/2.4 0.79/2.5 0.74/2.6 0.67/2.7 0.58/2.8 0.46/2.9 0/3 }
+(MORE_OR_LESS modifier) Value at x=1.25 is :0.6271182488623714
+FuzzyVariable         -> temperature [ 0.0, 100.0 ] C
+Linguistic Expression -> ???
+FuzzySet              -> { 0/1 0.06/1.1 0.13/1.2 0.22/1.3 0.32/1.4 0.42/1.5 0.53/1.6 0.64/1.7 0.76/1.8 0.88/1.9 1/2 0.88/2.1 0.76/2.2 0.64/2.3 0.53/2.4 0.42/2.5 0.32/2.6 0.22/2.7 0.13/2.8 0.06/2.9 0/3 }
+(PLUS modifier) Value at x=1.25 is :0.17788645117148502
+FuzzyVariable         -> temperature [ 0.0, 100.0 ] C
+Linguistic Expression -> ???
+FuzzySet              -> { 0/1 1/2 0/3 }
+(NORM modifier) Value at x=1.25 is :0.25
+FuzzyVariable         -> temperature [ 0.0, 100.0 ] C
+Linguistic Expression -> ???
+FuzzySet              -> { 0/1 0.02/1.1 0.05/1.15 0.11/1.2 0.19/1.25 0.29/1.3 0.43/1.35 0.59/1.4 0.74/1.45 0.85/1.5 0.93/1.55 0.98/1.6 1/1.65 0.99/1.67 0.97/1.7 0.91/1.73 0.83/1.77 0.71/1.8 0.55/1.83 0.36/1.87 0.21/1.9 0.12/1.92 0.05/1.95 0.01/1.98 0/2 0.01/2.02 0.05/2.05 0.12/2.08 0.21/2.1 0.36/2.13 0.55/2.17 0.71/2.2 0.83/2.23 0.91/2.27 0.97/2.3 0.99/2.33 1/2.35 0.98/2.4 0.93/2.45 0.85/2.5 0.74/2.55 0.59/2.6 0.43/2.65 0.29/2.7 0.19/2.75 0.11/2.8 0.05/2.85 0.02/2.9 0/3 }
+(SLIGHTLY modifier) Value at x=1.25 is :0.1881796918636813
+
+Fuzzy Value: temperature
+Linguistic Value: ??? (.),  ??? (+)
+
+ 1.00               +++       .       +++               
+ 0.95              +   +     . .     +   +              
+ 0.90             +        ..   ..        +             
+ 0.85                   + .       . +                   
+ 0.80            +       .         .       +            
+ 0.75                   .           .                   
+ 0.70           +     .. +         + ..     +           
+ 0.65                .                 .                
+ 0.60          +    .                   .    +          
+ 0.55              .                     .              
+ 0.50            ..       +       +       ..            
+ 0.45         + .                           . +         
+ 0.40          .                             .          
+ 0.35        +.                               .+        
+ 0.30       ..             +     +             ..       
+ 0.25      .+                                   +.      
+ 0.20     .                                       .     
+ 0.15    . +                +   +                + .    
+ 0.10  .. +                                       + ..  
+ 0.05 . ++                   + +                   ++ . 
+ 0.00+++                      +                      +++
+     |----|----|----|----|----|----|----|----|----|----|
+    1.00      1.40      1.80      2.20      2.60      3.00   
+maxmin of slightly fval and fval = 0.780429042775165
+match of slightly fval and fval at threshold 0.8 = false
+match of slightly fval and fval at threshold 0.75 = true
+
+Support of 'slightly' fval is: (1, 2)  (2, 3)   
+Weak Alpha cut at 0.0 is: [0, 100]  
+Weak Alpha cut at 0.52 is: [1.37719, 1.83789]  [2.16211, 2.62281]   
+Strong Alpha cut at 0.52 is: (1.37719, 1.83789)  (2.16211, 2.62281)   
+
+FuzzyVariable         -> temperature [ 0.0, 100.0 ] C
+Linguistic Expression -> ???
+FuzzySet              -> { 0/1 0.02/1.1 0.08/1.2 0.18/1.3 0.32/1.4 0.5/1.5 0.68/1.6 0.82/1.7 0.92/1.8 0.98/1.9 1/2 0.98/2.1 0.92/2.2 0.82/2.3 0.68/2.4 0.5/2.5 0.32/2.6 0.18/2.7 0.08/2.8 0.02/2.9 0/3 }
+(INTENSIFY modifier) Value at x=1.25 is :0.13000000000000003
+Fuzzy Value: temperature
+Linguistic Value: ??? (*),  ??? (+)
+
+ 1.00                   +++                             
+ 0.95                                                   
+ 0.90                  +* *+                            
+ 0.85                                                   
+ 0.80                 +*   *+                           
+ 0.75                                                   
+ 0.70                +*     *+                          
+ 0.65                                                   
+ 0.60                *       *                          
+ 0.55                                                   
+ 0.50               +         +                         
+ 0.45                                                   
+ 0.40              *           *                        
+ 0.35                                                   
+ 0.30             *+           +*                       
+ 0.25                                                   
+ 0.20            *+             +*                      
+ 0.15                                                   
+ 0.10           *+               +*                     
+ 0.05                                                   
+ 0.00++++++++++++                 ++++++++++++++++++++++
+     |----|----|----|----|----|----|----|----|----|----|
+    0.00      1.00      2.00      3.00      4.00      5.00   
+
+FuzzyVariable         -> temperature [ 0.0, 100.0 ] C
+Linguistic Expression -> ???
+FuzzySet              -> { 0/2 1/3 }
+(ABOVE modifier) Value at x=1.25 is :0.0
+FuzzyVariable         -> temperature [ 0.0, 100.0 ] C
+Linguistic Expression -> ???
+FuzzySet              -> { 1/1 0/2 }
+(BELOW modifier) Value at x=1.25 is :0.75
+FuzzyVariable         -> temperature [ 0.0, 100.0 ] C
+Linguistic Expression -> ???
+FuzzySet              -> { 0/1 0.01/1.1 0.04/1.2 0.09/1.3 0.16/1.4 0.25/1.5 0.36/1.6 0.49/1.7 0.64/1.8 0.81/1.9 1/2 0.81/2.1 0.64/2.2 0.49/2.3 0.36/2.4 0.25/2.5 0.16/2.6 0.09/2.7 0.04/2.8 0.01/2.9 0/3 }
+(VERY modifier) Value at x=1.25 is :0.06500000000000002
+Membership value at 27.5 of 'very hot or cold' is 0.06500000000000002
+FuzzyVariable         -> temperature [ 0.0, 100.0 ] C
+Linguistic Expression -> very hot or cold
+FuzzySet              -> { 1/5 0/15 0/25 0.01/26 0.04/27 0.09/28 0.16/29 0.25/30 0.36/31 0.49/32 0.64/33 0.81/34 1/35 }
+Fuzzy Value: temperature
+Linguistic Value: very hot or cold (+)
+
+ 1.00+++++++                                     +++++++
+ 0.95       +                                           
+ 0.90                                           +       
+ 0.85        +                                          
+ 0.80         +                                         
+ 0.75                                          +        
+ 0.70          +                                        
+ 0.65                                                   
+ 0.60           +                             +         
+ 0.55            +                                      
+ 0.50                                        +          
+ 0.45             +                                     
+ 0.40              +                        +           
+ 0.35                                                   
+ 0.30               +                      +            
+ 0.25                                                   
+ 0.20                +                    +             
+ 0.15                 +                  +              
+ 0.10                                   +               
+ 0.05                  +               +                
+ 0.00                   +++++++++++++++                 
+     |----|----|----|----|----|----|----|----|----|----|
+    0.00      8.00     16.00     24.00     32.00     40.00   
+Fuzzy Value: temperature
+Linguistic Value: very hot or cold (*),  medium (+)
+
+ 1.00*******            +++++++++++++            *******
+ 0.95       *          +             +                  
+ 0.90                                           *       
+ 0.85        *        +               +                 
+ 0.80         *      +                 +                
+ 0.75                                          *        
+ 0.70          *    +                   +               
+ 0.65                                                   
+ 0.60           *  +                     +    *         
+ 0.55            *+                       +             
+ 0.50                                        *          
+ 0.45            +*                        +            
+ 0.40           +  *                        +           
+ 0.35                                                   
+ 0.30          +    *                      * +          
+ 0.25                                                   
+ 0.20         +      *                    *   +         
+ 0.15        +        *                  *     +        
+ 0.10                                   *               
+ 0.05       +          *               *        +       
+ 0.00+++++++            ***************          +++++++
+     |----|----|----|----|----|----|----|----|----|----|
+    0.00      8.00     16.00     24.00     32.00     40.00   
+FuzzyVariable         -> temperature [ 0.0, 100.0 ] C
+Linguistic Expression -> ???
+FuzzySet              -> { 1/5 0/15 0/25 0.01/26 0.04/27 0.09/28 0.16/29 0.25/30 0.36/31 0.49/32 0.64/33 0.81/34 1/35 }
+Membership value at 27.5 of union of 'very hot or cold' and 'medium' is 0.06500000000000002
+
+
+0.0
+Fuzzy Value: temperature
+Linguistic Value: ??? (+)
+
+ 1.00                        +++                        
+ 0.95                       +   +                       
+ 0.90                      +     +                      
+ 0.85                                                   
+ 0.80                     +       +                     
+ 0.75                                                   
+ 0.70                    +         +                    
+ 0.65                                                   
+ 0.60                                                   
+ 0.55                   +           +                   
+ 0.50                                                   
+ 0.45                                                   
+ 0.40                  +             +                  
+ 0.35                                                   
+ 0.30                                                   
+ 0.25                 +               +                 
+ 0.20                                                   
+ 0.15                +                 +                
+ 0.10               +                   +               
+ 0.05              +                     +              
+ 0.00++++++++++++++                       ++++++++++++++
+     |----|----|----|----|----|----|----|----|----|----|
+   30.00     38.00     46.00     54.00     62.00     70.00   
+
+FuzzyVariable         -> temperature [ 0.0, 100.0 ] C
+Linguistic Expression -> ???
+FuzzySet              -> { 1/10 0.98/14 0.92/18 0.82/22 0.68/26 0.5/30 0.32/34 0.18/38 0.08/42 0.02/46 0/50 }
+Membership value at 27.5 is 0.6124999999999999
+Fuzzy Value: temperature
+Linguistic Value: ??? (+)
+
+ 1.00++++++++++++                                       
+ 0.95            +++                                    
+ 0.90               ++                                  
+ 0.85                 ++                                
+ 0.80                   +                               
+ 0.75                    +                              
+ 0.70                     +                             
+ 0.65                      +                            
+ 0.60                       +                           
+ 0.55                        +                          
+ 0.50                         +                         
+ 0.45                          +                        
+ 0.40                           +                       
+ 0.35                            +                      
+ 0.30                             +                     
+ 0.25                              +                    
+ 0.20                               +                   
+ 0.15                                ++                 
+ 0.10                                  ++               
+ 0.05                                    +++            
+ 0.00                                       ++++++++++++
+     |----|----|----|----|----|----|----|----|----|----|
+    0.00     12.00     24.00     36.00     48.00     60.00   
+
+FuzzyVariable         -> temperature [ 0.0, 100.0 ] C
+Linguistic Expression -> ???
+FuzzySet              -> { 0/10 1/10 1/50 0/50 }
+Membership value at 9.999 is 0.0
+Membership value at 10 is 1.0
+Membership value at 27.5 is 1.0
+Membership value at 50 is 1.0
+Fuzzy Value: temperature
+Linguistic Value: ??? (+)
+
+ 1.00     +++++++++++++++++++++++++++++++++++++++++     
+ 0.95     +                                       +     
+ 0.90     +                                       +     
+ 0.85     +                                       +     
+ 0.80     +                                       +     
+ 0.75     +                                       +     
+ 0.70     +                                       +     
+ 0.65     +                                       +     
+ 0.60     +                                       +     
+ 0.55     +                                       +     
+ 0.50     +                                       +     
+ 0.45     +                                       +     
+ 0.40     +                                       +     
+ 0.35     +                                       +     
+ 0.30     +                                       +     
+ 0.25     +                                       +     
+ 0.20     +                                       +     
+ 0.15     +                                       +     
+ 0.10     +                                       +     
+ 0.05     +                                       +     
+ 0.00++++++                                       ++++++
+     |----|----|----|----|----|----|----|----|----|----|
+    5.00     15.00     25.00     35.00     45.00     55.00   
+Moment defuzzify is 30.0
+Moment defuzzify is 30.0
+Maximum defuzzify is 30.0
+COA defuzzify is 30.0
+
+FuzzyVariable         -> temperature [ 0.0, 100.0 ] C
+Linguistic Expression -> ???
+FuzzySet              -> { 0/10 1/15 1/30 0/50 }
+1.0
+Fuzzy Value: temperature
+Linguistic Value: ??? (+)
+
+ 1.00          ++++++++++++++++                         
+ 0.95                          +                        
+ 0.90                           +                       
+ 0.85                            +                      
+ 0.80         +                   +                     
+ 0.75                              +                    
+ 0.70                               +                   
+ 0.65                                +                  
+ 0.60        +                        +                 
+ 0.55                                  +                
+ 0.50                                   +               
+ 0.45                                    +              
+ 0.40       +                             +             
+ 0.35                                      +            
+ 0.30                                       +           
+ 0.25                                        +          
+ 0.20      +                                  +         
+ 0.15                                          +        
+ 0.10                                           +       
+ 0.05                                            +      
+ 0.00++++++                                       ++++++
+     |----|----|----|----|----|----|----|----|----|----|
+    5.00     15.00     25.00     35.00     45.00     55.00   
+Moment defuzzify is 26.818181818181817
+Moment defuzzify is 26.818181818181817
+Maximum defuzzify is 22.5
+COA defuzzify is 26.25
+
+FuzzyVariable         -> temperature [ 0.0, 100.0 ] C
+Linguistic Expression -> ???
+FuzzySet              -> { 0/10 0.03/10.62 0.12/11.25 0.28/11.88 0.5/12.5 0.72/13.12 0.88/13.75 0.97/14.38 1/15 1/30 0.97/32.5 0.88/35 0.72/37.5 0.5/40 0.28/42.5 0.12/45 0.03/47.5 0/50 }
+Membership at 27.5 is 1.0
+Fuzzy Value: temperature
+Linguistic Value: ??? (+)
+
+ 1.00      ++++++++++++++++++++++                       
+ 0.95                            ++                     
+ 0.90     +                        ++                   
+ 0.85                                +                  
+ 0.80                                 +                 
+ 0.75    +                             +                
+ 0.70                                   +               
+ 0.65                                                   
+ 0.60                                    +              
+ 0.55                                     +             
+ 0.50                                                   
+ 0.45   +                                  +            
+ 0.40                                       +           
+ 0.35                                        +          
+ 0.30                                                   
+ 0.25                                         +         
+ 0.20  +                                       +        
+ 0.15                                           +       
+ 0.10                                            ++     
+ 0.05 +                                            ++   
+ 0.00+                                               +++
+     |----|----|----|----|----|----|----|----|----|----|
+   10.00     18.00     26.00     34.00     42.00     50.00   
+
+FuzzyVariable         -> temperature [ 0.0, 100.0 ] C
+Linguistic Expression -> ???
+FuzzySet              -> { 0/0 0.9/0 1/1 0.88/2.25 0.5/3.5 0.12/4.75 0/6 }
+{ 0/-4 0.12/-2.75 0.5/-1.5 0.88/-0.25 1/1 0.88/2.25 0.5/3.5 0.12/4.75 0/6 }
+Fuzzy Value: temperature
+Linguistic Value: ??? (+)
+
+ 1.00    +++                                            
+ 0.95  ++   ++                                          
+ 0.90++       +++                                       
+ 0.85+           +                                      
+ 0.80+                                                  
+ 0.75+            +                                     
+ 0.70+             +                                    
+ 0.65+              +                                   
+ 0.60+               +                                  
+ 0.55+                +                                 
+ 0.50+                                                  
+ 0.45+                 +                                
+ 0.40+                  +                               
+ 0.35+                   +                              
+ 0.30+                    +                             
+ 0.25+                     +                            
+ 0.20+                                                  
+ 0.15+                      +                           
+ 0.10+                       +++                        
+ 0.05+                          ++                      
+ 0.00+                            ++++++++++++++++++++++
+     |----|----|----|----|----|----|----|----|----|----|
+    0.00      2.00      4.00      6.00      8.00     10.00   
+
+FuzzyVariable         -> temperature [ 0.0, 100.0 ] C
+Linguistic Expression -> ???
+FuzzySet              -> { 0/94 0.12/95.25 0.5/96.5 0.88/97.75 1/99 0.9/100 0/100 }
+{ 0/94 0.12/95.25 0.5/96.5 0.88/97.75 1/99 0.88/100.25 0.5/101.5 0.12/102.75 0/104 }
+Fuzzy Value: temperature
+Linguistic Value: ??? (+)
+
+ 1.00                                            +++    
+ 0.95                                          ++   ++  
+ 0.90                                       +++       ++
+ 0.85                                      +           +
+ 0.80                                                  +
+ 0.75                                     +            +
+ 0.70                                    +             +
+ 0.65                                   +              +
+ 0.60                                  +               +
+ 0.55                                 +                +
+ 0.50                                                  +
+ 0.45                                +                 +
+ 0.40                               +                  +
+ 0.35                              +                   +
+ 0.30                             +                    +
+ 0.25                            +                     +
+ 0.20                                                  +
+ 0.15                           +                      +
+ 0.10                        +++                       +
+ 0.05                      ++                          +
+ 0.00++++++++++++++++++++++                            +
+     |----|----|----|----|----|----|----|----|----|----|
+   90.00     92.00     94.00     96.00     98.00    100.00   
+Moment is 98.0407608695652
+Moment is 98.0407608695652
+COA defuzzify is 98.19238815542512
+Maximum defuzzify is 99.0
+
+Plot horizontalIntersction, horizontalUnion and fuzzyScale at 0.75
+Fuzzy Value: temperature
+Linguistic Value: ??? (+)
+
+ 1.00                                                   
+ 0.95                                                   
+ 0.90                                                   
+ 0.85                                                   
+ 0.80                                                   
+ 0.75                                     ++++++++++++++
+ 0.70                                    +             +
+ 0.65                                   +              +
+ 0.60                                  +               +
+ 0.55                                 +                +
+ 0.50                                                  +
+ 0.45                                +                 +
+ 0.40                               +                  +
+ 0.35                              +                   +
+ 0.30                             +                    +
+ 0.25                            +                     +
+ 0.20                                                  +
+ 0.15                           +                      +
+ 0.10                        +++                       +
+ 0.05                      ++                          +
+ 0.00++++++++++++++++++++++                            +
+     |----|----|----|----|----|----|----|----|----|----|
+   90.00     92.00     94.00     96.00     98.00    100.00   
+Fuzzy Value: temperature
+Linguistic Value: ??? (+)
+
+ 1.00                                            +++    
+ 0.95                                          ++   ++  
+ 0.90                                       +++       ++
+ 0.85                                      +           +
+ 0.80                                                  +
+ 0.75++++++++++++++++++++++++++++++++++++++            +
+ 0.70                                                   
+ 0.65                                                   
+ 0.60                                                   
+ 0.55                                                   
+ 0.50                                                   
+ 0.45                                                   
+ 0.40                                                   
+ 0.35                                                   
+ 0.30                                                   
+ 0.25                                                   
+ 0.20                                                   
+ 0.15                                                   
+ 0.10                                                   
+ 0.05                                                   
+ 0.00                                                   
+     |----|----|----|----|----|----|----|----|----|----|
+   90.00     92.00     94.00     96.00     98.00    100.00   
+Fuzzy Value: temperature
+Linguistic Value: ??? (+)
+
+ 1.00                                                   
+ 0.95                                                   
+ 0.90                                                   
+ 0.85                                                   
+ 0.80                                                   
+ 0.75                                            +++    
+ 0.70                                        ++++   ++++
+ 0.65                                       +          +
+ 0.60                                     ++           +
+ 0.55                                    +             +
+ 0.50                                   +              +
+ 0.45                                  +               +
+ 0.40                                 +                +
+ 0.35                                +                 +
+ 0.30                               +                  +
+ 0.25                              +                   +
+ 0.20                             +                    +
+ 0.15                           ++                     +
+ 0.10                         ++                       +
+ 0.05                      +++                         +
+ 0.00++++++++++++++++++++++                            +
+     |----|----|----|----|----|----|----|----|----|----|
+   90.00     92.00     94.00     96.00     98.00    100.00   
+
+Support is: (94, 100]  
+Weak Alpha cut at 0.0 is: [0, 100]  
+Weak Alpha cut at 0.52 is: [96.56667, 100]  
+
+non intersection of hot and cold is true
+
+NO intersection test of hot and cold is true
+
+non intersection test of hot and medium is false
+
+NO intersection test of hot and medium is false
+
+Starting loop 1
+Starting loop 2
+Starting loop 3
+Ending all loops
+
+non intersection test of hot and not hot is false
+NO intersection test of hot and not hot is false
+non intersection of S30-40 and Z10-30 is true
+NO intersection of S30-40 and Z10-30 is false
+non intersection of RectangleFuzzySet30-40 and RectangleFuzzySet10-30 is false
+NO intersection of RectangleFuzzySet30-40 and RectangleFuzzySet10-30 is false
+Starting loop 1
+Starting loop 2
+Starting loop 3
+Ending all loops
+
+Medium is ... FuzzyVariable         -> temperature [ 0.0, 100.0 ] C
+Linguistic Expression -> medium
+FuzzySet              -> { 0/5 1/15 1/25 0/35 }
+Very medium is ... FuzzyVariable         -> temperature [ 0.0, 100.0 ] C
+Linguistic Expression -> very medium
+FuzzySet              -> { 0/5 0.01/6 0.04/7 0.09/8 0.16/9 0.25/10 0.36/11 0.49/12 0.64/13 0.81/14 1/15 1/25 0.81/26 0.64/27 0.49/28 0.36/29 0.25/30 0.16/31 0.09/32 0.04/33 0.01/34 0/35 }
+Linguistic value of temp term "medium" is: medium
+Linguistic value of Rule antecedent 0 is: hot
+Linguistic value of Rule antecedent 0 (after rule fires) is: hot
+Fuzzy Value: temperature
+Linguistic Value: hot (*),  very medium (+)
+
+ 1.00               +++++++++++         ****************
+ 0.95                                                   
+ 0.90                                  *                
+ 0.85                                                   
+ 0.80              +           +      *                 
+ 0.75                                                   
+ 0.70                                *                  
+ 0.65             +             +                       
+ 0.60                               *                   
+ 0.55                                                   
+ 0.50            +               + *                    
+ 0.45                                                   
+ 0.40                             *                     
+ 0.35           +                 +                     
+ 0.30                            *                      
+ 0.25          +                   +                    
+ 0.20                           *                       
+ 0.15         +                     +                   
+ 0.10        +                 *     +                  
+ 0.05       +                         +                 
+ 0.00+++++++*******************        +++++++++++++++++
+     |----|----|----|----|----|----|----|----|----|----|
+    0.00     10.00     20.00     30.00     40.00     50.00   
+Fuzzy Value: pressure
+Linguistic Value: ??? (*)
+
+ 1.00                                                   
+ 0.95                                                   
+ 0.90                                                   
+ 0.85                                                   
+ 0.80                                                   
+ 0.75                                                   
+ 0.70                                                   
+ 0.65                                                   
+ 0.60                                                   
+ 0.55                                                   
+ 0.50                                                   
+ 0.45                                                   
+ 0.40*********************************                  
+ 0.35                                                   
+ 0.30                                 *                 
+ 0.25                                                   
+ 0.20                                                   
+ 0.15                                  *                
+ 0.10                                   *               
+ 0.05                                    *              
+ 0.00                                     **************
+     |----|----|----|----|----|----|----|----|----|----|
+    0.00      2.00      4.00      6.00      8.00     10.00   
+Fuzzy Value: pressure
+Linguistic Value: low or medium (*)
+
+ 1.00************             *                         
+ 0.95            *           * *                        
+ 0.90             *        **   **                      
+ 0.85              *                                    
+ 0.80                                                   
+ 0.75               *     *       *                     
+ 0.70                                                   
+ 0.65                *   *         *                    
+ 0.60                                                   
+ 0.55                 * *           *                   
+ 0.50                                                   
+ 0.45                  **                               
+ 0.40                                *                  
+ 0.35                                                   
+ 0.30                                 *                 
+ 0.25                                                   
+ 0.20                                                   
+ 0.15                                  *                
+ 0.10                                   *               
+ 0.05                                    *              
+ 0.00                                     **************
+     |----|----|----|----|----|----|----|----|----|----|
+    0.00      2.00      4.00      6.00      8.00     10.00   
+Firing rule many times ... 1157633734937
+Fired rule many times ... 1157633734953
+Fuzzy Value: pressure
+Linguistic Value: ??? (*)
+
+ 1.00                                                   
+ 0.95                                                   
+ 0.90                                                   
+ 0.85                                                   
+ 0.80                                                   
+ 0.75                                                   
+ 0.70                                                   
+ 0.65                                                   
+ 0.60                                                   
+ 0.55                                                   
+ 0.50                                                   
+ 0.45                                                   
+ 0.40************             *                         
+ 0.35            ***       *** ***                      
+ 0.30               *     *       *                     
+ 0.25                *   *         *                    
+ 0.20                 * *           *                   
+ 0.15                  **            *                  
+ 0.10                                 *                 
+ 0.05                                  **               
+ 0.00                                    ***************
+     |----|----|----|----|----|----|----|----|----|----|
+    0.00      2.00      4.00      6.00      8.00     10.00   
+Firing rule with Tsukamoto rule executor ... 
+Output FuzzySet result with Tsukamoto rule executor ... FuzzyVariable         -> pressure [ 0.0, 10.0 ] kilo-pascals
+Linguistic Expression -> ???
+FuzzySet              -> { 0/6.45 0.38/6.45 0/6.45 }
+Fuzzy Value: pressure
+Linguistic Value: ??? (*)
+
+ 1.00                                                   
+ 0.95                                                   
+ 0.90                                                   
+ 0.85                                                   
+ 0.80                                                   
+ 0.75                                                   
+ 0.70                                                   
+ 0.65                                                   
+ 0.60                                                   
+ 0.55                                                   
+ 0.50                                                   
+ 0.45                                                   
+ 0.40                                 *                 
+ 0.35                                 *                 
+ 0.30                                 *                 
+ 0.25                                 *                 
+ 0.20                                 *                 
+ 0.15                                 *                 
+ 0.10                                 *                 
+ 0.05                                 *                 
+ 0.00***************************************************
+     |----|----|----|----|----|----|----|----|----|----|
+    0.00      2.00      4.00      6.00      8.00     10.00   
+
+******** SimilarityByPossibility *****************
+
+Similarity of 'temp very medium' and 'temp hot' is: 0.19130434782608696
+
+Similarity of 'temp very medium' and 'temp very medium' is (should be 1.0): 1.0
+
+Similarity of 'temp hot' and 'temp hot' is (should be 1.0): 1.0
+
+Similarity of 'pressure low or medium' and 'pressure low or medium' is (should be 1.0): 1.0
+
+Fuzzy Value: Temporal Association
+Linguistic Value: ??? (*)
+
+ 1.00*                                                  
+ 0.95**                                                 
+ 0.90* **                                               
+ 0.85*   *                                              
+ 0.80*    *                                             
+ 0.75*     *                                            
+ 0.70*      **                                          
+ 0.65*        *                                         
+ 0.60*         *                                        
+ 0.55*          *                                       
+ 0.50*           **                                     
+ 0.45*             *                                    
+ 0.40*              *                                   
+ 0.35*               *                                  
+ 0.30*                **                                
+ 0.25*                  *                               
+ 0.20*                   *                              
+ 0.15*                    *                             
+ 0.10*                     **                           
+ 0.05*                       *                          
+ 0.00*                        **************************
+     |----|----|----|----|----|----|----|----|----|----|
+    0.00      0.20      0.40      0.60      0.80      1.00   
+Fuzzy Value: Temporal Association
+Linguistic Value: ??? (*)
+
+ 1.00*                        **************************
+ 0.95*                       *                          
+ 0.90*                     **                           
+ 0.85*                    *                             
+ 0.80*                   *                              
+ 0.75*                  *                               
+ 0.70*                **                                
+ 0.65*               *                                  
+ 0.60*              *                                   
+ 0.55*             *                                    
+ 0.50*           **                                     
+ 0.45*          *                                       
+ 0.40*         *                                        
+ 0.35*        *                                         
+ 0.30*      **                                          
+ 0.25*     *                                            
+ 0.20*    *                                             
+ 0.15*   *                                              
+ 0.10* **                                               
+ 0.05**                                                 
+ 0.00*                                                  
+     |----|----|----|----|----|----|----|----|----|----|
+    0.00      0.20      0.40      0.60      0.80      1.00   
+
+ Similarity between two fuzzy values (should be 1.0): 1.0
+
+possibility = 1.0
+
+necessity = 0.0
+
+Fuzzy Value: Bug test2
+Linguistic Value: ??? (*)
+
+ 1.00     ***********                                   
+ 0.95     *         *                                   
+ 0.90     *         *                                   
+ 0.85     *         *                                   
+ 0.80     *         *                                   
+ 0.75     *         *                                   
+ 0.70     *         *                                   
+ 0.65     *         *                                   
+ 0.60     *         *                                   
+ 0.55     *         *                                   
+ 0.50     *         *                                   
+ 0.45     *         *                                   
+ 0.40     *         *                                   
+ 0.35     *         *                                   
+ 0.30     *         *                                   
+ 0.25     *         *                                   
+ 0.20     *         *                                   
+ 0.15     *         *                                   
+ 0.10     *         *                                   
+ 0.05     *         *                                   
+ 0.00******         ************************************
+     |----|----|----|----|----|----|----|----|----|----|
+    0.00      0.20      0.40      0.60      0.80      1.00   
+Fuzzy Value: Bug test2
+Linguistic Value: ??? (*)
+
+ 1.00******         ************************************
+ 0.95     *         *                                   
+ 0.90     *         *                                   
+ 0.85     *         *                                   
+ 0.80     *         *                                   
+ 0.75     *         *                                   
+ 0.70     *         *                                   
+ 0.65     *         *                                   
+ 0.60     *         *                                   
+ 0.55     *         *                                   
+ 0.50     *         *                                   
+ 0.45     *         *                                   
+ 0.40     *         *                                   
+ 0.35     *         *                                   
+ 0.30     *         *                                   
+ 0.25     *         *                                   
+ 0.20     *         *                                   
+ 0.15     *         *                                   
+ 0.10     *         *                                   
+ 0.05     *         *                                   
+ 0.00     ***********                                   
+     |----|----|----|----|----|----|----|----|----|----|
+    0.00      0.20      0.40      0.60      0.80      1.00   
+Fuzzy Value: Bug test2
+Linguistic Value: ??? (*)
+
+ 1.00     *         *                                   
+ 0.95     *         *                                   
+ 0.90     *         *                                   
+ 0.85     *         *                                   
+ 0.80     *         *                                   
+ 0.75     *         *                                   
+ 0.70     *         *                                   
+ 0.65     *         *                                   
+ 0.60     *         *                                   
+ 0.55     *         *                                   
+ 0.50     *         *                                   
+ 0.45     *         *                                   
+ 0.40     *         *                                   
+ 0.35     *         *                                   
+ 0.30     *         *                                   
+ 0.25     *         *                                   
+ 0.20     *         *                                   
+ 0.15     *         *                                   
+ 0.10     *         *                                   
+ 0.05     *         *                                   
+ 0.00***************************************************
+     |----|----|----|----|----|----|----|----|----|----|
+    0.00      0.20      0.40      0.60      0.80      1.00   
+
+ Similarity between two fuzzy values (should be 1.0): 1.0
+
+possibility = 1.0
+
+necessity = 0.0
+
+ Similarity between two fuzzy values (should be close to 0.0??): 0.25
+
+ Similarity between two fuzzy values (should be exactly 0.0): 0.5
+
+****************************************
+
+
+******repeat with similarityByArea************
+
+Similarity of 'temp very medium' and 'temp hot' is: 0.017922500880555803
+
+Similarity of 'temp very medium' and 'temp very medium' is (should be 1.0): 1.0
+
+Similarity of 'temp hot' and 'temp hot' is (should be 1.0): 1.0
+
+Similarity of 'pressure low or medium' and 'pressure low or medium' is (should be 1.0): 1.0
+Fuzzy Value: Temporal Association
+Linguistic Value: ??? (*)
+
+ 1.00*                                                  
+ 0.95**                                                 
+ 0.90* **                                               
+ 0.85*   *                                              
+ 0.80*    *                                             
+ 0.75*     *                                            
+ 0.70*      **                                          
+ 0.65*        *                                         
+ 0.60*         *                                        
+ 0.55*          *                                       
+ 0.50*           **                                     
+ 0.45*             *                                    
+ 0.40*              *                                   
+ 0.35*               *                                  
+ 0.30*                **                                
+ 0.25*                  *                               
+ 0.20*                   *                              
+ 0.15*                    *                             
+ 0.10*                     **                           
+ 0.05*                       *                          
+ 0.00*                        **************************
+     |----|----|----|----|----|----|----|----|----|----|
+    0.00      0.20      0.40      0.60      0.80      1.00   
+Fuzzy Value: Temporal Association
+Linguistic Value: ??? (*)
+
+ 1.00*                        **************************
+ 0.95*                       *                          
+ 0.90*                     **                           
+ 0.85*                    *                             
+ 0.80*                   *                              
+ 0.75*                  *                               
+ 0.70*                **                                
+ 0.65*               *                                  
+ 0.60*              *                                   
+ 0.55*             *                                    
+ 0.50*           **                                     
+ 0.45*          *                                       
+ 0.40*         *                                        
+ 0.35*        *                                         
+ 0.30*      **                                          
+ 0.25*     *                                            
+ 0.20*    *                                             
+ 0.15*   *                                              
+ 0.10* **                                               
+ 0.05**                                                 
+ 0.00*                                                  
+     |----|----|----|----|----|----|----|----|----|----|
+    0.00      0.20      0.40      0.60      0.80      1.00   
+
+ Similarity between two fuzzy values (should be 1.0): 1.0
+Fuzzy Value: Bug test2
+Linguistic Value: ??? (*)
+
+ 1.00     ***********                                   
+ 0.95     *         *                                   
+ 0.90     *         *                                   
+ 0.85     *         *                                   
+ 0.80     *         *                                   
+ 0.75     *         *                                   
+ 0.70     *         *                                   
+ 0.65     *         *                                   
+ 0.60     *         *                                   
+ 0.55     *         *                                   
+ 0.50     *         *                                   
+ 0.45     *         *                                   
+ 0.40     *         *                                   
+ 0.35     *         *                                   
+ 0.30     *         *                                   
+ 0.25     *         *                                   
+ 0.20     *         *                                   
+ 0.15     *         *                                   
+ 0.10     *         *                                   
+ 0.05     *         *                                   
+ 0.00******         ************************************
+     |----|----|----|----|----|----|----|----|----|----|
+    0.00      0.20      0.40      0.60      0.80      1.00   
+Fuzzy Value: Bug test2
+Linguistic Value: ??? (*)
+
+ 1.00******         ************************************
+ 0.95     *         *                                   
+ 0.90     *         *                                   
+ 0.85     *         *                                   
+ 0.80     *         *                                   
+ 0.75     *         *                                   
+ 0.70     *         *                                   
+ 0.65     *         *                                   
+ 0.60     *         *                                   
+ 0.55     *         *                                   
+ 0.50     *         *                                   
+ 0.45     *         *                                   
+ 0.40     *         *                                   
+ 0.35     *         *                                   
+ 0.30     *         *                                   
+ 0.25     *         *                                   
+ 0.20     *         *                                   
+ 0.15     *         *                                   
+ 0.10     *         *                                   
+ 0.05     *         *                                   
+ 0.00     ***********                                   
+     |----|----|----|----|----|----|----|----|----|----|
+    0.00      0.20      0.40      0.60      0.80      1.00   
+Fuzzy Value: Bug test2
+Linguistic Value: ??? (*)
+
+ 1.00     *         *                                   
+ 0.95     *         *                                   
+ 0.90     *         *                                   
+ 0.85     *         *                                   
+ 0.80     *         *                                   
+ 0.75     *         *                                   
+ 0.70     *         *                                   
+ 0.65     *         *                                   
+ 0.60     *         *                                   
+ 0.55     *         *                                   
+ 0.50     *         *                                   
+ 0.45     *         *                                   
+ 0.40     *         *                                   
+ 0.35     *         *                                   
+ 0.30     *         *                                   
+ 0.25     *         *                                   
+ 0.20     *         *                                   
+ 0.15     *         *                                   
+ 0.10     *         *                                   
+ 0.05     *         *                                   
+ 0.00***************************************************
+     |----|----|----|----|----|----|----|----|----|----|
+    0.00      0.20      0.40      0.60      0.80      1.00   
+
+ Similarity between two fuzzy values (should be 1.0): 1.0
+
+ Similarity between two fuzzy values (should be close to 0.0??): 5.00000250000625E-7
+
+ Similarity between two fuzzy values (should be exactly 0.0): 0.0
+
+
+********* Odd/unexpected behaviour of simiarity by possibility/necessity *****************
+Fuzzy Value: TestFVar
+Linguistic Value: ??? (*),  ??? (.)
+
+ 1.00*************************..........................
+ 0.95                                                   
+ 0.90                                                   
+ 0.85                                                   
+ 0.80                        . *                        
+ 0.75                                                   
+ 0.70                                                   
+ 0.65                                                   
+ 0.60                       .   *                       
+ 0.55                                                   
+ 0.50                                                   
+ 0.45                                                   
+ 0.40                      .     *                      
+ 0.35                                                   
+ 0.30                                                   
+ 0.25                                                   
+ 0.20                     .       *                     
+ 0.15                                                   
+ 0.10                                                   
+ 0.05                                                   
+ 0.00.....................         *********************
+     |----|----|----|----|----|----|----|----|----|----|
+    0.20      0.22      0.24      0.26      0.28      0.30   
+
+ Similarity using possibility/necessity between two fuzzy values shown above(expect to be close to 0.0): 0.5
+
+ Similarity using area between two fuzzy values shown above(expect to be close to 0.0): 0.010000000000000009
+
+****************************************
+
+Fuzzy Value: Energy
+Linguistic Value: Low (*),  Medium (+),  High (.)
+
+ 1.00*                        +                        .
+ 0.95 **                     + +                     .. 
+ 0.90   *                   +   +                   .   
+ 0.85    *                 +     +                 .    
+ 0.80     *                                       .     
+ 0.75                                                   
+ 0.70      *              +       +              .      
+ 0.65       *                                   .       
+ 0.60                    +         +                    
+ 0.55        *                                 .        
+ 0.50         *         +           +         .         
+ 0.45                                                   
+ 0.40          *       +             +       .          
+ 0.35           *                           .           
+ 0.30            *    +               +    .            
+ 0.25             *                       .             
+ 0.20              * +                 + .              
+ 0.15               +                   .               
+ 0.10              + **               .. +              
+ 0.05            ++    ***         ...    ++            
+ 0.00..............................*********++++++++++++
+     |----|----|----|----|----|----|----|----|----|----|
+    0.00     20.00     40.00     60.00     80.00    100.00   
+test the 'new' defuzzify method 'weightedAverageDefuzzify' with FuzzyValues and a FuzzyValueVector with several FuzzyValues in it
+
+weightedAvg defuzzify is 18.571428571428573, expected 18.57...
+FuzzyVariable         -> temperature [ 0.0, 100.0 ] C
+Linguistic Expression -> ???
+FuzzySet              -> { 0/10 0.5/15 1/20 0/25 1/30 1/35 0/40 }
+weightedAvg defuzzify is 26.428571428571427, expected 26.42857... or 28.3333
+FuzzyVariable         -> temperature [ 0.0, 100.0 ] C
+Linguistic Expression -> ???
+FuzzySet              -> { 0/10 0.5/15 1/20 0/25 1/30 1/35 0/40 }
+(depends whether the fuzzy set was reduced by 1 point - [15, .5] is unnecessary)
+moment defuzzify is 26.428571428571427, expected 26.428571428571427...
+COA defuzzify is 28.535533905932738
+Maximum defuzzify is 28.333333333333332, expected 28.333333
+
+FuzzyVariable         -> temperature [ 0.0, 100.0 ] C
+Linguistic Expression -> ???
+FuzzySet              -> { 0/10 0.5/10 0/10 0/20 1/25 1/30 0.5/40 0/45 }
+weightedAvg defuzzify is 26.666666666666668, expected 26.6666...
+moment defuzzify is 31.15384615384615, expected 31.15384615384615...
+COA defuzzify is 30.635083268962916
+Maximum defuzzify is 27.5, expected 27.5
+weightedAvg defuzzify of FuzzyValueVector is 23.68421052631579, expected 23.68421052631579...
+maximum defuzzify of FuzzyValueVector is 25.0, expected 25.0
+fvv3[0]is:FuzzyVariable         -> temperature [ 0.0, 100.0 ] C
+Linguistic Expression -> ???
+FuzzySet              -> { 0/10 0.5/15 1/20 0/25 1/30 1/35 0/40 }
+fvv3[1]is:FuzzyVariable         -> temperature [ 0.0, 100.0 ] C
+Linguistic Expression -> ???
+FuzzySet              -> { 0/10 0.5/10 0/10 0/20 1/25 1/30 0.5/40 0/45 }
+moment defuzzify of FuzzyValueVector is 28.703703703703702, expected 28.703703703703702...
+
+COA defuzzify of FuzzyValueVector is 29.682458365518542
+fvv3 size is: 2
+FuzzySum of fvv3 is: FuzzyVariable         -> temperature [ 0.0, 100.0 ] C
+Linguistic Expression -> ???
+FuzzySet              -> { 0/10 0.5/10 0/10 0.5/15 1/20 1/25 2/30 1.75/35 1.33/36.67 0.5/40 0/45 }
+Fuzzy Value: temperature
+Linguistic Value: ??? (*)
+
+ 2.00                              **                   
+ 1.90                                **                 
+ 1.80                             *    **               
+ 1.70                                                   
+ 1.60                            *                      
+ 1.50                                    *              
+ 1.40                           *                       
+ 1.30                                                   
+ 1.20                          *          *             
+ 1.10                                                   
+ 1.00                    ******            *            
+ 0.90                   *                               
+ 0.80                  *                                
+ 0.70                 *                     *           
+ 0.60                *                                  
+ 0.50          *    *                        *          
+ 0.40          *   *                          *         
+ 0.30          *  *                            *        
+ 0.20          * *                              *       
+ 0.10          **                                *      
+ 0.00***********                                  ******
+     |----|----|----|----|----|----|----|----|----|----|
+    0.00     10.00     20.00     30.00     40.00     50.00   
+COA defuzzify of fvSum is: 29.682458365518542
+
+Temperature Fuzzy Variable Terms are:
+cold
+medium
+veryhot
+hot
+Temperature Fuzzy Variable Term Values are:
+FuzzyVariable         -> temperature [ 0.0, 100.0 ] C
+Linguistic Expression -> cold
+FuzzySet              -> { 1/5 0/15 }
+FuzzyVariable         -> temperature [ 0.0, 100.0 ] C
+Linguistic Expression -> medium
+FuzzySet              -> { 0/5 1/15 1/25 0/35 }
+FuzzyVariable         -> temperature [ 0.0, 100.0 ] C
+Linguistic Expression -> veryHot
+FuzzySet              -> { 0/25 0.01/26 0.04/27 0.09/28 0.16/29 0.25/30 0.36/31 0.49/32 0.64/33 0.81/34 1/35 }
+FuzzyVariable         -> temperature [ 0.0, 100.0 ] C
+Linguistic Expression -> hot
+FuzzySet              -> { 0/25 1/35 }
+Pressure Fuzzy Variable Terms are:
+low
+medium
+high
+
+Fuzzy Value: temp4
+Linguistic Value: medium (+)
+
+ 1.00                 +++++                             
+ 0.95                +     ++                           
+ 0.90               +        ++                         
+ 0.85                                                   
+ 0.80              +           +                        
+ 0.75                           +                       
+ 0.70                            +                      
+ 0.65             +                                     
+ 0.60                             +                     
+ 0.55            +                 +                    
+ 0.50                               +                   
+ 0.45                                                   
+ 0.40           +                    +                  
+ 0.35                                 +                 
+ 0.30          +                       +                
+ 0.25                                   +               
+ 0.20         +                          +              
+ 0.15                                     +             
+ 0.10       ++                             +++          
+ 0.05      +                                  ++++      
+ 0.00++++++                                       ++++++
+     |----|----|----|----|----|----|----|----|----|----|
+   30.00     42.00     54.00     66.00     78.00     90.00   
+COA defuzzify of 'medium' is 55.63758762996467
+Fuzzy Value: temp4
+Linguistic Value: hot (+)
+
+ 1.00                                    +++++++++++++++
+ 0.95                                  ++               
+ 0.90                                 +                 
+ 0.85                                +                  
+ 0.80                               +                   
+ 0.75                              +                    
+ 0.70                                                   
+ 0.65                             +                     
+ 0.60                            +                      
+ 0.55                           +                       
+ 0.50                                                   
+ 0.45                          +                        
+ 0.40                         +                         
+ 0.35                        +                          
+ 0.30                       +                           
+ 0.25                      +                            
+ 0.20                    ++                             
+ 0.15                   +                               
+ 0.10                 ++                                
+ 0.05            +++++                                  
+ 0.00++++++++++++                                       
+     |----|----|----|----|----|----|----|----|----|----|
+   50.00     58.00     66.00     74.00     82.00     90.00   
+COA defuzzify of 'hot' is 85.3005205179565
+Fuzzy Value: temp4
+Linguistic Value: cold (+)
+
+ 1.00++++++++++++                                       
+ 0.95            ++                                     
+ 0.90              ++                                   
+ 0.85                +                                  
+ 0.80                                                   
+ 0.75                 +                                 
+ 0.70                  +                                
+ 0.65                   +                               
+ 0.60                    +                              
+ 0.55                     +                             
+ 0.50                      +                            
+ 0.45                       +                           
+ 0.40                        +                          
+ 0.35                                                   
+ 0.30                         ++                        
+ 0.25                           +                       
+ 0.20                            +                      
+ 0.15                             ++                    
+ 0.10                               +++                 
+ 0.05                                  ++++             
+ 0.00                                      +++++++++++++
+     |----|----|----|----|----|----|----|----|----|----|
+    0.00     10.00     20.00     30.00     40.00     50.00   
+COA defuzzify of 'cold' is 11.285024995460699
+
+Expecting exception ...
+nrc.fuzzy.NoXValueForMembershipException: The membership value specified had no corresponding x value in the FuzzySet.
+All values in the FuzzySet are either below or above the membership value: 0.5 (or the FuzzySet was empty).
+Expecting exception ...
+nrc.fuzzy.NoXValueForMembershipException: The membership value specified had no corresponding x value in the FuzzySet.
+All values in the FuzzySet are either below or above the membership value: 0.5 (or the FuzzySet was empty).
+Expecting exception ...
+nrc.fuzzy.NoXValueForMembershipException: The membership value specified had no corresponding x value in the FuzzySet.
+All values in the FuzzySet are either below or above the membership value: 0.1 (or the FuzzySet was empty).
+
+getXforMembership: X value expected is 50.0 ... got ...50.0
+getXforMembership: X value expected is 71.157255663 ... got ...71.15725566318326
+getXforMembership: X value expected is 80.0 ... got ...80.0
+getXforMembership: X value expected is 50.0 ... got ...50.0
+getXforMembership: X value expected is 21.8896577068 ... got ...21.889657706807245
+getXforMembership: X value expected is 10.0 ... got ...10.0
+getXforMembership: X value expected is 30.0 ... got ...30.0
+getXforMembership: X value expected is 44.055171146596 ... got ...44.05517114659638
+getXforMembership: X value expected is 50.0 ... got ...50.0
+
+FuzzyVariable         -> temperature [ 0.0, 100.0 ] C
+Linguistic Expression -> ???
+FuzzySet              -> { 0/0 0.5/10 0.5/20 1/30 1/40 0/50 }
+COA defuzzify is 30.0  expecting 30.0
+
+FuzzyVariable         -> temperature [ 0.0, 100.0 ] C
+Linguistic Expression -> ???
+FuzzySet              -> { 1/10 0/50 }
+COA defuzzify is 15.35898384862245  expecting 15.35898384862245
+
+FuzzyVariable         -> temperature [ 0.0, 100.0 ] C
+Linguistic Expression -> ???
+FuzzySet              -> { 1/0 0/40 0/60 1/100 }
+COA defuzzify is 50.0  expecting 40 to 60 (50 is best?)
+Moment defuzzify is 49.999999999999986  expecting 50.0
+
+FuzzyVariable         -> temperature [ 0.0, 100.0 ] C
+Linguistic Expression -> ???
+FuzzySet              -> { 1/20 0/20 0/80 1/80 }
+COA defuzzify is 50.0  expecting 20 to 80 (50 is best?)
+Moment defuzzify is 50.0  expecting 50.0
+
+FuzzyVariable         -> temperature [ 0.0, 100.0 ] C
+Linguistic Expression -> ???
+FuzzySet              -> { 0/1 1/3 0.6/5 0.6/6 0/7 }
+COA defuzzify is 3.816699867329622  expecting 3.816699867329622
+Moment defuzzify is 3.9428571428571435  expecting 3.942857...

@@ -1,0 +1,127 @@
+package fuzzytesting.granddaddytest;
+
+import nrc.fuzzy.*;
+import java.io.FileWriter;
+import java.io.FileReader;
+import java.io.File;
+
+public class FileWriterForVerifiedTests {
+    static final int EOF = -1;
+
+    FileWriter outToResults;
+    FileWriter outToCases;
+    
+    int testNumber;
+    int testNumber2; //for verification
+
+    /**************
+     * Constructor.
+     **************/
+
+    FileWriterForVerifiedTests(File testCases, File testResults){
+        
+        try {
+            outToCases = new FileWriter(testCases.toString(), true);
+            outToResults = new FileWriter(testResults.toString(), true);
+
+            testNumber = extractLastTestNumber(testCases) + 1;
+            testNumber2 = extractLastTestNumber(testResults) + 1;
+            
+            if(testNumber != testNumber2){
+                throw new FilesOutOfSyncException("Verified test case/result files are out of sync...");
+            }    
+
+        } catch(java.io.FileNotFoundException e){
+            System.out.println("Errant file..." + e.getMessage());
+            e.printStackTrace();
+        } catch(java.io.IOException e){
+            System.out.println("IOException..." + e.getMessage());
+            e.printStackTrace();
+        }    
+    }
+
+    /*
+     * Adds another verified test to the verified test case and test result file.
+     */
+
+    public void addVerifiedTest(nrc.fuzzy.FuzzyValue value1, 
+                                    nrc.fuzzy.FuzzyValue value2, 
+                                    TestCaseResult testCase) {
+
+        try {
+            
+            //write to verified cases file
+            outToCases.write("Test #");
+            outToCases.write("" + testNumber + "\n");
+
+            outToCases.write("" + value1.getFuzzySet().toString() + "\n");
+            outToCases.write("" + value2.getFuzzySet().toString() + "\n");
+            outToCases.write("\n");
+            
+            //write to verified results file
+            outToResults.write("Test #");
+            outToResults.write("" + testNumber + "\n");
+            outToResults.write(testCase.toString());
+
+            testNumber++;
+
+        } catch(java.io.IOException e){
+            System.out.println("uh oh...");
+            e.printStackTrace();
+        }    
+    }
+
+    /*
+     * Extracts the number of the last test results committed to the results
+     * file, and returns it.
+     */
+
+    protected int extractLastTestNumber(File file) throws java.io.IOException {
+        try {
+                
+            FileReader in = new FileReader(file);
+            int c = 0;
+            int testNumber = 0;
+
+            while(c != EOF){
+
+                c = in.read();
+
+                if(c == '#'){
+                    StringBuffer temp = new StringBuffer();
+                    c = in.read();
+
+                    while(Character.isDigit((char)c)){
+                        temp.append((char)c);
+                        c = in.read();
+                    }
+
+                    testNumber = (new Integer(temp.toString())).intValue();
+                }
+            }
+
+            in.close();
+
+            return(testNumber);
+
+        } catch(java.io.FileNotFoundException e){
+            System.out.println("" + e.getMessage());
+            e.printStackTrace();
+            return(0);
+        }    
+            
+    }
+
+    /*
+     * Closes the file.
+     */
+
+    public void finishChangesToFile(){
+        try {
+            outToCases.close();
+            outToResults.close();
+        } catch(java.io.IOException e){
+            e.printStackTrace();
+        }    
+    }
+}
