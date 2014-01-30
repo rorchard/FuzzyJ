@@ -14,3 +14,4 @@ To view some examples and the FuzzyJ Documentation go to:
       http://rorchard.github.io/FuzzyJ/
       
 
+To just access the FuzzyJ jar file for use in your projects, select the latest jar file (e.g. FuzzyJ-OpenSource-2.0.jar), then select the 'Raw' button to download the file.
