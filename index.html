@@ -13,21 +13,30 @@ xmlns:ns0="urn:schemas-microsoft-com:office:smarttags">
 <meta name=Generator content="Microsoft Word 2008">
 <meta name=Originator content="Microsoft Word 2008">
 <link rel=File-List href="index_files/filelist.xml">
+<link rel=Edit-Time-Data href="index_files/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
 <title>FuzzyJ Toolkit and FuzzyJess</title>
 <!--[if gte mso 9]><xml>
  <o:DocumentProperties>
   <o:Template>Normal.dotm</o:Template>
   <o:LastAuthor>Bob Orchard</o:LastAuthor>
-  <o:Revision>10</o:Revision>
-  <o:TotalTime>38</o:TotalTime>
+  <o:Revision>11</o:Revision>
+  <o:TotalTime>43</o:TotalTime>
   <o:Created>2014-01-20T18:05:00Z</o:Created>
-  <o:LastSaved>2014-01-30T23:43:00Z</o:LastSaved>
+  <o:LastSaved>2014-02-01T21:13:00Z</o:LastSaved>
   <o:Pages>1</o:Pages>
-  <o:Words>395</o:Words>
-  <o:Characters>2257</o:Characters>
-  <o:Lines>18</o:Lines>
+  <o:Words>435</o:Words>
+  <o:Characters>2483</o:Characters>
+  <o:Lines>20</o:Lines>
   <o:Paragraphs>4</o:Paragraphs>
-  <o:CharactersWithSpaces>2771</o:CharactersWithSpaces>
+  <o:CharactersWithSpaces>3049</o:CharactersWithSpaces>
   <o:Version>12.0</o:Version>
  </o:DocumentProperties>
  <o:OfficeDocumentSettings>
@@ -46,11 +55,6 @@ xmlns:ns0="urn:schemas-microsoft-com:office:smarttags">
   <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
   <w:Compatibility>
    <w:SplitPgBreakAndParaMark/>
-   <w:DontVertAlignCellWithSp/>
-   <w:DontBreakConstrainedForcedTables/>
-   <w:DontVertAlignInTxbx/>
-   <w:Word11KerningPairs/>
-   <w:CachedColBalance/>
    <w:UseFELayout/>
   </w:Compatibility>
  </w:WordDocument>
@@ -100,6 +104,9 @@ p
 span.SpellE
 	{mso-style-name:"";
 	mso-spl-e:yes;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
 @page Section1
 	{size:612.0pt 792.0pt;
 	margin:72.0pt 90.0pt 72.0pt 90.0pt;
@@ -144,9 +151,9 @@ table.MsoNormalTable
 
 <p align=center style='text-align:center'><span class=SpellE><b
 style='mso-bidi-font-weight:normal'><span style='font-size:18.0pt;font-family:
-"Comic Sans MS"'>FuzzyJ</span></b></span><b style='mso-bidi-font-weight:normal'><span
-style='font-size:18.0pt;font-family:"Comic Sans MS"'> <span class=SpellE>ToolKit</span></span></b>
-<br>
+"Comic Sans MS"'>FuzzyJ</span></b></span><b style='mso-bidi-font-weight:normal;
+mso-bidi-font-weight:normal'><span style='font-size:18.0pt;font-family:"Comic Sans MS"'>
+<span class=SpellE>ToolKit</span></span></b> <br>
 <span style='font-size:13.5pt;font-family:"Comic Sans MS"'>for the Java(tm)
 Platform</span> <br>
 <b style='mso-bidi-font-weight:normal;mso-bidi-font-weight:normal'><span
@@ -162,20 +169,21 @@ style='font-size:13.5pt;font-family:"Comic Sans MS"'>Introduction</span></b> </p
 0cm;margin-left:36.0pt;margin-bottom:.0001pt'><span style='mso-bidi-font-family:
 "Times New Roman"'>The <span class=SpellE><b style='mso-bidi-font-weight:normal;
 mso-bidi-font-weight:normal'>FuzzyJ</b></span><b style='mso-bidi-font-weight:
-normal'> Toolkit, </b>originally developed at the <a href="http://www.nrc.ca/">National
-Research Council of Canada</a>, is a set of Java(tm) classes that provide the
-capability for handling fuzzy concepts and reasoning. It is hoped that this
-proves useful for exploring the ideas of fuzzy logic and fuzzy reasoning in a
-Java setting. Much of the work is based on earlier experience building the <a
-href="https://github.com/search?q=FuzzyCLIPS"><span class=SpellE>FuzzyCLIPS</span></a>
-extension to the <a href="http://clipsrules.sourceforge.net/">CLIPS</a> Expert
-System Shell. The toolkit's API can be used standalone to create fuzzy rules
-and do reasoning, however, it can also be used with <a
-href="http://herzberg.ca.sandia.gov/jess/">Jess</a>, the Expert System Shell
-from the <a href="http://www.sandia.gov/">Sandia National Laboratories</a>. The
-integration with Jess, <span class=SpellE><b style='mso-bidi-font-weight:normal;
-mso-bidi-font-weight:normal'>FuzzyJess</b></span>, provides a capability that
-is similar to but in many ways more flexible than <span class=SpellE>FuzzyCLIPS</span>.<o:p></o:p></span></p>
+normal;mso-bidi-font-weight:normal'> Toolkit, </b>originally developed at the <a
+href="http://www.nrc.ca/">National Research Council of Canada</a>, is a set of
+Java(tm) classes that provide the capability for handling fuzzy concepts and
+reasoning. It is hoped that this proves useful for exploring the ideas of fuzzy
+logic and fuzzy reasoning in a Java setting. Much of the work is based on
+earlier experience building the <a href="https://github.com/search?q=FuzzyCLIPS"><span
+class=SpellE>FuzzyCLIPS</span></a> extension to the <a
+href="http://clipsrules.sourceforge.net/">CLIPS</a> Expert System Shell. The
+toolkit's API can be used standalone to create fuzzy rules and do reasoning,
+however, it can also be used with <a href="http://herzberg.ca.sandia.gov/jess/">Jess</a>,
+the Expert System Shell from the <a href="http://www.sandia.gov/">Sandia
+National Laboratories</a>. The integration with Jess, <span class=SpellE><b
+style='mso-bidi-font-weight:normal;mso-bidi-font-weight:normal'>FuzzyJess</b></span>,
+provides a capability that is similar to but in many ways more flexible than <span
+class=SpellE>FuzzyCLIPS</span>.<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-top:0cm;margin-right:72.0pt;margin-bottom:
 0cm;margin-left:72.0pt;margin-bottom:.0001pt'><span style='mso-bidi-font-family:
@@ -185,12 +193,12 @@ is similar to but in many ways more flexible than <span class=SpellE>FuzzyCLIPS<
 "Times New Roman"'>This work is currently at version 2.0 (first Open Source
 version, early 2014). The Open Source version of the toolkit is released under
 the <a href="http://mozilla.org/MPL/2.0/">Mozilla Public <span class=SpellE>Licence</span>
-2.0</a> and is hosted on <a href="https://github.com/rorchard/FuzzyJ/"><span class=SpellE>GitHub</span></a>.
-Please feel free to provide feedback and contribute to the project. This will
-help us shape future versions of the <span class=SpellE>FuzzyJ</span> Toolkit.
-It is hoped that it is possible to maintain and follow Jess revisions with
-minimal effort since the integration with Jess has been carefully planned with
-the Jess author.<o:p></o:p></span></p>
+2.0</a> and is hosted on <a href="https://github.com/rorchard/FuzzyJ/"><span
+class=SpellE>GitHub</span></a>. Please feel free to provide feedback and
+contribute to the project. This will help us shape future versions of the <span
+class=SpellE>FuzzyJ</span> Toolkit. It is hoped that it is possible to maintain
+and follow Jess revisions with minimal effort since the integration with Jess
+has been carefully planned with the Jess author.<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-left:36.0pt'><span style='mso-bidi-font-family:
 "Times New Roman"'><o:p>&nbsp;</o:p></span></p>
@@ -243,7 +251,13 @@ code</a> (balance an inverted pendulum)<o:p></o:p></span></p>
 <p class=MsoNormal style='margin-top:0cm;margin-right:72.0pt;margin-bottom:
 0cm;margin-left:36.0pt;margin-bottom:.0001pt'><span style='mso-bidi-font-family:
 "Times New Roman"'>It may be necessary to get the latest version of Java for
-your system and to alter the security settings to allow Java applets to run.<o:p></o:p></span></p>
+your system and to alter the security settings to allow Java applets to run. At
+this time the Fuzzy Shower demo with Jess/Java hybrid code may not run at all
+due to security restrictions on Java Applets (due to reflection used by Jess). <span
+class=GramE>All of the examples can be run by downloading the <span
+class=SpellE>FuzzyJ</span> system at the <a
+href="https://github.com/rorchard/FuzzyJ/"><span class=SpellE>GitHub</span></a>
+web site</span>.<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-top:0cm;margin-right:72.0pt;margin-bottom:
 0cm;margin-left:144.0pt;margin-bottom:.0001pt'><span style='mso-bidi-font-family:
@@ -262,8 +276,8 @@ yes">&nbsp;</span></span></b></p>
 "Times New Roman"'>All source code and supporting files for the <span
 class=SpellE>FuzzyJ</span> Toolkit, the Jess extensions, these and other
 examples as well as the <span class=SpellE>FuzzyJ</span> documentation can be
-found at the <a href="https://github.com/rorchard/FuzzyJ/">GitHub</a> web
-site. <o:p></o:p></span></p>
+found at the <a href="https://github.com/rorchard/FuzzyJ/">GitHub</a> web site.
+<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-top:0cm;margin-right:72.0pt;margin-bottom:
 0cm;margin-left:72.0pt;margin-bottom:.0001pt'><span style='mso-bidi-font-family:
