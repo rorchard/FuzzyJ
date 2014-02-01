@@ -24,7 +24,7 @@
   =>
   ;;; (import nrc.fuzzy.*)
   ;;; (load-package nrc.fuzzy.jess.FuzzyFunctions)
-   (printout t crlf (call (new java.lang.String "abcdefg" ) length) crlf)
+
    (?*tempFvar* addTerm "none" (new RFuzzySet 5.0 5.1 ?*rlf*))
    (?*tempFvar* addTerm "cold" (new TrapezoidFuzzySet 5.0 5.05 10.0 35.0))
    (?*tempFvar* addTerm "OK" (new PIFuzzySet 36.0 3.5))
