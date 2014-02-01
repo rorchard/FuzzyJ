@@ -17,6 +17,14 @@ public class FuzzyTruckJApplet extends JApplet
 		// This line prevents the "Swing: checked access to system event queue" message seen in some browsers.
 		getRootPane().putClientProperty("defeatSystemEventQueueCheck", Boolean.TRUE);
 		
+		// set the look and feel to the cross-platform look and feel, and the setBackground() method will then 
+		// work to change a JButton's background color
+		try {
+			UIManager.setLookAndFeel( UIManager.getCrossPlatformLookAndFeelClassName() );
+		 } catch (Exception e) {
+		            e.printStackTrace();
+		 }
+		
 		//{{INIT_CONTROLS
 		getContentPane().setLayout(null);
 		getContentPane().setFont(new Font("Dialog", Font.PLAIN, 12));
@@ -264,6 +272,7 @@ public class FuzzyTruckJApplet extends JApplet
 		    JButton button = new JButton();
 		    JPanelRuleButtons.add(button);
 		    button.setMargin(insets);
+		    button.setOpaque(true);
 		    button.setText(Truck.getConclusionExpression(i,j));
 	        button.addActionListener(lSymAction);
 		    conclusionButtons[i][j] = button;

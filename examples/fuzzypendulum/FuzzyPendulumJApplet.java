@@ -25,12 +25,15 @@ package examples.fuzzypendulum;
 
 import java.awt.*;
 import java.awt.event.*;
+
 import javax.swing.*;
 import javax.swing.border.Border;
+
 import com.klg.jclass.chart.beans.SimpleChart;
 import com.klg.jclass.chart.*;
-import com.klg.jclass.chart.EventTrigger;
+
 import java.text.*;
+
 import nrc.fuzzy.*;
 
 /**
@@ -66,10 +69,12 @@ public class FuzzyPendulumJApplet extends JApplet
 		getRootPane().putClientProperty("defeatSystemEventQueueCheck", Boolean.TRUE);
 		
 		//{{INIT_CONTROLS
+		// set the look and feel to the cross-platform look and feel, and the setBackground() method will then 
+		// work to change a JButton's background color
 		try 
-//		{UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
-		{UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
-//		{UIManager.setLookAndFeel("com.sun.java.swing.plaf.motif.MotifLookAndFeel");
+//		{ UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
+		{ UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
+//		{ UIManager.setLookAndFeel("com.sun.java.swing.plaf.motif.MotifLookAndFeel");
 		}
 		catch (Exception ex)
 		{System.out.println("ERROR setting look and feel!!!");
@@ -119,6 +124,7 @@ public class FuzzyPendulumJApplet extends JApplet
 		Z_NM_PM_JButton.setText("PM");
 		Z_NM_PM_JButton.setActionCommand("PM");
 		ruleMatrixButtonGroup.add(Z_NM_PM_JButton);
+		Z_NM_PM_JButton.setOpaque(true);
 		ruleMatrixPanel.add(Z_NM_PM_JButton);
 		Z_NM_PM_JButton.setBackground(java.awt.Color.blue);
 		JButton4.setText("");
@@ -140,12 +146,14 @@ public class FuzzyPendulumJApplet extends JApplet
 		Z_NS_PS_JButton.setToolTipText("Enable, disable or Display this rule");
 		Z_NS_PS_JButton.setText("PS");
 		Z_NS_PS_JButton.setActionCommand("PS");
+		Z_NS_PS_JButton.setOpaque(true);
 		ruleMatrixButtonGroup.add(Z_NS_PS_JButton);
 		ruleMatrixPanel.add(Z_NS_PS_JButton);
 		Z_NS_PS_JButton.setBackground(java.awt.Color.blue);
 		PS_NS_Z_JButton.setToolTipText("Enable, disable or Display this rule");
 		PS_NS_Z_JButton.setText("Z");
 		PS_NS_Z_JButton.setActionCommand("Z");
+		PS_NS_Z_JButton.setOpaque(true);
 		ruleMatrixButtonGroup.add(PS_NS_Z_JButton);
 		ruleMatrixPanel.add(PS_NS_Z_JButton);
 		PS_NS_Z_JButton.setBackground(java.awt.Color.blue);
@@ -156,30 +164,35 @@ public class FuzzyPendulumJApplet extends JApplet
 		NM_Z_PM_JButton.setToolTipText("Enable, disable or Display this rule");
 		NM_Z_PM_JButton.setText("PM");
 		NM_Z_PM_JButton.setActionCommand("PM");
+		NM_Z_PM_JButton.setOpaque(true);
 		ruleMatrixButtonGroup.add(NM_Z_PM_JButton);
 		ruleMatrixPanel.add(NM_Z_PM_JButton);
 		NM_Z_PM_JButton.setBackground(java.awt.Color.blue);
 		NS_Z_PS_JButton.setToolTipText("Enable, disable or Display this rule");
 		NS_Z_PS_JButton.setText("PS");
 		NS_Z_PS_JButton.setActionCommand("PS");
+		NS_Z_PS_JButton.setOpaque(true);
 		ruleMatrixButtonGroup.add(NS_Z_PS_JButton);
 		ruleMatrixPanel.add(NS_Z_PS_JButton);
 		NS_Z_PS_JButton.setBackground(java.awt.Color.blue);
 		Z_Z_Z_JButton.setToolTipText("Enable, disable or Display this rule");
 		Z_Z_Z_JButton.setText("Z");
 		Z_Z_Z_JButton.setActionCommand("Z");
+		Z_Z_Z_JButton.setOpaque(true);
 		ruleMatrixButtonGroup.add(Z_Z_Z_JButton);
 		ruleMatrixPanel.add(Z_Z_Z_JButton);
 		Z_Z_Z_JButton.setBackground(java.awt.Color.blue);
 		PS_Z_NS_JButton.setToolTipText("Enable, disable or Display this rule");
 		PS_Z_NS_JButton.setText("NS");
 		PS_Z_NS_JButton.setActionCommand("NS");
+		PS_Z_NS_JButton.setOpaque(true);
 		ruleMatrixButtonGroup.add(PS_Z_NS_JButton);
 		ruleMatrixPanel.add(PS_Z_NS_JButton);
 		PS_Z_NS_JButton.setBackground(java.awt.Color.blue);
 		PM_Z_NM_JButton.setToolTipText("Enable, disable or Display this rule");
 		PM_Z_NM_JButton.setText("NM");
 		PM_Z_NM_JButton.setActionCommand("NM");
+		PM_Z_NM_JButton.setOpaque(true);
 		ruleMatrixButtonGroup.add(PM_Z_NM_JButton);
 		ruleMatrixPanel.add(PM_Z_NM_JButton);
 		PM_Z_NM_JButton.setBackground(java.awt.Color.blue);
@@ -190,12 +203,14 @@ public class FuzzyPendulumJApplet extends JApplet
 		NS_PS_Z_JButton.setToolTipText("Enable, disable or Display this rule");
 		NS_PS_Z_JButton.setText("Z");
 		NS_PS_Z_JButton.setActionCommand("Z");
+		NS_PS_Z_JButton.setOpaque(true);
 		ruleMatrixButtonGroup.add(NS_PS_Z_JButton);
 		ruleMatrixPanel.add(NS_PS_Z_JButton);
 		NS_PS_Z_JButton.setBackground(java.awt.Color.blue);
 		Z_PS_NS_JButton.setToolTipText("Enable, disable or Display this rule");
 		Z_PS_NS_JButton.setText("NS");
 		Z_PS_NS_JButton.setActionCommand("NS");
+		Z_PS_NS_JButton.setOpaque(true);
 		ruleMatrixButtonGroup.add(Z_PS_NS_JButton);
 		ruleMatrixPanel.add(Z_PS_NS_JButton);
 		Z_PS_NS_JButton.setBackground(java.awt.Color.blue);
@@ -218,6 +233,7 @@ public class FuzzyPendulumJApplet extends JApplet
 		Z_PM_NM_JButton.setToolTipText("Enable, disable or Display this rule");
 		Z_PM_NM_JButton.setText("NM");
 		Z_PM_NM_JButton.setActionCommand("NM");
+		Z_PM_NM_JButton.setOpaque(true);
 		ruleMatrixButtonGroup.add(Z_PM_NM_JButton);
 		ruleMatrixPanel.add(Z_PM_NM_JButton);
 		Z_PM_NM_JButton.setBackground(java.awt.Color.blue);
