@@ -8,7 +8,6 @@
 (import nrc.fuzzy.jess.*)
 (load-package nrc.fuzzy.jess.FuzzyFunctions)
 
-
 (defglobal ?*tempFvar* = (new nrc.fuzzy.FuzzyVariable "temperature" 5.0 65.0 "Degrees C"))
 (defglobal ?*flowFvar* = (new nrc.fuzzy.FuzzyVariable "flow" 0.0 100.0 "litres/minute"))
 
@@ -26,7 +25,7 @@
   ;;; (import nrc.fuzzy.*)
   ;;; (load-package nrc.fuzzy.jess.FuzzyFunctions)
 
-(printout t crlf "FVname is " (call ?*tempFvar* toString) crlf (call (new RFuzzySet 5.0 5.1 ?*rlf*) toString) crlf )
+(printout t crlf "FVar is " ?*tempFvar* crlf )
        (?*tempFvar* addTerm "none" (new RFuzzySet 5.0 5.1 ?*rlf*))
    (?*tempFvar* addTerm "cold" (new TrapezoidFuzzySet 5.0 5.05 10.0 35.0))
    (?*tempFvar* addTerm "OK" (new PIFuzzySet 36.0 3.5))
