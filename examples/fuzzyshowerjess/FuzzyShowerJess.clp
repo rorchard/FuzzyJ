@@ -6,12 +6,10 @@
 
 (import nrc.fuzzy.*)
 (import nrc.fuzzy.jess.*)
-(load-package FuzzyFunctions)
-
+(load-package nrc.fuzzy.jess.FuzzyFunctions)
 
 (defglobal ?*tempFvar* = (new nrc.fuzzy.FuzzyVariable "temperature" 5.0 65.0 "Degrees C"))
 (defglobal ?*flowFvar* = (new nrc.fuzzy.FuzzyVariable "flow" 0.0 100.0 "litres/minute"))
-
 
 (defglobal ?*coldValveChangeFvar* = (new nrc.fuzzy.FuzzyVariable "coldValveChange" -1.0 1.0 ""))
 (defglobal ?*hotValveChangeFvar* = (new nrc.fuzzy.FuzzyVariable "hotValveChange" -1.0 1.0 ""))
@@ -24,8 +22,9 @@
 (defrule init
    (declare (salience 100))
   =>
-   (import nrc.fuzzy.*)
-   (load-package nrc.fuzzy.jess.FuzzyFunctions)
+  ;;; (import nrc.fuzzy.*)
+  ;;; (load-package nrc.fuzzy.jess.FuzzyFunctions)
+
    (?*tempFvar* addTerm "none" (new RFuzzySet 5.0 5.1 ?*rlf*))
    (?*tempFvar* addTerm "cold" (new TrapezoidFuzzySet 5.0 5.05 10.0 35.0))
    (?*tempFvar* addTerm "OK" (new PIFuzzySet 36.0 3.5))
