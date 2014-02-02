@@ -1,7 +1,7 @@
 FuzzyJ
 ======
 
-A Toolkit for fuzzy reasoning with Java and the Jess Expert System Shell
+### A Toolkit for fuzzy reasoning with Java and the Jess Expert System Shell
 
 The FuzzyJ Toolkit is a Java(tm) API for representing and reasoning with fuzzy information. The toolkit consists of a set of classes (package nrc.fuzzy) that allow a user to build fuzzy systems in Java as well as a supplementary set of classes (package nrc.fuzzy.jess) that include some Jess UserFunctions to provide an integration with Jess, the Expert System Shell from Sandia National Laboratories.
 
@@ -13,4 +13,4 @@ To view some examples and the FuzzyJ Documentation go to:
 
    http://rorchard.github.io/FuzzyJ/
 
-To just access the FuzzyJ jar file for use in your projects, select the 'release' option at the top of the main FuzzyJ screen, choose the release you want and select the required FuzzyJ-x.x.jar file where x.x is the release number. You may also download the full FuzzyJ source code package with examples and documentation as a zip file or a tar.gz file.
+To just access the FuzzyJ jar file for use in your projects, select the 'release' option at the top of the main FuzzyJ screen, choose the release you want and select the required fuzzyJ-x.x.jar file where x.x is the release number. You may also download the full FuzzyJ source code package with examples and documentation as a zip file or a tar.gz file.
