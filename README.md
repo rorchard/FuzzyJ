@@ -1,9 +1,9 @@
 FuzzyJ
 ======
 
-#### A Toolkit for fuzzy reasoning with Java and the Jess Expert System Shell
+#### A Toolkit for fuzzy logic and reasoning with Java and the Jess Expert System Shell
 
-The FuzzyJ Toolkit is a Java(tm) API for representing and reasoning with fuzzy information. The toolkit consists of a set of classes (package nrc.fuzzy) that allow a user to build fuzzy systems in Java as well as a supplementary set of classes (package nrc.fuzzy.jess) that include some Jess UserFunctions to provide an integration with Jess, the Expert System Shell from Sandia National Laboratories.
+The FuzzyJ Toolkit is a Java(tm) API for representing and reasoning with fuzzy information. The toolkit consists of a set of classes (package nrc.fuzzy) that allow a user to build logic fuzzy systems in Java as well as a supplementary set of classes (package nrc.fuzzy.jess) that include some Jess UserFunctions to provide an integration with [Jess](http://www.jessrules.com) , the Expert System Shell from Sandia National Laboratories.
 
 This software was originally created at the National Research Council of Canada (NRC) and has been released under the Mozilla Public Licence Version 2.0. The full text of the Mozilla Licence can be found at http://mozilla.org/MPL/2.0/.
 
@@ -13,7 +13,11 @@ To view some examples and the FuzzyJ Documentation go to:
 
    http://rorchard.github.io/FuzzyJ/
 
+<<<<<<< HEAD
 To just access the FuzzyJ jar file for use in your projects, select the 'release' option at the top of the main FuzzyJ screen, choose the release you want and select the required fuzzyJ-x.x.jar file where x.x is the release number. You may also download the full FuzzyJ source code package with examples and documentation as a zip file or a tar.gz file.
 
 Questions? Contact Bob Orchard at orchardr@rogers.com
+=======
+To just access the FuzzyJ jar file for use in your projects, select the 'release' option at the top of the main FuzzyJ page, choose the release you want and select the required fuzzyJ-x.x.jar file where x.x is the release number. You may also download the full FuzzyJ source code package with examples and documentation as a zip file or a tar.gz file.
+>>>>>>> 7ad9294ceaee3e7cfff21f94a99b88023efa9e08
 
