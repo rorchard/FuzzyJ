@@ -60,7 +60,7 @@ public class FuzzyRete extends Rete implements Serializable
 
   public FuzzyRete()
   {
-    super(null);
+    super((Object)null);
     setFactory(new FuzzyFactoryImpl());
   }
   
