@@ -41,7 +41,7 @@ public class FuzzyFactoryImpl implements Factory, Serializable
 {
   public Token newToken(Fact firstFact, int tag) throws JessException
   {
-    return new FuzzyToken(firstFact, tag);
+    return new FuzzyToken(firstFact);
   }
 
   public Token newToken(Token t, Fact newFact) throws JessException
@@ -57,5 +57,11 @@ public class FuzzyFactoryImpl implements Factory, Serializable
   public Token newToken(Token t) throws JessException
   {
     return new FuzzyToken(t);
+  }
+
+@Override
+  public Token newToken(Fact firstFact) throws JessException
+  {
+	return new FuzzyToken(firstFact);
   }
 }

@@ -42,9 +42,9 @@ public class FuzzyToken extends Token implements Serializable
    */
   private FuzzyToken m_theParent;
    
-  public FuzzyToken(Fact firstFact, int tag) throws JessException
+  public FuzzyToken(Fact firstFact) throws JessException
   {
-    super(firstFact, tag);
+    super(firstFact);
   }
 
   public FuzzyToken(Token t, Fact newFact) throws JessException
@@ -198,4 +198,3 @@ public class FuzzyToken extends Token implements Serializable
   }
   
 }
-

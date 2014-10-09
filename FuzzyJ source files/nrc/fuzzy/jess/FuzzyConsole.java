@@ -24,6 +24,7 @@ import java.io.*;
 import java.awt.*;
 import java.awt.event.*;
 import jess.*;
+import jess.awt.Console;
 
 /**
  * FuzzyConsole.java
@@ -38,7 +39,7 @@ import jess.*;
  * 
  */
 
-public class FuzzyConsole extends jess.Console implements Serializable
+public class FuzzyConsole extends Console implements Serializable
 {   
   /**
    * Creates a FuzzyConsole which is just a Jess Console associated

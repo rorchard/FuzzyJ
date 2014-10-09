@@ -60,10 +60,25 @@ public class FuzzyRete extends Rete implements Serializable
 
   public FuzzyRete()
   {
-    super(null);
+    super((Object)null);
     setFactory(new FuzzyFactoryImpl());
   }
-
+  
+  
+// constructor for FuzzyRete peer   
+  public FuzzyRete(FuzzyRete fuzzyRete)
+  {
+    super(fuzzyRete);
+    setFactory(new FuzzyFactoryImpl());
+  }
+  
+  
+//  FuzzyRete createPeer overrides the super's Rete createPeer  
+  public FuzzyRete createPeer()
+  {
+   return new FuzzyRete(this);
+  }
+  
   /**
    * @param a 
    */
