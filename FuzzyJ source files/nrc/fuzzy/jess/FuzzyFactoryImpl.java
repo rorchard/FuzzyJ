@@ -19,29 +19,11 @@
  */
 
 
-package nrc.fuzzy.jess;
-
-import java.io.Serializable;
-import jess.*;
-import jess.factory.Factory;
-
-/**
- * FuzzyFactory implementation (perhaps should be called TokenFactory 
- * instead of Factory) that provides newToken methods that return FuzzyToken 
- * objects instead of standard Jess Token objects when using the FuzzyJ
- * extensions. FuzzyToken is an extension of the Jess Token class.
- * 
- * @author Ernest J. Friedman-Hill
- * @author Bob Orchard
- * 
- * @see FuzzyToken
- */
-
 public class FuzzyFactoryImpl implements Factory, Serializable 
 {
   public Token newToken(Fact firstFact, int tag) throws JessException
   {
-    return new FuzzyToken(firstFact, tag);
+    return new FuzzyToken(firstFact);
   }
 
   public Token newToken(Token t, Fact newFact) throws JessException
@@ -57,5 +39,11 @@ public class FuzzyFactoryImpl implements Factory, Serializable
   public Token newToken(Token t) throws JessException
   {
     return new FuzzyToken(t);
+  }
+
+@Override
+public Token newToken(Fact firstFact) throws JessException
+  {
+	return new FuzzyToken(firstFact);
   }
 }
