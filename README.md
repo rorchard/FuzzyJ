@@ -16,4 +16,4 @@ To view some examples and the FuzzyJ Documentation go to:
 To just access the FuzzyJ jar file for use in your projects, select the 'release' option at the top of the main FuzzyJ screen, choose the release you want and select the required fuzzyJ-x.x.jar file where x.x is the release number. You may also download the full FuzzyJ source code package with examples and documentation as a zip file or a tar.gz file.
 
 
-Questions? Contact Bob Orchard at orchardr@rogers.com
+Questions? Contact Bob Orchard at boborchard8@gmail.com
